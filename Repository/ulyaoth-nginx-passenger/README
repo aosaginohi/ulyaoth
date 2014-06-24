@@ -5,6 +5,8 @@ Nginx Version: 1.6.0
 Passenger Version: 4.0.45
 
 How to Build:
+I personally use a clean build server and a seperate user to build so don't build as root.
+
 Copy the folder "nginx" that you find in "etc" into your linux build server /etc so you have /etc/nginx/
 
 copy the "rpmbuild" folder to a specific build user so for example if you use the user ulyaoth then copy it to his home folder so you finally end up with "/home/ulyaoth/rpmbuild"
@@ -29,7 +31,7 @@ Make ofcourse sure you have the rpmbuild tools installed!
 For Fedora this is: 
 sudo yum install @development-tools
 sudo yum install fedora-packager ruby ruby-devel
-
+gem install passenger
 
 Once this is done then go into the rpmbuild/SPECS folder and run the following commands:
 sudo yum-builddep nginx.spec
