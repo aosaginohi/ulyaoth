@@ -33,7 +33,7 @@ sudo chown -R ulyaoth:ulyaoth /etc/nginx/
 Make ofcourse sure you have the rpmbuild tools installed!
 For Fedora this is: 
 sudo yum install @development-tools
-sudo yum install fedora-packager ruby ruby-devel
+sudo yum install fedora-packager ruby ruby-devel curl-devel openssl openssl-devel
 gem install passenger
 
 Once this is done then go into the rpmbuild/SPECS folder and run the following commands:
