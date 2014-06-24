@@ -3,6 +3,9 @@ This contains all required materials to build the ulyaoth-nginx-passenger rpm.
 Current versions:
 Nginx Version: 1.6.0
 Passenger Version: 4.0.45
+OS: Fedora 20
+
+While it might work on other linux versions you probably will have problems with the passenger binaries found in the SOURCE folder.
 
 How to Build:
 I personally use a clean build server and a seperate user to build so don't build as root.
