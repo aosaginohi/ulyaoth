@@ -44,12 +44,12 @@ Requires(pre): pwdutils
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: DAM-nginx-passenger
+Name: ulyaoth-nginx-passenger
 Version: 1.6.0
 Release: 1%{?dist}.4.0.45
 Vendor: nginx inc.
 URL: http://nginx.org/
-Packager: Sjir Bagmeijer <Sjir.Bagmeijer@basefarm.com>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: logrotate
@@ -316,7 +316,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using DAM-nginx-passenger!
+Thanks for using ulyaoth-nginx-passenger!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -324,8 +324,8 @@ Please find the official documentation for nginx here:
 Please find the official documentation for passenger here:
 * https://www.phusionpassenger.com/ 
 
-Please find the Basefarm documentation for nginx here:
-* https://int.basefarm.no/confluence/display/systems/Nginx
+For any additional help please visit my forum at:
+* http://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -369,22 +369,22 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Tue Jun 24 2014 Sjir Bagmeijer <Sjir.Bagmeijer@basefarm.com> 1.6.0-1
+* Tue Jun 24 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
 - Updated to Nginx 1.6.0.
 - Updated to Passenger 4.0.45.
 - Fixed Passenger structure for more easy updates.
 
-* Fri Nov 08 2013 Sjir Bagmeijer <Sjir.Bagmeijer@basefarm.com> 1.4.3-4
+* Fri Nov 08 2013 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.4.3-4
 - Added spdy module to rpm.
 
-* Wed Nov 05 2013 Sjir Bagmeijer <Sjir.Bagmeijer@basefarm.com> 1.4.3-3
+* Wed Nov 05 2013 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.4.3-3
 - Passenger is updated to 4.0.23
 - Added a passenger configuration file so I can control it.
-- Added the Basefarm documentation line.
+- Added the ulyaoth documentation line.
 
-* Wed Oct  24 2013 Sjir Bagmeijer <Sjir.Bagmeijer@basefarm.com> 1.4.3-2
+* Wed Oct  24 2013 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.4.3-2
 - added passenger support
 
-* Wed Oct  23 2013 Sjir Bagmeijer <Sjir.Bagmeijer@basefarm.com> 1.4.3-1
+* Wed Oct  23 2013 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.4.3-1
 - 1.4.3
 - added GeoIP
