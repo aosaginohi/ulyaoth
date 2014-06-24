@@ -9,6 +9,15 @@ Copy the folder "nginx" that you find in "etc" into your linux build server /etc
 
 copy the "rpmbuild" folder to a specific build user so for example if you use the user ulyaoth then copy it to his home folder so you finally end up with "/home/ulyaoth/rpmbuild"
 
+You might need to run first this command:
+rpmdev-setuptree
+
+and then copy the github stuff since github cannot handle empty folders the structure is not correct you should end up with this:
+[ulyaoth@localhost rpmbuild]$ pwd
+/home/ulyaoth/rpmbuild
+[ulyaoth@localhost rpmbuild]$ ls
+BUILD  BUILDROOT  RPMS  SOURCES  SPECS  SRPMS
+
 How to create a user/group:
 useradd ulyaoth
 usermod -a -G ulyaoth ulyaoth
@@ -18,10 +27,10 @@ For Fedora this is:
 yum install @development-tools
 yum install fedora-packager
 
+
 Once this is done then go into the rpmbuild/spec folder and run the following commands:
 yum-builddep spotify-client.spec
 rpmbuild -bb nginx.spec
-
 You should now end up with a rpm that has passenger included, if you builded on the server you will install this you have to removed the /etc/nginx directory before installing it as this only contains the source code for passenger.
 
 I got the original spec file from the Nginx official website and used their source rpm, I got passenger simpely from running "gem install passenger". 
