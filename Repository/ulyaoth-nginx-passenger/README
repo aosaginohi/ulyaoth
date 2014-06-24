@@ -21,15 +21,18 @@ BUILD  BUILDROOT  RPMS  SOURCES  SPECS  SRPMS
 How to create a user/group:
 useradd ulyaoth
 usermod -a -G ulyaoth ulyaoth
+usermod -G wheel ulyaoth
+
+sudo chown -R ulyaoth:ulyaoth /etc/nginx/
 
 Make ofcourse sure you have the rpmbuild tools installed!
 For Fedora this is: 
-yum install @development-tools
-yum install fedora-packager
+sudo yum install @development-tools
+sudo yum install fedora-packager ruby ruby-devel
 
 
-Once this is done then go into the rpmbuild/spec folder and run the following commands:
-yum-builddep spotify-client.spec
+Once this is done then go into the rpmbuild/SPECS folder and run the following commands:
+sudo yum-builddep nginx.spec
 rpmbuild -bb nginx.spec
 You should now end up with a rpm that has passenger included, if you builded on the server you will install this you have to removed the /etc/nginx directory before installing it as this only contains the source code for passenger.
 
