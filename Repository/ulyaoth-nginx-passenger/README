@@ -34,7 +34,7 @@ Make ofcourse sure you have the rpmbuild tools installed!
 For Fedora this is: 
 sudo yum install @development-tools
 sudo yum install fedora-packager ruby ruby-devel curl-devel openssl openssl-devel
-gem install passenger
+gem install passenger (sometimes I have to do this as root also not sure why)
 
 Once this is done then go into the rpmbuild/SPECS folder and run the following commands:
 sudo yum-builddep nginx.spec
