@@ -23,7 +23,7 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
-Source11: passenger-rhel7.tar.gz
+Source11: passenger-rhel6.tar.gz
 %define with_spdy 1
 %endif
 
@@ -89,6 +89,7 @@ BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: ruby
 BuildRequires: ruby-devel
+BuildRequires: curl-devel
 
 Provides: webserver
 Provides: nginx
