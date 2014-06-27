@@ -103,7 +103,7 @@ a mail proxy server.
 %package debug
 Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: DAM-nginx-passenger
+Requires: ulyaoth-nginx-passenger
 %description debug
 Not stripped version of nginx built with the debugging log support.
 
