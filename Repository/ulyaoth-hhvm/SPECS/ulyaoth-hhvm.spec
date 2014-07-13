@@ -92,7 +92,7 @@ make
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
-%{__mkdir} -p $RPM_BUILD_ROOT/%{_bindir}
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/php.ini
 %{__install} -m 644 -p %{SOURCE2} \
