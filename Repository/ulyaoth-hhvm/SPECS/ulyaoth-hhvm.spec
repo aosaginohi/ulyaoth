@@ -73,6 +73,8 @@ HHVM is an open-source virtual machine designed for executing programs written i
 
 %build 
 export CMAKE_PREFIX_PATH=`pwd`
+export HPHP_HOME=`pwd`
+export HPHP_LIB=`pwd`/bin
 cmake .
 make
 
@@ -89,7 +91,7 @@ make
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/config.hdf
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
-%{__install} -m 755 -p $RPM_BUILD_ROOT/hhvm-%{version}/hphp/hhvm \
+%{__install} -m 755 -p $RPM_BUILD_ROOT/usr/local/bin/hhvm \
 	$RPM_BUILD_ROOT/%{_bindir}/hhvm
     
 %pre
@@ -106,7 +108,7 @@ exit 0
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
 /etc/rc.d/init.d/hhvm
-#/usr/bin/hhvm
+/usr/bin/hhvm
 #/usr/lib/hhvm
 #/usr/lib/hhvm/libevent-1.4.so.2
 #/usr/lib/hhvm/libglog.so.0
