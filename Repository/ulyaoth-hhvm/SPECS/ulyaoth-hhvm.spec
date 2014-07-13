@@ -102,14 +102,10 @@ make
    $RPM_BUILD_ROOT%{_sysconfdir}/init.d/hhvm  
 %{__install} -m 755 -p $RPM_BUILD_ROOT/usr/local/bin/hhvm \
 	$RPM_BUILD_ROOT/%{_bindir}/hhvm
-    
-%pre
-getent group %{hhvm_group} >/dev/null || groupadd -r %{hhvm_group}
-getent passwd %{hhvm_user} >/dev/null || \
-    useradd -r -g %{hhvm_group} -s /sbin/nologin \
-    -d %{hhvm_home} -c "hhvm user"  %{hhvm_user}
-exit 0
 
+%clean
+%{__rm} -rf $RPM_BUILD_ROOT
+    
 %files
 %defattr(-,root,root,-)
 %dir %{_sysconfdir}/hhvm
@@ -124,7 +120,14 @@ exit 0
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
 
-%post -p /sbin/ldconfig
+%pre
+getent group %{hhvm_group} >/dev/null || groupadd -r %{hhvm_group}
+getent passwd %{hhvm_user} >/dev/null || \
+    useradd -r -g %{hhvm_group} -s /sbin/nologin \
+    -d %{hhvm_home} -c "hhvm user"  %{hhvm_user}
+exit 0
+
+%post
 # Register the hhvm service
 /usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
 
@@ -145,10 +148,6 @@ fi
 
 %postun
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
-
-
-%clean
-%{__rm} -rf $RPM_BUILD_ROOT
 
 %changelog
 * Sun Jul 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.1.0-1
