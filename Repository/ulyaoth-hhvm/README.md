@@ -6,21 +6,21 @@ Step 1: Download the stable hhvm git
 $ git clone -b HHVM-3.1 git://github.com/facebook/hhvm.git
 
 Step 2: Rename the directory
-$ mv hhvm hhvm-3.1.0
+$ mv hhvm hhvm-3.1.1
 
 Step 3: Download extra stuff
-you have to do this inside the "hhvm-3.1.0" directory
+you have to do this inside the "hhvm-3.1.1" directory
 
 $ git submodule update --init --recursive
 
-Step 4: Tar the directory "hhvm-3.1.0"
-$ tar cvf hhvm-3.1.0.tar.gz hhvm-3.1.0/
+Step 4: Tar the directory "hhvm-3.1.1"
+$ tar cvf hhvm-3.1.1.tar.gz hhvm-3.1.1/
 
 Step 5: create rpmbuild directory
 $ rpmdev-setuptree
 
 Step 6: Move tar.gz file into build directory
-$ mv hhvm-3.1.0.tar.gz /rpmbuild/SOURCES/
+$ mv hhvm-3.1.1.tar.gz /rpmbuild/SOURCES/
 
 Step 7: download extra source files
 do this from "/rpmbuild/SOURCES/"
