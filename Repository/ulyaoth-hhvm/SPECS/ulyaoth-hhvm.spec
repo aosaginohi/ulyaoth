@@ -121,19 +121,6 @@ exit 0
 #/usr/lib/hhvm
 #/usr/lib/hhvm/libevent-1.4.so.2
 #/usr/lib/hhvm/libglog.so.0
-#/usr/share/hhvm
-#/usr/share/hhvm/LICENSE
-#/usr/share/hhvm/THIRD_PARTY
-#/usr/share/hhvm/hdf
-#/usr/share/hhvm/LICENSE/PHP
-#/usr/share/hhvm/LICENSE/ZEND
-#/usr/share/hhvm/LICENSE/curl
-#/usr/share/hhvm/LICENSE/libafdt
-#/usr/share/hhvm/LICENSE/libglog
-#/usr/share/hhvm/LICENSE/libmbfl
-#/usr/share/hhvm/LICENSE/lz4
-#/usr/share/hhvm/LICENSE/sqlite3
-#/usr/share/hhvm/LICENSE/timelib
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
 
