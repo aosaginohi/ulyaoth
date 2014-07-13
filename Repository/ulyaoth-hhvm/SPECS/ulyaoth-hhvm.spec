@@ -86,7 +86,9 @@ make
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/config.hdf
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
-
+%{__install} -m 755 -p $RPM_BUILD_ROOT/hhvm-%{version}/hphp/hhvm \
+	$RPM_BUILD_ROOT/%{_bindir}/hhvm
+    
 %pre
 getent group %{hhvm_group} >/dev/null || groupadd -r %{hhvm_group}
 getent passwd %{hhvm_user} >/dev/null || \
@@ -101,23 +103,23 @@ exit 0
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
 /etc/rc.d/init.d/hhvm
-/usr/bin/hhvm
-/usr/lib/hhvm
-/usr/lib/hhvm/libevent-1.4.so.2
-/usr/lib/hhvm/libglog.so.0
-/usr/share/hhvm
-/usr/share/hhvm/LICENSE
-/usr/share/hhvm/THIRD_PARTY
-/usr/share/hhvm/hdf
-/usr/share/hhvm/LICENSE/PHP
-/usr/share/hhvm/LICENSE/ZEND
-/usr/share/hhvm/LICENSE/curl
-/usr/share/hhvm/LICENSE/libafdt
-/usr/share/hhvm/LICENSE/libglog
-/usr/share/hhvm/LICENSE/libmbfl
-/usr/share/hhvm/LICENSE/lz4
-/usr/share/hhvm/LICENSE/sqlite3
-/usr/share/hhvm/LICENSE/timelib
+#/usr/bin/hhvm
+#/usr/lib/hhvm
+#/usr/lib/hhvm/libevent-1.4.so.2
+#/usr/lib/hhvm/libglog.so.0
+#/usr/share/hhvm
+#/usr/share/hhvm/LICENSE
+#/usr/share/hhvm/THIRD_PARTY
+#/usr/share/hhvm/hdf
+#/usr/share/hhvm/LICENSE/PHP
+#/usr/share/hhvm/LICENSE/ZEND
+#/usr/share/hhvm/LICENSE/curl
+#/usr/share/hhvm/LICENSE/libafdt
+#/usr/share/hhvm/LICENSE/libglog
+#/usr/share/hhvm/LICENSE/libmbfl
+#/usr/share/hhvm/LICENSE/lz4
+#/usr/share/hhvm/LICENSE/sqlite3
+#/usr/share/hhvm/LICENSE/timelib
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
 
@@ -140,7 +142,26 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-%postun -p /sbin/ldconfig
+    # Touch and set permisions on default log files on installation
+
+    if [ -d %{_localstatedir}/log/hhvm ]; then
+        if [ ! -e %{_localstatedir}/log/hhvm/access.log ]; then
+            touch %{_localstatedir}/log/hhvm/access.log
+            %{__chmod} 640 %{_localstatedir}/log/hhvm/access.log
+            %{__chown} hhvm:hhvm %{_localstatedir}/log/hhvm/access.log
+        fi
+
+        if [ ! -e %{_localstatedir}/log/hhvm/error.log ]; then
+            touch %{_localstatedir}/log/hhvm/error.log
+            %{__chmod} 640 %{_localstatedir}/log/hhvm/error.log
+            %{__chown} hhvm:hhvm %{_localstatedir}/log/hhvm/error.log
+        fi
+    fi
+fi
+
+%postun
+/usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
+
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
