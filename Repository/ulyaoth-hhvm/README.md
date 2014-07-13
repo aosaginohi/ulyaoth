@@ -29,7 +29,14 @@ $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ul
 $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service
 $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/php.ini
 $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/server.hdf
+$ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
 
+Step 8: Download spec file
+do this in "/rpmbuild/SPECS/"
+$ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec
 
+Step 9: run the require install command
+$ sudo yum-builddep ulyaoth-hhvm.spec
 
-
+Step 10: Create the rpm
+$ rpmbuild -bb ulyaoth-hhvm.spec
