@@ -103,8 +103,9 @@ make
 %{__install} -m 755 -p $RPM_BUILD_ROOT/usr/local/bin/hhvm \
 	$RPM_BUILD_ROOT%{_bindir}/hhvm
 %{__install} -m 644 -p %{SOURCE4} \
-   $RPM_BUILD_ROOT%{_unitdir}/hhvm.service	
-		
+   $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
+%{__rm} -rf $RPM_BUILD_ROOT/usr/local
+
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
     
