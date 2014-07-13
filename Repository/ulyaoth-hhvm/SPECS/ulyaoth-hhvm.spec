@@ -94,25 +94,6 @@ getent passwd %{hhvm_user} >/dev/null || \
     -d %{hhvm_home} -c "hhvm user"  %{hhvm_user}
 exit 0
 
-%post
-# Register the hhvm service
-/usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
-
-# print site info
-    cat <<BANNER
-----------------------------------------------------------------------
-
-Thanks for using ulyaoth-hhvm!
-
-Please find the official documentation for hhvm here:
-* http://hhvm.com/
-
-For any additional help please visit my forum at:
-* http://www.ulyaoth.net
-
-----------------------------------------------------------------------
-BANNER
-
 %files
 %defattr(-,root,root,-)
 %dir %{_sysconfdir}/hhvm
@@ -141,6 +122,24 @@ BANNER
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
 
 %post -p /sbin/ldconfig
+# Register the hhvm service
+/usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
+
+# print site info
+    cat <<BANNER
+----------------------------------------------------------------------
+
+Thanks for using ulyaoth-hhvm!
+
+Please find the official documentation for hhvm here:
+* http://hhvm.com/
+
+For any additional help please visit my forum at:
+* http://www.ulyaoth.net
+
+----------------------------------------------------------------------
+BANNER
+
 %postun -p /sbin/ldconfig
 
 %clean
