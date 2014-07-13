@@ -77,6 +77,9 @@ cmake .
 make
 
 %install
+%{__rm} -rf $RPM_BUILD_ROOT
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
+
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
