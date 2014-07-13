@@ -114,13 +114,10 @@ make
 %config(noreplace) %{_sysconfdir}/hhvm/config.hdf
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
-/etc/init.d/hhvm
 /usr/bin/hhvm
-#/usr/lib/hhvm
-#/usr/lib/hhvm/libevent-1.4.so.2
-#/usr/lib/hhvm/libglog.so.0
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
+%{_unitdir}/nginx.service
 
 %pre
 getent group %{hhvm_group} >/dev/null || groupadd -r %{hhvm_group}
