@@ -5,7 +5,7 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm
-Version: 3.1.0
+Version: 3.1.1
 Release: 1%{?dist}
 URL: http://www.hhvm.com/
 Vendor: Facebook.
@@ -155,6 +155,6 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
-* Sun Jul 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.1.0-1
+* Sun Jul 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.1.1-1
  - Initial Spec file release
  - Release 3.1.0
