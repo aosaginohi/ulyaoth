@@ -150,7 +150,6 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-fi
 
 %postun
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
