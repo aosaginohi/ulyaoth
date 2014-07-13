@@ -15,7 +15,7 @@ Source0: hhvm-%{version}.tar.gz
 Source1: php.ini
 Source2: config.hdf
 Source3: server.hdf
-Source4: hhvm
+Source4: hhvm.service
 
 
 License: GPL
@@ -98,11 +98,13 @@ make
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/config.hdf
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
-%{__install} -m 644 -p %{SOURCE4} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/init.d/hhvm  
 %{__install} -m 755 -p $RPM_BUILD_ROOT/usr/local/bin/hhvm \
 	$RPM_BUILD_ROOT/%{_bindir}/hhvm
 
+%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
+%{__install} -m644 %SOURCE4 \	
+        $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
+	
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
     
