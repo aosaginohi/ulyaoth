@@ -101,9 +101,9 @@ make
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
 %{__install} -m 755 -p $RPM_BUILD_ROOT/usr/local/bin/hhvm \
-	$RPM_BUILD_ROOT/%{_bindir}/hhvm
-%{__install} -m 644 -p %{SOURCE4} \	
-    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
+	$RPM_BUILD_ROOT%{_bindir}/hhvm
+%{__install} -m 644 -p %{SOURCE4} \
+   $RPM_BUILD_ROOT%{_unitdir}/hhvm.service	
 		
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -117,7 +117,7 @@ make
 /usr/bin/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
-%{_unitdir}/nginx.service
+%{_unitdir}/hhvm.service
 
 %pre
 getent group %{hhvm_group} >/dev/null || groupadd -r %{hhvm_group}
