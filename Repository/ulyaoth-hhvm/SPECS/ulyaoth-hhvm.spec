@@ -153,4 +153,4 @@ fi
 
 %changelog
 * Sun Jul 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.1.0-1
- - Release 3.0.0
+ - Release 3.1.0
