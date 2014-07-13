@@ -63,6 +63,13 @@ BuildRequires: openldap-devel
 BuildRequires: readline-devel
 BuildRequires: tbb-devel
 BuildRequires: zlib-devel
+BuildRequires: glibc-devel
+BuildRequires: libnotify-devel
+BuildRequires: unixODBC-devel
+BuildRequires: libzip-devel
+BuildRequires: lz4-devel
+BuildRequires: libsq3-devel
+BuildRequires: double-conversion-devel
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
@@ -92,7 +99,7 @@ make
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
 %{__install} -m 644 -p %{SOURCE4} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/init.d/server.hdf   
+   $RPM_BUILD_ROOT%{_sysconfdir}/init.d/hhvm  
 %{__install} -m 755 -p $RPM_BUILD_ROOT/usr/local/bin/hhvm \
 	$RPM_BUILD_ROOT/%{_bindir}/hhvm
     
