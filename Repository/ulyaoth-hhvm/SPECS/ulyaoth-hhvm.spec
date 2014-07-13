@@ -12,9 +12,11 @@ Vendor: Facebook.
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: hhvm-%{version}.tar.gz
-Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/xenforo/linux/hhvm/php.ini
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/xenforo/linux/hhvm/config.hdf
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/xenforo/linux/hhvm/server.hdf
+Source1: php.ini
+Source2: config.hdf
+Source3: server.hdf
+Source4: hhvm
+
 
 License: GPL
 
@@ -73,8 +75,6 @@ HHVM is an open-source virtual machine designed for executing programs written i
 
 %build 
 export CMAKE_PREFIX_PATH=`pwd`
-export HPHP_HOME=`pwd`
-export HPHP_LIB=`pwd`/bin
 cmake .
 make
 
@@ -91,6 +91,8 @@ make
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/config.hdf
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
+%{__install} -m 644 -p %{SOURCE4} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/init.d/server.hdf   
 %{__install} -m 755 -p $RPM_BUILD_ROOT/usr/local/bin/hhvm \
 	$RPM_BUILD_ROOT/%{_bindir}/hhvm
     
@@ -107,7 +109,7 @@ exit 0
 %config(noreplace) %{_sysconfdir}/hhvm/config.hdf
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
-/etc/rc.d/init.d/hhvm
+/etc/init.d/hhvm
 /usr/bin/hhvm
 #/usr/lib/hhvm
 #/usr/lib/hhvm/libevent-1.4.so.2
@@ -145,23 +147,6 @@ For any additional help please visit my forum at:
 * http://www.ulyaoth.net
 
 ----------------------------------------------------------------------
-BANNER
-
-    # Touch and set permisions on default log files on installation
-
-    if [ -d %{_localstatedir}/log/hhvm ]; then
-        if [ ! -e %{_localstatedir}/log/hhvm/access.log ]; then
-            touch %{_localstatedir}/log/hhvm/access.log
-            %{__chmod} 640 %{_localstatedir}/log/hhvm/access.log
-            %{__chown} hhvm:hhvm %{_localstatedir}/log/hhvm/access.log
-        fi
-
-        if [ ! -e %{_localstatedir}/log/hhvm/error.log ]; then
-            touch %{_localstatedir}/log/hhvm/error.log
-            %{__chmod} 640 %{_localstatedir}/log/hhvm/error.log
-            %{__chown} hhvm:hhvm %{_localstatedir}/log/hhvm/error.log
-        fi
-    fi
 fi
 
 %postun
