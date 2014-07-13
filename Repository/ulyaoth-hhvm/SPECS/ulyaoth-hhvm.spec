@@ -96,13 +96,9 @@ exit 0
 
 %post
 # Register the hhvm service
-if [ $1 -eq 1 ]; then
-%if %{use_systemd}
-    /usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
-%else
-    /sbin/chkconfig --add hhvm
-%endif
-    # print site info
+/usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
+
+# print site info
     cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -116,7 +112,6 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-fi
 
 %files
 %defattr(-,root,root,-)
