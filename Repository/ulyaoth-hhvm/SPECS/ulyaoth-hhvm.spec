@@ -144,6 +144,7 @@ For any additional help please visit my forum at:
 * http://www.ulyaoth.net
 
 ----------------------------------------------------------------------
+BANNER
 fi
 
 %postun
