@@ -16,6 +16,7 @@ Source1: php.ini
 Source2: config.hdf
 Source3: server.hdf
 Source4: hhvm.service
+Source5: static.mime-types.hdf
 
 
 License: GPL
@@ -94,6 +95,7 @@ make
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
+%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/hhvm/hdf
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/php.ini
 %{__install} -m 644 -p %{SOURCE2} \
@@ -104,6 +106,8 @@ make
 	$RPM_BUILD_ROOT%{_bindir}/hhvm
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
+%{__install} -m 644 -p %{SOURCE5} \
+	$RPM_BUILD_ROOT/usr/share/hhvm/hdf/static.mime-types.hdf   
 %{__rm} -rf $RPM_BUILD_ROOT/usr/local
 
 %clean
@@ -116,6 +120,7 @@ make
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
 /usr/bin/hhvm
+/usr/share/hhvm/hdf/static.mime-types.hdf
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
 %{_unitdir}/hhvm.service
