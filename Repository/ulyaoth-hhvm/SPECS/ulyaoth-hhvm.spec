@@ -97,7 +97,7 @@ make
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/local/bin
+%{__mkdir} -p $RPM_BUILD_ROOT/opt/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/hhvm/hdf
 %{__install} -m 644 -p %{SOURCE1} \
@@ -113,7 +113,7 @@ make
 %{__install} -m 644 -p %_builddir/hhvm-%{version}/hphp/doc/mime.hdf \
         $RPM_BUILD_ROOT/usr/share/hhvm/hdf/mime.hdf
 
-ln -s /usr/local/bin/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
+ln -s /opt/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
