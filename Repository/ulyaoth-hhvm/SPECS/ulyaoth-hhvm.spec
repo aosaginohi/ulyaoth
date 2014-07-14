@@ -85,13 +85,12 @@ HHVM is an open-source virtual machine designed for executing programs written i
 %setup -q -n hhvm-%{version}
 
 %build 
-export USE_HHVM=1
-export HPHP_HOME=`pwd`
-export HPHP_LIB=`pwd`/bin
-cmake .
+export CMAKE_PREFIX_PATH=$RPM_BUILD_ROOT%{_prefix}
+cmake . -DCMAKE_INSTALL_PREFIX=$RPM_BUILD_ROOT%{_prefix}
 make
 
 %install
+make install
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/hhvm
