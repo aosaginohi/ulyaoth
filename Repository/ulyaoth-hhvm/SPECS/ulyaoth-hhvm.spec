@@ -157,4 +157,4 @@ BANNER
 %changelog
 * Sun Jul 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.1.1-1
  - Initial Spec file release
- - Release 3.1.0
+ - Release 3.1.1
