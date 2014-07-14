@@ -115,12 +115,12 @@ make
 %{__rm} -rf $RPM_BUILD_ROOT
     
 %files
+/usr/bin/hhvm
 %defattr(-,root,root,-)
 %dir %{_sysconfdir}/hhvm
 %config(noreplace) %{_sysconfdir}/hhvm/config.hdf
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
-/usr/bin/hhvm
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
 %config /usr/share/hhvm/hdf/mime.hdf
