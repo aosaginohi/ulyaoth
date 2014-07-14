@@ -22,6 +22,8 @@ Source5: static.mime-types.hdf
 License: GPL
 
 Requires: boost
+Requires: boost-jam
+Requires: boost-build
 Requires: glog
 
 BuildRoot: %{_tmppath}/hhvm-%{version}
@@ -35,6 +37,8 @@ BuildRequires: gcc-c++
 BuildRequires: git
 BuildRequires: binutils-devel
 BuildRequires: boost-devel
+BuildRequires: boost-jam
+BuildRequires: boost-build
 BuildRequires: bzip2-devel
 BuildRequires: curl-devel
 BuildRequires: expat-devel
