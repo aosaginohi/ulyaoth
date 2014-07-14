@@ -106,17 +106,20 @@ make install
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
-%{__install} -m 755 -p %_builddir/hhvm-%{version}/hphp/hhvm/hhvm \
-        $RPM_BUILD_ROOT/usr/bin/hhvm  
-%{__install} -m 644 -p %_builddir/hhvm-%{version}/hphp/doc/mime.hdf \
-        $RPM_BUILD_ROOT/usr/share/hhvm/hdf/mime.hdf
+%{__install} -m 644 -p %{SOURCE5} \
+   $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf  
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
     
 %files
-/usr/bin/hhvm
 %defattr(-,root,root,-)
+/usr/bin/hhvm
+/usr/bin/hphpize
+/usr/include/zip.h
+/usr/include/zipconf.h
+/usr/lib/libzip.a
+/usr/lib/libzip.so
 %dir %{_sysconfdir}/hhvm
 %config(noreplace) %{_sysconfdir}/hhvm/config.hdf
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
