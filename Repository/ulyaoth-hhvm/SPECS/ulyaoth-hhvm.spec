@@ -139,7 +139,7 @@ getent passwd %{hhvm_user} >/dev/null || \
     -d %{hhvm_home} -c "hhvm user"  %{hhvm_user}
 exit 0
 
-%post
+%post -p /sbin/ldconfig
 # Register the hhvm service
 /usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
 
@@ -158,7 +158,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-%postun
+%postun -p /sbin/ldconfig
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
