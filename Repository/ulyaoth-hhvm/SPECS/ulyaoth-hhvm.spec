@@ -120,6 +120,7 @@ ln -s /usr/local/bin/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
 /usr/bin/hhvm
+/usr/local/bin/hhvm
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
 %config /usr/share/hhvm/hdf/mime.hdf
