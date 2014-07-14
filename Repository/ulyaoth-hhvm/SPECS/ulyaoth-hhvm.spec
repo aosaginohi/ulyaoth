@@ -126,7 +126,7 @@ make install
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
-%config /usr/share/hhvm/hdf/mime.hdf
+%config /usr/share/hhvm/hdf/static.mime-types.hdf
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
 %attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
 %{_unitdir}/hhvm.service
