@@ -106,10 +106,10 @@ make
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
+%{__install} -m 755 -p %_builddir/hhvm-%{version}/hphp/hhvm/hhvm \
+        $RPM_BUILD_ROOT/usr/bin/hhvm  
 %{__install} -m 644 -p %_builddir/hhvm-%{version}/hphp/doc/mime.hdf \
         $RPM_BUILD_ROOT/usr/share/hhvm/hdf/mime.hdf
-
-cp %_builddir/hhvm-%{version}/hphp/hhvm/hhvm $RPM_BUILD_ROOT/usr/bin/hhvm 		
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
