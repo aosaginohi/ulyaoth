@@ -106,8 +106,8 @@ make
 	$RPM_BUILD_ROOT%{_bindir}/hhvm
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
-%{__install} -m 644 -p %{SOURCE5} \
-	$RPM_BUILD_ROOT/usr/share/hhvm/hdf/static.mime-types.hdf   
+%{__install} -m 644 -p %_builddir/hhvm-%{version}/hphp/doc/mime.hdf \
+        $RPM_BUILD_ROOT/usr/share/hhvm/hdf/mime.hdf
 %{__rm} -rf $RPM_BUILD_ROOT/usr/local
 
 %clean
