@@ -110,7 +110,6 @@ make
         $RPM_BUILD_ROOT/usr/share/hhvm/hdf/mime.hdf
 
 cp %_builddir/hhvm-%{version}/hphp/hhvm/hhvm $RPM_BUILD_ROOT/usr/bin/hhvm 		
-ln -s /opt/hhvm/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
