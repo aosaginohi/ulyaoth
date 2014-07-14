@@ -96,7 +96,6 @@ make
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
-%{__mkdir} -p $RPM_BUILD_ROOT/opt/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/hhvm/hdf
 %{__install} -m 644 -p %{SOURCE1} \
@@ -105,14 +104,13 @@ make
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/config.hdf
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
-%{__install} -m 755 -p %_builddir/hhvm-%{version}/hphp/hhvm/hhvm \
-        $RPM_BUILD_ROOT/opt/hhvm/hhvm
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
 %{__install} -m 644 -p %_builddir/hhvm-%{version}/hphp/doc/mime.hdf \
         $RPM_BUILD_ROOT/usr/share/hhvm/hdf/mime.hdf
 
-ln -s /opt/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
+cp %_builddir/hhvm-%{version}/hphp/hhvm/hhvm $RPM_BUILD_ROOT/usr/bin/hhvm 		
+ln -s /opt/hhvm/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -124,8 +122,6 @@ ln -s /opt/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
 /usr/bin/hhvm
-%dir /opt/hhvm
-/opt/hhvm/hhvm
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
 %config /usr/share/hhvm/hdf/mime.hdf
