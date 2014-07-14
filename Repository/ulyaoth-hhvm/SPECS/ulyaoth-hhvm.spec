@@ -18,7 +18,6 @@ Source3: server.hdf
 Source4: hhvm.service
 Source5: static.mime-types.hdf
 
-
 License: GPL
 
 Requires: boost
@@ -125,8 +124,8 @@ ln -s /opt/hhvm $RPM_BUILD_ROOT/%{_bindir}/hhvm
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
 %config(noreplace) %{_sysconfdir}/hhvm/server.hdf
 /usr/bin/hhvm
-/opt/hhvm/hhvm
 %dir /opt/hhvm
+/opt/hhvm/hhvm
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
 %config /usr/share/hhvm/hdf/mime.hdf
