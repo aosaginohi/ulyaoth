@@ -109,6 +109,11 @@ make install
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf  
 
+rm -rf $RPM_BUILD_ROOT/usr/include/zip.h
+rm -rf $RPM_BUILD_ROOT/usr/include/zipconf.h
+rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
+rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.so   
+   
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
     
@@ -116,10 +121,6 @@ make install
 %defattr(-,root,root,-)
 /usr/bin/hhvm
 /usr/bin/hphpize
-/usr/include/zip.h
-/usr/include/zipconf.h
-/usr/lib/libzip.a
-/usr/lib/libzip.so
 %dir %{_sysconfdir}/hhvm
 %config(noreplace) %{_sysconfdir}/hhvm/config.hdf
 %config(noreplace) %{_sysconfdir}/hhvm/php.ini
