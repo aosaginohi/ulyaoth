@@ -1,4 +1,5 @@
 #
+%define debug_package %{nil}
 %define hhvm_home %{_sysconfdir}/hhvm
 %define hhvm_user hhvm
 %define hhvm_group hhvm
