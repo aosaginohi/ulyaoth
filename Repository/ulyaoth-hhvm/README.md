@@ -9,7 +9,7 @@ Step 2: Rename the directory<br>
 $ mv hhvm hhvm-3.1.1
 
 Step 3: Download extra stuff<br>
-you have to do this inside the "hhvm-3.1.1" directory
+you have to do this inside the "hhvm-3.1.1" directory<br>
 
 $ git submodule update --init --recursive
 
@@ -23,7 +23,7 @@ Step 6: Move tar.gz file into build directory<br>
 $ mv hhvm-3.1.1.tar.gz /rpmbuild/SOURCES/
 
 Step 7: download extra source files<br>
-do this from "/rpmbuild/SOURCES/"
+do this from "/rpmbuild/SOURCES/"<br>
 
 $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/config.hdf<br>
 $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service<br>
@@ -32,7 +32,7 @@ $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ul
 $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf<br>
 
 Step 8: Download spec file<br>
-do this in "/rpmbuild/SPECS/"
+do this in "/rpmbuild/SPECS/"<br>
 $ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec
 
 Step 9: run the require install command<br>
