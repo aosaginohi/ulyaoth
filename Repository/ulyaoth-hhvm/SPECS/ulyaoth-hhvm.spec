@@ -96,7 +96,6 @@ make install
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/bin
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/hhvm/hdf
 %{__install} -m 644 -p %{SOURCE1} \
