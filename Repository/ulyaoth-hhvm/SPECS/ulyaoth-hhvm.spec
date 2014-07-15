@@ -112,7 +112,8 @@ make install
 rm -rf $RPM_BUILD_ROOT/usr/include/zip.h
 rm -rf $RPM_BUILD_ROOT/usr/include/zipconf.h
 rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
-rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.so   
+rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
+rm -rf $RPM_BUILD_ROOT/usr/bin/hphpize
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -120,17 +121,18 @@ rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
 %files
 %defattr(-,root,root,-)
 /usr/bin/hhvm
-/usr/bin/hphpize
-%dir %{_sysconfdir}/hhvm
-%config(noreplace) %{_sysconfdir}/hhvm/config.hdf
-%config(noreplace) %{_sysconfdir}/hhvm/php.ini
-%config(noreplace) %{_sysconfdir}/hhvm/server.hdf
+%dir /etc/hhvm
+%config(noreplace) /etc/hhvm/config.hdf
+%config(noreplace) /etc/hhvm/php.ini
+%config(noreplace) /etc/hhvm/server.hdf
+/usr/lib/systemd/system/hhvm.service
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
 %config /usr/share/hhvm/hdf/static.mime-types.hdf
-%attr(775, hhvm, hhvm) %dir %{_localstatedir}/log/hhvm
-%attr(775, hhvm, hhvm) %dir %{_localstatedir}/run/hhvm
-%{_unitdir}/hhvm.service
+%dir /var/log/hhvm
+%dir /var/run/hhvm
+%attr(775, hhvm, hhvm) /var/log/hhvm
+%attr(775, hhvm, hhvm) /var/run/hhvm
 
 %pre
 getent group %{hhvm_group} >/dev/null || groupadd -r %{hhvm_group}
