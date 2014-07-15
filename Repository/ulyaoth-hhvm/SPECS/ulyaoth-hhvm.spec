@@ -150,7 +150,7 @@ exit 0
 Thanks for using ulyaoth-hhvm!
 
 Please find the official documentation for hhvm here:
-* http://hhvm.com/
+* http://www.hhvm.com/
 
 For any additional help please visit my forum at:
 * http://www.ulyaoth.net
