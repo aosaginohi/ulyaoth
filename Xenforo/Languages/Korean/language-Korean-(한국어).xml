@@ -2017,7 +2017,7 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="members_count" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Members]]></phrase>
   <phrase title="members_following_x" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Members Following {name}]]></phrase>
   <phrase title="members_online" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Members Online]]></phrase>
-  <phrase title="members_online_now" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[현재 접속자 수]]></phrase>
+  <phrase title="members_online_now" addon_id="XenForo" version_id="1030470" version_string="1.3.4"><![CDATA[현재 접속자 수]]></phrase>
   <phrase title="members_only" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Members Only]]></phrase>
   <phrase title="members_who_liked_first_message" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Members who liked the first message]]></phrase>
   <phrase title="members_who_liked_message_x" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Members Who Liked Message #{position}]]></phrase>
