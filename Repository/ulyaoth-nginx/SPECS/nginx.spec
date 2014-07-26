@@ -2,6 +2,7 @@
 %define nginx_home %{_localstatedir}/cache/nginx
 %define nginx_user nginx
 %define nginx_group nginx
+%define debug_package %{nil}
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -46,7 +47,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx
 Version: 1.6.0
-Release: 1%{?dist}.ngx
+Release: 1%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
