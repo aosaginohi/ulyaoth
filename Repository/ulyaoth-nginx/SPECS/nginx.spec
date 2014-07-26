@@ -51,7 +51,7 @@ Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: http://nginx.org/download/%{name}-%{version}.tar.gz
+Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
