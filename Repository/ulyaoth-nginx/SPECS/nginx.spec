@@ -46,12 +46,12 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx
 Version: 1.6.0
-Release: 1%{?dist}
+Release: 1%{?dist}.ngx
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: http://nginx.org/download/nginx-%{version}.tar.gz
+Source0: http://nginx.org/download/%{name}-%{version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
@@ -122,7 +122,7 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
+		--with-http_geoip_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -162,7 +162,7 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
+		--with-http_geoip_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -185,8 +185,8 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
-
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
+
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
@@ -199,10 +199,9 @@ make %{?_smp_mflags}
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
 
-#Create vhost directories
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
-
+   
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -227,7 +226,7 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
+%{__install} -m644 %{_builddir}/%{name}-%{version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
 %clean
@@ -242,7 +241,6 @@ make %{?_smp_mflags}
 %dir %{_sysconfdir}/nginx/conf.d
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
-
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
@@ -272,7 +270,6 @@ make %{?_smp_mflags}
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
 
-
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
 
@@ -301,13 +298,16 @@ Thanks for using ulyaoth-nginx!
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
 
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
 For any additional help please visit my forum at:
 * http://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permissions on default log files on installation
+    # Touch and set permisions on default log files on installation
 
     if [ -d %{_localstatedir}/log/nginx ]; then
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
@@ -347,4 +347,4 @@ fi
 
 %changelog
 * Sat Jul 26 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
-- Creating Nginx 1.6.0 rpms.
+- Initial release
