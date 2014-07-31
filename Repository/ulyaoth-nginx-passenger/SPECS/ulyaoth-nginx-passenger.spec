@@ -57,7 +57,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-passenger
 Version: 1.6.0
-Release: 1%{?dist}.4.0.45
+Release: 1%{?dist}.4.0.48
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
@@ -378,6 +378,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Jul 31 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
+- Updated spec file to Passenger 4.0.48
+- Added rpms for Passenger 4.0.46.
+
 * Wed Jun 25 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
 - Updated to Nginx 1.6.0.
 - Updated to Passenger 4.0.45.
