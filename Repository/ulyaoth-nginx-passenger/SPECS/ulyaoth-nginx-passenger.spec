@@ -60,7 +60,7 @@ Version: 1.6.0
 Release: 1%{?dist}.4.0.48
 Vendor: nginx inc.
 URL: http://nginx.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: logrotate
@@ -90,6 +90,7 @@ BuildRequires: openssl-devel
 BuildRequires: ruby
 BuildRequires: ruby-devel
 BuildRequires: curl-devel
+BuildRequires: rubygem-rake
 
 Provides: webserver
 Provides: nginx
@@ -140,7 +141,7 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
-	--add-module=/etc/nginx/modules/passenger/ext/nginx \
+	    --add-module=/etc/nginx/modules/passenger/ext/nginx \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -378,7 +379,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Jul 31 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
+* Thu Jul 31 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
 - Updated spec file to Passenger 4.0.48
 - Added rpms for Passenger 4.0.46.
 
