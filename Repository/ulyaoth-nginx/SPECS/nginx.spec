@@ -45,7 +45,7 @@ Requires(pre): pwdutils
 
 Summary: High performance web server
 Name: ulyaoth-nginx
-Version: 1.6.0
+Version: 1.6.1
 Release: 1%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -346,5 +346,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue Aug 19 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
+- Updated to nginx 1.6.1.
+- Forced spdy.
+
 * Sat Jul 26 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
 - Initial release
