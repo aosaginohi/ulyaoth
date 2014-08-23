@@ -56,8 +56,8 @@ Requires(pre): pwdutils
 
 Summary: High performance web server
 Name: ulyaoth-nginx-passenger
-Version: 1.6.0
-Release: 1%{?dist}.4.0.48
+Version: 1.6.1
+Release: 1%{?dist}.4.0.49
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -141,13 +141,13 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
-	    --add-module=/etc/nginx/modules/passenger/ext/nginx \
+	--add-module=/etc/nginx/modules/passenger/ext/nginx \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-        %{?with_spdy:--with-http_spdy_module} \
+        --with-http_spdy_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -187,7 +187,7 @@ make %{?_smp_mflags}
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        %{?with_spdy:--with-http_spdy_module} \
+        --with-http_spdy_module \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -379,11 +379,16 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Jul 31 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
+* Sat Aug 23 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
+- Updating to Nginx 1.6.1.
+- Added rpms for Passenger 4.0.49.
+- Force adding SPDY.
+
+* Thu Jul 31 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
 - Updated spec file to Passenger 4.0.48
 - Added rpms for Passenger 4.0.46.
 
-* Wed Jun 25 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
+* Wed Jun 25 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
 - Updated to Nginx 1.6.0.
 - Updated to Passenger 4.0.45.
 - Fixed Passenger structure for more easy updates.
