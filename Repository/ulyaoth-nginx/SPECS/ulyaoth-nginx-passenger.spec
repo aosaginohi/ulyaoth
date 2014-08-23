@@ -24,25 +24,32 @@ Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
 Source11: passenger-rhel6.tar.gz
-%define with_spdy 1
 %endif
 
 %if 0%{?rhel}  == 7
 Group: System Environment/Daemons
 Requires(pre): shadow-utils
 Requires: systemd
+Requires: GeoIP
 Requires: openssl >= 1.0.1
 BuildRequires: systemd
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 BuildRequires: openssl-devel >= 1.0.1
 Source11: passenger-rhel7.tar.gz
-%define with_spdy 1
 %endif
 
-%if 0%{?fedora} == 19 
+%if 0%{?fedora} == 19
+Requires: GeoIP
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 Source11: passenger-f19.tar.gz
 %endif
 
 %if 0%{?fedora} == 20
+Requires: GeoIP
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 Source11: passenger-f20.tar.gz
 %endif
 
@@ -76,15 +83,12 @@ Source10: nginx.vh.passenger.conf
 
 License: 2-clause BSD-like license
 
-Requires: GeoIP
 Requires: openssl
 Requires: ruby
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: ruby
