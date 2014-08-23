@@ -346,6 +346,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Aug 23 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
+- Change spec to Unix encoding.
+
 * Tue Aug 19 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
 - Updated to nginx 1.6.1.
 - Forced spdy.

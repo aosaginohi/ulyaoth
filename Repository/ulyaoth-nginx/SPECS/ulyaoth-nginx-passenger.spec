@@ -383,6 +383,7 @@ fi
 - Updating to Nginx 1.6.1.
 - Added rpms for Passenger 4.0.49.
 - Force adding SPDY.
+- Change spec to Unix encoding.
 
 * Thu Jul 31 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
 - Updated spec file to Passenger 4.0.48
