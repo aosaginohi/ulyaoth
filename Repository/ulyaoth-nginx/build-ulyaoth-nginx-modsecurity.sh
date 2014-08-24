@@ -1,5 +1,7 @@
 useradd ulyaoth
 yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
+cd /root
+rpmdev-setuptree
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
 wget https://www.modsecurity.org/tarball/2.8.0/modsecurity-2.8.0.tar.gz
@@ -13,8 +15,6 @@ make
 cd /etc/nginx/modules
 tar cvf modsecurity.tar.gz modsecurity
 mv modsecurity.tar.gz /root/rpmbuild/SOURCES/
-cd /root
-rpmdev-setuptree
 cd /root/rpmbuild/SOURCES
 wget http://nginx.org/download/nginx-1.6.1.tar.gz
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/logrotate
