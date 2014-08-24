@@ -22,6 +22,6 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
-yum-builddep -y ulyaoth-nginx-passenger.spec
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger.spec"
+yum-builddep -y ulyaoth-nginx.spec
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
