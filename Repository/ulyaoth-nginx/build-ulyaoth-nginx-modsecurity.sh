@@ -12,7 +12,7 @@ cd modsecurity
 make
 cd /etc/nginx/modules
 tar cvf modsecurity.tar.gz modsecurity
-mv cvf modsecurity.tar.gz /root/rpmbuild/SOURCES/
+mv modsecurity.tar.gz /root/rpmbuild/SOURCES/
 cd /root
 rpmdev-setuptree
 cd /root/rpmbuild/SOURCES
