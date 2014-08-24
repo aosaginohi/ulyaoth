@@ -45,7 +45,7 @@ mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
 yum-builddep -y ulyaoth-nginx-passenger.spec
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger-modsecurity.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*
 rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*
 rm -rf /home/ulyaoth/rpmbuild/RPMS/*
