@@ -56,11 +56,12 @@ Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
 Source4: nginx.conf
-Source5: nginx.vh.default.conf
+Source5: nginx.vh.default-modsecurity.conf
 Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
+Source10: modsecurity.conf
 
 License: 2-clause BSD-like license
 
@@ -197,7 +198,9 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
-
+%{__install} -m 644 -p %{SOURCE10} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modsecurity.conf
+   
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
@@ -246,6 +249,7 @@ make %{?_smp_mflags}
 %dir %{_sysconfdir}/nginx/sites-enabled
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
+%config(noreplace) %{_sysconfdir}/nginx/modsecurity.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
