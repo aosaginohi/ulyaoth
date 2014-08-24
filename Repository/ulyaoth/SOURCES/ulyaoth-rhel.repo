@@ -1,0 +1,5 @@
+[ulyaoth]
+name=Ulyaoth Repositories
+baseurl=https://repos.ulyaoth.net/RHEL/$releasever/$basearch/
+enabled=1
+gpgcheck=1

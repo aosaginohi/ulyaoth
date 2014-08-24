@@ -1,0 +1,5 @@
+[ulyaoth]
+name=Ulyaoth Repositories
+baseurl=https://repos.ulyaoth.net/Fedora/$releasever/$basearch/
+enabled=1
+gpgcheck=1
