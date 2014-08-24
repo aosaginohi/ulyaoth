@@ -36,5 +36,5 @@ mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
 yum-builddep -y ulyaoth-nginx-modsecurity.spec
-su ulyaoth -c rpmbuild -bb ulyaoth-nginx-modsecurity.spec
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
