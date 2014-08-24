@@ -62,6 +62,7 @@ Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
 Source10: modsecurity.conf
+Source11: modsecurity.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -207,6 +208,10 @@ make %{?_smp_mflags}
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
+
+# Install ModSecurity
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
+tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
    
 %if %{use_systemd}
 # install systemd-specific files
@@ -247,6 +252,8 @@ make %{?_smp_mflags}
 %dir %{_sysconfdir}/nginx/conf.d
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
+%dir %{_sysconfdir}/nginx/modules
+%{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/modsecurity.conf
@@ -357,7 +364,7 @@ fi
 
 %changelog
 * Sun Aug 24 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
-- Added ModSecurity.
+- Added ModSecurity 2.8.0.
 
 * Sat Aug 23 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
 - Change spec to Unix encoding.

@@ -335,6 +335,9 @@ Thanks for using ulyaoth-nginx-passenger!
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
 
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
 Please find the official documentation for passenger here:
 * https://www.phusionpassenger.com/ 
 

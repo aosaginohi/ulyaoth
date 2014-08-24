@@ -10,6 +10,9 @@ cd modsecurity
 ./autogen.sh
 ./configure --enable-standalone-module
 make
+cd /etc/nginx/modules
+tar cvf modsecurity.tar.gz modsecurity
+mv cvf modsecurity.tar.gz /root/rpmbuild/SOURCES/
 cd /root
 rpmdev-setuptree
 cd /root/rpmbuild/SOURCES
@@ -36,5 +39,15 @@ mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
 yum-builddep -y ulyaoth-nginx-modsecurity.spec
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
+rm -rf /home/ulyaoth/rpmbuild/BUILD/*
+rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*
+rm -rf /home/ulyaoth/rpmbuild/RPMS/*
+rm -rf /home/ulyaoth/rpmbuild/SOURCES/modsecurity.tar.gz
+cd /etc/nginx/modules
+tar cvf modsecurity.tar.gz modsecurity
+mv modsecurity.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
+chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
+cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
