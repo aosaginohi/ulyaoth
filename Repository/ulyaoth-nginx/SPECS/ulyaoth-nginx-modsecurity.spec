@@ -44,7 +44,7 @@ Requires(pre): pwdutils
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx
+Name: ulyaoth-nginx-modsecurity
 Version: 1.6.1
 Release: 1%{?dist}
 Vendor: nginx inc.
