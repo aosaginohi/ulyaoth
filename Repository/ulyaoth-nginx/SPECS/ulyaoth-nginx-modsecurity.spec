@@ -6,15 +6,6 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
-%if 0%{?rhel}  == 5
-Group: System Environment/Daemons
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-Requires: openssl
-BuildRequires: openssl-devel
-%endif
-
 %if 0%{?rhel}  == 6
 Group: System Environment/Daemons
 Requires(pre): shadow-utils
@@ -22,17 +13,30 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
-%define with_spdy 1
 %endif
 
 %if 0%{?rhel}  == 7
 Group: System Environment/Daemons
 Requires(pre): shadow-utils
 Requires: systemd
+Requires: GeoIP
 Requires: openssl >= 1.0.1
 BuildRequires: systemd
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 BuildRequires: openssl-devel >= 1.0.1
-%define with_spdy 1
+%endif
+
+%if 0%{?fedora} == 19
+Requires: GeoIP
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
+%endif
+
+%if 0%{?fedora} == 20
+Requires: GeoIP
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 %endif
 
 %if 0%{?suse_version}
@@ -66,14 +70,11 @@ Source11: modsecurity.tar.gz
 
 License: 2-clause BSD-like license
 
-Requires: GeoIP
 Requires: openssl
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel

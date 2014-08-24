@@ -6,16 +6,6 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
-%if 0%{?rhel}  == 5
-Group: System Environment/Daemons
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-Requires: openssl
-BuildRequires: openssl-devel
-Source11: passenger-rhel5.tar.gz
-%endif
-
 %if 0%{?rhel}  == 6
 Group: System Environment/Daemons
 Requires(pre): shadow-utils
@@ -23,7 +13,6 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
-Source11: passenger-rhel6.tar.gz
 %endif
 
 %if 0%{?rhel}  == 7
@@ -36,21 +25,18 @@ BuildRequires: systemd
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
 BuildRequires: openssl-devel >= 1.0.1
-Source11: passenger-rhel7.tar.gz
 %endif
 
 %if 0%{?fedora} == 19
 Requires: GeoIP
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
-Source11: passenger-f19.tar.gz
 %endif
 
 %if 0%{?fedora} == 20
 Requires: GeoIP
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
-Source11: passenger-f20.tar.gz
 %endif
 
 %if 0%{?suse_version}
@@ -80,6 +66,7 @@ Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
 Source10: nginx.vh.passenger.conf
+Source11: passenger.tar.gz
 
 License: 2-clause BSD-like license
 
