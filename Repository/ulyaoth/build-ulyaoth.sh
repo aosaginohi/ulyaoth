@@ -9,3 +9,4 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "rpmbuild -bb ulyaoth.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
+rm -rf /root/build-ulyaoth.sh
