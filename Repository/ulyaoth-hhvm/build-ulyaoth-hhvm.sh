@@ -3,8 +3,14 @@ cd /home/ulyaoth
 
 if grep -q -i "release 7" /etc/redhat-release
 then
-
-
+wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/o/oniguruma-5.9.5-1.fc20.x86_64.rpm
+wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/o/oniguruma-devel-5.9.5-1.fc20.x86_64.rpm
+wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/g/glog-0.3.3-3.fc20.x86_64.rpm
+wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/g/glog-devel-0.3.3-3.fc20.x86_64.rpm
+wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/l/libmcrypt-2.5.8-14.fc20.x86_64.rpm
+wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/l/libmcrypt-devel-2.5.8-14.fc20.x86_64.rpm
+yum install oniguruma-5.9.5-1.fc20.x86_64.rpm oniguruma-devel-5.9.5-1.fc20.x86_64.rpm libmcrypt-devel-2.5.8-14.fc20.x86_64.rpm libmcrypt-2.5.8-14.fc20.x86_64.rpm glog-devel-0.3.3-3.fc20.x86_64.rpm glog-0.3.3-3.fc20.x86_64.rpm
+rmm -rf /home/ulyaoth/oniguruma-5.9.5-1.fc20.x86_64.rpm oniguruma-devel-5.9.5-1.fc20.x86_64.rpm libmcrypt-devel-2.5.8-14.fc20.x86_64.rpm libmcrypt-2.5.8-14.fc20.x86_64.rpm glog-devel-0.3.3-3.fc20.x86_64.rpm glog-0.3.3-3.fc20.x86_64.rpm
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
