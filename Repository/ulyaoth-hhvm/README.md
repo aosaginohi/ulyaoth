@@ -1,3 +1,9 @@
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh
+
+
+
+
+OLD WAY:
 How to create this rpm:
 
 Do all this as your build user!
