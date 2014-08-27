@@ -126,18 +126,17 @@ make install
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf  
 
-rm -rf $RPM_BUILD_ROOT/usr/include/zip.h
-rm -rf $RPM_BUILD_ROOT/usr/include/zipconf.h
 rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
 rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
-rm -rf $RPM_BUILD_ROOT/usr/bin/hphpize
-   
-%clean
-%{__rm} -rf $RPM_BUILD_ROOT
-    
+rm -rf $RPM_BUILD_ROOT/usr/include
+rm -rf $RPM_BUILD_ROOT/usr/lib64
+
 %files
 %defattr(-,root,root,-)
 /usr/bin/hhvm
+/usr/bin/hh_server
+/usr/bin/hh_client
+/usr/bin/hphpize
 %dir /etc/hhvm
 %config(noreplace) /etc/hhvm/config.hdf
 %config(noreplace) /etc/hhvm/php.ini
@@ -150,6 +149,11 @@ rm -rf $RPM_BUILD_ROOT/usr/bin/hphpize
 %dir /var/run/hhvm
 %attr(775, hhvm, hhvm) /var/log/hhvm
 %attr(775, hhvm, hhvm) /var/run/hhvm
+
+   
+%clean
+%{__rm} -rf $RPM_BUILD_ROOT
+
 
 %pre
 getent group %{hhvm_group} >/dev/null || groupadd -r %{hhvm_group}
