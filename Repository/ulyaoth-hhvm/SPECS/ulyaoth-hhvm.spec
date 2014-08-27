@@ -6,8 +6,9 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm
-Version: 3.1.1
+Version: 3.2.0
 Release: 1%{?dist}
+Group: Applications/Internet
 URL: http://www.hhvm.com/
 Vendor: Facebook.
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -20,6 +21,26 @@ Source4: hhvm.service
 Source5: static.mime-types.hdf
 
 License: GPL
+
+
+%if 0%{?rhel}  == 7
+%endif
+
+%if 0%{?fedora} == 19
+BuildRequires: jemalloc-devel
+BuildRequires: libc-client-devel
+BuildRequires: lz4-devel
+BuildRequires: libsq3-devel
+BuildRequires: double-conversion-devel
+%endif
+
+%if 0%{?fedora} == 20
+BuildRequires: jemalloc-devel
+BuildRequires: libc-client-devel
+BuildRequires: lz4-devel
+BuildRequires: libsq3-devel
+BuildRequires: double-conversion-devel
+%endif
 
 Requires: boost
 Requires: boost-jam
@@ -46,8 +67,6 @@ BuildRequires: elfutils-libelf-devel
 BuildRequires: gd-devel
 BuildRequires: glog-devel
 BuildRequires: ImageMagick-devel
-BuildRequires: jemalloc-devel
-BuildRequires: libc-client-devel
 BuildRequires: libcap-devel
 BuildRequires: libcurl-devel
 BuildRequires: libdwarf-devel
@@ -72,9 +91,6 @@ BuildRequires: glibc-devel
 BuildRequires: libnotify-devel
 BuildRequires: unixODBC-devel
 BuildRequires: libzip-devel
-BuildRequires: lz4-devel
-BuildRequires: libsq3-devel
-BuildRequires: double-conversion-devel
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
@@ -164,6 +180,10 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Wed Aug 27 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.2.0-1
+ - Release 3.2.0
+ - Fixes for RHEL
+
 * Sun Jul 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.1.1-1
  - Initial Spec file release
  - Release 3.1.1
