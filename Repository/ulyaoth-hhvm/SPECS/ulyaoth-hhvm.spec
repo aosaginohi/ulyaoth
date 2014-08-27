@@ -32,6 +32,7 @@ BuildRequires: libc-client-devel
 BuildRequires: lz4-devel
 BuildRequires: libsq3-devel
 BuildRequires: double-conversion-devel
+BuildRequires: libzip-devel
 %endif
 
 %if 0%{?fedora} == 20
@@ -40,6 +41,7 @@ BuildRequires: libc-client-devel
 BuildRequires: lz4-devel
 BuildRequires: libsq3-devel
 BuildRequires: double-conversion-devel
+BuildRequires: libzip-devel
 %endif
 
 Requires: boost
@@ -90,7 +92,6 @@ BuildRequires: zlib-devel
 BuildRequires: glibc-devel
 BuildRequires: libnotify-devel
 BuildRequires: unixODBC-devel
-BuildRequires: libzip-devel
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
