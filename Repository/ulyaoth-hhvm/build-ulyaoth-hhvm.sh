@@ -11,7 +11,7 @@ wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/
 wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/l/libmcrypt-devel-2.5.8-14.fc20.x86_64.rpm
 wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/l/libzip-0.11.1-3.fc20.x86_64.rpm
 wget http://ftp.acc.umu.se/mirror/fedora/linux/releases/20/Everything/x86_64/os/Packages/l/libzip-devel-0.11.1-3.fc20.x86_64.rpm
-yum install oniguruma-5.9.5-1.fc20.x86_64.rpm oniguruma-devel-5.9.5-1.fc20.x86_64.rpm libmcrypt-devel-2.5.8-14.fc20.x86_64.rpm libmcrypt-2.5.8-14.fc20.x86_64.rpm glog-devel-0.3.3-3.fc20.x86_64.rpm glog-0.3.3-3.fc20.x86_64.rpm libzip-0.11.1-3.fc20.x86_64.rpm libzip-devel-0.11.1-3.fc20.x86_64.rpm
+yum -y install oniguruma-5.9.5-1.fc20.x86_64.rpm oniguruma-devel-5.9.5-1.fc20.x86_64.rpm libmcrypt-devel-2.5.8-14.fc20.x86_64.rpm libmcrypt-2.5.8-14.fc20.x86_64.rpm glog-devel-0.3.3-3.fc20.x86_64.rpm glog-0.3.3-3.fc20.x86_64.rpm libzip-0.11.1-3.fc20.x86_64.rpm libzip-devel-0.11.1-3.fc20.x86_64.rpm
 rm -rf /home/ulyaoth/oniguruma-5.9.5-1.fc20.x86_64.rpm oniguruma-devel-5.9.5-1.fc20.x86_64.rpm libmcrypt-devel-2.5.8-14.fc20.x86_64.rpm libmcrypt-2.5.8-14.fc20.x86_64.rpm glog-devel-0.3.3-3.fc20.x86_64.rpm glog-0.3.3-3.fc20.x86_64.rpm libzip-0.11.1-3.fc20.x86_64.rpm libzip-devel-0.11.1-3.fc20.x86_64.rpm
 fi
 
