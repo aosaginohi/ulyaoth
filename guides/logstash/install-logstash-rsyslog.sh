@@ -37,3 +37,4 @@ systemctl start nginx.service
 systemctl enable elasticsearch.service
 systemctl enable logstash.service
 systemctl enable nginx.service
+chmod 755 /var/log/nginx
