@@ -1,0 +1,2 @@
+Logstash with Rsyslog automatic installation: (requires root for now)
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/install-logstash-rsyslog.sh ; chmod +x install-logstash-rsyslog.sh ; ./install-logstash-rsyslog.sh
