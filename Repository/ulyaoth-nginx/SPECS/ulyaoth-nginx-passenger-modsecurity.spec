@@ -50,7 +50,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-passenger-modsecurity
 Version: 1.6.1
-Release: 1%{?dist}.4.0.49
+Release: 2%{?dist}.4.0.50
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -386,6 +386,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Sep 15 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-2
+- Added rpms for Passenger 4.0.50.
+
 * Sat Aug 23 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
 - Updating to Nginx 1.6.1.
 - Added rpms for Passenger 4.0.49.
