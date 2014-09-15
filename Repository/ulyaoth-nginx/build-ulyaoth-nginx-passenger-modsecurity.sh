@@ -1,4 +1,5 @@
 useradd ulyaoth
+yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
 cd /root
 rpmdev-setuptree
 mkdir -p /etc/nginx/modules
