@@ -13,7 +13,7 @@ wget https://www.modsecurity.org/tarball/2.8.0/modsecurity-2.8.0.tar.gz
 tar xvf modsecurity-2.8.0.tar.gz
 mv modsecurity-2.8.0 modsecurity
 rm -rf modsecurity-2.8.0.tar.gz
-cd modsecurity
+cd /etc/nginx/modules/modsecurity
 ./autogen.sh
 ./configure --enable-standalone-module
 make
