@@ -36,7 +36,7 @@ BuildRequires: systemd
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat
 Version:    8.0.12
-Release:    1{?dist}
+Release:    1%{?dist}}
 License:    Apache License version 2
 Group:      Networking/Daemons
 URL:        http://tomcat.apache.org/
