@@ -161,6 +161,7 @@ fi
 %endif
 if [ $1 -ge 1 ]; then
     /sbin/service tomcat status  >/dev/null 2>&1 || exit 0
+%endif
 fi
 
 %changelog
