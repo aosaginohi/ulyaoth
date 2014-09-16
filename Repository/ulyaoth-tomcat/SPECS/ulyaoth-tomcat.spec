@@ -36,11 +36,12 @@ BuildRequires: systemd
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat
 Version:    8.0.12
-BuildArch:  x86_64
-Release:    1
+Release:    1{?dist}
 License:    Apache License version 2
 Group:      Networking/Daemons
 URL:        http://tomcat.apache.org/
+Vendor:     Apache Software Foundation
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0:    apache-tomcat-%{version}.tar.gz
 Source1:	tomcat.service
 Source2:    tomcat.init

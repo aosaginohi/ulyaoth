@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/opt/apache-tomcat/bin/startup.sh
-ExecStop=/opt/apache-tomcat/bin/shutdown.sh
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
 User=tomcat
 Group=tomcat
 
