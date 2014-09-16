@@ -13,7 +13,7 @@
 # Short-Description: start and stop tomcat
 ### END INIT INFO
  
-TOMCAT_USER=liferayapp
+TOMCAT_USER=tomcat
 TOMCAT_HOME="/opt/apache-tomcat"
 SHUTDOWN_WAIT=45
  
