@@ -50,6 +50,7 @@ BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: tomcat
 Provides: apache-tomcat
+Provides: ulyaoth-tomcat
 
 %description
 Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. The Java Servlet and JavaServer Pages specifications are developed under the Java Community Process.
