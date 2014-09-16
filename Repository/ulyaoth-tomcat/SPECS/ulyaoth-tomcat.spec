@@ -113,7 +113,6 @@ getent passwd %{tomcat_user} >/dev/null || /usr/sbin/useradd --comment "Tomcat D
 
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %if %{use_systemd}
 %{_unitdir}/%{name}.service
 %else
