@@ -1,0 +1,11 @@
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/apache-tomcat/bin/startup.sh
+ExecStop=/opt/apache-tomcat/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
