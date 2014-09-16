@@ -38,7 +38,7 @@ Name:       ulyaoth-tomcat
 Version:    8.0.12
 Release:    1%{?dist}
 License:    Apache License version 2
-Group:      Networking/Daemons
+Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
