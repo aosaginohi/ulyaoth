@@ -142,7 +142,7 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-
+fi
 
 %preun
 if [ $1 -eq 0 ]; then
