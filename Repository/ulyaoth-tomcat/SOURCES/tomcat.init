@@ -14,7 +14,7 @@
 ### END INIT INFO
  
 TOMCAT_USER=tomcat
-TOMCAT_HOME="/opt/apache-tomcat"
+TOMCAT_HOME="/opt/tomcat"
 SHUTDOWN_WAIT=45
  
 tomcat_pid() {
