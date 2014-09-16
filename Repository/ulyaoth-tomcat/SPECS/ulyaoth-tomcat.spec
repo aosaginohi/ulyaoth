@@ -34,7 +34,7 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary:    Apache Servlet/JSP Engine
-Name:       tomcat
+Name:       ulyaoth-tomcat
 Version:    8.0.12
 BuildArch:  x86_64
 Release:    1
@@ -42,10 +42,10 @@ License:    Apache License version 2
 Group:      Networking/Daemons
 URL:        http://tomcat.apache.org/
 Source0:    apache-tomcat-%{version}.tar.gz
-Source1:	%{name}.service
-Source2:    %{name}.init
-Source3:    %{name}.logrotate
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source1:	tomcat.service
+Source2:    tomcat.init
+Source3:    tomcat.logrotate
+BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: tomcat
 Provides: apache-tomcat
@@ -70,9 +70,9 @@ cp -R * %{buildroot}/%{tomcat_home}/
 
 # Put logging in /var/log and link back.
 rm -rf %{buildroot}/%{tomcat_home}/logs
-install -d -m 755 %{buildroot}/var/log/%{name}/
+install -d -m 755 %{buildroot}/var/log/tomcat/
 cd %{buildroot}/%{tomcat_home}/
-ln -s /var/log/%{name}/ logs
+ln -s /var/log/tomcat/ logs
 cd -
 
 %if %{use_systemd}
@@ -84,13 +84,13 @@ cd -
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
 %{__install} -m755 %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_initrddir}/%{name}
+   $RPM_BUILD_ROOT%{_initrddir}/tomcat
 %endif
 
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 %{__install} -m 644 -p %{SOURCE3} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{name}
+   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/tomcat
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -101,8 +101,7 @@ getent passwd %{tomcat_user} >/dev/null || /usr/sbin/useradd --comment "Tomcat D
 
 %files
 %defattr(-,%{tomcat_user},%{tomcat_group})
-%{tomcat_home}/*
-%dir %{_localstatedir}/log/%{name}
+%dir %{_localstatedir}/log/tomcat
 %config(noreplace) %{tomcat_home}/conf/web.xml
 %config(noreplace) %{tomcat_home}/conf/tomcat-users.xml
 %config(noreplace) %{tomcat_home}/conf/server.xml
@@ -110,13 +109,14 @@ getent passwd %{tomcat_user} >/dev/null || /usr/sbin/useradd --comment "Tomcat D
 %config(noreplace) %{tomcat_home}/conf/context.xml
 %config(noreplace) %{tomcat_home}/conf/catalina.properties
 %config(noreplace) %{tomcat_home}/conf/catalina.policy
+%{tomcat_home}/*
 
 %defattr(-,root,root)
-%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%config(noreplace) %{_sysconfdir}/logrotate.d/tomcat
 %if %{use_systemd}
-%{_unitdir}/%{name}.service
+%{_unitdir}/tomcat.service
 %else
-%{_initrddir}/%{name}
+%{_initrddir}/tomcat
 %endif
 
 
@@ -161,8 +161,6 @@ fi
 %endif
 if [ $1 -ge 1 ]; then
     /sbin/service tomcat status  >/dev/null 2>&1 || exit 0
-    /sbin/service tomcat upgrade >/dev/null 2>&1 || echo \
-        "Binary upgrade failed, please check tomcat's catalina.out"
 fi
 
 %changelog
