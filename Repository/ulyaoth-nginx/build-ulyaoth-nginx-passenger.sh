@@ -10,7 +10,7 @@ rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /root/rpmbuild/SOURCES/
 cd /root/rpmbuild/SOURCES
-wget http://nginx.org/download/nginx-1.6.1.tar.gz
+wget http://nginx.org/download/nginx-1.6.2.tar.gz
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/logrotate
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/modsecurity.conf
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.conf

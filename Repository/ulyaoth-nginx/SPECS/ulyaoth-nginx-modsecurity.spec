@@ -49,7 +49,7 @@ Requires(pre): pwdutils
 
 Summary: High performance web server
 Name: ulyaoth-nginx-modsecurity
-Version: 1.6.1
+Version: 1.6.2
 Release: 1%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -364,6 +364,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Sep 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+- Updated to Nginx 1.6.2.
+
 * Sun Aug 24 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
 - Added ModSecurity 2.8.0.
 
