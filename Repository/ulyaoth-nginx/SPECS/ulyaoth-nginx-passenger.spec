@@ -50,7 +50,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-passenger
 Version: 1.6.2
-Release: 2%{?dist}.4.0.50
+Release: 1%{?dist}.4.0.50
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
