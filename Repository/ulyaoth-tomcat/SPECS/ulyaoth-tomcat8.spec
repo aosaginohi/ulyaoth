@@ -34,7 +34,7 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary:    Apache Servlet/JSP Engine
-Name:       ulyaoth-tomcat
+Name:       ulyaoth-tomcat8
 Version:    8.0.12
 Release:    1%{?dist}
 License:    Apache License version 2
@@ -51,6 +51,7 @@ BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 Provides: tomcat
 Provides: apache-tomcat
 Provides: ulyaoth-tomcat
+Provides: ulyaoth-tomcat8
 
 %description
 Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. The Java Servlet and JavaServer Pages specifications are developed under the Java Community Process.
@@ -134,7 +135,7 @@ if [ $1 -eq 1 ]; then
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat!
+Thanks for using ulyaoth-tomcat8!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
