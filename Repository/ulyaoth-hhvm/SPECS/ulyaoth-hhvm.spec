@@ -130,6 +130,19 @@ rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
 rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
 rm -rf $RPM_BUILD_ROOT/usr/include
 rm -rf $RPM_BUILD_ROOT/usr/lib64
+rm -rf $RPM_BUILD_ROOT/usr/man/
+rm -rf $RPM_BUILD_ROOT/usr/share/doc/
+rm -rf $RPM_BUILD_ROOT/usr/lib/libpcre.a
+rm -rf $RPM_BUILD_ROOT/usr/lib/libpcreposix.a
+rm -rf $RPM_BUILD_ROOT/usr/lib/libpcrecpp.a
+rm -rf $RPM_BUILD_ROOT/usr/bin/pcregrep
+rm -rf $RPM_BUILD_ROOT/usr/bin/pcretest
+rm -rf $RPM_BUILD_ROOT/usr/bin/pcrecpp_unittest
+rm -rf $RPM_BUILD_ROOT/usr/bin/pcre_scanner_unittest
+rm -rf $RPM_BUILD_ROOT/usr/bin/pcre_stringpiece_unittest
+
+
+
 
 %files
 %defattr(-,root,root,-)
@@ -185,7 +198,7 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
-* Thu Sep 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.3.0-1
+* Sat Sep 20 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.3.0-1
 - Updated to HHVM 3.3.0.
 
 * Wed Aug 27 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.2.0-1
