@@ -102,13 +102,14 @@ HHVM is an open-source virtual machine designed for executing programs written i
 %prep
 %setup -q -n hhvm-%{version}
 
-%build 
+%build
+%{__rm} -rf $RPM_BUILD_ROOT 
 export CMAKE_PREFIX_PATH=$RPM_BUILD_ROOT%{_prefix}
 cmake . -DCMAKE_INSTALL_PREFIX=$RPM_BUILD_ROOT%{_prefix}
 make
 
 %install
-make install
+%{__make} install
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/hhvm
@@ -126,20 +127,21 @@ make install
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf  
 
-rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
-rm -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
-rm -rf $RPM_BUILD_ROOT/usr/include
-rm -rf $RPM_BUILD_ROOT/usr/lib64
-rm -rf $RPM_BUILD_ROOT/usr/man/
-rm -rf $RPM_BUILD_ROOT/usr/share/doc/
-rm -rf $RPM_BUILD_ROOT/usr/lib/libpcre.a
-rm -rf $RPM_BUILD_ROOT/usr/lib/libpcreposix.a
-rm -rf $RPM_BUILD_ROOT/usr/lib/libpcrecpp.a
-rm -rf $RPM_BUILD_ROOT/usr/bin/pcregrep
-rm -rf $RPM_BUILD_ROOT/usr/bin/pcretest
-rm -rf $RPM_BUILD_ROOT/usr/bin/pcrecpp_unittest
-rm -rf $RPM_BUILD_ROOT/usr/bin/pcre_scanner_unittest
-rm -rf $RPM_BUILD_ROOT/usr/bin/pcre_stringpiece_unittest
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
+%{__rm} -rf $RPM_BUILD_ROOT/usr/include
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib64
+%{__rm} -rf $RPM_BUILD_ROOT/usr/man/
+%{__rm} -rf $RPM_BUILD_ROOT/usr/share/doc/
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libpcre.a
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libpcreposix.a
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libpcrecpp.a
+%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcregrep
+%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcretest
+%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcrecpp_unittest
+%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_scanner_unittest
+%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_stringpiece_unittest
+%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/hphpize
 
 
 
@@ -149,12 +151,11 @@ rm -rf $RPM_BUILD_ROOT/usr/bin/pcre_stringpiece_unittest
 /usr/bin/hhvm
 /usr/bin/hh_server
 /usr/bin/hh_client
-/usr/bin/hphpize
 %dir /etc/hhvm
 %config(noreplace) /etc/hhvm/config.hdf
 %config(noreplace) /etc/hhvm/php.ini
 %config(noreplace) /etc/hhvm/server.hdf
-/usr/lib/systemd/system/hhvm.service
+%{_unitdir}/hhvm.service
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
 %config /usr/share/hhvm/hdf/static.mime-types.hdf
