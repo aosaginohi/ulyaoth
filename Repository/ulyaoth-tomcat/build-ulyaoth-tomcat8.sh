@@ -2,7 +2,7 @@ useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v8.0.12/bin/apache-tomcat-8.0.12.tar.gz"
+su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v8.0.14/bin/apache-tomcat-8.0.14.tar.gz"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.init"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.logrotate"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.service"
