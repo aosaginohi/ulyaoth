@@ -10,6 +10,7 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 License: Proprietry (non-free)
 Group: Applications/Multimedia
 Vendor: Spotify Ltd
+BuildArch: x86_64
 Source0: ulyaoth-spotify.tar.gz
 
 Requires: zenity
@@ -58,7 +59,7 @@ tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 %dir %{_defaultdocdir}/spotify-client-gnome-support
 %dir %{_defaultdocdir}/spotify-client-qt
 %dir %{_defaultdocdir}/spotify-client
-%dir %{_datadir}/spotify/*
+%dir %{_datadir}/spotify
 /opt/spotify/spotify-client/*
 /opt/spotify/spotify-client/Data/*
 /opt/spotify/spotify-client/Icons/*
