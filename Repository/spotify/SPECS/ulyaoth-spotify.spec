@@ -47,7 +47,7 @@ Spotify is a commercial music streaming service providing digital rights managem
 
 %install
 
-tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT%
+tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
