@@ -39,6 +39,12 @@ BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
 %endif
 
+%if 0%{?fedora} == 21
+Requires: GeoIP
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
+%endif
+
 %if 0%{?suse_version}
 Group: Productivity/Networking/Web/Servers
 BuildRequires: libopenssl-devel
@@ -350,6 +356,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+- Support for Fedora 21.
+
 * Thu Sep 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Updated to Nginx 1.6.2.
 
