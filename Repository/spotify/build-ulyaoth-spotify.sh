@@ -47,7 +47,7 @@ su ulyaoth -c "rm -rf opt/ usr/"
 su ulyaoth -c "mv ulyaoth-spotify.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SPECS/ulyaoth-spotify.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SPECS/ulyaoth-spotify.spec"
 yum-builddep -y ulyaoth-spotify.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-spotify.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
