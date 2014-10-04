@@ -31,11 +31,17 @@ Requires: systemd
 BuildRequires: systemd
 %endif
 
+%if 0%{?fedora} == 21
+Requires(pre): shadow-utils
+Requires: systemd
+BuildRequires: systemd
+%endif
+
 # end of distribution specific definitions
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8
-Version:    8.0.12
+Version:    8.0.14
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -43,7 +49,7 @@ URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0:    apache-tomcat-%{version}.tar.gz
-Source1:	tomcat.service
+Source1:    tomcat.service
 Source2:    tomcat.init
 Source3:    tomcat.logrotate
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -167,6 +173,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.14-1
+- Support for Fedora 21.
+- Update to Tomcat 8.0.14.
+
 * Tue Sep 16 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.12-1
 - Creating spec for Tomcat 8.0.12.
 - Used nginx spec file as basis.
