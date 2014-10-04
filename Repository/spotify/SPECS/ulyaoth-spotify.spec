@@ -12,11 +12,6 @@ Group: Applications/Multimedia
 Vendor: Spotify Ltd
 Source0: ulyaoth-spotify.tar.gz
 
-BuildRequires:  desktop-file-utils
-BuildRequires:  python2-devel
-BuildRequires:  redhat-lsb-core
-BuildRequires:  openssl-devel
-
 Requires: zenity
 Requires: qt-x11
 Requires: hicolor-icon-theme
@@ -84,6 +79,9 @@ tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 /usr/share/icons/hicolor/64x64/apps/spotify-client.png
 /usr/share/icons/hicolor/128x128/apps/spotify-client.png
 /usr/share/icons/hicolor/256x256/apps/spotify-client.png
+
+%postun
+gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %post
 # print site info
