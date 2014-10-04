@@ -83,9 +83,14 @@ tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 /usr/share/icons/hicolor/256x256/apps/spotify-client.png
 
 %postun
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
+
+%preun
+gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
 
 %post
+gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
+
 # print site info
     cat <<BANNER
 ----------------------------------------------------------------------
