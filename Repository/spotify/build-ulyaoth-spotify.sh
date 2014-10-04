@@ -3,9 +3,10 @@ cd /home/ulyaoth
 
 su ulyaoth -c "rpmdev-setuptree"
 
-su ulyaoth -c "wget https://trash.ulyaoth.net/trash/lib64/libcrypto.so.1.0.0"
-su ulyaoth -c "wget https://trash.ulyaoth.net/trash/lib64/libssl.so.1.0.0"
-su ulyaoth -c "wget https://trash.ulyaoth.net/trash/lib64/libudev.so.0.13.1"
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libcrypto.so.1.0.0"
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libssl.so.1.0.0"
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libudev.so.0.13.1"
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/spotify.desktop"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-gnome-support_0.9.11.27.g2b1a638.81-1_all.deb"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-qt_0.9.11.27.g2b1a638.81-1_all.deb"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client_0.9.11.27.g2b1a638.81-1_amd64.deb"
@@ -40,7 +41,7 @@ su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-4
 su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-64.png /home/ulyaoth/usr/share/icons/hicolor/64x64/apps/spotify-client.png"
 su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-128.png /home/ulyaoth/usr/share/icons/hicolor/128x128/apps/spotify-client.png"
 su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-256.png /home/ulyaoth/usr/share/icons/hicolor/256x256/apps/spotify-client.png"
-su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/spotify.desktop /home/ulyaoth/usr/share/applications/"
+su ulyaoth -c "cp /home/ulyaoth/spotify.desktop /home/ulyaoth/usr/share/applications/"
 
 su ulyaoth -c "tar cvf ulyaoth-spotify.tar.gz ./opt/ ./usr/"
 su ulyaoth -c "rm -rf opt/ usr/"
