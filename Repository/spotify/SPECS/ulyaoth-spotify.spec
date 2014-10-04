@@ -7,7 +7,7 @@ Version: 0.9.11.27
 Release: 1%{?dist}
 URL: https://www.spotify.com
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
-License: Proprietry (non-free)
+License: Proprietary(non-free)
 Group: Applications/Multimedia
 Vendor: Spotify Ltd
 BuildArch: x86_64
