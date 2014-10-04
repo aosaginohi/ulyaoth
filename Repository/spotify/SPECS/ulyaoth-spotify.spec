@@ -64,7 +64,6 @@ tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 /opt/spotify/spotify-client/Data/*
 /opt/spotify/spotify-client/Icons/*
 /opt/spotify/spotify-client/Data/locales/*
-/usr/lib64/*
 %{_defaultdocdir}/spotify-client-gnome-support/*
 %{_defaultdocdir}/spotify-client-qt/*
 %{_defaultdocdir}/spotify-client/*
