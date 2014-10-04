@@ -1,0 +1,47 @@
+useradd ulyaoth
+cd /home/ulyaoth
+
+su ulyaoth -c "rpmdev-setuptree"
+
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/lib64/libcrypto.so.1.0.0"
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/lib64/libssl.so.1.0.0"
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/lib64/libudev.so.0.13.1"
+su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-gnome-support_0.9.11.27.g2b1a638.81-1_all.deb"
+su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-qt_0.9.11.27.g2b1a638.81-1_all.deb"
+su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client_0.9.11.27.g2b1a638.81-1_amd64.deb"
+
+su ulyaoth -c "ar x spotify-client-gnome-support_0.9.11.27.g2b1a638.81-1_all.deb"
+su ulyaoth -c "tar xvf data.tar.gz"
+su ulyaoth -c "rm -rf control.tar.gz data.tar.gz debian-binary spotify-client-gnome-support_0.9.11.27.g2b1a638.81-1_all.deb"
+su ulyaoth -c "ar x spotify-client-qt_0.9.11.27.g2b1a638.81-1_all.deb"
+su ulyaoth -c "tar xvf data.tar.gz"
+su ulyaoth -c "rm -rf control.tar.gz data.tar.gz debian-binary spotify-client-qt_0.9.11.27.g2b1a638.81-1_all.deb"
+su ulyaoth -c "ar x spotify-client_0.9.11.27.g2b1a638.81-1_amd64.deb"
+su ulyaoth -c "tar xvf data.tar.gz"
+su ulyaoth -c "rm -rf control.tar.gz data.tar.gz debian-binary spotify-client_0.9.11.27.g2b1a638.81-1_amd64.deb"
+
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/lib64/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/applications/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/16x16/apps/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/22x22/apps/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/24x24/apps/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/32x32/apps/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/48x48/apps/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/64x64/apps/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/128x128/apps/"
+su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/icons/hicolor/256x256/apps/"
+
+su ulyaoth -c "mv lib* /home/ulyaoth/usr/lib64/"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-16.png /home/ulyaoth/usr/share/icons/hicolor/16x16/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-22.png /home/ulyaoth/usr/share/icons/hicolor/22x22/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-24.png /home/ulyaoth/usr/share/icons/hicolor/24x24/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-32.png /home/ulyaoth/usr/share/icons/hicolor/32x32/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-48.png /home/ulyaoth/usr/share/icons/hicolor/48x48/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-64.png /home/ulyaoth/usr/share/icons/hicolor/64x64/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-128.png /home/ulyaoth/usr/share/icons/hicolor/128x128/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-256.png /home/ulyaoth/usr/share/icons/hicolor/256x256/apps/spotify-client.png"
+su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/spotify.desktop /home/ulyaoth/usr/share/applications/"
+
+su ulyaoth -c "tar cvf ulyaoth-spotify.tar.gz ./opt/ ./usr/"
+su ulyaoth -c "rm -rf opt/ usr/"
+su ulyaoth -c "mv ulyaoth-spotify.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
