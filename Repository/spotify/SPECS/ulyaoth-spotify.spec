@@ -29,6 +29,7 @@ Requires: gtk2
 Requires: nss
 Requires: nspr
 Requires: glib2
+Requires: libpng
 
 Provides: spotify
 Provides: spotify-client
