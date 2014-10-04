@@ -70,7 +70,6 @@ tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 %{_defaultdocdir}/spotify-client/*
 %{_bindir}/*
 %{_datadir}/applications/*
-%{_datadir}/spotify/*
 /usr/share/applications/spotify.desktop
 /usr/share/icons/hicolor/16x16/apps/spotify-client.png
 /usr/share/icons/hicolor/22x22/apps/spotify-client.png
