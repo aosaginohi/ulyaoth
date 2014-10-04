@@ -23,6 +23,10 @@ Source1: ulyaoth-fedora.repo
 Source1: ulyaoth-fedora.repo
 %endif
 
+%if 0%{?fedora} == 21
+Source1: ulyaoth-fedora.repo
+%endif
+
 License:        GPLv3
 
 %description
@@ -65,5 +69,8 @@ BANNER
 
 
 %changelog
+* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+- Support for Fedora 21.
+
 * Sun Aug 24 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.0-1
 - Creating initial release.
