@@ -39,7 +39,7 @@ BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
 %endif
 
-%if 0%{?fedora} == 19
+%if 0%{?fedora} == 21
 Requires: GeoIP
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
