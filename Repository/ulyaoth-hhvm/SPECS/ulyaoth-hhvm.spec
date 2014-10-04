@@ -44,6 +44,15 @@ BuildRequires: double-conversion-devel
 BuildRequires: libzip-devel
 %endif
 
+%if 0%{?fedora} == 21
+BuildRequires: jemalloc-devel
+BuildRequires: libc-client-devel
+BuildRequires: lz4-devel
+BuildRequires: libsq3-devel
+BuildRequires: double-conversion-devel
+BuildRequires: libzip-devel
+%endif
+
 Requires: boost
 Requires: boost-jam
 Requires: boost-build
@@ -199,6 +208,9 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.3.0-1
+- Support for Fedora 21.
+
 * Sat Sep 20 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.3.0-1
 - Updated to HHVM 3.3.0.
 
