@@ -31,6 +31,12 @@ Requires: systemd
 BuildRequires: systemd
 %endif
 
+%if 0%{?fedora} == 21
+Requires(pre): shadow-utils
+Requires: systemd
+BuildRequires: systemd
+%endif
+
 # end of distribution specific definitions
 
 Summary:    Apache Servlet/JSP Engine
@@ -167,6 +173,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.41-1
+- Support for Fedora 21.
+
 * Tue Sep 16 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.41-1
 - Creating spec for Tomcat 6.0.41.
 - Used nginx spec file as basis.
