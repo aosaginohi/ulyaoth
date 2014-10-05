@@ -73,6 +73,7 @@ Source8: nginx.service
 Source9: nginx.upgrade.sh
 Source10: naxsi.tar.gz
 Source11: naxsi_core.rules
+Source12: nbs.rules
 
 License: 2-clause BSD-like license
 
