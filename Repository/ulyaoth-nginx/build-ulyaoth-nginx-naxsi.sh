@@ -35,5 +35,5 @@ su ulyaoth -c "mv naxsi.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/"
-su ulyaoth -c "rm -rf /etc/nginx"
+rm -rf /home/ulyaoth/rpmbuild/
+rm -rf /etc/nginx
