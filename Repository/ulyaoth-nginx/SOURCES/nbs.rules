@@ -1,4 +1,4 @@
-LearningMode; #Enables learning mode
+#LearningMode; #Enables learning mode
 SecRulesEnabled;
 #SecRulesDisabled;
 DeniedUrl "/RequestDenied";

@@ -39,3 +39,4 @@ su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 rm -rf /home/ulyaoth/rpmbuild/
 rm -rf /etc/nginx
+rm -rf /root/build-ulyaoth-nginx-naxsi.sh
