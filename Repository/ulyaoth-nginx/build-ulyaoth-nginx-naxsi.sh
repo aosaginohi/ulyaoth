@@ -7,6 +7,7 @@ su ulyaoth -c "wget https://github.com/nbs-system/naxsi/archive/master.zip"
 su ulyaoth -c "unzip master.zip"
 su ulyaoth -c "cp -rf naxsi-master/* /etc/nginx/modules/naxsi/"
 su ulyaoth -c "rm -rf naxsi-master master.zip"
+su ulyaoth -c "cp /etc/nginx/modules/naxsi/naxsi_config/naxsi_core.rules /home/ulyaoth/rpmbuild/SOURCES/"
 cd /etc/nginx/modules/
 su ulyaoth -c "tar cvf naxsi.tar.gz naxsi"
 su ulyaoth -c "mv naxsi.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"

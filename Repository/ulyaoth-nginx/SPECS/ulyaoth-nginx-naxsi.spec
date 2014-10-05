@@ -72,6 +72,7 @@ Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
 Source10: naxsi.tar.gz
+Source11: naxsi_core.rules
 
 License: 2-clause BSD-like license
 
@@ -201,6 +202,8 @@ make %{?_smp_mflags}
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
+%{__install} -m 644 -p %{SOURCE11} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/naxsi_core.rules   
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
