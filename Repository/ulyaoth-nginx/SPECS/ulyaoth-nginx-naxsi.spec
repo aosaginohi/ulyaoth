@@ -204,6 +204,8 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE11} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/naxsi_core.rules   
+%{__install} -m 644 -p %{SOURCE12} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nbs.rules 
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
@@ -263,6 +265,8 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
+%config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
+%config(noreplace) %{_sysconfdir}/nginx/nbs.rules
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
