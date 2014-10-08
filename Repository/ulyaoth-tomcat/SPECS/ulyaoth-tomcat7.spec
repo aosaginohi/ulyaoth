@@ -41,7 +41,7 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7
-Version:    7.0.55
+Version:    7.0.56
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -173,6 +173,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Oct 8 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.56-1
+- Updated to Tomcat 7.0.56.
+
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.55-1
 - Support for Fedora 21.
 
