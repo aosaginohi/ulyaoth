@@ -9,6 +9,8 @@ su ulyaoth -c "unzip release-1.9.32.1-beta.zip"
 su ulyaoth -c "tar xvf 1.9.32.1.tar.gz"
 su ulyaoth -c "cp -rf ngx_pagespeed-release-1.9.32.1-beta/* /etc/nginx/modules/pagespeed/"
 su ulyaoth -c "mv psol/ /etc/nginx/modules/pagespeed/"
+su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Debug/linux/ia32"
+su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Release/linux/ia32"
 su ulyaoth -c "rm -rf 1.9.32.1.tar.gz ngx_pagespeed-release-1.9.32.1-beta release-1.9.32.1-beta.zip"
 cd /etc/nginx/modules/
 su ulyaoth -c "tar cvf pagespeed.tar.gz pagespeed"
