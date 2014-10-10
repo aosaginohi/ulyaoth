@@ -54,7 +54,7 @@ Requires(pre): pwdutils
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx-passenger
+Name: ulyaoth-nginx-pagespeed
 Version: 1.6.2
 Release: 1%{?dist}.1.9.32.1-beta
 Vendor: nginx inc.
@@ -66,33 +66,28 @@ Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
 Source4: nginx.conf
-Source5: nginx.vh.default.conf
+Source5: nginx.vh.default-pagespeed.conf
 Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
-Source10: nginx.vh.passenger.conf
-Source11: passenger.tar.gz
+Source10: pagespeed.tar.gz
 
 License: 2-clause BSD-like license
 
 Requires: openssl
-Requires: ruby
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
-BuildRequires: ruby
-BuildRequires: ruby-devel
 BuildRequires: curl-devel
-BuildRequires: rubygem-rake
 
 Provides: webserver
 Provides: nginx
-Provides: nginx-passenger
-Provides: passenger
+Provides: nginx-pagespeed
+Provides: ulyaoth-nginx-pagespeed
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -101,7 +96,7 @@ a mail proxy server.
 %package debug
 Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-passenger
+Requires: ulyaoth-nginx-pagespeed
 %description debug
 Not stripped version of nginx built with the debugging log support.
 
@@ -137,8 +132,8 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-	    --add-module=/etc/nginx/modules/passenger/ext/nginx \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/pagespeed \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -178,8 +173,8 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-        --add-module=/etc/nginx/modules/passenger/ext/nginx \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/pagespeed \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -202,8 +197,8 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
-
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
+
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
@@ -211,21 +206,18 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%{__install} -m 644 -p %{SOURCE10} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/passenger.conf
-
+   
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
 
-#Create vhost directories
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled   
-   
-# Install Passenger
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
-tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
 
+# Install Pagespeed
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
+tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
+   
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -268,12 +260,9 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %dir %{_sysconfdir}/nginx/modules
 %{_sysconfdir}/nginx/modules/*
 
-
-
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/passenger.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
 %config(noreplace) %{_sysconfdir}/nginx/fastcgi_params
 %config(noreplace) %{_sysconfdir}/nginx/scgi_params
@@ -299,7 +288,6 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
 
-
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
 
@@ -323,7 +311,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-passenger!
+Thanks for using ulyaoth-nginx-pagespeed!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -341,7 +329,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permisions on default log files on installation
+    # Touch and set permissions on default log files on installation
 
     if [ -d %{_localstatedir}/log/nginx ]; then
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
@@ -381,4 +369,5 @@ fi
 
 %changelog
 * Fri Oct 10 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
-- Support for Fedora 21.
+- Initial release.
+- Pagespeed version 1.9.32.1-beta.
