@@ -1,5 +1,5 @@
 #
-%define _missing_build_ids_terminate_build 0
+%undefine _missing_build_ids_terminate_build
 %define nginx_home %{_localstatedir}/cache/nginx
 %define nginx_user nginx
 %define nginx_group nginx
