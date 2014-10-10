@@ -58,6 +58,7 @@ Summary: High performance web server
 Name: ulyaoth-nginx-pagespeed
 Version: 1.6.2
 Release: 1%{?dist}.1.9.32.1
+BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
