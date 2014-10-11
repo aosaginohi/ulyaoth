@@ -78,6 +78,10 @@ Source10: pagespeed.tar.gz
 License: 2-clause BSD-like license
 
 Requires: openssl
+Requires: glibc
+Requires: libgcc
+Requires: libstdc++
+Requires: nss-softokn-freebl
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
@@ -85,6 +89,7 @@ BuildRequires: pcre-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
+
 
 Provides: webserver
 Provides: nginx
