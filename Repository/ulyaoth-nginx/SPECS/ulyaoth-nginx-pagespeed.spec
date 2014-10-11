@@ -372,6 +372,6 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Fri Oct 10 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+* Sat Oct 11 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Initial release.
 - Pagespeed version 1.9.32.1-beta.
