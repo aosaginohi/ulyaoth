@@ -67,8 +67,8 @@ Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
-Source4: nginx.conf
-Source5: nginx.vh.default-pagespeed.conf
+Source4: nginx-pagespeed.conf
+Source5: nginx.vh.default.conf
 Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
@@ -294,7 +294,7 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_datadir}/nginx/html/*
 
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
-%attr(0755,root,root) %dir %{_localstatedir}/cache/nginx/pagespeed_cache
+%attr(0755,nginx,root) %dir %{_localstatedir}/cache/nginx/pagespeed_cache
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
 
 %files debug
