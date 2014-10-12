@@ -4,7 +4,7 @@ su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "git clone https://github.com/gnosek/fcgiwrap"
 su ulyaoth -c "sed -i 's/http/fcgiwrap/g' /home/ulyaoth/fcgiwrap/systemd/fcgiwrap.service"
 su ulyaoth -c "rm -rf /home/ulyaoth/fcgiwrap/.git/"
-su ulyaoth -c "tar cvf  fcgiwrap"
+su ulyaoth -c "tar cvf fcgiwrap.tar.gz fcgiwrap"
 su ulyaoth -c "mv fcgiwrap.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/SPEC/ulyaoth-fcgiwrap.spec"
