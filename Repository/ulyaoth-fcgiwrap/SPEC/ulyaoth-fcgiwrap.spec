@@ -38,8 +38,9 @@ make
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 %files
-%attr(0755,root,root) /usr/lib/systemd/system/fcgiwrap.service
-%attr(0755,root,root) /usr/lib/systemd/system/fcgiwrap.socket
+%defattr(-,root,root)
+%{_unitdir}/fcgiwrap.service
+%{_unitdir}/fcgiwrap.socket
 %doc README.rst
 %{_sbindir}/fcgiwrap
 %{_mandir}/man8/fcgiwrap.8*
