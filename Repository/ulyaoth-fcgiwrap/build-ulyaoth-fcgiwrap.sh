@@ -7,6 +7,7 @@ su ulyaoth -c "rm -rf /home/ulyaoth/fcgiwrap/.git/"
 su ulyaoth -c "tar cvf  fcgiwrap"
 su ulyaoth -c "mv fcgiwrap.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS/
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/SPEC/ulyaoth-fcgiwrap.spec"
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-fcgiwrap.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-fcgiwrap.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/

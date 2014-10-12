@@ -23,10 +23,7 @@ Provides: fcgiwrap
 Provides: ulyaoth-fcgiwrap
 
 %description
-fcgiwrap is a simple server for running CGI applications over FastCGI.
-It hopes to provide clean CGI support to Nginx (and other web servers
-that may need it).
-
+fcgiwrap is a simple server for running CGI applications over FastCGI. It hopes to provide clean CGI support to Nginx (and other web servers that may need it).
 
 %prep
 %setup -q -n fcgiwrap
