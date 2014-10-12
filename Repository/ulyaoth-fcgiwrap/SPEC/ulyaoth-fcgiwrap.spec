@@ -1,3 +1,5 @@
+#
+%define fcgiwrap_home %{_sbindir}
 %define fcgiwrap_user fcgiwrap
 %define fcgiwrap_group fcgiwrap
 
@@ -36,6 +38,15 @@ make
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
+
+%if 0%{?fedora} == 19
+%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
+cp %{_builddir}%{_unitdir}/fcgiwrap.service $RPM_BUILD_ROOT%{_unitdir}
+cp %{_builddir}%{_unitdir}/fcgiwrap.socket $RPM_BUILD_ROOT%{_unitdir}
+%endif
+
+%clean
+%{__rm} -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
