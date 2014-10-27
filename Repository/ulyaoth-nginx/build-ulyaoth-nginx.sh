@@ -25,3 +25,6 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 yum-builddep -y ulyaoth-nginx.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+rm -rf /etc/nginx
+rm -rf /root/build-ulyaoth-nginx.sh
+rm -rf /home/ulyaoth/rpmbuild
