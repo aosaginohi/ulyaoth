@@ -56,7 +56,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx
 Version: 1.6.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
