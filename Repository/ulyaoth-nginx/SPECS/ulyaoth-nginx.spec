@@ -132,7 +132,8 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	--with-http_geoip_module \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -172,7 +173,8 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	--with-http_geoip_module \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -356,6 +358,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Oct 27 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
+- Added the headers more module.
+
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Support for Fedora 21.
 
