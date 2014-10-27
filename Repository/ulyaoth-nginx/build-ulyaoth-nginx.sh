@@ -3,7 +3,7 @@ usermod -Gulyaoth ulyaoth
 mkdir -p /etc/nginx/modules
 chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/
-rpmdev-setuptree
+su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "wget https://github.com/openresty/headers-more-nginx-module/archive/v0.25.tar.gz"
 su ulyaoth -c "tar xvf v0.25.tar.gz"
 su ulyaoth -c "mv headers-more-nginx-module-0.25 /etc/nginx/modules/headersmore"
