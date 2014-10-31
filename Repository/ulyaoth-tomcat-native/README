@@ -1,1 +1,1 @@
-Please be aware this spec file is based on the original spec file that nginx provides in their source rpm packages.
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-tomcat-native.sh
