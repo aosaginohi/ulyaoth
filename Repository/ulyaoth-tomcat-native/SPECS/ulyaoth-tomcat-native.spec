@@ -6,7 +6,7 @@
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native
-Version:    1.1.31
+Version:    1.1.32
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -88,6 +88,10 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Fri Nov 1 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.32-1
+- Update to version 1.1.32.
+- http://tomcat.apache.org/native-doc/miscellaneous/changelog.html
+
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.31-1
 - Support for Fedora 21.
 
