@@ -41,7 +41,7 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8
-Version:    8.0.14
+Version:    8.0.15
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -173,6 +173,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Nov 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.15-1
+- Update to Tomcat 8.0.15.
+
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.14-1
 - Support for Fedora 21.
 - Update to Tomcat 8.0.14.
