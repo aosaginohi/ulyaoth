@@ -1,4 +1,5 @@
 
+%define __jar_repack %{nil}
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
@@ -54,7 +55,6 @@ cp -R * %{buildroot}/%{tomcat_home}/
 %files
 %defattr(-,%{tomcat_user},%{tomcat_group})
 %{tomcat_home}/*
-%dir %{_localstatedir}/log/tomcat
 
 %post
 cat <<BANNER
