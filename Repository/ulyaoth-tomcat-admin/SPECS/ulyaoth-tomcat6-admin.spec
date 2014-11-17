@@ -72,7 +72,6 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-fi
 
 %changelog
 * Mon Nov 17 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.41-1
