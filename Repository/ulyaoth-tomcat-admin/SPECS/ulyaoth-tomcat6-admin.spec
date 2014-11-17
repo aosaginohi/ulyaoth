@@ -1,5 +1,4 @@
 
-%define __jar_repack %{nil}
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
@@ -24,13 +23,7 @@ Provides: ulyaoth-tomcat-admin
 Provides: ulyaoth-tomcat6-admin
 
 %description
-Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. The Java Servlet and JavaServer Pages specifications are developed under the Java Community Process.
-
-Apache Tomcat is developed in an open and participatory environment and released under the Apache License version 2. Apache Tomcat is intended to be a collaboration of the best-of-breed developers from around the world. We invite you to participate in this open development project. To learn more about getting involved, click here.
-
-Apache Tomcat powers numerous large-scale, mission-critical web applications across a diverse range of industries and organizations. Some of these users and their stories are listed on the PoweredBy wiki page.
-
-Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat project logo are trademarks of the Apache Software Foundation.
+The package contains the official Apache Tomcat "webapps/manager" and "webapps/host-manager" directories.
 
 %prep
 %setup -q -n apache-tomcat-%{version}
@@ -62,15 +55,6 @@ cp -R * %{buildroot}/%{tomcat_home}/
 %defattr(-,%{tomcat_user},%{tomcat_group})
 %{tomcat_home}/*
 %dir %{_localstatedir}/log/tomcat
-
-%defattr(-,root,root)
-%config(noreplace) %{_sysconfdir}/logrotate.d/tomcat
-%if %{use_systemd}
-%{_unitdir}/tomcat.service
-%else
-%{_initrddir}/tomcat
-%endif
-
 
 %post
 cat <<BANNER
