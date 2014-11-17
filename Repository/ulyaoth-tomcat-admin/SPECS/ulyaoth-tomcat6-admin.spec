@@ -36,18 +36,19 @@ install -d -m 755 %{buildroot}/%{tomcat_home}/
 cp -R * %{buildroot}/%{tomcat_home}/
 
 # Delete all files except webapp admin
-%{__rm} -rf %{tomcat_home}/bin
-%{__rm} -rf %{tomcat_home}/conf
-%{__rm} -rf %{tomcat_home}/lib
-%{__rm} -rf %{tomcat_home}/LICENSE
-%{__rm} -rf %{tomcat_home}/NOTICE
-%{__rm} -rf %{tomcat_home}/RELEASE-NOTES
-%{__rm} -rf %{tomcat_home}/RUNNING.txt
-%{__rm} -rf %{tomcat_home}/temp
-%{__rm} -rf %{tomcat_home}/work
-%{__rm} -rf %{tomcat_home}/webapps/docs
-%{__rm} -rf %{tomcat_home}/webapps/examples
-%{__rm} -rf %{tomcat_home}/webapps/ROOT
+%{__rm} -rf %{buildroot}/%{tomcat_home}/bin
+%{__rm} -rf %{buildroot}/%{tomcat_home}/conf
+%{__rm} -rf %{buildroot}/%{tomcat_home}/lib
+%{__rm} -rf %{buildroot}/%{tomcat_home}/LICENSE
+%{__rm} -rf %{buildroot}/%{tomcat_home}/NOTICE
+%{__rm} -rf %{buildroot}/%{tomcat_home}/RELEASE-NOTES
+%{__rm} -rf %{buildroot}/%{tomcat_home}/RUNNING.txt
+%{__rm} -rf %{buildroot}/%{tomcat_home}/temp
+%{__rm} -rf %{buildroot}/%{tomcat_home}/work
+%{__rm} -rf %{buildroot}/%{tomcat_home}/logs
+%{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/docs
+%{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/examples
+%{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/ROOT
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
