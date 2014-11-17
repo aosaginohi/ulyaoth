@@ -101,6 +101,9 @@ cd -
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/tomcat
 
+# Clean webapps
+%{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/*
+   
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
