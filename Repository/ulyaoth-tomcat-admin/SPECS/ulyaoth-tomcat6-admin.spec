@@ -16,6 +16,8 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0:    apache-tomcat-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
+Requires: ulyaoth-tomcat6
+
 Provides: tomcat-admin
 Provides: apache-tomcat-admin
 Provides: ulyaoth-tomcat-admin
@@ -39,29 +41,19 @@ Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat project
 install -d -m 755 %{buildroot}/%{tomcat_home}/
 cp -R * %{buildroot}/%{tomcat_home}/
 
-# Put logging in /var/log and link back.
-rm -rf %{buildroot}/%{tomcat_home}/logs
-install -d -m 755 %{buildroot}/var/log/tomcat/
-cd %{buildroot}/%{tomcat_home}/
-ln -s /var/log/tomcat/ logs
-cd -
-
-%if %{use_systemd}
-# install systemd-specific files
-%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
-%{__install} -m644 %SOURCE1 \
-        $RPM_BUILD_ROOT%{_unitdir}/tomcat.service
-%else
-# install SYSV init stuff
-%{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%{__install} -m755 %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_initrddir}/tomcat
-%endif
-
-# install log rotation stuff
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
-%{__install} -m 644 -p %{SOURCE3} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/tomcat
+# Delete all files except webapp admin
+%{__rm} -rf %{tomcat_home}/bin
+%{__rm} -rf %{tomcat_home}/conf
+%{__rm} -rf %{tomcat_home}/lib
+%{__rm} -rf %{tomcat_home}/LICENSE
+%{__rm} -rf %{tomcat_home}/NOTICE
+%{__rm} -rf %{tomcat_home}/RELEASE-NOTES
+%{__rm} -rf %{tomcat_home}/RUNNING.txt
+%{__rm} -rf %{tomcat_home}/temp
+%{__rm} -rf %{tomcat_home}/work
+%{__rm} -rf %{tomcat_home}/webapps/docs
+%{__rm} -rf %{tomcat_home}/webapps/examples
+%{__rm} -rf %{tomcat_home}/webapps/ROOT
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -70,13 +62,6 @@ cd -
 %defattr(-,%{tomcat_user},%{tomcat_group})
 %{tomcat_home}/*
 %dir %{_localstatedir}/log/tomcat
-%config(noreplace) %{tomcat_home}/conf/web.xml
-%config(noreplace) %{tomcat_home}/conf/tomcat-users.xml
-%config(noreplace) %{tomcat_home}/conf/server.xml
-%config(noreplace) %{tomcat_home}/conf/logging.properties
-%config(noreplace) %{tomcat_home}/conf/context.xml
-%config(noreplace) %{tomcat_home}/conf/catalina.properties
-%config(noreplace) %{tomcat_home}/conf/catalina.policy
 
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/logrotate.d/tomcat
