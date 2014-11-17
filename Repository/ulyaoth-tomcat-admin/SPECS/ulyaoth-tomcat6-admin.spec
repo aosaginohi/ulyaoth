@@ -58,6 +58,8 @@ cp -R * %{buildroot}/%{tomcat_home}/
 %defattr(-,%{tomcat_user},%{tomcat_group})
 %dir %{tomcat_home}/webapps/host-manager
 %dir %{tomcat_home}/webapps/manager
+%{tomcat_home}/webapps/manager/*
+%{tomcat_home}/webapps/host-manager/*
 
 %post
 cat <<BANNER
