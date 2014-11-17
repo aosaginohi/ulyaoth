@@ -56,7 +56,8 @@ cp -R * %{buildroot}/%{tomcat_home}/
 
 %files
 %defattr(-,%{tomcat_user},%{tomcat_group})
-%{tomcat_home}/*
+%dir %{tomcat_home}/webapp/host-manager
+%dir %{tomcat_home}/webapp/manager
 
 %post
 cat <<BANNER
