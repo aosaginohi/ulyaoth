@@ -15,10 +15,9 @@ URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0:    apache-tomcat-%{version}.tar.gz
-Source1:    tomcat.service
-Source2:    tomcat.init
-Source3:    tomcat.logrotate
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
+
+Requires: ulyaoth-tomcat8
 
 Provides: tomcat-admin
 Provides: apache-tomcat-admin

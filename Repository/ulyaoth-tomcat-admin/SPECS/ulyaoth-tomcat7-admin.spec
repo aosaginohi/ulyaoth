@@ -17,6 +17,8 @@ Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0:    apache-tomcat-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
+Requires: ulyaoth-tomcat7
+
 Provides: tomcat-admin
 Provides: apache-tomcat-admin
 Provides: ulyaoth-tomcat-admin

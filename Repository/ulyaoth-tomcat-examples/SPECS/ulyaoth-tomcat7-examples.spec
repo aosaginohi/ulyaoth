@@ -6,7 +6,7 @@
 %define tomcat_user tomcat
 
 Summary:    Apache Servlet/JSP Engine
-Name:       ulyaoth-tomcat7-docs
+Name:       ulyaoth-tomcat7-examples
 Version:    7.0.56
 Release:    1%{?dist}
 License:    Apache License version 2
@@ -19,13 +19,13 @@ BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat7
 
-Provides: tomcat-docs
-Provides: apache-tomcat-docs
-Provides: ulyaoth-tomcat-docs
-Provides: ulyaoth-tomcat7-docs
+Provides: tomcat-examples
+Provides: apache-tomcat-examples
+Provides: ulyaoth-tomcat-examples
+Provides: ulyaoth-tomcat7-examples
 
 %description
-The package contains the official Apache Tomcat "webapps/docs" directory.
+The package contains the official Apache Tomcat "webapps/examples" and "webapps/ROOT" directories.
 
 %prep
 %setup -q -n apache-tomcat-%{version}
@@ -36,7 +36,7 @@ The package contains the official Apache Tomcat "webapps/docs" directory.
 install -d -m 755 %{buildroot}/%{tomcat_home}/
 cp -R * %{buildroot}/%{tomcat_home}/
 
-# Delete all files except webapp docs
+# Delete all files except webapp admin
 %{__rm} -rf %{buildroot}/%{tomcat_home}/bin
 %{__rm} -rf %{buildroot}/%{tomcat_home}/conf
 %{__rm} -rf %{buildroot}/%{tomcat_home}/lib
@@ -47,8 +47,7 @@ cp -R * %{buildroot}/%{tomcat_home}/
 %{__rm} -rf %{buildroot}/%{tomcat_home}/temp
 %{__rm} -rf %{buildroot}/%{tomcat_home}/work
 %{__rm} -rf %{buildroot}/%{tomcat_home}/logs
-%{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/examples
-%{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/ROOT
+%{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/docs
 %{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/host-manager
 %{__rm} -rf %{buildroot}/%{tomcat_home}/webapps/manager
 
@@ -57,14 +56,16 @@ cp -R * %{buildroot}/%{tomcat_home}/
 
 %files
 %defattr(-,%{tomcat_user},%{tomcat_group})
-%dir %{tomcat_home}/webapps/docs
-%{tomcat_home}/webapps/docs/*
+%dir %{tomcat_home}/webapps/examples
+%dir %{tomcat_home}/webapps/ROOT
+%{tomcat_home}/webapps/examples/*
+%{tomcat_home}/webapps/ROOT/*
 
 %post
 cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tomcat7-docs!
+Thanks for using ulyaoth-tomcat7-examples!
 
 Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
@@ -77,4 +78,4 @@ BANNER
 
 %changelog
 * Mon Nov 17 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.56-1
-- Creating separate package for the documentation.
+- Creating separate package for the example files.
