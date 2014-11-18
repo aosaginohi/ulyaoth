@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7-examples
-Version:    7.0.56
+Version:    7.0.57
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -77,5 +77,8 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Tue Nov 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.57-1
+- Update to tomcat 7.0.57.
+
 * Mon Nov 17 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.56-1
 - Creating separate package for the example files.
