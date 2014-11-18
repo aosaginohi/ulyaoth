@@ -1,1 +1,10 @@
-Please be aware this spec file is based on the original spec file that nginx provides in their source rpm packages.
+How to create a package:
+
+ulyaoth-tomcat6-examples:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat6-examples.sh ; chmod +x build-ulyaoth-tomcat6-examples.sh ; ./build-ulyaoth-tomcat6-examples.sh
+
+ulyaoth-tomcat7-examples:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat7-examples.sh ; chmod +x build-ulyaoth-tomcat7-examples.sh ; ./build-ulyaoth-tomcat7-examples.sh
+
+ulyaoth-tomcat8-examples:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat8-examples.sh ; chmod +x build-ulyaoth-tomcat8-examples.sh ; ./build-ulyaoth-tomcat8-examples.sh
