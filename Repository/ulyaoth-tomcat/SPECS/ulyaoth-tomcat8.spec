@@ -1,5 +1,6 @@
 
 %define __jar_repack %{nil}
+%define debug_package %{nil}
 %define tomcat_home /opt/tomcat
 %define tomcat_group tomcat
 %define tomcat_user tomcat
