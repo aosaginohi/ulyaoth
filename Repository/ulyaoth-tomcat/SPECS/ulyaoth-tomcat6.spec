@@ -42,7 +42,7 @@ BuildRequires: systemd
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat6
 Version:    6.0.41
-Release:    1%{?dist}
+Release:    2%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
@@ -176,6 +176,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue Nov 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.41-2
+- New rpms contain from now on a empty webapps dir, see new packages for admin interface.
+
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.41-1
 - Support for Fedora 21.
 
