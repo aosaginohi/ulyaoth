@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat6-examples
-Version:    6.0.41
+Version:    6.0.43
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -77,5 +77,8 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Tue Nov 25 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.43-1
+- Update to version 6.0.43.
+
 * Mon Nov 17 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.41-1
 - Creating separate package for the example files.
