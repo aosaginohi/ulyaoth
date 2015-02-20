@@ -42,8 +42,8 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8
-Version:    8.0.15
-Release:    2%{?dist}
+Version:    8.0.18
+Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
@@ -177,6 +177,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.18-1
+- Update to Tomcat 8.0.18.
+
 * Tue Nov 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.15-2
 - New rpms contain from now on a empty webapps dir, see new packages for admin interface.
 

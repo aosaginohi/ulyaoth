@@ -42,7 +42,7 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7
-Version:    7.0.57
+Version:    7.0.59
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -177,6 +177,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.59-1
+- Updated to Tomcat 7.0.59.
+
 * Tue Nov 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.57-1
 - New rpms contain from now on a empty webapps dir, see new packages for admin interface.
 - Updated to Tomcat 7.0.57.

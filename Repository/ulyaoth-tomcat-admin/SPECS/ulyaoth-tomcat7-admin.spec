@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7-admin
-Version:    7.0.57
+Version:    7.0.59
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -77,6 +77,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.59-1
+- Update to tomcat 7.0.59.
+
 * Tue Nov 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.57-1
 - Update to tomcat 7.0.57.
 
