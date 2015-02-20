@@ -3,15 +3,15 @@ cd /home/ulyaoth/
 mkdir -p /etc/nginx/modules/pagespeed
 chown -R ulyaoth:ulyaoth /etc/nginx
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "wget https://github.com/pagespeed/ngx_pagespeed/archive/release-1.9.32.1-beta.zip"
-su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/1.9.32.1.tar.gz"
-su ulyaoth -c "unzip release-1.9.32.1-beta.zip"
-su ulyaoth -c "tar xvf 1.9.32.1.tar.gz"
-su ulyaoth -c "cp -rf ngx_pagespeed-release-1.9.32.1-beta/* /etc/nginx/modules/pagespeed/"
+su ulyaoth -c "wget https://github.com/pagespeed/ngx_pagespeed/archive/release-1.9.32.3-beta.zip"
+su ulyaoth -c "wget https://dl.google.com/dl/page-speed/psol/1.9.32.3.tar.gz"
+su ulyaoth -c "unzip release-1.9.32.3-beta.zip"
+su ulyaoth -c "tar xvf 1.9.32.3.tar.gz"
+su ulyaoth -c "cp -rf ngx_pagespeed-release-1.9.32.3-beta/* /etc/nginx/modules/pagespeed/"
 su ulyaoth -c "mv psol/ /etc/nginx/modules/pagespeed/"
 su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Debug/linux/ia32"
 su ulyaoth -c "rm -rf /etc/nginx/modules/pagespeed/psol/lib/Release/linux/ia32"
-su ulyaoth -c "rm -rf 1.9.32.1.tar.gz ngx_pagespeed-release-1.9.32.1-beta release-1.9.32.1-beta.zip"
+su ulyaoth -c "rm -rf 1.9.32.3.tar.gz ngx_pagespeed-release-1.9.32.3-beta release-1.9.32.3-beta.zip"
 cd /etc/nginx/modules/pagespeed/
 su ulyaoth -c "tar cvf pagespeed.tar.gz scripts/ test/"
 su ulyaoth -c "mv pagespeed.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
