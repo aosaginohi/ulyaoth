@@ -34,13 +34,17 @@ BuildRequires: GeoIP-devel
 %endif
 
 %if 0%{?fedora} == 20
+Requires: systemd
 Requires: GeoIP
+BuildRequires: systemd
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
 %endif
 
 %if 0%{?fedora} == 21
+Requires: systemd
 Requires: GeoIP
+BuildRequires: systemd
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
 %endif
