@@ -56,7 +56,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-modsecurity
 Version: 1.6.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -370,6 +370,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
+- Updated to ModSecurity 2.9.0.
+
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Support for Fedora 21.
 

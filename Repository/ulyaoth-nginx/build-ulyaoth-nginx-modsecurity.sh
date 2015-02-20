@@ -4,10 +4,10 @@ cd /root
 rpmdev-setuptree
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
-wget https://www.modsecurity.org/tarball/2.8.0/modsecurity-2.8.0.tar.gz
-tar xvf modsecurity-2.8.0.tar.gz
-mv modsecurity-2.8.0 modsecurity
-rm -rf modsecurity-2.8.0.tar.gz
+wget https://www.modsecurity.org/tarball/2.9.0/modsecurity-2.9.0.tar.gz
+tar xvf modsecurity-2.9.0.tar.gz
+mv modsecurity-2.9.0 modsecurity
+rm -rf modsecurity-2.9.0.tar.gz
 cd modsecurity
 ./autogen.sh
 ./configure --enable-standalone-module
