@@ -60,7 +60,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-passenger
 Version: 1.6.2
-Release: 1%{?dist}.1.9.32.1-beta
+Release: 1%{?dist}.4.0.59
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -384,5 +384,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+- Updated to passenger 4.0.59.
+
 * Fri Oct 10 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Support for Fedora 21.
