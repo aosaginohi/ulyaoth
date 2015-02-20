@@ -335,9 +335,8 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-Please find the official documentation for pagespeed here:
-* https://developers.google.com/speed/pagespeed/
-* https://github.com/pagespeed/ngx_pagespeed
+Please find the official documentation for passenger here:
+* https://www.phusionpassenger.com/ 
 
 For any additional help please visit my forum at:
 * http://www.ulyaoth.net
@@ -385,7 +384,35 @@ fi
 
 %changelog
 * Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
-- Updated to passenger 4.0.59.
+- Added rpms for Passenger 4.0.55.
+- Added rpms for Passenger 4.0.56.
+- Added rpms for Passenger 4.0.57.
+- Added rpms for Passenger 4.0.58.
+- Added rpms for Passenger 4.0.59.
 
-* Fri Oct 10 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Support for Fedora 21.
+- Added rpms for Passenger 4.0.51.
+- Added rpms for Passenger 4.0.52.
+- Added rpms for Passenger 4.0.53.
+
+* Thu Sep 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+- Updated to Nginx 1.6.2.
+
+* Mon Sep 15 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-2
+- Updated to Passenger 4.0.50.
+
+* Sat Aug 23 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
+- Updating to Nginx 1.6.1.
+- Added rpms for Passenger 4.0.49.
+- Force adding SPDY.
+- Change spec to Unix encoding.
+
+* Thu Jul 31 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
+- Updated spec file to Passenger 4.0.48
+- Added rpms for Passenger 4.0.46.
+
+* Wed Jun 25 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
+- Updated to Nginx 1.6.0.
+- Updated to Passenger 4.0.45.
+- Fixed Passenger structure for more easy updates.
