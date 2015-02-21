@@ -28,17 +28,15 @@ License: GPL
 
 %if 0%{?fedora} == 19
 BuildRequires: libsq3-devel
-BuildRequires: libzip-devel
+
 %endif
 
 %if 0%{?fedora} == 20
 BuildRequires: libsq3-devel
-BuildRequires: libzip-devel
 %endif
 
 %if 0%{?fedora} == 21
 BuildRequires: libsq3-devel
-BuildRequires: libzip-devel
 %endif
 
 Requires: boost
@@ -47,6 +45,7 @@ Requires: boost-build
 Requires: glog
 
 BuildRoot: %{_tmppath}/hhvm-%{version}
+BuildRequires: libzip-devel
 BuildRequires: double-conversion-devel
 BuildRequires: lz4-devel
 BuildRequires: libc-client-devel
