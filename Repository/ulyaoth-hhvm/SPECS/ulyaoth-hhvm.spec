@@ -22,13 +22,8 @@ Source5: static.mime-types.hdf
 
 License: GPL
 
-
-%if 0%{?rhel}  == 7
-%endif
-
 %if 0%{?fedora} == 19
 BuildRequires: libsq3-devel
-
 %endif
 
 %if 0%{?fedora} == 20
