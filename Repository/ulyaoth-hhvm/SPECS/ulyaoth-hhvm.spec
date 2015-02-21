@@ -27,29 +27,17 @@ License: GPL
 %endif
 
 %if 0%{?fedora} == 19
-BuildRequires: jemalloc-devel
-BuildRequires: libc-client-devel
-BuildRequires: lz4-devel
 BuildRequires: libsq3-devel
-BuildRequires: double-conversion-devel
 BuildRequires: libzip-devel
 %endif
 
 %if 0%{?fedora} == 20
-BuildRequires: jemalloc-devel
-BuildRequires: libc-client-devel
-BuildRequires: lz4-devel
 BuildRequires: libsq3-devel
-BuildRequires: double-conversion-devel
 BuildRequires: libzip-devel
 %endif
 
 %if 0%{?fedora} == 21
-BuildRequires: jemalloc-devel
-BuildRequires: libc-client-devel
-BuildRequires: lz4-devel
 BuildRequires: libsq3-devel
-BuildRequires: double-conversion-devel
 BuildRequires: libzip-devel
 %endif
 
@@ -59,6 +47,10 @@ Requires: boost-build
 Requires: glog
 
 BuildRoot: %{_tmppath}/hhvm-%{version}
+BuildRequires: double-conversion-devel
+BuildRequires: lz4-devel
+BuildRequires: libc-client-devel
+BuildRequires: jemalloc-devel
 BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: make

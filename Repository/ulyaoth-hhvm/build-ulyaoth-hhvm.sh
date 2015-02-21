@@ -3,15 +3,7 @@ cd /home/ulyaoth
 
 if grep -q -i "release 7" /etc/redhat-release
 then
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/o/oniguruma-5.9.5-3.el7.x86_64.rpm
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/o/oniguruma-devel-5.9.5-3.el7.x86_64.rpm
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/g/glog-0.3.3-8.el7.x86_64.rpm
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/g/glog-devel-0.3.3-8.el7.x86_64.rpm
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/l/libmcrypt-2.5.8-13.el7.x86_64.rpm
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/l/libmcrypt-devel-2.5.8-13.el7.x86_64.rpm
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/l/libc-client-2007f-4.el7.1.x86_64.rpm
-yum -y install oniguruma-5.9.5-3.el7.x86_64.rpm oniguruma-devel-5.9.5-3.el7.x86_64.rpm glog-0.3.3-8.el7.x86_64.rpm glog-devel-0.3.3-8.el7.x86_64.rpm libmcrypt-2.5.8-13.el7.x86_64.rpm libmcrypt-devel-2.5.8-13.el7.x86_64.rpm libc-client-2007f-4.el7.1.x86_64.rpm
-rm -rf /home/ulyaoth/oniguruma-5.9.5-3.el7.x86_64.rpm oniguruma-devel-5.9.5-3.el7.x86_64.rpm glog-0.3.3-8.el7.x86_64.rpm glog-devel-0.3.3-8.el7.x86_64.rpm libmcrypt-2.5.8-13.el7.x86_64.rpm libmcrypt-devel-2.5.8-13.el7.x86_64.rpm libc-client-2007f-4.el7.1.x86_64.rpm
+yum install -y yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
