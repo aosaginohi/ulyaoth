@@ -7,6 +7,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-kibana/SOURCES/kibana.service"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-kibana/SPECS/ulyaoth-kibana4.spec"
+yum-builddep -y ulyaoth-kibana4.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-kibana4.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
