@@ -92,14 +92,14 @@ getent passwd %{kibana_user} >/dev/null || /usr/sbin/useradd --comment "Kibana D
 
 %files
 %defattr(-,%{kibana_user},%{kibana_group})
-%{tomcat_home}/*
+%{kibana_home}/*
 %config(noreplace) %{kibana_home}/conf/web.xml
 
 %defattr(-,root,root)
 %if %{use_systemd}
 %{_unitdir}/kibana.service
 %else
-%{_initrddir}/tomcat
+%{_initrddir}/kibana
 %endif
 
 
