@@ -1,0 +1,13 @@
+[Unit]
+Description=Kibana explore and visualize your data
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/kibana/bin/startup.sh
+ExecStop=/opt/kibana/bin/shutdown.sh
+User=kibana
+Group=kibana
+
+[Install]
+WantedBy=multi-user.target
