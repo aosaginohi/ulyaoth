@@ -1,34 +1,44 @@
-#!/bin/bash
+#!/bin/sh
 #
-# kibana     This shell script takes care of starting and stopping Kibana
+# kibana        Startup script for kibana
 #
-# chkconfig: - 80 20
+# chkconfig: - 85 15
+# processname: kibana
+# config: /opt/kibana/config/config.yml
+# pidfile: /var/run/kibana.pid
+# description: kibana explore and visualize your data
 #
 ### BEGIN INIT INFO
-# Provides: Kibana
-# Required-Start: $network $syslog $elasticsearch
-# Required-Stop: $network $syslog $elasticsearch
-# Default-Start:
-# Default-Stop:
-# Short-Description: start and stop Kibana
+# Provides: nginx
+# Required-Start: $local_fs $remote_fs $network $elasticsearch
+# Required-Stop: $local_fs $remote_fs $network $elasticsearch
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop kibana
 ### END INIT INFO
- 
+
+NAME=kibana
 KIBANA_USER=kibana
 KIBANA_HOME="/opt/kibana"
- 
+
+kibana_pid() {
+    echo `ps aux | grep kibana | grep -v grep | awk '{ print $2 }'`
+}
+
 start() {
-        # Start Kibana
-        echo "Starting Kibana"
-        /bin/su - -c "cd $KIBANA_HOME/bin && $KIBANA_HOME/bin/kibana" $KIBANA_USER
-    return 0
+  # Start kibana
+  echo "Starting Kibana"
+  /bin/su - -c "cd $KIBANA_HOME/bin && $KIBANA_HOME/bin/kibana > /dev/null 2>&1 &" $KIBANA_USER
+  return 0
 }
- 
+
 stop() {
-        echo "Stoping Kibana"
-        /bin/su - -c "cd $KIBANA_HOME/bin && $KIBANA_HOME/bin/kibana" $KIBANA_USER
-    return 0
+  pid=$(kibana_pid)
+  echo "Shutting down Kibana"
+  kill -9 $pid
+  return 0
 }
- 
+
 case $1 in
     start)
         start
@@ -41,7 +51,16 @@ case $1 in
         start
         ;;
     status)
+       pid=$(kibana_pid)
+        if [ -n "$pid" ]
+        then
+           echo "Kibana is running with pid: $pid"
+        else
+           echo "Kibana is not running"
+        fi
         ;;
+    *)
+        echo $"Usage: $NAME {start|stop|restart|status}"
 esac
- 
+
 exit 0
