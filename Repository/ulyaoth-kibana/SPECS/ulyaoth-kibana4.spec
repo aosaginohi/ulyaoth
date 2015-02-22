@@ -93,7 +93,7 @@ getent passwd %{kibana_user} >/dev/null || /usr/sbin/useradd --comment "Kibana D
 %files
 %defattr(-,%{kibana_user},%{kibana_group})
 %{kibana_home}/*
-%config(noreplace) %{kibana_home}/conf/web.xml
+%config(noreplace) %{kibana_home}/config/kibana.yml
 
 %defattr(-,root,root)
 %if %{use_systemd}
