@@ -3,9 +3,9 @@ Description=Kibana explore and visualize your data
 After=network.target
 
 [Service]
-Type=forking
-ExecStart=/opt/kibana/bin/startup.sh
-ExecStop=/opt/kibana/bin/shutdown.sh
+Type=simple
+ExecStart=/opt/kibana/bin/kibana
+ExecStop=/opt/kibana/bin/kibana
 User=kibana
 Group=kibana
 
