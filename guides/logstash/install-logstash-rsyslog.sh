@@ -17,11 +17,16 @@ semanage port -a -t http_port_t -p tcp 5601
 firewall-cmd --permanent --zone=FedoraServer --add-service=http
 firewall-cmd --permanent --zone=FedoraServer --add-service=https
 firewall-cmd --permanent --zone=FedoraServer --add-port=5544/udp
+systemctl restart firewalld.service
 systemctl enable elasticsearch.service
 systemctl enable logstash.service
 systemctl enable nginx.service
 systemctl enable kibana.service
+sleep 10
 systemctl start elasticsearch.service
+sleep 5
 systemctl start logstash.service
+sleep 5
 systemctl start nginx.service
+sleep 5
 systemctl start kibana.service
