@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<language title="한국어 (Korean)" date_format="Y/m/d" time_format="H:i" decimal_point="." thousands_separator="," language_code="en-US" text_direction="LTR">
+<language title="中文 (Chinese)" date_format="Y-m-d" time_format="H:i" decimal_point="." thousands_separator="," language_code="zh-CN" text_direction="LTR">
   <phrase title="1_day_ago" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[One day ago]]></phrase>
   <phrase title="1_month" addon_id="mercDonationManager" version_id="24" version_string="1.0 Beta 3.1.7.1"><![CDATA[1 month]]></phrase>
   <phrase title="1_month_ago" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[One month ago]]></phrase>
