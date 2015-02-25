@@ -60,7 +60,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-naxsi-masterbuild
 Version: 1.6.2
-Release: 1%{?dist}.20150225
+Release: 1.20150225%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
