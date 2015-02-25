@@ -58,9 +58,9 @@ Requires(pre): pwdutils
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx-naxsi
+Name: ulyaoth-nginx-naxsi-masterbuild
 Version: 1.6.2
-Release: 2%{?dist}
+Release: 1%{?dist}.20150225
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -378,6 +378,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150225
+- Renaming package to make clear it is a masterbuild, and adding date version.
+
 * Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
 - Updated to the latest master release from github.
 
