@@ -24,9 +24,9 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.vh.example_ssl.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nbs.rules"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SPECS/ulyaoth-nginx-naxsi.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec"
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi-masterbuild.spec"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILD/*"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/RPMS/*"
