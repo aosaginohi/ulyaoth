@@ -101,6 +101,7 @@ getent passwd %{lforward_user} >/dev/null || /usr/sbin/useradd --comment "Logsta
 
 %files
 %defattr(-,%{lforward_user},%{lforward_group})
+%{lforward_home}
 %{lforward_home}/*
 %config(noreplace) %{lforward_home}/conf/logstash-forwarder.conf
 
