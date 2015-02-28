@@ -12,7 +12,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.service"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SPECS/ulyaoth-logstash-forwarder-masterbuild.spec"
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-logstash-forwarder-masterbuild.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-logstash-forwarder-masterbuild.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 rm -rf /home/ulyaoth/rpmbuild/
 rm -rf /root/build-ulyaoth-logstash-forwarder-masterbuild.sh
