@@ -156,8 +156,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-1
-- Update to Tomcat 8.0.20.
-
 * Sat Feb 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2015.02.28-1
 - Creating spec file for Logstash Forwarder using the master branch.
