@@ -69,6 +69,7 @@ Logstash Forwarder is s tool to collect logs locally in preparation for processi
 
 %install
 install -d -m 755 %{buildroot}/%{lforward_home}/
+%{__mkdir} -p $RPM_BUILD_ROOT/ssl
 
 %if %{use_systemd}
 # install systemd-specific files
