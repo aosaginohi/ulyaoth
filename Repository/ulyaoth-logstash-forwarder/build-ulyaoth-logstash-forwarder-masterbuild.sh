@@ -1,3 +1,8 @@
+if grep -q -i "release 6" /etc/redhat-release
+then
+yum install -y  http://ftp.acc.umu.se/mirror/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+fi
+
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
