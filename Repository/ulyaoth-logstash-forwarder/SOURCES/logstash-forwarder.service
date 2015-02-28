@@ -8,7 +8,7 @@ User=lforwarder
 Group=lforwarder
 Type=forking
 PIDFile=/var/run/logstash-forwarder.pid
-ExecStart=/opt/logstash-forwarder/bin/logstash-forwarder -c /opt/logstash-forwarder/conf/logstash-forwarder.conf
+ExecStart=/opt/logstash-forwarder/bin/logstash-forwarder -config /opt/logstash-forwarder/conf/logstash-forwarder.conf
 PrivateTmp=true
  
 [Install]
