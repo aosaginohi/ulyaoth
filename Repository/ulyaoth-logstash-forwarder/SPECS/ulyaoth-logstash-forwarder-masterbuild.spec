@@ -40,7 +40,7 @@ BuildRequires: systemd
 
 Summary:    Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!
 Name:       ulyaoth-logstash-forwarder-masterbuild
-Version:    2015.02.28
+Version:    20150228
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -85,7 +85,7 @@ install -d -m 755 %{buildroot}/%{lforward_home}/
 # install binary file
 %{__mkdir} -p $RPM_BUILD_ROOT/opt/logstash-forwarder/bin
 %{__install} -m 644 -p %{SOURCE0} \
-   $RPM_BUILD_ROOT/opt/logstash-forwarder/bin/logstash-fowarder
+   $RPM_BUILD_ROOT/opt/logstash-forwarder/bin/logstash-forwarder
    
 # install configuration file
 %{__mkdir} -p $RPM_BUILD_ROOT/opt/logstash-forwarder/conf
@@ -156,5 +156,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Feb 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2015.02.28-1
+* Sat Feb 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150228-1
 - Creating spec file for Logstash Forwarder using the master branch.
