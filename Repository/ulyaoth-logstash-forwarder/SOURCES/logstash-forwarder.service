@@ -7,6 +7,7 @@ After=network.target remote-fs.target nss-lookup.target
 User=lforward
 Group=lforward
 Type=forking
+PIDFile=/var/run/logstash-forwarder.pid
 ExecStart=/opt/logstash-forwarder/bin/logstash-forwarder -config /opt/logstash-forwarder/conf/logstash-forwarder.conf
 PrivateTmp=true
  
