@@ -28,7 +28,7 @@ kibana_pid() {
 start() {
   # Start logstash-forwarder
   echo "Starting logstash-forwarder"
-  /bin/su - -c "cd $LFORWARD_HOME/bin && $LFORWARD_HOME/bin/logstash-forwarder -config $LFORWARD_HOME/conf-logstash-forwarder.conf  > /dev/null 2>&1 &" $LFORWARD_USER
+  /bin/su - -c "cd $LFORWARD_HOME/bin && $LFORWARD_HOME/bin/logstash-forwarder -config $LFORWARD_HOME/conf/logstash-forwarder.conf  > /dev/null 2>&1 &" $LFORWARD_USER
   return 0
 }
 
