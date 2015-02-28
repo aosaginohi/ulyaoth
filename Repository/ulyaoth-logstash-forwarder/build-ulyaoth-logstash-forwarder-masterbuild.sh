@@ -1,7 +1,7 @@
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-yum install go
+yum install -y go
 su ulyaoth -c "git clone git://github.com/elasticsearch/logstash-forwarder.git"
 su ulyaoth -c "cd /home/ulyaoth/logstash-forwarder/ && go build"
 su ulyaoth -c "mv /home/ulyaoth/logstash-forwarder/logstash-forwarder /home/ulyaoth/rpmbuild/SOURCES/"
