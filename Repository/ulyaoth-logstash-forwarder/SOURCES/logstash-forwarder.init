@@ -12,6 +12,7 @@
 test -f /opt/logstash-forwarder/conf/logstash-forwarder.conf && . /opt/logstash-forwarder/conf/logstash-forwarder.conf
 
 LOGSTASH_FORWARDER_BIN="/opt/logstash-forwarder/bin/logstash-forwarder"
+LFORWARDER_USER=lforward
 
 find_logstash_forwarder_process () {
     PIDTEMP=`pgrep -f ${LOGSTASH_FORWARDER_BIN}`
@@ -24,7 +25,7 @@ find_logstash_forwarder_process () {
 }
 
 start () {
-   ${LOGSTASH_FORWARDER_BIN} -config /opt/logstash-forwarder/conf/logstash-forwarder.conf &
+   /bin/su - -c "${LOGSTASH_FORWARDER_BIN} -config /opt/logstash-forwarder/conf/logstash-forwarder.conf &" $LFORWARDER_USER
 }
 
 stop () {
