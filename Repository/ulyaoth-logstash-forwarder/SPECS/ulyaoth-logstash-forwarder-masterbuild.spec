@@ -90,7 +90,7 @@ install -d -m 755 %{buildroot}/%{lforward_home}/
 # install configuration file
 %{__mkdir} -p $RPM_BUILD_ROOT/opt/logstash-forwarder/conf
 %{__install} -m 644 -p %{SOURCE3} \
-   $RPM_BUILD_ROOT/opt/logstash-forwarder/bin/logstash-fowarder
+   $RPM_BUILD_ROOT/opt/logstash-forwarder/conf/logstash-fowarder.conf
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
