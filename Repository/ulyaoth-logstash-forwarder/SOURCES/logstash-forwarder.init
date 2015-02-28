@@ -1,63 +1,66 @@
-#! /bin/sh
-# From The Logstash Book
-# The original of this file can be found at: http://logstashbook.com/code/index.html
+#!/bin/sh
 #
-# logstash-forwarder Start/Stop logstash-forwarder
+# kibana        Startup script for kibana
 #
-# chkconfig: 345 99 99
-# description: logstash-forwarder
-# processname: logstash-forwarder
+# chkconfig: - 85 15
+# processname: kibana
+# config: /opt/kibana/config/config.yml
+# pidfile: /var/run/kibana.pid
+# description: kibana explore and visualize your data
+#
+### BEGIN INIT INFO
+# Provides: nginx
+# Required-Start: $local_fs $remote_fs $network $elasticsearch
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop lforward
+### END INIT INFO
 
-# Check config
-test -f /opt/logstash-forwarder/conf/logstash-forwarder.conf && . /opt/logstash-forwarder/conf/logstash-forwarder.conf
+NAME=lforward
+LFORWARD_USER=lforward
+LFORWARD_HOME="/opt/logstash-forwarder"
 
-LOGSTASH_FORWARDER_BIN="/opt/logstash-forwarder/bin/logstash-forwarder"
-LFORWARDER_USER=lforward
-
-find_logstash_forwarder_process () {
-    PIDTEMP=`pgrep -f ${LOGSTASH_FORWARDER_BIN}`
-    # Pid not found
-    if [ "x$PIDTEMP" = "x" ]; then
-        PID=-1
-    else
-        PID=$PIDTEMP
-    fi
+kibana_pid() {
+    echo `ps aux | grep logstash-forwarder | grep -v grep | awk '{ print $2 }'`
 }
 
-start () {
-   /bin/su - -c "${LOGSTASH_FORWARDER_BIN} -config /opt/logstash-forwarder/conf/logstash-forwarder.conf &" $LFORWARDER_USER
+start() {
+  # Start logstash-forwarder
+  echo "Starting logstash-forwarder"
+  /bin/su - -c "cd $LFORWARD_HOME/bin && $LFORWARD_HOME/bin/logstash-forwarder -config $LFORWARD_HOME/conf-logstash-forwarder.conf  > /dev/null 2>&1 &" $LFORWARD_USER
+  return 0
 }
 
-stop () {
-  pkill -f ${LOGSTASH_FORWARDER_BIN}
+stop() {
+  pid=$(lforward_pid)
+  echo "Shutting down logstash-forwarder"
+  kill -9 $pid
+  return 0
 }
 
 case $1 in
-start)
+    start)
         start
         ;;
-stop)
+    stop)
         stop
-        exit 0;
         ;;
-reload)
-        stop
-        start
-        ;;
-restart)
+    restart)
         stop
         start
         ;;
-status)
-        find_logstash_forwarder_process
-        if [ $PID -gt 0 ]; then
-            exit 0
+    status)
+       pid=$(lforward_pid)
+        if [ -n "$pid" ]
+        then
+           echo "logstash-forwarder is running with pid: $pid"
         else
-            exit 1
-fi
+           echo "logstash-forwarder is not running"
+        fi
         ;;
-*fi)
-        echo $"Usage: $0 {start|stop|restart|reload|status}"
-        RETVAL=1
+    *)
+        echo $"Usage: $NAME {start|stop|restart|status}"
 esac
+
 exit 0
