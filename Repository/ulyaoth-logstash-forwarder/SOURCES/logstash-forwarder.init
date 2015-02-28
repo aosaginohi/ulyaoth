@@ -21,7 +21,7 @@ NAME=lforward
 LFORWARD_USER=lforward
 LFORWARD_HOME="/opt/logstash-forwarder"
 
-kibana_pid() {
+lforward_pid() {
     echo `ps aux | grep logstash-forwarder | grep -v grep | awk '{ print $2 }'`
 }
 
