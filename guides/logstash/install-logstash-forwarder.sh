@@ -17,19 +17,21 @@ sudo openssl req -x509 -subj '/CN=*.ulyaoth.net/' -nodes -newkey rsa:4096 -keyou
 sudo semanage port -a -t http_port_t -p tcp 9200
 sudo semanage port -a -t http_port_t -p tcp 5601
 firewall-cmd --permanent --zone=FedoraServer --add-service=http
-sleep 5
 firewall-cmd --permanent --zone=FedoraServer --add-service=https
-sleep 5
 firewall-cmd --permanent --zone=FedoraServer --add-port=5544/udp
-sleep 5
 sudo systemctl restart firewalld.service
 sudo systemctl enable elasticsearch.service
 sudo systemctl enable logstash.service
 sudo systemctl enable logstash-forwarder.service
 sudo systemctl enable nginx.service
 sudo systemctl enable kibana.service
+sleep 10
 sudo systemctl start elasticsearch.service
+sleep 5
 sudo systemctl start logstash.service
+sleep 5
 sudo systemctl start logstash-forwarder.service
+sleep 5
 sudo systemctl start nginx.service
+sleep 5
 sudo systemctl start kibana.service
