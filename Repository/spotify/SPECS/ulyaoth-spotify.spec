@@ -72,6 +72,7 @@ Requires: nspr
 Requires: glib2
 Requires: libpng
 Requires: dbus-x11
+Requires: libgudev1
 
 Provides: spotify
 Provides: spotify-client
@@ -91,6 +92,7 @@ tar xvf %{SOURCE0} -C $RPM_BUILD_ROOT
 
 %if 0%{?fedora} == 21
 ln -s /usr/lib64/libgcrypt.so.11.8.2 ${RPM_BUILD_ROOT}/usr/lib64/libgcrypt.so.11
+ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/usr/lib64/libudev.so.0
 %endif
 
 %if %{use_systemd}
