@@ -207,7 +207,6 @@ BANNER
 - running as user "spotify".
 - multiple fixes.
 
-%changelog
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-1
 - Creating new clean spec file.
 - Support for Fedora 19, 20 and 21.
