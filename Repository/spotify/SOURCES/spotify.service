@@ -4,10 +4,8 @@ Documentation=https://www.spotify.com/
 After=network.target remote-fs.target nss-lookup.target
  
 [Service]
-User=spotify
-Group=spotify
+Environment=DISPLAY=:0
 Type=simple
-PIDFile=/var/run/spotify.pid
 ExecStart=/opt/spotify/spotify-client/spotify
 PrivateTmp=true
  

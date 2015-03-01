@@ -55,6 +55,8 @@ Source1: spotify.service
 Source2: spotify.init
 BuildRoot:  %{_tmppath}/spotify-%{version}-%{release}-root-%(%{__id_u} -n)
 
+BuildRequires:  desktop-file-utils
+
 Requires: zenity
 Requires: qt-x11
 Requires: hicolor-icon-theme
@@ -207,7 +209,6 @@ BANNER
 %changelog
 * Sun Mar 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-2
 - Adding systemd and initd files.
-- running as user "spotify".
 - multiple fixes.
 
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-1
