@@ -1,8 +1,11 @@
 useradd ulyaoth
-cd /home/ulyaoth
 
 su ulyaoth -c "rpmdev-setuptree"
+cd /home/ulyaoth/rpmbuild/SOURCES/
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SOURCES/spotify.init"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SOURCES/spotify.service"
 
+cd /home/ulyaoth
 if grep -q -i "Fedora release 21" /etc/redhat-release
 then
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libgcrypt.so.11.8.2"
