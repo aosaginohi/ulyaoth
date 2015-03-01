@@ -98,12 +98,12 @@ ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/usr/lib64/libudev.so.0
 ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libudev.so.0
 %endif
 
-ln -sf /usr/lib64/libnspr4.so ${RPM_BUILD_ROOT}/usr/lib64/libnspr4.so.0d
-ln -sf /usr/lib64/libnss3.so ${RPM_BUILD_ROOT}/usr/lib64/libnss3.so.1d
-ln -sf /usr/lib64/libnssutil3.so ${RPM_BUILD_ROOT}/usr/lib64/libnssutil3.so.1d
-ln -sf /usr/lib64/libplc4.so ${RPM_BUILD_ROOT}/usr/lib64/libplc4.so.0d
-ln -sf /usr/lib64/libplds4.so ${RPM_BUILD_ROOT}/usr/lib64/libplds4.so.0d
-ln -sf /usr/lib64/libssl3.so ${RPM_BUILD_ROOT}/usr/lib64/libssl3.so.1d
+ln -sf /usr/lib64/libnspr4.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libnspr4.so.0d
+ln -sf /usr/lib64/libnss3.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libnss3.so.1d
+ln -sf /usr/lib64/libnssutil3.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libnssutil3.so.1d
+ln -sf /usr/lib64/libplc4.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libplc4.so.0d
+ln -sf /usr/lib64/libplds4.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libplds4.so.0d
+ln -sf /usr/lib64/libssl3.so ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/libssl3.so.1d
 chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libffmpegsumo.so
 chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libcef.so
 
