@@ -100,7 +100,6 @@ ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/
 
 cp -Rf ${RPM_BUILD_ROOT}/usr/lib64/libssl.so.1.0.0 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/
 cp -Rf ${RPM_BUILD_ROOT}/usr/lib64/libcrypto.so.1.0.0 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/
-chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libgcrypt.so.11
 chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libssl.so.1.0.0
 chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libcrypto.so.1.0.0
 chmod 0775 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libffmpegsumo.so
