@@ -98,6 +98,9 @@ ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/usr/lib64/libudev.so.0
 ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/libudev.so.0
 %endif
 
+cp -Rf ${RPM_BUILD_ROOT}/lib64/libssl.so.1.0.0 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/
+cp -Rf ${RPM_BUILD_ROOT}/lib64/libcrypto.so.1.0.0 ${RPM_BUILD_ROOT}/opt/spotify/spotify-client/Data/
+
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
