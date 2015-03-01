@@ -109,6 +109,8 @@ ln -s /usr/lib64/libudev.so.1 ${RPM_BUILD_ROOT}/usr/lib64/libudev.so.0
    $RPM_BUILD_ROOT%{_initrddir}/spotify
 %endif
 
+desktop-file-validate %{buildroot}%{_datadir}/applications/spotify.desktop
+
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
