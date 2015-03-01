@@ -10,8 +10,8 @@ if grep -q -i "Fedora release 21" /etc/redhat-release
 then
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libgcrypt.so.11.8.2"
 fi
-su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libcrypto.so.1.0.0"
-su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libssl.so.1.0.0"
+#su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libcrypto.so.1.0.0"
+#su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libssl.so.1.0.0"
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libudev.so.0.13.1"
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/spotify.desktop"
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client-gnome-support_0.9.11.27.g2b1a638.81-1_all.deb"
