@@ -185,6 +185,7 @@ if [ $1 -eq 1 ]; then
 %else
     /sbin/chkconfig --add spotify
 %endif
+fi
 
 ldconfig
 gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
