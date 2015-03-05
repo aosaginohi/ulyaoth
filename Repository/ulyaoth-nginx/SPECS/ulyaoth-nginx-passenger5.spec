@@ -58,9 +58,9 @@ Requires(pre): pwdutils
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx-passenger
+Name: ulyaoth-nginx-passenger5
 Version: 1.6.2
-Release: 1.5.0.1%{?dist}
+Release: 1%{?dist}.5.0.1
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
