@@ -383,5 +383,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Mar 05 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.5.0.1
+* Thu Mar 05 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.1
 - Creating spec file for Passenger 5.0.1.
