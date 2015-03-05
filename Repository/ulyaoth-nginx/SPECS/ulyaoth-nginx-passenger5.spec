@@ -96,7 +96,11 @@ BuildRequires: rubygem-rake
 Provides: webserver
 Provides: nginx
 Provides: nginx-passenger
+Provides: nginx-passenger5
 Provides: passenger
+Provides: passenger5
+Provides: ulyaoth-nginx-passenger
+Provides: ulyaoth-nginx-passenger5
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
