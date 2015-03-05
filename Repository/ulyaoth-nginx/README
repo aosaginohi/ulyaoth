@@ -16,3 +16,6 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 
 ulyaoth-nginx-passenger:
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-passenger.sh ; chmod +x build-ulyaoth-nginx-passenger.sh ; ./build-ulyaoth-nginx-passenger.sh
+
+ulyaoth-nginx-passenger5:
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-passenger5.sh ; chmod +x build-ulyaoth-nginx-passenger5.sh ; ./build-ulyaoth-nginx-passenger5.sh
