@@ -60,7 +60,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-naxsi-masterbuild
 Version: 1.6.2
-Release: 1.20150225%{?dist}
+Release: 1.20150307%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -322,7 +322,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-naxsi!
+Thanks for using ulyaoth-nginx-naxsi-masterbuild!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -378,6 +378,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Mar 07 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150307
+- Updating to today's master branch.
+
 * Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150225
 - Renaming package to make clear it is a masterbuild, and adding date version.
 
