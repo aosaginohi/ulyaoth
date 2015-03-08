@@ -42,7 +42,7 @@ BuildRequires: systemd
 
 Summary:    Kibana explore and visualize your data
 Name:       ulyaoth-kibana4
-Version:    4.0.0
+Version:    4.0.1
 Release:    1%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -147,5 +147,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Mar 08 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.1-1
+- Updating to Kibana 4.0.1.
+
 * Sun Feb 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.0-1
-- UCreating initial spec file for Kibana 4.0.0.
+- Creating initial spec file for Kibana 4.0.0.
