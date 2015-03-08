@@ -24,14 +24,14 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.vh.example_ssl.conf
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.vh.passenger.conf
 cd /root/rpmbuild/SPECS
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SPECS/ulyaoth-nginx-passenger.spec
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SPECS/ulyaoth-nginx-passenger4.spec
 cd /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /etc/nginx/
 mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
-yum-builddep -y ulyaoth-nginx-passenger.spec
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger.spec"
+yum-builddep -y ulyaoth-nginx-passenger4.spec
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger4.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*
 rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*
 rm -rf /home/ulyaoth/rpmbuild/RPMS/*
@@ -41,5 +41,5 @@ tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger4.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
