@@ -15,10 +15,10 @@ else
    "CHECK 1: ulyaoth directory already exists"
   }
   
-  <# check if the putty application exist and if not then download it #>
-  if(!(Test-Path -Path c:\ulyaoth\putty.exe))
+  <# check if the plink application exist and if not then download it #>
+  if(!(Test-Path -Path c:\ulyaoth\plink.exe))
   {
-   Invoke-WebRequest -uri https://trash.ulyaoth.net/trash/exe/putty/0.63/putty.exe -Method Get -OutFile c:\ulyaoth\putty.exe -UserAgent ([Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer)
+   Invoke-WebRequest -uri https://trash.ulyaoth.net/trash/exe/putty/0.63/plink.exe -Method Get -OutFile c:\ulyaoth\putty.exe -UserAgent ([Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer)
   }
 else
   {
