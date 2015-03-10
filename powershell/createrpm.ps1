@@ -4,7 +4,9 @@ param (
   [string]$package = $(throw "-package is required."),
   [string]$password = $(throw "-password is required."),
   [string]$repouser = $(throw "-repouser is required."),
-  [string]$repopass = $(throw "-repopass is required.")
+  [string]$repopass = $(throw "-repopass is required."),
+  [string]$repo = $(throw "-repo is required."),
+  [string]$port = $(throw "-port is required."),
 )
  
 <# Set all required variables. #>
@@ -14,7 +16,7 @@ $MachineArray = @{ 'cc41ec2f-7aae-47d9-a910-70b02b71d535' = '192.168.1.91'; '111
 <# Set the correct build variable based on package input #>
 if ($PackageArray -contains $package)
 {
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-rpm-build.sh ; chmod +x ulyaoth-rpm-build.sh ; ./ulyaoth-rpm-build.sh $package"
+  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-rpm-build.sh ; chmod +x ulyaoth-rpm-build.sh ; ./ulyaoth-rpm-build.sh -b $package -u $repouser -r $repo -p $port"
 }
 Else
 {

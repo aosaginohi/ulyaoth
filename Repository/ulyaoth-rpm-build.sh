@@ -37,31 +37,9 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 # Move package to repository server
 scppackage()
 {
-if (($serveros == "Fedora")) && (($arch == "x86_64"))
-then
-
-  ssh -i $username.pem -o StrictHostKeyChecking=no -p $port $username@$repository "mkdir -p /home/$username/createrpm/fedora/64"
-  scp -i $username.pem -o StrictHostKeyChecking=no -P $port /root/*.rpm $username@$repository:/home/$username/createrpm/fedora/64/
+  ssh -i $username.pem -o StrictHostKeyChecking=no -p $port $username@$repository "mkdir -p /home/$username/createrpm/$serveros/$arch"
+  scp -i $username.pem -o StrictHostKeyChecking=no -P $port /root/*.rpm $username@$repository:/home/$username/createrpm/$serveros/$arch/
   ssh -i $username.pem -o StrictHostKeyChecking=no -p $port $username@$repository "chown -R $username:$username /home/$username/createrpm/"
-
-elif (($serveros == "Fedora")) && ((($arch == "i386")) || (($arch == "i686")))
-then
-  echo Fedora 32-bit
-elif (($serveros == "Red")) && (($arch == "x86_64"))
-then
-  echo Red Hat 64-bit
-elif (($serveros == "Red")) && ((($arch == "i386")) || (($arch == "i686")))
-then
- echo Red Hat 32-bit
-elif (($serveros == "CentOS")) && (($arch == "x86_64"))
-then
-  echo CentOS 64-bit
-elif (($serveros == "CentOS")) && ((($arch == "i386")) || (($arch == "i686")))
-then
-  echo CentOS 32-bit
-else
-  Unsupported OS!!!
-fi
 }
 
 package=
