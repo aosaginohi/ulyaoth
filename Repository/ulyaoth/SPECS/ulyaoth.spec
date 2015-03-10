@@ -1,6 +1,6 @@
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{?dist}
 URL: http://ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -25,6 +25,14 @@ Source1: ulyaoth-fedora.repo
 
 %if 0%{?fedora} == 21
 Source1: ulyaoth-fedora.repo
+%endif
+
+%if 0%{?centos}  == 6
+Source1: ulyaoth-centos.repo
+%endif
+
+%if 0%{?centos}  == 7
+Source1: ulyaoth-centos.repo
 %endif
 
 License:        GPLv3
@@ -69,6 +77,9 @@ BANNER
 
 
 %changelog
+* Tue Mar 10 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.1-1
+- Support for CentOS 6 and 7.
+
 * Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.0-1
 - Support for Fedora 21.
 
