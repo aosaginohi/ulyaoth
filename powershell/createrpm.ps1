@@ -9,7 +9,7 @@ param (
  
 <# Set all required variables. #>
 $PackageArray = @("ulyaoth-nginx", "ulyaoth-nginx-pagespeed", "ulyaoth-nginx-modsecurity", "ulyaoth-nginx-naxsi-masterbuild", "ulyaoth-nginx-passenger4", "ulyaoth-nginx-passenger5", "ulyaoth-kibana4", "ulyaoth-tomcat6", "ulyaoth-tomcat7", "ulyaoth-tomcat8", "ulyaoth-tomcat6-admin", "ulyaoth-tomcat7-admin", "ulyaoth-tomcat8-admin", "ulyaoth-tomcat6-docs", "ulyaoth-tomcat7-docs", "ulyaoth-tomcat8-docs", "ulyaoth-tomcat6-examples", "ulyaoth-tomcat7-examples", "ulyaoth-tomcat8-examples", "ulyaoth-tomcat-native", "ulyaoth-logstah-forwarder-masterbuild", "ulyaoth-fcgiwrap", "ulyaoth-hhvm")
-$MachineArray = @{ 'cc41ec2f-7aae-47d9-a910-70b02b71d535' = '192.168.1.91'; 'b' = 2; 'c' = 3}
+$MachineArray = @{ 'cc41ec2f-7aae-47d9-a910-70b02b71d535' = '192.168.1.91'; '111bc301-86f8-4fb7-bf49-3d143fb69ba7' = '192.168.1.92'; '4fd05e17-169c-4835-8716-088142f2c3b8' = '192.168.1.93'; 'dff21ab0-7f79-4f75-b9fe-be371298471b' = '192.168.1.94'; '9be402dd-887c-45a3-bcd1-f23b601d7df0' = '192.168.1.95'}
 
 <# Set the correct build variable based on package input #>
 if ($PackageArray -contains $package)
