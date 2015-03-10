@@ -82,15 +82,15 @@ Start-Sleep -Seconds 7200
 Else
 {
 Start-Sleep -Seconds 300
-"Sleeping for 5 minutes while waiting for the Virtual Machine to build the for $package."
+"Sleeping for 5 minutes while waiting for the Virtual Machine to build the rpm for $package."
 }
 
 <# Poweroff the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm $buildbox.Name poweroff
 
-<# Sleep for 30 seconds so machine can poweroff #>
+<# Sleep for 30 seconds so machine can power off #>
 Start-Sleep -Seconds 30
-"Sleeping 30 seconds while waiting for the Virtual Machine to poweroff."
+"Sleeping 30 seconds while waiting for the Virtual Machine to power off."
 
 <# Delete the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete $buildbox.Name
