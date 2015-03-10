@@ -4,9 +4,8 @@ param (
   [string]$package = $(throw "-package is required."),
   [string]$password = $(throw "-password is required."),
   [string]$repouser = $(throw "-repouser is required."),
-  [string]$repopass = $(throw "-repopass is required."),
   [string]$repo = $(throw "-repo is required."),
-  [string]$port = $(throw "-port is required."),
+  [string]$port = $(throw "-port is required.")
 )
  
 <# Set all required variables. #>
@@ -60,7 +59,7 @@ else
    "CHECK 3: psftp program is already available"
   }
 
-ForEach ($buildbox in $MachineArray.GetEnumerator()) {
+ForEach ($buildbox in $MachineArray.GetEnumerator()) 
 {
 <# Create the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonevm $buildbox.Name --name buildmachine --mode all --options keepallmacs --register
@@ -78,8 +77,8 @@ If ($package -Match "ulyaoth-hhvm")
 "Starting the virtual machine"
   
 <# Sleep for 60 seconds so machine can boot #>
-Start-Sleep -Seconds 60
 "Sleeping 60 seconds while waiting for the Virtual Machine to boot."
+Start-Sleep -Seconds 60
 
 <# ssh into the machine and start the rpm build process #>
 echo y | c:\ulyaoth\createrpm\plink.exe -ssh root@$buildbox.Value -pw $password "$build"
@@ -88,13 +87,13 @@ echo y | c:\ulyaoth\createrpm\plink.exe -ssh root@$buildbox.Value -pw $password 
 <# Sleep for 5 minutes by default to build the package or 2 hours if building hhvm #>
 If ($package -Match "ulyaoth-hhvm")
 {
-Start-Sleep -Seconds 7200
 "Sleeping for 2 hours while waiting for the Virtual Machine to build the rpm for $package."
+Start-Sleep -Seconds 7200
 }
 Else
 {
-Start-Sleep -Seconds 300
 "Sleeping for 5 minutes while waiting for the Virtual Machine to build the rpm for $package."
+Start-Sleep -Seconds 300
 }
 
 <# Poweroff the virtual machine #>
@@ -102,14 +101,14 @@ Start-Sleep -Seconds 300
 "Stopping the virtual machine"
 
 <# Sleep for 30 seconds so machine can power off #>
-Start-Sleep -Seconds 30
 "Sleeping 30 seconds while waiting for the Virtual Machine to power off."
+Start-Sleep -Seconds 30
 
 <# Delete the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete buildmachine
 "Deleting the virtual machine"
 
 <# Sleep for 10 seconds before looping again #>
-Start-Sleep -Seconds 10
 "Sleeping 10 seconds just to make sure the delete operation is finished."
+Start-Sleep -Seconds 10
 }
