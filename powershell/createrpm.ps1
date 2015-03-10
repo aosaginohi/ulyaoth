@@ -1,10 +1,11 @@
 
- <# Require the package name as parameter to build #>
+ <# Require the package and password name as parameter to build #>
  param (
-    [string]$package = $(throw "-package is required.")
+    [string]$package = $(throw "-package is required."),
+    [string]$password = $(throw "-password is required.")
  )
  
-"CHECK 0: a valid parameter was provide ($package)"
+"CHECK 0: a valid parameter was provide ($package) and a password was provided."
 
  <# Set all required variables. #>
  $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::PowerShell
@@ -50,15 +51,18 @@ else
 <# Start Fedora 19 64bit virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm f19rpmx64
   
-<# Sleep for 30 seconds so machine can boot #>
+<# Sleep for 60 seconds so machine can boot #>
 Start-Sleep -Seconds 60
 
 <# ssh into the machine and test it works #>
-& "C:\ulyaoth\plink.exe" -ssh root@192.168.1.72 -pw createrpm "ls -l"
+& Echo Y | "C:\ulyaoth\plink.exe" -ssh root@192.168.1.72 -pw $password "ls -l"
+
+<# Delete the Fedora 19 64bit virtual machine #>
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm f19rpmx64 poweroff
+
+<# Sleep for 30 seconds so machine can poweroff #>
+Start-Sleep -Seconds 30
 
 <# Poweroff the Fedora 19 64bit virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete f19rpmx64
 
-
-<# Delete the Fedora 19 64bit virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm f19rpmx64 poweroff
