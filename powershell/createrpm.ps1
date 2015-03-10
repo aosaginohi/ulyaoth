@@ -53,15 +53,17 @@ else
   
 <# Sleep for 60 seconds so machine can boot #>
 Start-Sleep -Seconds 60
+"Sleeping 60 seconds while waiting for the Virtual Machine to boot."
 
 <# ssh into the machine and test it works #>
-& Echo Y | "C:\ulyaoth\plink.exe" -ssh root@192.168.1.72 -pw $password "ls -l"
+echo y | C:\ulyaoth\plink.exe -ssh root@192.168.1.72 -pw $password "ls -l"
 
 <# Delete the Fedora 19 64bit virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm f19rpmx64 poweroff
 
 <# Sleep for 30 seconds so machine can poweroff #>
 Start-Sleep -Seconds 30
+"Sleeping 30 seconds while waiting for the Virtual Machine to poweroff."
 
 <# Poweroff the Fedora 19 64bit virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete f19rpmx64
