@@ -11,97 +11,9 @@
  $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 
 <# Set the correct build variable based on package input #>
-If ($package -eq ulyaoth-nginx)
+If ($package -eq ulyaoth-nginx | ulyaoth-nginx-pagespeed | ulyaoth-nginx-modsecurity | ulyaoth-nginx-naxsi-masterbuild | ulyaoth-nginx-passenger4 | ulyaoth-nginx-passenger5 | ulyaoth-kibana4 | ulyaoth-tomcat6 | ulyaoth-tomcat7 | ulyaoth-tomcat8 | ulyaoth-tomcat6-admin | ulyaoth-tomcat7-admin | ulyaoth-tomcat8-admin | ulyaoth-tomcat6-docs | ulyaoth-tomcat7-docs | ulyaoth-tomcat8-docs | ulyaoth-tomcat6-examples | ulyaoth-tomcat7-examples | ulyaoth-tomcat8-examples | ulyaoth-tomcat-native | ulyaoth-logstah-forwarder-masterbuild | ulyaoth-fcgiwrap | ulyaoth-hhvm)
 {
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx.sh ; chmod +x build-ulyaoth-nginx.sh ; ./build-ulyaoth-nginx.sh"
-}
-ElseIf ($package -eq ulyaoth-nginx-pagespeed)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-pagespeed.sh ; chmod +x build-ulyaoth-nginx-pagespeed.sh ; ./build-ulyaoth-nginx-pagespeed.sh"
-}
-ElseIf ($package -eq ulyaoth-nginx-modsecurity)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-modsecurity.sh ; chmod +x build-ulyaoth-nginx-modsecurity.sh ; ./build-ulyaoth-nginx-modsecurity.sh"
-}
-ElseIf ($package -eq ulyaoth-nginx-naxsi-masterbuild)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-naxsi-masterbuild.sh"
-}
-ElseIf ($package -eq ulyaoth-nginx-passenger4)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-passenger4.sh ; chmod +x build-ulyaoth-nginx-passenger4.sh ; ./build-ulyaoth-nginx-passenger4.sh"
-}
-ElseIf ($package -eq ulyaoth-nginx-passenger5)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-passenger5.sh ; chmod +x build-ulyaoth-nginx-passenger5.sh ; ./build-ulyaoth-nginx-passenger5.sh"
-}
-ElseIf ($package -eq ulyaoth-kibana4)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-kibana/build-ulyaoth-kibana4.sh ; chmod +x build-ulyaoth-kibana4.sh ; ./build-ulyaoth-kibana4.sh"
-} 
-ElseIf ($package -eq ulyaoth-tomcat6)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/build-ulyaoth-tomcat6.sh ; chmod +x build-ulyaoth-tomcat6.sh ; ./build-ulyaoth-tomcat6"
-} 
-ElseIf ($package -eq ulyaoth-tomcat7)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/build-ulyaoth-tomcat7.sh ; chmod +x build-ulyaoth-tomcat7.sh ; ./build-ulyaoth-tomcat7.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat8)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/build-ulyaoth-tomcat8.sh ; chmod +x build-ulyaoth-tomcat8.sh ; ./build-ulyaoth-tomcat8.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat6-admin)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-admin/build-ulyaoth-tomcat6-admin.sh ; chmod +x build-ulyaoth-tomcat6-admin.sh ; ./build-ulyaoth-tomcat6-admin.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat7-admin)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-admin/build-ulyaoth-tomcat7-admin.sh ; chmod +x build-ulyaoth-tomcat7-admin.sh ; ./build-ulyaoth-tomcat7-admin.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat8-admin)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-admin/build-ulyaoth-tomcat8-admin.sh ; chmod +x build-ulyaoth-tomcat8-admin.sh ; ./build-ulyaoth-tomcat8-admin.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat6-docs)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-docs/build-ulyaoth-tomcat6-docs.sh ; chmod +x build-ulyaoth-tomcat6-docs.sh ; ./build-ulyaoth-tomcat6-docs.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat7-docs)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-docs/build-ulyaoth-tomcat7-docs.sh ; chmod +x build-ulyaoth-tomcat7-docs.sh ; ./build-ulyaoth-tomcat7-docs.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat8-docs)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-docs/build-ulyaoth-tomcat8-docs.sh ; chmod +x build-ulyaoth-tomcat8-docs.sh ; ./build-ulyaoth-tomcat8-docs.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat6-examples)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat6-examples.sh ; chmod +x build-ulyaoth-tomcat6-examples.sh ; ./build-ulyaoth-tomcat6-examples.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat7-examples)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat7-examples.sh ; chmod +x build-ulyaoth-tomcat7-examples.sh ; ./build-ulyaoth-tomcat7-examples.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat8-examples)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat8-examples.sh ; chmod +x build-ulyaoth-tomcat8-examples.sh ; ./build-ulyaoth-tomcat8-examples.sh"
-}
-ElseIf ($package -eq ulyaoth-tomcat-native)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native.sh ; chmod +x build-ulyaoth-tomcat-native.sh ; ./build-ulyaoth-tomcat-native.sh"
-}
-ElseIf ($package -eq ulyaoth-logstah-forwarder-masterbuild)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/build-ulyaoth-logstash-forwarder-masterbuild.sh ; chmod +x build-ulyaoth-logstash-forwarder-masterbuild.sh ; ./build-ulyaoth-logstash-forwarder-masterbuild.sh"
-}
-ElseIf ($package -eq ulyaoth-fcgiwrap)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/build-ulyaoth-fcgiwrap.sh ; chmod +x build-ulyaoth-fcgiwrap.sh ; ./build-ulyaoth-fcgiwrap.sh"
-}
-ElseIf ($package -eq ulyaoth-hhvm)
-{
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh"
+  $build = 'wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-rpm-build.sh ; chmod +x ulyaoth-rpm-build.sh ; ./ulyaoth-rpm-build.sh $package'
 }
 Else
 {
@@ -173,13 +85,13 @@ Start-Sleep -Seconds 300
 'Sleeping for 5 minutes while waiting for the Virtual Machine to build the for $package.'
 }
 
-<# Delete the Fedora 19 64bit virtual machine #>
+<# Poweroff the Fedora 19 64bit virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm f19rpmx64 poweroff
 
 <# Sleep for 30 seconds so machine can poweroff #>
 Start-Sleep -Seconds 30
 "Sleeping 30 seconds while waiting for the Virtual Machine to poweroff."
 
-<# Poweroff the Fedora 19 64bit virtual machine #>
+<# Delete the Fedora 19 64bit virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete f19rpmx64
 
