@@ -1,19 +1,21 @@
 
- <# Require the package, password, repouser and repopass name as parameter to build #>
- param (
-    [string]$package = $(throw "-package is required."),
-    [string]$password = $(throw "-password is required."),
-    [string]$repouser = $(throw "-repouser is required."),
-    [string]$repopass = $(throw "-repopass is required.")
- )
+<# Require the package, password, repouser and repopass name as parameter to build #>
+param (
+  [string]$package = $(throw "-package is required."),
+  [string]$password = $(throw "-password is required."),
+  [string]$repouser = $(throw "-repouser is required."),
+  [string]$repopass = $(throw "-repopass is required.")
+)
  
- <# Set all required variables. #>
- $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
+<# Set all required variables. #>
+$userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
+$PackageArray = @("ulyaoth-nginx", "ulyaoth-nginx-pagespeed", "ulyaoth-nginx-modsecurity", "ulyaoth-nginx-naxsi-masterbuild", "ulyaoth-nginx-passenger4", "ulyaoth-nginx-passenger5", "ulyaoth-kibana4", "ulyaoth-tomcat6", "ulyaoth-tomcat7", "ulyaoth-tomcat8", "ulyaoth-tomcat6-admin", "ulyaoth-tomcat7-admin", "ulyaoth-tomcat8-admin", "ulyaoth-tomcat6-docs", "ulyaoth-tomcat7-docs", "ulyaoth-tomcat8-docs", "ulyaoth-tomcat6-examples", "ulyaoth-tomcat7-examples", "ulyaoth-tomcat8-examples", "ulyaoth-tomcat-native", "ulyaoth-logstah-forwarder-masterbuild", "ulyaoth-fcgiwrap", "ulyaoth-hhvm")
+
 
 <# Set the correct build variable based on package input #>
-If ($package -eq ulyaoth-nginx | ulyaoth-nginx-pagespeed | ulyaoth-nginx-modsecurity | ulyaoth-nginx-naxsi-masterbuild | ulyaoth-nginx-passenger4 | ulyaoth-nginx-passenger5 | ulyaoth-kibana4 | ulyaoth-tomcat6 | ulyaoth-tomcat7 | ulyaoth-tomcat8 | ulyaoth-tomcat6-admin | ulyaoth-tomcat7-admin | ulyaoth-tomcat8-admin | ulyaoth-tomcat6-docs | ulyaoth-tomcat7-docs | ulyaoth-tomcat8-docs | ulyaoth-tomcat6-examples | ulyaoth-tomcat7-examples | ulyaoth-tomcat8-examples | ulyaoth-tomcat-native | ulyaoth-logstah-forwarder-masterbuild | ulyaoth-fcgiwrap | ulyaoth-hhvm)
+if ($PackageArray -contains $package)
 {
-  $build = 'wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-rpm-build.sh ; chmod +x ulyaoth-rpm-build.sh ; ./ulyaoth-rpm-build.sh $package'
+  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-rpm-build.sh ; chmod +x ulyaoth-rpm-build.sh ; ./ulyaoth-rpm-build.sh $package"
 }
 Else
 {
@@ -74,7 +76,7 @@ Start-Sleep -Seconds 60
 echo y | C:\ulyaoth\plink.exe -ssh root@192.168.1.72 -pw $password '$build'
 
 <# Sleep for 5 minutes by default to build the package or 2 hours if building hhvm #>
-If ($package -eq ulyaoth-hhvm)
+If ($package -Match "ulyaoth-hhvm")
 {
 Start-Sleep -Seconds 7200
 'Sleeping for 2 hours while waiting for the Virtual Machine to build the rpm for $package.'
