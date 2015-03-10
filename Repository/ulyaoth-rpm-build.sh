@@ -1,6 +1,6 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
-# Argument = -package (package name .i.e ulyaoth-nginx)
+# Argument = -p (package name .i.e ulyaoth-nginx)
 
 usage()
 {
@@ -8,34 +8,29 @@ cat << EOF
 usage: $0 options
 
 OPTIONS:
-   -help      Show this message
-   -package      Add the name of the package that should be build
+   -h      Show this message
+   -E      Package name .i.e ulyaoth-nginx
 EOF
 }
 
-EXTENSIONS=
-while getopts "help:package" OPTION
-do
-  case $OPTION in
-help)
-  usage
-  exit 1
+package=
+
+while getopts p:h: opt; do
+case $opt in
+p)
+  package=$OPTARG
 ;;
-package)
-package=$1
-;;
-?)
+h)
   usage
-  exit
 ;;
 esac
 done
 
-if [[ -z EXTENSIONS ]]
-then
-  usage()
-  exit 1
-fi
+shift $((OPTIND - 1))
 
+if [ -z package ]
+then
+     usage
+fi
 
 echo $package
