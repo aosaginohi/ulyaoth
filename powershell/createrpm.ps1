@@ -51,10 +51,14 @@ else
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm f19rpmx64
   
 <# Sleep for 30 seconds so machine can boot #>
-Start-Sleep -Seconds 30
+Start-Sleep -Seconds 60
 
 <# ssh into the machine and test it works #>
-& "C:\ulyaoth\plink.exe" -ssh root@f19rpmx64 -pw createrpm "ls -l"
+& "C:\ulyaoth\plink.exe" -ssh root@192.168.1.72 -pw createrpm "ls -l"
+
+<# Poweroff the Fedora 19 64bit virtual machine #>
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete f19rpmx64
+
 
 <# Delete the Fedora 19 64bit virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete f19rpmx64
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm f19rpmx64 poweroff
