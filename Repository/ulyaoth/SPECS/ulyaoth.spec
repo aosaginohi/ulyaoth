@@ -8,11 +8,11 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0: RPM-GPG-KEY-ulyaoth
 
 %if 0%{?rhel}  == 6
-Source1: ulyaoth-rhel.repo
+Source1: ulyaoth.repo
 %endif
 
 %if 0%{?rhel}  == 7
-Source1: ulyaoth-rhel.repo
+Source1: ulyaoth.repo
 %endif
 
 %if 0%{?fedora} == 19
@@ -25,14 +25,6 @@ Source1: ulyaoth-fedora.repo
 
 %if 0%{?fedora} == 21
 Source1: ulyaoth-fedora.repo
-%endif
-
-%if 0%{?centos}  == 6
-Source1: ulyaoth-centos.repo
-%endif
-
-%if 0%{?centos}  == 7
-Source1: ulyaoth-centos.repo
 %endif
 
 License:        GPLv3
