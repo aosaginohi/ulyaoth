@@ -62,9 +62,18 @@ ForEach ($buildbox in $MachineArray.GetEnumerator()) {
 {
 <# Create the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonevm $buildbox.Name --name buildmachine --mode all --options keepallmacs --register
+"Creating the virtual machine: $buildbox.Name"
+
+<# If we build ulyaoth-hhvm then give the server more ram and cpus #>
+If ($package -Match "ulyaoth-hhvm")
+{
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm $buildbox.Name --vram 8192 --cpus 4
+"We are building $package so increasing Memory to 8GB and cpus to 4."
+}
 
 <# Start the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm $buildbox.Name
+"Starting the virtual machine: $buildbox.Name"
   
 <# Sleep for 60 seconds so machine can boot #>
 Start-Sleep -Seconds 60
@@ -72,6 +81,7 @@ Start-Sleep -Seconds 60
 
 <# ssh into the machine and start the rpm build process #>
 echo y | C:\ulyaoth\plink.exe -ssh root@$buildbox.Value -pw $password "$build"
+"Running the build script on: $buildbox.Name"
 
 <# Sleep for 5 minutes by default to build the package or 2 hours if building hhvm #>
 If ($package -Match "ulyaoth-hhvm")
@@ -87,6 +97,7 @@ Start-Sleep -Seconds 300
 
 <# Poweroff the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm $buildbox.Name poweroff
+"Stopping the virtual machine: $buildbox.Name"
 
 <# Sleep for 30 seconds so machine can power off #>
 Start-Sleep -Seconds 30
@@ -94,6 +105,7 @@ Start-Sleep -Seconds 30
 
 <# Delete the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete $buildbox.Name
+"Deleting the virtual machine: $buildbox.Name"
 
 <# Sleep for 10 seconds before looping again #>
 Start-Sleep -Seconds 10
