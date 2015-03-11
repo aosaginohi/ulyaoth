@@ -77,9 +77,9 @@ If ($package -Match "ulyaoth-hhvm")
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildmachine
 "Starting the virtual machine"
   
-<# Sleep for 45 seconds so machine can boot #>
-"Sleeping 45 seconds while waiting for the Virtual Machine to boot."
-Start-Sleep -Seconds 45
+<# Sleep for 30 seconds so machine can boot #>
+"Sleeping 30 seconds while waiting for the Virtual Machine to boot."
+Start-Sleep -Seconds 30
 
 <# ssh into the machine and start the rpm build process #>
 "Running the build script"
@@ -89,8 +89,8 @@ echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $passwo
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm buildmachine poweroff
 "Stopping the virtual machine"
 
-<# Sleep for 30 seconds so machine can power off #>
-"Sleeping 30 seconds while waiting for the Virtual Machine to power off."
+<# Sleep for 15 seconds so machine can power off #>
+"Sleeping 15 seconds while waiting for the Virtual Machine to power off."
 Start-Sleep -Seconds 15
 
 <# Delete the virtual machine #>
