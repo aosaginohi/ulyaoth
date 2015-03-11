@@ -24,7 +24,7 @@ Else
   exit
 } 
  
-"CHECK 0: a valid parameter was provide ($package)."
+"CHECK 0: a valid package parameter was provide ($package)."
  
  
 <# check if the ulyaoth directory exist and if not then create it #>
