@@ -4,6 +4,7 @@ param (
   [string]$package = $(throw "-package is required."),
   [string]$password = $(throw "-password is required."),
   [string]$repouser = $(throw "-repouser is required."),
+  [string]$repopass = $(throw "-repopass is required."),
   [string]$repo = $(throw "-repo is required."),
   [string]$port = $(throw "-port is required.")
 )

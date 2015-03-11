@@ -18,19 +18,7 @@ Requires: systemd
 BuildRequires: systemd
 %endif
 
-%if 0%{?fedora} == 19
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 20
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 21
+%if 0%{?fedora} >= 18
 Requires(pre): shadow-utils
 Requires: systemd
 BuildRequires: systemd
@@ -40,8 +28,9 @@ BuildRequires: systemd
 
 Summary:    Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!
 Name:       ulyaoth-logstash-forwarder-masterbuild
-Version:    20150228
+Version:    20150311
 Release:    1%{?dist}
+BuildArch:  x86_64 i386 i686
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/elasticsearch/logstash-forwarder
@@ -158,5 +147,11 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150311-1
+- Updating to masterbuild of 20150311.
+- Adding support for Fedora 22 and CentOS 6 & 7.
+- i386 support.
+- Cleaned spec file slightly.
+
 * Sat Feb 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150228-1
 - Creating spec file for Logstash Forwarder using the master branch.

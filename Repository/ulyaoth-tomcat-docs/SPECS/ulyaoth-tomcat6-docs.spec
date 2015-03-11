@@ -8,7 +8,7 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat6-docs
 Version:    6.0.43
-Release:    1%{?dist}
+Release:    2%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
@@ -76,6 +76,11 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.43-2
+- Removal of some things from spec file.
+- Support for Fedora 22 and CentOS 6 & 7.
+- i386 Support.
+
 * Tue Nov 25 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.43-1
 - Update to version 6.0.43.
 

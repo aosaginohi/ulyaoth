@@ -19,19 +19,7 @@ Requires: systemd
 BuildRequires: systemd
 %endif
 
-%if 0%{?fedora} == 19
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 20
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 21
+%if 0%{?fedora} >= 18
 Requires(pre): shadow-utils
 Requires: systemd
 BuildRequires: systemd
@@ -42,13 +30,13 @@ BuildRequires: systemd
 Summary: Spotify music player.
 Name: spotify-client
 Version: 0.9.11.27
-Release: 2%{?dist}
+Release: 3%{?dist}
 URL: https://www.spotify.com
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 License: Proprietary (non-free)
 Group: Applications/Multimedia
 Vendor: Spotify Ltd
-BuildArch: x86_64
+BuildArch: x86_64 i386 i686
 AutoReqProv: no
 Source0: ulyaoth-spotify.tar.gz
 Source1: spotify.service
@@ -219,6 +207,10 @@ Please find the official documentation for Spotify here:
 BANNER
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-3
+- Support for Fedora 22.
+- i386 support.
+
 * Sun Mar 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-2
 - Adding systemd and initd files.
 - multiple fixes.

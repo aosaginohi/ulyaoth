@@ -27,26 +27,9 @@ BuildRequires: GeoIP-devel
 BuildRequires: openssl-devel >= 1.0.1
 %endif
 
-%if 0%{?fedora} == 19
-Requires: GeoIP
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
-%endif
-
-%if 0%{?fedora} == 20
-Requires: GeoIP
+%if 0%{?fedora} >= 18
 Requires: systemd
 BuildRequires: systemd
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
-%endif
-
-%if 0%{?fedora} == 21
-Requires: GeoIP
-Requires: systemd
-BuildRequires: systemd
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
 %endif
 
 %if 0%{?suse_version}
@@ -60,7 +43,8 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-naxsi-masterbuild
 Version: 1.6.2
-Release: 1.20150307%{?dist}
+Release: 1.20150311%{?dist}
+BuildArch: x86_64 i386 i686
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -82,17 +66,22 @@ Source12: nbs.rules
 License: 2-clause BSD-like license
 
 Requires: openssl
+Requires: GeoIP
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
 
 Provides: webserver
 Provides: nginx
+Provides: ulyaoth-nginx
 Provides: nginx-naxsi
+Provides: ulyaoth-nginx-naxsi
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -378,6 +367,13 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150311
+- Updating to today's master branch.
+- Added support for Fedora 22 and CentOS 6 & 7.
+- i386 support.
+- Forced EPEL for RHEL6 for GeoIP.
+- Cleaned spec file.
+
 * Sat Mar 07 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150307
 - Updating to today's master branch.
 

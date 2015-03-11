@@ -8,7 +8,7 @@
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8-docs
 Version:    8.0.20
-Release:    1%{?dist}
+Release:    2%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
@@ -76,6 +76,11 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-2
+- Removal of some things from spec file.
+- Support for Fedora 22 and CentOS 6 & 7.
+- i386 Support.
+
 * Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-1
 - Update to tomcat 8.0.20.
 

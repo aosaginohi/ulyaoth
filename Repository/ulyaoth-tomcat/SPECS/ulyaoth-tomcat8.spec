@@ -20,19 +20,7 @@ Requires: systemd
 BuildRequires: systemd
 %endif
 
-%if 0%{?fedora} == 19
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 20
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 21
+%if 0%{?fedora} >= 18
 Requires(pre): shadow-utils
 Requires: systemd
 BuildRequires: systemd
@@ -43,7 +31,7 @@ BuildRequires: systemd
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat8
 Version:    8.0.20
-Release:    1%{?dist}
+Release:    2%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
@@ -177,6 +165,11 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-2
+- Removal of some things from spec file.
+- Support for Fedora 22 and CentOS 6 & 7.
+- i386 Support.
+
 * Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 8.0.20-1
 - Update to Tomcat 8.0.20.
 

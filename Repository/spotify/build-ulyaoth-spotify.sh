@@ -10,6 +10,10 @@ if grep -q -i "Fedora release 21" /etc/redhat-release
 then
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libgcrypt.so.11.8.2"
 fi
+if grep -q -i "Fedora release 22" /etc/redhat-release
+then
+su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libgcrypt.so.11.8.2"
+fi
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libcrypto.so.1.0.0"
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libssl.so.1.0.0"
 su ulyaoth -c "wget https://trash.ulyaoth.net/trash/spotify/lib64/libudev.so.0.13.1"
@@ -59,5 +63,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 yum-builddep -y ulyaoth-spotify.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-spotify.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
 rm -rf /root/build-ulyaoth-spotify.sh

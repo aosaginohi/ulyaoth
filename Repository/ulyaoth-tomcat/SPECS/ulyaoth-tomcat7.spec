@@ -20,19 +20,7 @@ Requires: systemd
 BuildRequires: systemd
 %endif
 
-%if 0%{?fedora} == 19
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 20
-Requires(pre): shadow-utils
-Requires: systemd
-BuildRequires: systemd
-%endif
-
-%if 0%{?fedora} == 21
+%if 0%{?fedora} >= 18
 Requires(pre): shadow-utils
 Requires: systemd
 BuildRequires: systemd
@@ -43,7 +31,7 @@ BuildRequires: systemd
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7
 Version:    7.0.59
-Release:    1%{?dist}
+Release:    2%{?dist}
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
@@ -177,6 +165,11 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.59-2
+- Removal of some things from spec file.
+- Support for Fedora 22 and CentOS 6 & 7.
+- i386 Support.
+
 * Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.59-1
 - Updated to Tomcat 7.0.59.
 

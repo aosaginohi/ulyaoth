@@ -10,5 +10,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 yum-builddep -y ulyaoth-kibana4.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-kibana4.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
 rm -rf /root/build-ulyaoth-kibana4.sh

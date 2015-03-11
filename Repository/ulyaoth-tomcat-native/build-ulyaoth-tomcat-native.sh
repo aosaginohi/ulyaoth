@@ -8,5 +8,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 yum-builddep -y ulyaoth-tomcat-native.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat-native.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
 rm -rf /root/build-ulyaoth-tomcat-native.sh

@@ -12,6 +12,8 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-fcgiwrap.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-fcgiwrap.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 rm -rf /home/ulyaoth/rpmbuild/
 rm -rf /etc/nginx
 rm -rf /root/build-ulyaoth-fcgiwrap.sh

@@ -19,34 +19,14 @@ BuildRequires: openssl-devel >= 1.0.1
 Group: System Environment/Daemons
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: GeoIP
 Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
 BuildRequires: openssl-devel >= 1.0.1
 %endif
 
-%if 0%{?fedora} == 19
-Requires: GeoIP
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
-%endif
-
-%if 0%{?fedora} == 20
-Requires: GeoIP
+%if 0%{?fedora} >= 18
 Requires: systemd
 BuildRequires: systemd
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
-%endif
-
-%if 0%{?fedora} == 21
-Requires: GeoIP
-Requires: systemd
-BuildRequires: systemd
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
 %endif
 
 %if 0%{?suse_version}
@@ -58,9 +38,10 @@ Requires(pre): pwdutils
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx-passenger
+Name: ulyaoth-nginx-passenger4
 Version: 1.6.2
 Release: 1%{?dist}.4.0.59
+BuildArch: x86_64 i386 i686
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
@@ -82,6 +63,7 @@ License: 2-clause BSD-like license
 
 Requires: openssl
 Requires: ruby
+Requires: GeoIP
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
@@ -92,10 +74,14 @@ BuildRequires: ruby
 BuildRequires: ruby-devel
 BuildRequires: curl-devel
 BuildRequires: rubygem-rake
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 
 Provides: webserver
 Provides: nginx
-Provides: nginx-passenger
+Provides: ulyaoth-nginx
+Provides: nginx-passenger4
+Provides: ulyaoth-nginx-passenger4
 Provides: passenger
 
 %description
@@ -327,7 +313,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-passenger!
+Thanks for using ulyaoth-nginx-passenger4!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -383,6 +369,13 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+- Added support for Fedora 22 and CentOS 6 & 7.
+- i386 support.
+- Forced EPEL for RHEL6 for GeoIP.
+- Cleaned spec file.
+- Renaming package to ulyaoth-nginx-passenger4.
+
 * Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Added rpms for Passenger 4.0.55.
 - Added rpms for Passenger 4.0.56.

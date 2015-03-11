@@ -7,5 +7,7 @@ cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-admin/SPECS/ulyaoth-tomcat7-admin.spec"
 su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat7-admin.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
+cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
 rm -rf /root/build-ulyaoth-tomcat7-admin.sh
