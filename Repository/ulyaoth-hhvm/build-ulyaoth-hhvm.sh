@@ -5,7 +5,7 @@ cd /home/ulyaoth
 
 if grep -q -i "release 7" /etc/redhat-release
 then
-yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/$buildarch/e/epel-release-7-5.noarch.rpm
 fi
 
 su ulyaoth -c "rpmdev-setuptree"

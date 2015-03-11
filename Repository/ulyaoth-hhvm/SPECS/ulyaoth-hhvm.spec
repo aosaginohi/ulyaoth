@@ -7,7 +7,7 @@
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm
 Version: 3.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
 URL: http://www.hhvm.com/
@@ -23,15 +23,7 @@ Source5: static.mime-types.hdf
 
 License: GPL
 
-%if 0%{?fedora} == 19
-BuildRequires: libsq3-devel
-%endif
-
-%if 0%{?fedora} == 20
-BuildRequires: libsq3-devel
-%endif
-
-%if 0%{?fedora} == 21
+%if 0%{?fedora} >= 18
 BuildRequires: libsq3-devel
 %endif
 
@@ -195,6 +187,11 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.5.2-2
+- Added support for Fedora 22 and CentOS 6 & 7.
+- Added i386 support.
+- Cleaned spec file slightly.
+
 * Sat Feb 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.5.2-1
 - Updated to version HHVM 3.5.2.
 
