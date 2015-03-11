@@ -34,6 +34,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-kibana4()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-kibana/build-ulyaoth-kibana4.sh ; chmod +x build-ulyaoth-kibana4.sh ; ./build-ulyaoth-kibana4.sh
+}
+
 # Move package to repository server
 scppackage()
 {
