@@ -18,11 +18,3 @@ cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SPECS/ulyaoth.spec"
 su ulyaoth -c "rpmbuild -bb ulyaoth.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-
-
-
-[root@localhost ~]# ./test.sh -b ulyaoth -u sjir -p test -r repo.ulyaoth.net
-Package: ulyaoth
-User: sjir
-Password: test
-Repo: repo.ulyaoth.net
