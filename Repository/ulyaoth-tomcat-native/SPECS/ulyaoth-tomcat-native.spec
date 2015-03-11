@@ -58,10 +58,14 @@ make %{?_smp_mflags}
 make -C jni/native install DESTDIR=$RPM_BUILD_ROOT
 %{__rm} -f $RPM_BUILD_ROOT/usr/lib64/libtcnative*.*a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib64/pkgconfig
+%{__rm} -f $RPM_BUILD_ROOT/usr/lib/libtcnative*.*a
+%{__rm} -rf $RPM_BUILD_ROOT/usr/lib/pkgconfig
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/lib/
 cd %{buildroot}/usr/lib/
+%ifarch x86_64
 ln -s /usr/lib64/libtcnative-1.so libtcnative-1.so
 ln -s /usr/lib64/libtcnative-1.so.0 libtcnative-1.so.0
+%endif
 cd -
 
 %clean
@@ -70,8 +74,11 @@ cd -
 %files
 %defattr(-,root,root,-)
 %doc CHANGELOG.txt LICENSE NOTICE TODO.txt
+%ifarch x86_64
 /usr/lib64/libtcnative*.so*
+%endif
 /usr/lib/libtcnative*.so*
+
 
 %post
 cat <<BANNER
