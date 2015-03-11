@@ -44,6 +44,81 @@ ulyaoth-tomcat-native()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-native/build-ulyaoth-tomcat-native.sh ; chmod +x build-ulyaoth-tomcat-native.sh ; ./build-ulyaoth-tomcat-native.sh
 }
 
+ulyaoth-tomcat8()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/build-ulyaoth-tomcat8.sh ; chmod +x build-ulyaoth-tomcat8.sh ; ./build-ulyaoth-tomcat8.sh
+}
+
+ulyaoth-tomcat7()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/build-ulyaoth-tomcat7.sh ; chmod +x build-ulyaoth-tomcat7.sh ; ./build-ulyaoth-tomcat7.sh
+}
+
+ulyaoth-tomcat6()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/build-ulyaoth-tomcat6.sh ; chmod +x build-ulyaoth-tomcat6.sh ; ./build-ulyaoth-tomcat6.sh
+}
+
+ulyaoth-tomcat8-admin()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-admin/build-ulyaoth-tomcat8-admin.sh ; chmod +x build-ulyaoth-tomcat8-admin.sh ; ./build-ulyaoth-tomcat8-admin.sh
+}
+
+ulyaoth-tomcat7-admin()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-admin/build-ulyaoth-tomcat7-admin.sh ; chmod +x build-ulyaoth-tomcat7-admin.sh ; ./build-ulyaoth-tomcat7-admin.sh
+}
+
+ulyaoth-tomcat6-admin()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-admin/build-ulyaoth-tomcat6-admin.sh ; chmod +x build-ulyaoth-tomcat6-admin.sh ; ./build-ulyaoth-tomcat6-admin.sh
+}
+
+ulyaoth-tomcat8-docs()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-docs/build-ulyaoth-tomcat8-docs.sh ; chmod +x build-ulyaoth-tomcat8-docs.sh ; ./build-ulyaoth-tomcat8-docs.sh
+}
+
+ulyaoth-tomcat7-docs()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-docs/build-ulyaoth-tomcat7-docs.sh ; chmod +x build-ulyaoth-tomcat7-docs.sh ; ./build-ulyaoth-tomcat7-docs.sh
+}
+
+ulyaoth-tomcat6-docs()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-docs/build-ulyaoth-tomcat6-docs.sh ; chmod +x build-ulyaoth-tomcat6-docs.sh ; ./build-ulyaoth-tomcat6-docs.sh
+}
+
+ulyaoth-tomcat8-examples()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat8-examples.sh ; chmod +x build-ulyaoth-tomcat8-examples.sh ; ./build-ulyaoth-tomcat8-examples.sh
+}
+
+ulyaoth-tomcat7-examples()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat7-examples.sh ; chmod +x build-ulyaoth-tomcat7-examples.sh ; ./build-ulyaoth-tomcat7-examples.sh
+}
+
+ulyaoth-tomcat6-examples()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/build-ulyaoth-tomcat6-examples.sh ; chmod +x build-ulyaoth-tomcat6-examples.sh ; ./build-ulyaoth-tomcat6-examples.sh
+}
+
+ulyaoth-fcgiwrap()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/build-ulyaoth-fcgiwrap.sh ; chmod +x build-ulyaoth-fcgiwrap.sh ; ./build-ulyaoth-fcgiwrap.sh
+}
+
+ulyaoth-logstah-forwarder-masterbuild()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/build-ulyaoth-logstash-forwarder-masterbuild.sh ; chmod +x build-ulyaoth-logstash-forwarder-masterbuild.sh ; ./build-ulyaoth-logstash-forwarder-masterbuild.sh
+}
+
+spotify()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/build-ulyaoth-spotify.sh ; chmod +x build-ulyaoth-spotify.sh ; ./build-ulyaoth-spotify.sh
+}
+
 # Move package to repository server
 scppackage()
 {
