@@ -1,3 +1,5 @@
+buildarch="$(uname -m)"
+
 useradd ulyaoth
 yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
 cd /root
@@ -42,6 +44,12 @@ chown -R ulyaoth:ulyaoth /etc/nginx/
 mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-passenger-modsecurity.spec
+fi
+
 yum-builddep -y ulyaoth-nginx-passenger.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger-modsecurity.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*

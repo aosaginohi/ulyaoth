@@ -9,6 +9,7 @@ Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7-examples
 Version:    7.0.59
 Release:    2%{?dist}
+BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/

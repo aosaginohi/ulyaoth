@@ -8,6 +8,7 @@ Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm
 Version: 3.5.2
 Release: 1%{?dist}
+BuildArch: x86_64
 Group: Applications/Internet
 URL: http://www.hhvm.com/
 Vendor: Facebook.

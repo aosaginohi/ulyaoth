@@ -36,7 +36,7 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 License: Proprietary (non-free)
 Group: Applications/Multimedia
 Vendor: Spotify Ltd
-BuildArch: x86_64 i386 i686
+BuildArch: x86_64
 AutoReqProv: no
 Source0: ulyaoth-spotify.tar.gz
 Source1: spotify.service

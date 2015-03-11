@@ -1,4 +1,5 @@
 arch="$(uname -m)"
+buildarch="$(uname -m)"
 
 useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
@@ -18,6 +19,12 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-fedora.repo"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SPECS/ulyaoth.spec"
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

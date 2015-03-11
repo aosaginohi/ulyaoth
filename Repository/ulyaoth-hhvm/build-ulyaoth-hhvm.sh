@@ -1,3 +1,5 @@
+buildarch="$(uname -m)"
+
 useradd ulyaoth
 cd /home/ulyaoth
 
@@ -23,6 +25,12 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hhvm.spec
+fi
+
 yum-builddep -y ulyaoth-hhvm.spec
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/

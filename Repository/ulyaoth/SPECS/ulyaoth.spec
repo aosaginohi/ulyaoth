@@ -2,7 +2,7 @@ Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
 Version: 1.0.1
 Release: 2%{?dist}
-BuildArch: x86_64 i386 i686
+BuildArch: x86_64
 URL: https://community.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 

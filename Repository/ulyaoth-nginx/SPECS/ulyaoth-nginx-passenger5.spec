@@ -44,7 +44,7 @@ Summary: High performance web server
 Name: ulyaoth-nginx-passenger5
 Version: 1.6.2
 Release: 2%{?dist}.5.0.2
-BuildArch: x86_64 i386 i686
+BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>

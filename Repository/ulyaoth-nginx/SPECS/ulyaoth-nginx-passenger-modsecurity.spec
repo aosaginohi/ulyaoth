@@ -61,6 +61,7 @@ Summary: High performance web server
 Name: ulyaoth-nginx-passenger-modsecurity
 Version: 1.6.2
 Release: 1%{?dist}.4.0.53
+BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>

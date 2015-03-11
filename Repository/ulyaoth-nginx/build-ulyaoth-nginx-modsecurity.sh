@@ -1,4 +1,5 @@
 arch="$(uname -m)"
+buildarch="$(uname -m)"
 
 if [ "$arch" == "i686" ]
 then
@@ -53,6 +54,12 @@ chown -R ulyaoth:ulyaoth /etc/nginx/
 mv /root/rpmbuild /home/ulyaoth/
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild
 cd /home/ulyaoth/rpmbuild/SPECS
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-modsecurity.spec
+fi
+
 yum-builddep -y ulyaoth-nginx-modsecurity.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*

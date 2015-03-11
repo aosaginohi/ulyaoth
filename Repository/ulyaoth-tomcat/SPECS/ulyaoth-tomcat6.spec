@@ -32,6 +32,7 @@ Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat6
 Version:    6.0.43
 Release:    2%{?dist}
+BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/

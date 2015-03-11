@@ -1,3 +1,5 @@
+buildarch="$(uname -m)"
+
 useradd ulyaoth
 
 su ulyaoth -c "rpmdev-setuptree"
@@ -60,6 +62,12 @@ su ulyaoth -c "mv ulyaoth-spotify.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spotify/SPECS/ulyaoth-spotify.spec"
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-spotify.spec
+fi
+
 yum-builddep -y ulyaoth-spotify.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-spotify.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/

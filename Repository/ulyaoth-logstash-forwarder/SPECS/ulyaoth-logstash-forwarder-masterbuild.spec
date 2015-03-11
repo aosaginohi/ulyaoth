@@ -30,7 +30,7 @@ Summary:    Logstash Forwarder is a tool to collect logs locally in preparation 
 Name:       ulyaoth-logstash-forwarder-masterbuild
 Version:    20150311
 Release:    1%{?dist}
-BuildArch:  x86_64 i386 i686
+BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://github.com/elasticsearch/logstash-forwarder

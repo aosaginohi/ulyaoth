@@ -32,7 +32,7 @@ Summary:    Kibana explore and visualize your data
 Name:       ulyaoth-kibana4
 Version:    4.0.1
 Release:    2%{?dist}
-BuildArch:  x86_64 i386 i686
+BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://www.elasticsearch.org/overview/kibana/

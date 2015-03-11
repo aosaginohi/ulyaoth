@@ -1,3 +1,5 @@
+buildarch="$(uname -m)"
+
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
@@ -9,6 +11,12 @@ su ulyaoth -c "mv fcgiwrap.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 su ulyaoth -c "rm -rf /home/ulyaoth/fcgiwrap/"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/SPEC/ulyaoth-fcgiwrap.spec"
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-fcgiwrap.spec
+fi
+
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-fcgiwrap.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-fcgiwrap.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/

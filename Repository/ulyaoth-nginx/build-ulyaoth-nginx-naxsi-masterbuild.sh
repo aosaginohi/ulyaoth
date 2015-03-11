@@ -1,4 +1,5 @@
 arch="$(uname -m)"
+buildarch="$(uname -m)"
 
 if [ "$arch" == "i686" ]
 then
@@ -42,6 +43,12 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nbs.rules"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec"
+
+if [ "$arch" != "x86_64" ]
+then
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-naxsi-masterbuild.spec
+fi
+
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi-masterbuild.spec"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILD/*"

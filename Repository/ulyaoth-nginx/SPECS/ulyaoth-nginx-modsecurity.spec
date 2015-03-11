@@ -41,7 +41,7 @@ Summary: High performance web server
 Name: ulyaoth-nginx-modsecurity
 Version: 1.6.2
 Release: 3%{?dist}
-BuildArch: x86_64 i386 i686
+BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
