@@ -8,11 +8,11 @@ fi
 
 if grep -q -i "release 6" /etc/redhat-release
 then
-yum install http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
 
 elif grep -q -i "release 6" /etc/centos-release
 then
-yum install http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
 else
 echo yeah Fedora!
 fi
