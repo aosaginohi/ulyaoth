@@ -2,6 +2,7 @@
 %define nginx_home %{_localstatedir}/cache/nginx
 %define nginx_user nginx
 %define nginx_group nginx
+%define nginx_loggroup adm
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -13,37 +14,32 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
+%define with_spdy 1
 %endif
 
 %if 0%{?rhel}  == 7
 Group: System Environment/Daemons
 Requires(pre): shadow-utils
 Requires: systemd
-Requires: GeoIP
 Requires: openssl >= 1.0.1
 BuildRequires: systemd
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
 BuildRequires: openssl-devel >= 1.0.1
+Epoch: 1
+%define with_spdy 1
 %endif
 
 %if 0%{?fedora} >= 18
+Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
-%endif
-
-%if 0%{?suse_version}
-Group: Productivity/Networking/Web/Servers
-BuildRequires: libopenssl-devel
-Requires(pre): pwdutils
 %endif
 
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx-passenger5
-Version: 1.6.2
-Release: 1%{?dist}.5.0.3
+Name: ulyaoth-nginx
+Version: 1.7.10
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -59,35 +55,27 @@ Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
-Source10: nginx.vh.passenger.conf
-Source11: passenger.tar.gz
+Source10: nginx.suse.logrotate
 
 License: 2-clause BSD-like license
 
+
 Requires: openssl
-Requires: ruby
-Requires: GeoIP
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: openssl
-BuildRequires: openssl-devel
-BuildRequires: ruby
-BuildRequires: ruby-devel
-BuildRequires: curl-devel
-BuildRequires: rubygem-rake
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
+BuildRequires: openssl
+BuildRequires: openssl-devel
+BuildRequires: curl-devel
 
 Provides: webserver
 Provides: nginx
-Provides: nginx-passenger
-Provides: nginx-passenger5
-Provides: passenger
-Provides: passenger5
-Provides: ulyaoth-nginx-passenger
-Provides: ulyaoth-nginx-passenger5
+Provides: nginx-mainline
+Provides: ulyaoth-nginx
+Provides: ulyaoth-nginx-mainline
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -96,7 +84,7 @@ a mail proxy server.
 %package debug
 Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-passenger
+Requires: ulyaoth-nginx-mainline
 %description debug
 Not stripped version of nginx built with the debugging log support.
 
@@ -132,8 +120,8 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-	    --add-module=/etc/nginx/modules/passenger/ext/nginx \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -173,8 +161,8 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-        --add-module=/etc/nginx/modules/passenger/ext/nginx \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -197,8 +185,8 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
-
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
+
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
@@ -206,21 +194,14 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%{__install} -m 644 -p %{SOURCE10} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/passenger.conf
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
 
-#Create vhost directories
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled   
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
    
-# Install Passenger
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
-tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
-
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -243,9 +224,15 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
+%if 0%{?suse_version}
+%{__install} -m 644 -p %{SOURCE10} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
+%else
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
+%endif
+
+%{__install} -m644 %{_builddir}/%{name}-%{version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
 %clean
@@ -260,15 +247,10 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %dir %{_sysconfdir}/nginx/conf.d
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
-%dir %{_sysconfdir}/nginx/modules
-%{_sysconfdir}/nginx/modules/*
-
-
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/passenger.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
 %config(noreplace) %{_sysconfdir}/nginx/fastcgi_params
 %config(noreplace) %{_sysconfdir}/nginx/scgi_params
@@ -294,7 +276,6 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
 
-
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
 
@@ -318,16 +299,13 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-passenger5!
+Thanks for using ulyaoth-nginx-mainline!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
 
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
-
-Please find the official documentation for passenger here:
-* https://www.phusionpassenger.com/ 
 
 For any additional help please visit my forum at:
 * http://www.ulyaoth.net
@@ -341,13 +319,13 @@ BANNER
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
             touch %{_localstatedir}/log/nginx/access.log
             %{__chmod} 640 %{_localstatedir}/log/nginx/access.log
-            %{__chown} nginx:adm %{_localstatedir}/log/nginx/access.log
+            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/access.log
         fi
 
         if [ ! -e %{_localstatedir}/log/nginx/error.log ]; then
             touch %{_localstatedir}/log/nginx/error.log
             %{__chmod} 640 %{_localstatedir}/log/nginx/error.log
-            %{__chown} nginx:adm %{_localstatedir}/log/nginx/error.log
+            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/error.log
         fi
     fi
 fi
@@ -374,15 +352,6 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Mar 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2 5.0.3
-- Updating to Passenger 5.0.3
-- Added support for Fedora 22 and CentOS 6 & 7.
-- i386 support.
-- Forced EPEL for RHEL6 for GeoIP.
-- Cleaned spec file.
-
-* Sun Mar 08 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.2
-- Updating to Passenger 5.0.2.
-
-* Thu Mar 05 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.1
-- Creating spec file for Passenger 5.0.1.
+* Thu Mar 12 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.10-1
+- Initial release.
+- Spec file taken from nginx.com

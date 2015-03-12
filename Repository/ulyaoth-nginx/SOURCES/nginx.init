@@ -21,7 +21,13 @@
 # Source function library.
 . /etc/rc.d/init.d/functions
 
-sysconfig=`/bin/basename $0`
+if [ -L $0 ]; then
+    initscript=`/bin/readlink -f $0`
+else
+    initscript=$0
+fi
+
+sysconfig=`/bin/basename $initscript`
 
 if [ -f /etc/sysconfig/$sysconfig ]; then
     . /etc/sysconfig/$sysconfig
