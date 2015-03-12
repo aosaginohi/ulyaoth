@@ -2,6 +2,7 @@
 %define nginx_home %{_localstatedir}/cache/nginx
 %define nginx_user nginx
 %define nginx_group nginx
+%define nginx_loggroup adm
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -13,6 +14,7 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
+%define with_spdy 1
 %endif
 
 %if 0%{?rhel}  == 7
@@ -22,17 +24,14 @@ Requires: systemd
 Requires: openssl >= 1.0.1
 BuildRequires: systemd
 BuildRequires: openssl-devel >= 1.0.1
+Epoch: 1
+%define with_spdy 1
 %endif
 
 %if 0%{?fedora} >= 18
+Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
-%endif
-
-%if 0%{?suse_version}
-Group: Productivity/Networking/Web/Servers
-BuildRequires: libopenssl-devel
-Requires(pre): pwdutils
 %endif
 
 # end of distribution specific definitions
@@ -321,19 +320,19 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permissions on default log files on installation
+    # Touch and set permisions on default log files on installation
 
     if [ -d %{_localstatedir}/log/nginx ]; then
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
             touch %{_localstatedir}/log/nginx/access.log
             %{__chmod} 640 %{_localstatedir}/log/nginx/access.log
-            %{__chown} nginx:adm %{_localstatedir}/log/nginx/access.log
+            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/access.log
         fi
 
         if [ ! -e %{_localstatedir}/log/nginx/error.log ]; then
             touch %{_localstatedir}/log/nginx/error.log
             %{__chmod} 640 %{_localstatedir}/log/nginx/error.log
-            %{__chown} nginx:adm %{_localstatedir}/log/nginx/error.log
+            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/error.log
         fi
     fi
 fi
