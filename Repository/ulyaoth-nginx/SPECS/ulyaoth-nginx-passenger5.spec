@@ -43,7 +43,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: ulyaoth-nginx-passenger5
 Version: 1.6.2
-Release: 2%{?dist}.5.0.2
+Release: 1%{?dist}.5.0.3
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -374,7 +374,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2 5.0.2
+* Wed Mar 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2 5.0.3
+- Updating to Passenger 5.0.3
 - Added support for Fedora 22 and CentOS 6 & 7.
 - i386 support.
 - Forced EPEL for RHEL6 for GeoIP.
