@@ -149,6 +149,11 @@ ulyaoth-nginx-passenger5()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-passenger5.sh ; chmod +x build-ulyaoth-nginx-passenger5.sh ; ./build-ulyaoth-nginx-passenger5.sh
 }
 
+ulyaoth-nginx-mainline()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-mainline.sh ; chmod +x build-ulyaoth-nginx-mainline.sh ; ./build-ulyaoth-nginx-mainline.sh
+}
+
 ulyaoth-hhvm()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh
