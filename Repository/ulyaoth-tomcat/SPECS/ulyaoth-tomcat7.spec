@@ -31,7 +31,7 @@ BuildRequires: systemd
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7
 Version:    7.0.59
-Release:    2%{?dist}
+Release:    3%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -166,6 +166,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.59-3
+- Support for Oracle Linux 6 & 7.
+
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.59-2
 - Removal of some things from spec file.
 - Support for Fedora 22 and CentOS 6 & 7.

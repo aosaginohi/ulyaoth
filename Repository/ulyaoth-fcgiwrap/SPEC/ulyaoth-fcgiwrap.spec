@@ -6,7 +6,7 @@
 Summary: Simple FastCGI wrapper for CGI scripts.
 Name: ulyaoth-fcgiwrap
 Version: 1.1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 BuildArch: x86_64
 Vendor: Grzegorz Nosek <root@localdomain.pl>
 URL: http://nginx.localdomain.pl/wiki/FcgiWrap
@@ -91,6 +91,9 @@ if [ $1 -eq 0 ]; then
 
 
 %changelog
+* Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.0-3
+- Support for Oracle Linux 6 & 7.
+
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> - 1.1.0-2
 - Support for Fedora 22, CentOS 6 & 7.
 - i386 Support.
