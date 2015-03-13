@@ -1,24 +1,13 @@
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.1
-Release: 2%{?dist}
+Version: 1.0.2
+Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://community.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: RPM-GPG-KEY-ulyaoth
-
-%if 0%{?rhel}  == 6
 Source1: ulyaoth.repo
-%endif
-
-%if 0%{?rhel}  == 7
-Source1: ulyaoth.repo
-%endif
-
-%if 0%{?fedora} >= 18
-Source1: ulyaoth-fedora.repo
-%endif
 
 License:        GPLv3
 
@@ -62,8 +51,11 @@ BANNER
 
 
 %changelog
+* Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.2-1
+- Support for Oracle Linux 6 and 7.
+
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.1-2
-- Small fix to make spec file more slow.
+- Small fix to make spec file more clean.
 - i386 Support.
 
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.1-1

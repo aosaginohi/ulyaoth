@@ -7,12 +7,7 @@
 
 arch="$(uname -m)"
 
-if [ ! -f /etc/redhat-release ];
-then
-  serveros="$(grep -Eo '^[^ ]+' /etc/centos-release)"
-else
-  serveros="$(grep -Eo '^[^ ]+' /etc/redhat-release)"
-fi
+serveros="$(grep -Eo '^[^ ]+' /etc/ulyaoth)"
 
 usage()
 {

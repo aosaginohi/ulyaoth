@@ -47,9 +47,9 @@ echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $passwo
 "Rebooting the server"
 echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $password "reboot"
 
-<# Sleep for 30 seconds so machine can reboot #>
-"Sleeping 30 seconds while waiting for the Virtual Machine to reboot."
-Start-Sleep -Seconds 30
+<# Sleep for 35 seconds so machine can reboot #>
+"Sleeping 35 seconds while waiting for the Virtual Machine to reboot."
+Start-Sleep -Seconds 35
 
 <# Shutdown the server #>
 "Shutdown the server"
