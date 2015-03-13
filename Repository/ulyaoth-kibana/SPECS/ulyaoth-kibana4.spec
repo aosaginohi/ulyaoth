@@ -31,7 +31,7 @@ BuildRequires: systemd
 Summary:    Kibana explore and visualize your data
 Name:       ulyaoth-kibana4
 Version:    4.0.1
-Release:    2%{?dist}
+Release:    3%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -136,6 +136,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.1-3
+- Support for Oracle Linux 6 & 7.
+
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.1-2
 - Support for Fedora 22 and CentOS 6 & 7.
 - i386 support.
