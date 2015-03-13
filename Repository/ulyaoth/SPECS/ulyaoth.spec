@@ -14,6 +14,7 @@ License:        GPLv3
 %description
 Ulyaoth repository.
 
+%prep
 %setup -q
 
 %build
