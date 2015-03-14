@@ -48,7 +48,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-mainline.spec
 fi
 
 yum-builddep -y ulyaoth-nginx-mainline.spec
