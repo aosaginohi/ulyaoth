@@ -352,6 +352,6 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Mar 12 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.10-1
+* Sat Mar 14 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.10-1
 - Initial release.
 - Spec file taken from nginx.com
