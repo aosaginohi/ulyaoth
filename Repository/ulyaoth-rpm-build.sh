@@ -104,7 +104,7 @@ ulyaoth-fcgiwrap()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/build-ulyaoth-fcgiwrap.sh ; chmod +x build-ulyaoth-fcgiwrap.sh ; ./build-ulyaoth-fcgiwrap.sh
 }
 
-ulyaoth-logstah-forwarder-masterbuild()
+ulyaoth-logstash-forwarder-masterbuild()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/build-ulyaoth-logstash-forwarder-masterbuild.sh ; chmod +x build-ulyaoth-logstash-forwarder-masterbuild.sh ; ./build-ulyaoth-logstash-forwarder-masterbuild.sh
 }
