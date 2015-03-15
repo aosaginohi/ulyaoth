@@ -82,9 +82,7 @@ BuildRequires: libnotify-devel
 BuildRequires: unixODBC-devel
 BuildRequires: libvpx-devel
 BuildRequires: openssl-devel
-BuildRequires: fribidi-devel
-BuildRequires: gmp-devel
-BuildRequires: fastlz-devel
+
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
