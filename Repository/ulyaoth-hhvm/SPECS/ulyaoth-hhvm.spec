@@ -6,8 +6,8 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm
-Version: 3.5.2
-Release: 2%{?dist}
+Version: 3.6.1
+Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
 URL: http://www.hhvm.com/
@@ -187,6 +187,9 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.6.1-1
+- Updated to HHVM 3.6.1.
+
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.5.2-2
 - Added support for Fedora 22 and CentOS 6 & 7.
 - Added i386 support.
