@@ -39,7 +39,7 @@ BuildRequires: systemd
 Summary: High performance web server
 Name: ulyaoth-nginx
 Version: 1.6.2
-Release: 3%{?dist}
+Release: 4%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -344,6 +344,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-4
+- Fixed the missing systemd-devel problem.
+
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-3
 - Added support for Fedora 22 and CentOS 6 & 7.
 - i386 support.

@@ -39,7 +39,7 @@ BuildRequires: systemd
 Summary: High performance web server
 Name: ulyaoth-nginx-naxsi-masterbuild
 Version: 1.6.2
-Release: 1.20150314%{?dist}
+Release: 1.20150315%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -363,7 +363,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Mar 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150314
+* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150315
 - Updating to today's master branch.
 
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150311

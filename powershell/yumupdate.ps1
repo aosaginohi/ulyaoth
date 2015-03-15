@@ -41,7 +41,7 @@ Start-Sleep -Seconds 30
 
 <# ssh into the machine and start the update process #>
 "Running yum update"
-echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $password "yum update -y"
+echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $password "yum install -y update"
 
 <# Reboot the server #>
 "Rebooting the server"
