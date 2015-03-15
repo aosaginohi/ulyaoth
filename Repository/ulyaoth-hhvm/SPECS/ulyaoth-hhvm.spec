@@ -81,6 +81,8 @@ BuildRequires: glibc-devel
 BuildRequires: libnotify-devel
 BuildRequires: unixODBC-devel
 BuildRequires: libvpx-devel
+BuildRequires: openssl-devel
+BuildRequires: fribidi-devel
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
