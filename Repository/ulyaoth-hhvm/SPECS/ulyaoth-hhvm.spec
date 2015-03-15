@@ -138,6 +138,7 @@ make
 %files
 %defattr(-,root,root,-)
 /usr/bin/hhvm
+/usr/bin/hhvm-gdb
 /usr/bin/hh_server
 /usr/bin/hh_client
 %dir /etc/hhvm
