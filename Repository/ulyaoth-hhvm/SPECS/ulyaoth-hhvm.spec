@@ -80,6 +80,7 @@ BuildRequires: zlib-devel
 BuildRequires: glibc-devel
 BuildRequires: libnotify-devel
 BuildRequires: unixODBC-devel
+BuildRequires: libvpx-devel
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
