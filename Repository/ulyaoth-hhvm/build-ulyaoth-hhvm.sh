@@ -34,4 +34,3 @@ fi
 yum-builddep -y ulyaoth-hhvm.spec
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
-su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild"
