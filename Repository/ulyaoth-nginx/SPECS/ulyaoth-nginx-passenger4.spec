@@ -371,8 +371,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
+* Wed Mar 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
 - Fixed the missing systemd-devel problem.
+- Added support for Oracle Linux 6 & 7.
 
 * Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
 - Added support for Fedora 22 and CentOS 6 & 7.
