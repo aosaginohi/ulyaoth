@@ -12,9 +12,6 @@ yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8
 elif grep -q -i "release 6" /etc/centos-release
 then
 yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
-elif grep -q -i "release 7" /etc/oracle-release
-then
-yum install -y http://mirror.centos.org/centos/7/os/x86_64/Packages/GeoIP-devel-1.5.0-9.el7.x86_64.rpm
 else
 echo yeah Fedora!
 fi
