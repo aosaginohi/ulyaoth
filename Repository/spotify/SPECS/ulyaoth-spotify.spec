@@ -185,7 +185,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor/ &>/dev/null || :
 # Register the spotify service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
-    /usr/bin/systemctl preset tspotify.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl preset spotify.service >/dev/null 2>&1 ||:
 %else
     /sbin/chkconfig --add spotify
 %endif
@@ -207,9 +207,10 @@ Please find the official documentation for Spotify here:
 BANNER
 
 %changelog
-* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-3
+* Thu Mar 19 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-3
 - Support for Fedora 22.
-- i386 support.
+- Support for Oracle Linux 6 & 7.
+- Support for CentOS 6 & 7.
 
 * Sun Mar 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-2
 - Adding systemd and initd files.
