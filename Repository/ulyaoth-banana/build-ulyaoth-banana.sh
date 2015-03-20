@@ -9,7 +9,7 @@ su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "git clone -b release git://github.com/LucidWorks/banana.git"
 cd /home/ulyaoth/banana
 su ulyaoth -c "ant"
-mv /home/ulyaoth/banana/build/banana-0.war mv /home/ulyaoth/rpmbuild/SOURCES/banana.war
+mv /home/ulyaoth/banana/build/banana-0.war /home/ulyaoth/rpmbuild/SOURCES/banana.war
 
 cd /home/ulyaoth/rpmbuild/SOURCES/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-banana/SOURCES/banana-context.xml"
