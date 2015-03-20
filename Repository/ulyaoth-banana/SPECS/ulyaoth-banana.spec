@@ -26,7 +26,7 @@ Provides: ulyaoth-banana
 Banana is a tool to create dashboards to visualize data you have stored in Solr. Commonly used with Logstash for log data, any content stored in a Solr index is eligible for visualization in a Banana dashboard.
 
 %install
-install -d -m 755 %{buildroot}/%{banana_home}/
+%{__mkdir} -p $RPM_BUILD_ROOT/opt/solr/server/webapps/
 %{__install} -m644 %SOURCE0 \
         $RPM_BUILD_ROOT/%{banana_home}/server/webapps/banana.war
 
