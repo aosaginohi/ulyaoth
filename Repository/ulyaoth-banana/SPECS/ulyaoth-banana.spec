@@ -15,7 +15,7 @@ Group:      Applications/Internet
 URL:        https://github.com/LucidWorks/banana/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
-Source0:    banana-%{version}.tar.gz
+Source0:    banana.war
 Source1:    banana-context.xml
 BuildRoot:  %{_tmppath}/banana-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -25,14 +25,10 @@ Provides: ulyaoth-banana
 %description
 Banana is a tool to create dashboards to visualize data you have stored in Solr. Commonly used with Logstash for log data, any content stored in a Solr index is eligible for visualization in a Banana dashboard.
 
-%prep
-%setup -q -n banana-%{version}
-
-%build
-
 %install
 install -d -m 755 %{buildroot}/%{banana_home}/
-cp -R * %{buildroot}/%{banana_home}/server/webapps
+%{__install} -m644 %SOURCE0 \
+        $RPM_BUILD_ROOT/%{banana_home}/server/webapps/banana.war
 
 %{__mkdir} -p $RPM_BUILD_ROOT/opt/solr/server/contexts
 %{__install} -m644 %SOURCE1 \
