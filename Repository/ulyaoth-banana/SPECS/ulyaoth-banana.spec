@@ -37,9 +37,12 @@ Banana is a tool to create dashboards to visualize data you have stored in Solr.
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
+%pre
+getent group %{banana_group} >/dev/null || groupadd -r %{banana_group}
+getent passwd %{banana_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemon User" --shell /bin/bash -M -r -g %{banana_group} --home %{banana_home} %{banana_user}
 
 %files
-%defattr(-,%{solr_user},%{solr_group})
+%defattr(-,%{banana_user},%{banana_group})
 %{banana_home}/server/webapps/banana.war
 %{banana_home}/server/contexts/banana-context.xml
 
@@ -58,7 +61,6 @@ For any additional help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-fi
 
 %changelog
 * Fri Mar 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.0-1
