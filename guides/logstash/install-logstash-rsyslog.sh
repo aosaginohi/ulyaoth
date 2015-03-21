@@ -81,6 +81,38 @@ systemctl start kibana.service
 uninstall()
 {
 echo "Preparing to uninstall Logstash."
+systemctl disable elasticsearch.service
+systemctl disable logstash.service
+systemctl disable nginx.service
+systemctl disable kibana.service
+systemctl stop elasticsearch.service
+systemctl stop logstash.service
+systemctl stop nginx.service
+systemctl stop kibana.service
+rm -rf /etc/yum.repos.d/logstash.repo
+rm -rf  /etc/yum.repos.d/elasticsearch.repo
+yum remove -y ulyaoth-* logstash elasticsearch
+rm -rf /etc/nginx
+rm -rf /var/log/nginx
+rm -rf /etc/logstash
+rm -rf /var/log/logstash
+rm -rf /var/lib/elasticsearch
+rm -rf /var/lib/logstash
+rm -rf /var/lib/yum/repos/x86_64/22/logstash-1.4
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.4
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.4-filenames.solvx
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.4.solv
+rm -rf /var/cache/yum/x86_64/22/logstash-1.4
+rm -rf /opt/logstash
+rm -rf /opt/kibana
+rm -rf /var/cache/nginx
+rm -rf /usr/share/elasticsearch
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.4
+rm -rf /var/cache/yum/x86_64/22/elasticsearch-1.4
+rm -rf /var/log/elasticsearch
+rm -rf  /var/lib/yum/repos/x86_64/22/elasticsearch-1.4
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.4-filenames.solvx
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.4.solv
 }
 
 option=
