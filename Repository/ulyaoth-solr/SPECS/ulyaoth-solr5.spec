@@ -40,6 +40,7 @@ Source0:    solr-%{version}.tar.gz
 Source1:    solr5-log4j.properties
 Source2:    solr5-solr.init
 Source3:    solr5-solr.service
+Source4:    solr.logrotate
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: solr
@@ -76,6 +77,11 @@ cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT/var/solr/da
 %{__install} -m755 %{SOURCE2} \
    $RPM_BUILD_ROOT%{_initrddir}/solr
 %endif
+
+# install log rotation stuff
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
+%{__install} -m 644 -p %{SOURCE4} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/solr
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
