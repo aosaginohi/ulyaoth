@@ -4,7 +4,8 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/opt/solr/bin/solr
+EnvironmentFile=-/etc/sysconfig/solr
+ExecStart=/opt/solr/bin/solr ${SOLR}
 ExecStop=/opt/solr/bin/solr
 User=solr
 Group=solr

@@ -1,1 +1,1 @@
-SOLR_INCLUDE=/var/solr/solr.in.sh
+SOLR="SOLR_INCLUDE=/var/solr/solr.in.sh"
