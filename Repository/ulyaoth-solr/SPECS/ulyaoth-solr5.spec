@@ -56,11 +56,14 @@ Solr is highly reliable, scalable and fault tolerant, providing distributed inde
 %build
 
 %install
-install -d -m 755 %{buildroot}/var/
-cp -R * %{buildroot}/var/
+install -d -m 755 %{buildroot}/opt/
+cp -R * %{buildroot}/opt/
 
 %{__mkdir} -p $RPM_BUILD_ROOT/var/solr/data/
 %{__mkdir} -p $RPM_BUILD_ROOT/var/log/solr/
+
+cp -R %{buildroot}/%{solr_home}/bin/solr.in.sh $RPM_BUILD_ROOT/var/solr/
+cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT/var/solr/data/
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -83,8 +86,23 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 
 %files
 %defattr(-,%{solr_user},%{solr_group})
-%{banana_home}/server/webapps/banana.war
-%{banana_home}/server/contexts/banana-context.xml
+%{solr_home}/*
+%dir %{_localstatedir}/log/solr
+%config(noreplace) %{solr_home}/server/contexts/solr-jetty-context.xml
+%config(noreplace) %{solr_home}/opt/solr/server/etc/jetty-https-ssl.xml
+%config(noreplace) %{solr_home}/opt/solr/server/etc/jetty.xml
+%config(noreplace) %{solr_home}/opt/solr/server/etc/webdefault.xml
+%config(noreplace) %{solr_home}/opt/solr/server/solr/solr.xml
+%config(noreplace) %{solr_home}/opt/solr/server/solr/zoo.xml
+%config(noreplace) %{_localstatedir}/solr/data/solr.xml
+
+%defattr(-,root,root)
+%config(noreplace) %{_sysconfdir}/logrotate.d/tomcat
+%if %{use_systemd}
+%{_unitdir}/tomcat.service
+%else
+%{_initrddir}/tomcat
+%endif
 
 
 %post
