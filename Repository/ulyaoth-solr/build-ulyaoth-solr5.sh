@@ -7,7 +7,7 @@ su ulyaoth -c "rpmdev-setuptree"
 
 su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.0.0/solr-5.0.0.tgz"
 su ulyaoth -c "tar xvf solr-$version.tgz"
-rm -rf /home/ulyaoth/solr-$version/examples
+rm -rf /home/ulyaoth/solr-$version/example
 rm -rf /home/ulyaoth/solr-$version/docs
 rm -rf /home/ulyaoth/solr-$version/bin/init.d
 rm -rf /home/ulyaoth/solr-$version/bin/install_solr_service.sh

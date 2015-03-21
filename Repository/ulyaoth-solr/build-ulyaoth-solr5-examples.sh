@@ -9,7 +9,7 @@ su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.0.0/solr-5
 su ulyaoth -c "tar xvf solr-$version.tgz"
 su ulyaoth -c "mv solr-$version solr"
 su ulyaoth -c "mkdir -p /home/ulyaoth/solr-$version"
-mv /home/ulyaoth/solr/examples /home/ulyaoth/solr-$version/
+mv /home/ulyaoth/solr/example /home/ulyaoth/solr-$version/
 su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
 su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
