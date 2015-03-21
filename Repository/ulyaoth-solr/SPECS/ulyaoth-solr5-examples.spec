@@ -5,7 +5,7 @@
 %define solr_group solr
 %define solr_user solr
 
-Summary:    Apache Solr
+Summary:    Apache Solr Examples
 Name:       ulyaoth-solr5-examples
 Version:    5.0.0
 Release:    1%{?dist}
@@ -15,9 +15,10 @@ Group:      Applications/Internet
 URL:        https://lucene.apache.org/solr/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
-Source0:    
-Source1:    
+Source0:    solr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
+
+Requires: ulyaoth-solr5
 
 Provides: solr-examples
 Provides: solr5-examples
@@ -27,11 +28,14 @@ Provides: ulyaoth-solr5-examples
 %description
 Solr is highly reliable, scalable and fault tolerant, providing distributed indexing, replication and load-balanced querying, automated failover and recovery, centralized configuration and more.
 
+%prep
+%setup -q -n solr-%{version}
+
+%build
+
 %install
-
-
-%{__mkdir} -p $RPM_BUILD_ROOT/var/solr/data/
-%{__mkdir} -p $RPM_BUILD_ROOT/var/log/solr/
+install -d -m 755 %{buildroot}/%{solr_home}/
+cp -R * %{buildroot}/%{solr_home}/
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -42,9 +46,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 
 %files
 %defattr(-,%{solr_user},%{solr_group})
-%{banana_home}/server/webapps/banana.war
-%{banana_home}/server/contexts/banana-context.xml
-
+%{solr_home}/examples/*
 
 %post
 cat <<BANNER

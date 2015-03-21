@@ -1,29 +1,27 @@
 buildarch="$(uname -m)"
-version=1.5.0
+version=5.0.0
 
 useradd ulyaoth
 cd /home/ulyaoth
-yum install -y ant
 su ulyaoth -c "rpmdev-setuptree"
 
-su ulyaoth -c "git clone -b release git://github.com/LucidWorks/banana.git"
-su ulyaoth -c "mkdir -p /home/ulyaoth/banana/build"
-cd /home/ulyaoth/banana
-su ulyaoth -c "ant"
-mv /home/ulyaoth/banana/build/banana-0.war /home/ulyaoth/rpmbuild/SOURCES/banana.war
-
-cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-banana/SOURCES/banana-context.xml"
+su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.0.0/solr-5.0.0.tgz"
+su ulyaoth -c "tar xvf solr-$version.tgz"
+su ulyaoth -c "mv solr-$version solr"
+su ulyaoth -c "mkdir -p /home/ulyaoth/solr-$version"
+mv /home/ulyaoth/solr/docs /home/ulyaoth/solr-$version/
+su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
+su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-banana/SPECS/ulyaoth-banana.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-solr/SPECS/ulyaoth-solr5-docs.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-banana.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-solr5-docs.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-banana.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-solr5-docs.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/

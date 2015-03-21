@@ -3,7 +3,6 @@ version=5.0.0
 
 useradd ulyaoth
 cd /home/ulyaoth
-yum install -y ant
 su ulyaoth -c "rpmdev-setuptree"
 
 su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.0.0/solr-5.0.0.tgz"
