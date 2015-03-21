@@ -42,7 +42,7 @@ Source2:    solr5-solr.init
 Source3:    solr5-solr.service
 Source4:    solr.logrotate
 Source5:    solr5-solr.sysconfig
-Source 6:   solr5-solr.in.sh
+Source6:    solr5-solr.in.sh
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: solr
