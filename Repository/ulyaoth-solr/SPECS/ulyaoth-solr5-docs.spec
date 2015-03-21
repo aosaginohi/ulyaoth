@@ -47,6 +47,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %files
 %defattr(-,%{solr_user},%{solr_group})
 %{solr_home}/docs/*
+%dir %{solr_home}/docs
 
 %post
 cat <<BANNER
