@@ -72,7 +72,7 @@ case "$1" in
 esac
 
 if [ -n "$RUNAS" ]; then
-  su -c "SOLR_INCLUDE=$SOLR_ENV $SOLR_INSTALL_DIR/bin/solr $SOLR_CMD" - $RUNAS
+  su -c $SOLR_INSTALL_DIR/bin/solr $SOLR_CMD" - $RUNAS
 else
-  SOLR_INCLUDE=$SOLR_ENV $SOLR_INSTALL_DIR/bin/solr $SOLR_CMD
+  $SOLR_INSTALL_DIR/bin/solr $SOLR_CMD
 fi
