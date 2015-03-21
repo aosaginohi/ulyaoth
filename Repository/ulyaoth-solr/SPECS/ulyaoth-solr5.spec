@@ -41,8 +41,7 @@ Source1:    solr5-log4j.properties
 Source2:    solr5-solr.init
 Source3:    solr5-solr.service
 Source4:    solr.logrotate
-Source5:    solr5-solr.sysconfig
-Source6:    solr5-solr.in.sh
+Source5:    solr5-solr.in.sh
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: solr
@@ -65,11 +64,12 @@ cp -R * %{buildroot}/%{solr_home}/
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{solr_home}/server/resources/log4j.properties
 
-%{__install} -m 755 -p %{SOURCE6} \
+%{__install} -m 755 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{solr_home}/bin/solr.in.sh
 
-%{__mkdir} -p $RPM_BUILD_ROOT/var/solr/data/
-%{__mkdir} -p $RPM_BUILD_ROOT/var/log/solr/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/solr/data/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/solr/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/solr/
 
 cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT/var/solr/data/
 
@@ -103,6 +103,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %dir %{_localstatedir}/log/solr
 %dir %{_localstatedir}/solr/data
 %dir %{_localstatedir}/solr/
+%dir %{_localstatedir}/run/solr
 %config(noreplace) %{solr_home}/server/resources/log4j.properties
 %config(noreplace) %{solr_home}/server/contexts/solr-jetty-context.xml
 %config(noreplace) %{solr_home}/server/etc/jetty-https-ssl.xml
