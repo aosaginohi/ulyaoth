@@ -103,11 +103,11 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %config(noreplace) %{_localstatedir}/solr/data/solr.xml
 
 %defattr(-,root,root)
-%config(noreplace) %{_sysconfdir}/logrotate.d/tomcat
+%config(noreplace) %{_sysconfdir}/logrotate.d/solr
 %if %{use_systemd}
-%{_unitdir}/tomcat.service
+%{_unitdir}/solr.service
 %else
-%{_initrddir}/tomcat
+%{_initrddir}/solr
 %endif
 
 
