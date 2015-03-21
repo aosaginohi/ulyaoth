@@ -90,11 +90,6 @@ cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT/var/solr/da
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/solr
 
-# install sysconfig files
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
-%{__install} -m 644 -p %{SOURCE5} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/solr
-   
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -118,7 +113,6 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %config(noreplace) %{_localstatedir}/solr/data/solr.xml
 
 %defattr(-,root,root)
-%config(noreplace) %{_sysconfdir}/sysconfig/solr
 %config(noreplace) %{_sysconfdir}/logrotate.d/solr
 %if %{use_systemd}
 %{_unitdir}/solr.service
