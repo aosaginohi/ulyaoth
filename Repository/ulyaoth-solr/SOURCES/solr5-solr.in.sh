@@ -103,7 +103,7 @@ ENABLE_REMOTE_JMX_OPTS="false"
 # Uncomment to set a specific SSL port (-Djetty.ssl.port=N); if not set
 # and you are using SSL, then the start script will use SOLR_PORT for the SSL port
 #SOLR_SSL_PORT=
-SOLR_PID_DIR=/var/run/solr
+SOLR_PID_DIR=/var/solr
 SOLR_HOME=/var/solr/data
 SOLR_LOGS_DIR=/var/log/solr
 SOLR_PORT=8983
