@@ -99,6 +99,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %files
 %defattr(-,%{solr_user},%{solr_group})
 %{solr_home}/*
+%dir %{solr_home}
 %dir %{_localstatedir}/log/solr
 %dir %{_localstatedir}/solr/data
 %dir %{_localstatedir}/solr/

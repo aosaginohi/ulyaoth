@@ -82,6 +82,7 @@ getent passwd %{kibana_user} >/dev/null || /usr/sbin/useradd --comment "Kibana D
 %files
 %defattr(-,%{kibana_user},%{kibana_group})
 %{kibana_home}/*
+%dir %{kibana_home}
 %config(noreplace) %{kibana_home}/config/kibana.yml
 
 %defattr(-,root,root)
