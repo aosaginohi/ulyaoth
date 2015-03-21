@@ -1,22 +1,68 @@
+#!/bin/bash
+# Argument = -h (shows the help information)
+# Argument = -o (option .i.e install / uninstall)
+# Created By: Sjir Bagmeijer - 2015/03/21
+# Last Edit By: Sjir Bagmeijer - 2015/03/21
+# https://community.ulyaoth.net
+
+usage()
+{
+cat << EOF
+usage: $0 options
+
+OPTIONS:
+   -h  Shows this help information
+   -o  Choose to "install" or "uninstall".
+EOF
+exit 1
+}
+
+
+repo()
+{
+echo "Step 1: adding the required repositories."
 rpm --import http://packages.elasticsearch.org/GPG-KEY-elasticsearch
-cd /etc/yum.repos.d/
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/repository/logstash.repo
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/repository/elasticsearch.repo
-yum install -y http://trash.ulyaoth.net/trash/rpm/ulyaoth-1.0.0-1.fc21.x86_64.rpm
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/repository/logstash.repo -O /etc/yum.repos.d/logstash.repo
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/repository/elasticsearch.repo  -O /etc/yum.repos.d/elasticsearch.repo
+yum install -y https://trash.ulyaoth.net/trash/rpm/Fedora/x86_64/ulyaoth-1.0.2-1.fc22.x86_64.rpm
+}
+
+install()
+{
+echo "Step 2: installing the required packages."
 yum install -y ulyaoth-nginx ulyaoth-kibana java elasticsearch logstash rsyslog tar wget policycoreutils-python zip
-systemctl daemon-reload
-cd /etc/logstash/conf.d
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/rsyslog/logstash.conf
-chown logstash:logstash logstash.conf
+}
+
+logstash()
+{
+echo "Step 3: Configuring Logstash."
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/rsyslog/logstash.conf -O /etc/logstash/conf.d/logstash.conf
+chown logstash:logstash /etc/logstash/conf.d/logstash.conf
+}
+
+kibana()
+{
+echo "Step 4: Configuring Kibana."
 mkdir -p /var/log/nginx/kibana
 chown nginx:adm /var/log/nginx/kibana
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/nginx/vhost/kibana4.conf -O /etc/nginx/sites-available/kibana.conf
 ln -s /etc/nginx/sites-available/kibana.conf /etc/nginx/sites-enabled/kibana.conf
+}
+
+firewall()
+{
+echo "Step 5: Fixing your Firewall."
 semanage port -a -t http_port_t -p tcp 9200
 semanage port -a -t http_port_t -p tcp 5601
 firewall-cmd --permanent --zone=FedoraServer --add-service=http
 firewall-cmd --permanent --zone=FedoraServer --add-service=https
 firewall-cmd --permanent --zone=FedoraServer --add-port=5544/udp
+}
+
+restartstart()
+{
+echo "Step 6: Enabling and starting all services."
+systemctl daemon-reload
 systemctl restart firewalld.service
 systemctl enable elasticsearch.service
 systemctl enable logstash.service
@@ -30,3 +76,48 @@ sleep 5
 systemctl start nginx.service
 sleep 5
 systemctl start kibana.service
+}
+
+uninstall()
+{
+echo "Preparing to uninstall Logstash."
+}
+
+option=
+
+while getopts h:o: opt; do
+case $opt in
+h)
+  usage
+;;
+o)
+  option=$OPTARG
+;;
+\?)
+  usage
+;;
+:)
+  usage
+;;
+esac
+done
+
+if [ "$option" == "install" ]
+then
+  repo
+  install
+  logstash
+  kibana
+  firewall
+  restartstart
+  echo "Your installation is finished now."
+exit 1
+elif [ "$option" == "uninstall" ]
+then
+  uninstall
+  echo "Your uninstallation has finished."
+exit 1
+else
+  usage
+exit 1
+fi
