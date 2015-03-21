@@ -41,6 +41,7 @@ Source1:    solr5-log4j.properties
 Source2:    solr5-solr.init
 Source3:    solr5-solr.service
 Source4:    solr.logrotate
+Source5:    solr5-solr.sysconfig
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: solr
@@ -103,6 +104,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %config(noreplace) %{_localstatedir}/solr/data/solr.xml
 
 %defattr(-,root,root)
+%config(noreplace) %{_sysconfdir/sysconfig/solr
 %config(noreplace) %{_sysconfdir}/logrotate.d/solr
 %if %{use_systemd}
 %{_unitdir}/solr.service
