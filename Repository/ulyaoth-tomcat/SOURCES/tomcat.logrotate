@@ -1,4 +1,4 @@
-/var/log/catalina.out {
+/var/log/tomcat/catalina.out {
   copytruncate
   dateext
   missingok
