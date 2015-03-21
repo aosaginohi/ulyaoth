@@ -1,1 +1,2 @@
-SOLR="SOLR_INCLUDE=/var/solr/solr.in.sh"
+SOLRSTART="start"
+SOLRSTOP="stop"

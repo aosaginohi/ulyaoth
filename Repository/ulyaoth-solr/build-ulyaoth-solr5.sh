@@ -12,6 +12,8 @@ rm -rf /home/ulyaoth/solr-$version/examples
 rm -rf /home/ulyaoth/solr-$version/docs
 rm -rf /home/ulyaoth/solr-$version/bin/init.d
 rm -rf /home/ulyaoth/solr-$version/bin/install_solr_service.sh
+rm -rf /home/ulyaoth/solr-$version/bin/solr.in.sh
+rm -rf /home/ulyaoth/solr-$version/server/resources/log4j.properties
 su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
 su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
