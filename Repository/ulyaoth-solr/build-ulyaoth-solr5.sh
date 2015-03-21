@@ -23,6 +23,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-solr/SOURCES/solr5-solr.sysconfig"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-solr/SOURCES/solr5-solr.service"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-solr/SOURCES/solr.logrotate"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-solr/SOURCES/solr5-solr.in.sh"
 
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-solr/SPECS/ulyaoth-solr5.spec"
