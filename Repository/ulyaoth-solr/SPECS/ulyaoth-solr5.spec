@@ -84,6 +84,11 @@ cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT/var/solr/da
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/solr
 
+# install sysconfig files
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
+%{__install} -m 644 -p %{SOURCE5} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/solr
+   
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -96,11 +101,11 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %{solr_home}/*
 %dir %{_localstatedir}/log/solr
 %config(noreplace) %{solr_home}/server/contexts/solr-jetty-context.xml
-%config(noreplace) %{solr_home}/opt/solr/server/etc/jetty-https-ssl.xml
-%config(noreplace) %{solr_home}/opt/solr/server/etc/jetty.xml
-%config(noreplace) %{solr_home}/opt/solr/server/etc/webdefault.xml
-%config(noreplace) %{solr_home}/opt/solr/server/solr/solr.xml
-%config(noreplace) %{solr_home}/opt/solr/server/solr/zoo.xml
+%config(noreplace) %{solr_home}/server/etc/jetty-https-ssl.xml
+%config(noreplace) %{solr_home}/server/etc/jetty.xml
+%config(noreplace) %{solr_home}/server/etc/webdefault.xml
+%config(noreplace) %{solr_home}/server/solr/solr.xml
+%config(noreplace) %{solr_home}/server/solr/zoo.xml
 %config(noreplace) %{_localstatedir}/solr/data/solr.xml
 
 %defattr(-,root,root)
