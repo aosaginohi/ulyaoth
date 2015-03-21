@@ -69,7 +69,6 @@ cp -R * %{buildroot}/%{solr_home}/
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/solr/data/
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/solr/
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/solr/
 
 cp -R %{buildroot}/%{solr_home}/server/solr/solr.xml $RPM_BUILD_ROOT/var/solr/data/
 
@@ -103,7 +102,6 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %dir %{_localstatedir}/log/solr
 %dir %{_localstatedir}/solr/data
 %dir %{_localstatedir}/solr/
-%dir %{_localstatedir}/run/solr
 %config(noreplace) %{solr_home}/server/resources/log4j.properties
 %config(noreplace) %{solr_home}/server/contexts/solr-jetty-context.xml
 %config(noreplace) %{solr_home}/server/etc/jetty-https-ssl.xml
