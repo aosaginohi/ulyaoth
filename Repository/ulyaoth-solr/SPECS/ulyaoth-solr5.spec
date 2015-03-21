@@ -105,7 +105,7 @@ getent passwd %{solr_user} >/dev/null || /usr/sbin/useradd --comment "Solr Daemo
 %config(noreplace) %{solr_home}/server/etc/jetty.xml
 %config(noreplace) %{solr_home}/server/etc/webdefault.xml
 %config(noreplace) %{solr_home}/server/solr/solr.xml
-%config(noreplace) %{solr_home}/server/solr/zoo.xml
+%config(noreplace) %{solr_home}/server/solr/zoo.cfg
 %config(noreplace) %{_localstatedir}/solr/data/solr.xml
 
 %defattr(-,root,root)
