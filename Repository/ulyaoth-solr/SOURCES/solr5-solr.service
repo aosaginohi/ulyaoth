@@ -1,13 +1,13 @@
 [Unit]
-Description=Apache Tomcat Web Application Container
+Description=Apache Solr
 After=network.target
 
 [Service]
 Type=forking
-ExecStart=/opt/tomcat/bin/startup.sh
-ExecStop=/opt/tomcat/bin/shutdown.sh
-User=tomcat
-Group=tomcat
+ExecStart=/opt/solr/bin/solr
+ExecStop=/opt/solr/bin/solr
+User=solr
+Group=solr
 
 [Install]
 WantedBy=multi-user.target
