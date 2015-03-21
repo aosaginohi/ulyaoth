@@ -8,12 +8,11 @@ su ulyaoth -c "rpmdev-setuptree"
 
 su ulyaoth -c "wget http://apache.mirrors.spacedump.net/lucene/solr/5.0.0/solr-5.0.0.tgz"
 su ulyaoth -c "tar xvf solr-$version.tgz"
-su ulyaoth -c "mv solr-$version solr"
-rm -rf /home/ulyaoth/solr/examples
-rm -rf /home/ulyaoth/solr/docs
-rm -rf /home/ulyaoth/solr/bin/init.d
-rm -rf /home/ulyaoth/solr/bin/install_solr_service.sh
-su ulyaoth -c "tar cvf solr-$version.tar.gz solr/"
+rm -rf /home/ulyaoth/solr-$version/examples
+rm -rf /home/ulyaoth/solr-$version/docs
+rm -rf /home/ulyaoth/solr-$version/bin/init.d
+rm -rf /home/ulyaoth/solr-$version/bin/install_solr_service.sh
+su ulyaoth -c "tar cvf solr-$version.tar.gz solr-$version/"
 su ulyaoth -c "mv solr-$version.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 cd /home/ulyaoth/rpmbuild/SOURCES/

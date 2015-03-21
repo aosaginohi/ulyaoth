@@ -56,8 +56,8 @@ Solr is highly reliable, scalable and fault tolerant, providing distributed inde
 %build
 
 %install
-install -d -m 755 %{buildroot}/opt/
-cp -R * %{buildroot}/opt/
+install -d -m 755 %{buildroot}/%{solr_home}/
+cp -R * %{buildroot}/%{solr_home}/
 
 %{__mkdir} -p $RPM_BUILD_ROOT/var/solr/data/
 %{__mkdir} -p $RPM_BUILD_ROOT/var/log/solr/
