@@ -1,4 +1,5 @@
 %define debug_package %{nil}
+%define httpdiff_home /usr/bin
 
 # end of distribution specific definitions
 
@@ -27,9 +28,10 @@ Perform the same request against two HTTP servers and diff the results. For best
 %build
 
 %install
-install -d -m 755 %{buildroot}/%{lforward_home}/
-%{__mkdir} -p $RPM_BUILD_ROOT/opt/logstash-forwarder/ssl
 
+%{__mkdir} -p $RPM_BUILD_ROOT%{httpdiff_home}
+%{__install} -m755 %SOURCE0 \
+        $RPM_BUILD_ROOT%{httpdiff_home}/httpdiff
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
