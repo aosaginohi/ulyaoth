@@ -40,7 +40,7 @@ Perform the same request against two HTTP servers and diff the results. For best
 
 %files
 %defattr(-,root,root)
-/usr/bin/httpdiff
+%{httpdiff_home}/httpdiff
 
 
 %post
