@@ -39,7 +39,7 @@ BuildRequires: systemd
 Summary: High performance web server
 Name: ulyaoth-nginx-passenger5
 Version: 1.6.2
-Release: 1%{?dist}.5.0.4
+Release: 1%{?dist}.5.0.5
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -371,6 +371,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Mar 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.5
+- Update to Passenger 5.0.5.
+
 * Wed Mar 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.4
 - Update to Passenger 5.0.4.
 

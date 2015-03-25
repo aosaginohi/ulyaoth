@@ -63,18 +63,18 @@ else
 ForEach ($buildbox in $MachineArray.GetEnumerator()) 
 {
 <# Create the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonevm $buildbox.Name --name buildmachine --mode all --options keepallmacs --register
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonevm $buildbox.Name --name buildmachine64 --mode all --options keepallmacs --register
 "Creating the virtual machine"
 
 <# If we build ulyaoth-hhvm then give the server more ram and cpus #>
 If ($package -Match "ulyaoth-hhvm")
 {
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm buildmachine --vram 8192 --cpus 4
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm buildmachine64 --vram 8192 --cpus 4
 "We are building $package so increasing Memory to 8GB and cpus to 4."
 }
 
 <# Start the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildmachine
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildmachine64
 "Starting the virtual machine"
   
 <# Sleep for 25 seconds so machine can boot #>
@@ -86,7 +86,7 @@ Start-Sleep -Seconds 25
 echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $password "$build"
 
 <# Poweroff the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm buildmachine poweroff
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm buildmachine64 poweroff
 "Stopping the virtual machine"
 
 <# Sleep for 5 seconds so machine can power off #>
@@ -94,7 +94,7 @@ echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $passwo
 Start-Sleep -Seconds 5
 
 <# Delete the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete buildmachine
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete buildmachine64
 "Deleting the virtual machine"
 
 <# Sleep for 5 seconds before looping again #>
