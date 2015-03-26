@@ -141,7 +141,7 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{nginx_version}}/objs/nginx \
+%{__mv} %{_builddir}/nginx-%{nginx_version}/objs/nginx \
         %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
