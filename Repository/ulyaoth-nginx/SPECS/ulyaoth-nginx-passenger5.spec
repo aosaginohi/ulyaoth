@@ -45,7 +45,7 @@ Vendor: nginx inc. / Phusion
 URL: https://www.phusionpassenger.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: http://nginx.org/download/nginx-%{version}.tar.gz
+Source0: http://nginx.org/download/nginx-1.9.2.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
