@@ -36,13 +36,13 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary: High performance web server
+Summary: High performance web server / Phusion Passenger web & app
 Name: ulyaoth-nginx-passenger5
-Version: 1.6.2
-Release: 1%{?dist}.5.0.5
+Version: 5.0.5
+Release: 1%{?dist}
 BuildArch: x86_64
-Vendor: nginx inc.
-URL: http://nginx.org/
+Vendor: nginx inc. / Phusion
+URL: http://nginx.org/ / https://www.phusionpassenger.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
@@ -87,15 +87,15 @@ Provides: ulyaoth-nginx-passenger
 Provides: ulyaoth-nginx-passenger5
 
 %description
-nginx [engine x] is an HTTP and reverse proxy server, as well as
-a mail proxy server.
+nginx [engine x] is an HTTP and reverse proxy server, as well asa mail proxy server.
+Phusion Passenger is a multi-language (Ruby, Python, Node) web & app server which can integrate into Apache and Nginx
 
 %package debug
-Summary: debug version of nginx
+Summary: debug version of nginx with passenger
 Group: System Environment/Daemons
 Requires: ulyaoth-nginx-passenger5
 %description debug
-Not stripped version of nginx built with the debugging log support.
+Not stripped version of nginx and passenger built with the debugging log support.
 
 %prep
 %setup -q -n nginx-%{version}
@@ -323,7 +323,7 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-Please find the official documentation for passenger here:
+Please find the official documentation or the enterprise version for passenger here:
 * https://www.phusionpassenger.com/ 
 
 For any additional help please visit my forum at:
@@ -371,6 +371,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Mar 26 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.5-1
+- Changing the version numbering.
+
 * Wed Mar 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.5
 - Update to Passenger 5.0.5.
 
