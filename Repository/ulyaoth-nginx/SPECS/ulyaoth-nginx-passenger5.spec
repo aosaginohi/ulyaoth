@@ -42,7 +42,7 @@ Version: 5.0.5
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc. / Phusion
-URL: http://nginx.org/ / https://www.phusionpassenger.com/
+URL: https://www.phusionpassenger.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
