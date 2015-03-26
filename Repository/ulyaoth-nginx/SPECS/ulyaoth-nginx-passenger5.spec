@@ -3,6 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
+%define nginx_version 1.6.2
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -45,7 +46,7 @@ Vendor: nginx inc. / Phusion
 URL: https://www.phusionpassenger.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: http://nginx.org/download/nginx-1.6.2.tar.gz
+Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
@@ -64,7 +65,7 @@ Requires: openssl
 Requires: ruby
 Requires: GeoIP
 
-BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
+BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: openssl
@@ -98,7 +99,7 @@ Requires: ulyaoth-nginx-passenger5
 Not stripped version of nginx and passenger built with the debugging log support.
 
 %prep
-%setup -q -n nginx-%{version}
+%setup -q -n nginx-%{nginx_version}
 
 %build
 ./configure \
@@ -140,8 +141,8 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{version}/objs/nginx \
-        %{_builddir}/nginx-%{version}/objs/nginx.debug
+%{__mv} %{_builddir}/nginx-%{nginx_version}}/objs/nginx \
+        %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
