@@ -8,6 +8,8 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: RPM-GPG-KEY-ulyaoth
 Source1: ulyaoth.repo
+BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
+
 
 License:        GPLv3
 
@@ -15,8 +17,7 @@ License:        GPLv3
 Ulyaoth repository.
 
 %install
-
-%{__mkdir} -p  $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
 
 %{__install} -m 644 -p %{SOURCE0} \
