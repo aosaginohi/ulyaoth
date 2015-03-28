@@ -14,11 +14,6 @@ License:        GPLv3
 %description
 Ulyaoth repository.
 
-%prep
-%setup -q
-
-%build
-
 %install
 
 %{__mkdir} -p  $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/
