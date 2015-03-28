@@ -3,6 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
+%define nginx_version 1.6.2
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -36,16 +37,16 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary: High performance web server
+Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-naxsi-masterbuild
-Version: 1.6.2
-Release: 1.20150315%{?dist}
+Version: 20150328
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: http://nginx.org/download/nginx-%{version}.tar.gz
+Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
@@ -64,7 +65,7 @@ License: 2-clause BSD-like license
 Requires: openssl
 Requires: GeoIP
 
-BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
+BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: GeoIP
@@ -80,18 +81,17 @@ Provides: nginx-naxsi
 Provides: ulyaoth-nginx-naxsi
 
 %description
-nginx [engine x] is an HTTP and reverse proxy server, as well as
-a mail proxy server.
+Naxsi behaves like a DROP-by-default firewall, the only job needed is to add required ACCEPT rules for the target website to work properly.
 
 %package debug
-Summary: debug version of nginx
+Summary: debug version of nginx compiled with Naxsi. 
 Group: System Environment/Daemons
 Requires: ulyaoth-nginx-naxsi-masterbuild
 %description debug
-Not stripped version of nginx built with the debugging log support.
+Not stripped version of nginx built with the debugging log support and compiled with Naxsi.
 
 %prep
-%setup -q -n nginx-%{version}
+%setup -q -n nginx-%{nginx_version}
 
 %build
 ./configure \
@@ -133,8 +133,8 @@ Not stripped version of nginx built with the debugging log support.
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{version}/objs/nginx \
-        %{_builddir}/nginx-%{version}/objs/nginx.debug
+%{__mv} %{_builddir}/nginx-%{nginx_version}/objs/nginx \
+        %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
@@ -236,7 +236,7 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
+%{__install} -m644 %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
 %clean
@@ -363,6 +363,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat Mar 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150328-1
+- Updating to today's master branch.
+- Fixed build number to make it more clear.
+
 * Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150315
 - Updating to today's master branch.
 
