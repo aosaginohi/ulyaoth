@@ -6,8 +6,8 @@
 
 Summary:    Tomcat native library
 Name:       ulyaoth-tomcat-native
-Version:    1.1.32
-Release:    3%{?dist}
+Version:    1.1.33
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -96,6 +96,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Tue Mar 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.33-1
+- Updated to Tomcat Native 1.1.33.
+
 * Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.32-3
 - Support for Oracle Linux 6 & 7.
 
