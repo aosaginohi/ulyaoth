@@ -121,7 +121,12 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 
 ulyaoth-nginx-pagespeed()
 {
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-pagespeed.sh ; chmod +x build-ulyaoth-nginx-pagespeed.sh ; ./build-ulyaoth-nginx-pagespeed.sh
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-pagespeed.sh ; chmod +x build-ulyaoth-nginx-pagespeed.sh ; ./build-ulyaoth-nginx-pagespeed.sh
+}
+
+ulyaoth-nginx-pagespeed-selinux()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-pagespeed-selinux.sh ; chmod +x build-ulyaoth-nginx-pagespeed-selinux.sh ; ./build-ulyaoth-nginx-pagespeed-selinux.sh
 }
 
 ulyaoth-nginx-modsecurity()
