@@ -30,15 +30,27 @@ BuildRequires: systemd
 
 Summary:    Kibana explore and visualize your data
 Name:       ulyaoth-kibana4
-Version:    4.0.1
-Release:    3%{?dist}
+Version:    4.0.2
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://www.elasticsearch.org/overview/kibana/
 Vendor:     Elasticsearch BV
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+
+%ifarch x86_64
 Source0:    kibana-%{version}-linux-x64.tar.gz
+%endif
+
+%ifarch i386
+Source0:    kibana-%{version}-linux-x86.tar.gz
+%endif
+
+%ifarch i686
+Source0:    kibana-%{version}-linux-x86.tar.gz
+%endif
+
 Source1:    kibana.service
 Source2:    kibana.init
 BuildRoot:  %{_tmppath}/kibana-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -52,7 +64,18 @@ Provides: ulyaoth-kibana4
 Kibana is an open source (Apache Licensed), browser based analytics and search dashboard for Elasticsearch. Kibana is a snap to setup and start using. Kibana strives to be easy to get started with, while also being flexible and powerful, just like Elasticsearch.
 
 %prep
+%ifarch x86_64
 %setup -q -n kibana-%{version}-linux-x64
+%endif
+
+%ifarch i386
+%setup -q -n kibana-%{version}-linux-x86
+%endif
+
+%ifarch i686
+%setup -q -n kibana-%{version}-linux-x86
+%endif
+
 
 %build
 
@@ -137,6 +160,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Apr Fri 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.2-1
+- Updating to Kibana 4.0.2.
+- Fixed 32-bit support.
+
 * Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.1-3
 - Support for Oracle Linux 6 & 7.
 

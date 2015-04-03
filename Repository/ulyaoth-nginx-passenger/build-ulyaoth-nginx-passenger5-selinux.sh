@@ -20,6 +20,7 @@ cp /usr/share/selinux/packages/ulyaoth-nginx-passenger5/ulyaoth-nginx-passenger5
 chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild/SOURCES/
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SPECS/ulyaoth-nginx-passenger5-selinux.spec"
+
 if [ "$arch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-passenger5-selinux.spec
