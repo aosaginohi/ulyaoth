@@ -42,12 +42,6 @@ install -p -m 644 -D %{SOURCE0} $RPM_BUILD_ROOT%{_datadir}/selinux/packages/%{pa
 
 %post
 if [ $1 -eq 1 ]; then
-semanage fcontext -a -t passenger_tmp_t '/var/cache/nginx/passenger_temp(/.*)?' 2>/dev/null || :
-restorecon -R /var/cache/nginx/passenger_temp || :
-semanage fcontext -a -t passenger_exec_t '/etc/nginx/modules/passenger(/.*)?' 2>/dev/null || :
-restorecon -R /etc/nginx/modules/passenger || :
-semanage fcontext -a -t passenger_log_t '/var/log/passenger(/.*)?' 2>/dev/null || :
-restorecon -R /var/log/passenger || :
 semodule -i %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-passenger5.pp 2>/dev/null || :
 %if %{use_systemd}
     /usr/bin/systemctl restart nginx.service >/dev/null 2>&1 ||:
@@ -69,12 +63,6 @@ fi
 
 %preun
 if [ $1 -eq 0 ]; then
-semanage fcontext -a -t passenger_tmp_t '/var/cache/nginx/passenger_temp(/.*)?' 2>/dev/null || :
-restorecon -R /var/cache/nginx/passenger_temp || :
-semanage fcontext -a -t passenger_exec_t '/etc/nginx/modules/passenger(/.*)?' 2>/dev/null || :
-restorecon -R /etc/nginx/modules/passenger || :
-semanage fcontext -a -t passenger_log_t '/var/log/passenger(/.*)?' 2>/dev/null || :
-restorecon -R /var/log/passenger || :
 semodule -r ulyaoth-nginx-passenger5 2>/dev/null || :
 %if %use_systemd
     /usr/bin/systemctl --no-reload disable nginx.service >/dev/null 2>&1 ||:
@@ -87,9 +75,6 @@ fi
 
 %postun
 if [ "$1" -ge "1" ] ; then # Upgrade
-semanage fcontext -d -t passenger_tmp_t '/var/cache/nginx/passenger_temp(/.*)?' 2>/dev/null || :
-semanage fcontext -d -t passenger_exec_t '/etc/nginx/modules/passenger(/.*)?' 2>/dev/null || :
-semanage fcontext -d -t passenger_log_t '/var/log/passenger(/.*)?' 2>/dev/null || :
 semodule -i %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-passenger5.pp 2>/dev/null || :
 fi
 
