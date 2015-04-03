@@ -20,7 +20,7 @@ BuildRequires: selinux-policy-targeted
 Requires(post): policycoreutils, %{package_name}
 Requires(preun): policycoreutils, %{package_name}
 Requires(postun): policycoreutils
-Requires: %{package_name}
+Requires: ulyaoth-nginx-pagespeed
 
 Provides: ulyaoth-nginx-pagespeed-selinux
 
