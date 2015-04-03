@@ -160,7 +160,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Apr Fri 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.2-1
+* Fri Apr 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.2-1
 - Updating to Kibana 4.0.2.
 - Fixed 32-bit support.
 
