@@ -22,6 +22,9 @@ Requires(preun): policycoreutils, %{package_name}
 Requires(postun): policycoreutils
 Requires: %{package_name}
 
+%description
+This package opens up selinux so you can use the package ulyaoth-nginx-pagespeed.
+
 %install
 install -p -m 644 -D %{SOURCE0} $RPM_BUILD_ROOT%{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-pagespeed.pp
 
