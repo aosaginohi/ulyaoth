@@ -35,7 +35,7 @@ install -p -m 644 -D %{SOURCE0} $RPM_BUILD_ROOT%{_datadir}/selinux/packages/%{pa
 
 %pre
 
-%post selinux
+%post
 if [ $1 -eq 1 ]; then
 semodule -i %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-pagespeed.pp 2>/dev/null || :
 %if %{use_systemd}
@@ -56,7 +56,7 @@ For any additional help please visit my forum at:
 BANNER
 fi
 
-%preun selinux
+%preun
 if [ $1 -eq 0 ]; then
 semodule -r ulyaoth-nginx-pagespeed 2>/dev/null || :
 %if %use_systemd
@@ -68,7 +68,7 @@ semodule -r ulyaoth-nginx-pagespeed 2>/dev/null || :
 %endif
 fi
 
-%postun selinux
+%postun
 if [ "$1" -ge "1" ] ; then # Upgrade
 semodule -i %{_datadir}/selinux/packages/%{name}/pureftpd.pp 2>/dev/null || :
 fi
