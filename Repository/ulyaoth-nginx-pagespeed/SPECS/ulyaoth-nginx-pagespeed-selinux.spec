@@ -6,7 +6,7 @@
 
 Summary: Selinux policy for Ulyaoth-Nginx-Pagespeed.
 Name: ulyaoth-nginx-pagespeed-selinux
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Ulyaoth
@@ -75,10 +75,13 @@ fi
 
 %postun
 if [ "$1" -ge "1" ] ; then # Upgrade
-semodule -i %{_datadir}/selinux/packages/%{name}/pureftpd.pp 2>/dev/null || :
+semodule -i %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-pagespeed.pp 2>/dev/null || :
 fi
 
 %changelog
+* Fri Apr 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.2-1
+- Spec file had a wrong postun, changed it to correct one for upgrading package.
+
 * Fri Apr 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.1-1
 - Fixed a mistake so the policy file is created on the actual OS.
 
