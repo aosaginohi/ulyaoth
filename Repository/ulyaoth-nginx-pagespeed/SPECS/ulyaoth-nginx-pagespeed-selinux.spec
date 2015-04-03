@@ -30,6 +30,7 @@ install -p -m 644 -D %{SOURCE0} $RPM_BUILD_ROOT%{_datadir}/selinux/packages/%{pa
 %files
 %defattr(-,root,root)
 %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-pagespeed.pp
+%dir %{_datadir}/selinux/packages/%{package_name}
 
 %pre
 
