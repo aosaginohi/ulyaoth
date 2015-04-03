@@ -22,6 +22,8 @@ Requires(preun): policycoreutils, %{package_name}
 Requires(postun): policycoreutils
 Requires: %{package_name}
 
+Provides: ulyaoth-nginx-pagespeed-selinux
+
 %description
 This package opens up selinux so you can use the package ulyaoth-nginx-pagespeed.
 

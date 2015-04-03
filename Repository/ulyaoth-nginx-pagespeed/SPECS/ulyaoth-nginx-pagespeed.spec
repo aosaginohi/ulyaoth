@@ -36,10 +36,10 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary: High performance web server
+Summary: High performance web server compiled with pagespeed.
 Name: ulyaoth-nginx-pagespeed
-Version: 1.6.2
-Release: 3%{?dist}.1.9.32.3
+Version: 1.9.32.3
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -82,7 +82,7 @@ Provides: ulyaoth-nginx
 Provides: ulyaoth-nginx-pagespeed
 
 %description
-nginx [engine x] is an HTTP and reverse proxy server, as well as
+nginx compile with pagespeed [engine x] is an HTTP and reverse proxy server, as well as
 a mail proxy server.
 
 %package debug
@@ -90,7 +90,7 @@ Summary: debug version of nginx
 Group: System Environment/Daemons
 Requires: ulyaoth-nginx-pagespeed
 %description debug
-Not stripped version of nginx built with the debugging log support.
+Not stripped version of nginx built with the debugging log support and compiled with pagespeed.
 
 %prep
 %setup -q -n nginx-%{version}
@@ -362,6 +362,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Apr 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-1
+- Changing the version numbering to the pagespeed version.
+
 * Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-3
 - Fixed the missing systemd-devel problem.
 
