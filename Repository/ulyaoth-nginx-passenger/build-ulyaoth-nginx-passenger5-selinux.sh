@@ -6,7 +6,7 @@ then
 arch="i386"
 fi
 
-yum install -y policycoreutils-python
+yum install -y policycoreutils-python checkpolicy selinux-policy-devel
 useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/
