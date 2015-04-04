@@ -68,7 +68,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-spotify.spec
 fi
 
-yum-builddep -y ulyaoth-spotify.spec
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-spotify.spec
+else
+yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-spotify.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-spotify.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
