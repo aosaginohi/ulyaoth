@@ -139,6 +139,11 @@ ulyaoth-nginx-naxsi-masterbuild()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-naxsi-masterbuild.sh
 }
 
+ulyaoth-nginx-ironbee-masterbuild()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/build-ulyaoth-nginx-ironbee-masterbuild.sh ; chmod +x build-ulyaoth-nginx-ironbee-masterbuild.sh ; ./build-ulyaoth-nginx-ironbee-masterbuild.sh
+}
+
 ulyaoth-nginx-passenger4()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/build-ulyaoth-nginx-passenger4.sh ; chmod +x build-ulyaoth-nginx-passenger4.sh ; ./build-ulyaoth-nginx-passenger4.sh
