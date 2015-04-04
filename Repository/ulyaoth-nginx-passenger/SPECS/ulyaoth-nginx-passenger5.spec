@@ -63,7 +63,6 @@ License: 2-clause BSD-like license
 
 Requires: openssl
 Requires: ruby
-Requires: rubygem-rails
 Requires: GeoIP
 
 BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
