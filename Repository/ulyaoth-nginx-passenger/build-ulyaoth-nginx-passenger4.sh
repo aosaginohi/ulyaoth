@@ -39,7 +39,7 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SOURCES/nginx.upgrade.sh
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SOURCES/nginx.vh.default.conf
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SOURCES/nginx.vh.example_ssl.conf
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SOURCES/nginx.vh.passenger.conf
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SOURCES/nginx.vh.passenger4.conf
 cd /root/rpmbuild/SPECS
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SPECS/ulyaoth-nginx-passenger4.spec
 cd /home/ulyaoth/

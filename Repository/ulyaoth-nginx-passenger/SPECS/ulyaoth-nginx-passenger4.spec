@@ -55,7 +55,7 @@ Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
-Source10: nginx.vh.passenger.conf
+Source10: nginx.vh.passenger4.conf
 Source11: passenger.tar.gz
 
 License: 2-clause BSD-like license
