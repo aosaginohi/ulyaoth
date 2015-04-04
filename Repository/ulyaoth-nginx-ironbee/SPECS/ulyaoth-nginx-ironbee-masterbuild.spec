@@ -131,7 +131,7 @@ patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
         --with-ipv6 \
         --with-debug \
 	    --with-cc-opt="-I/etc/nginx/modules/ironbee/include" \
-	    --with-ld-opt="-L/etc/nginx/modules/ironbee/lib -lhtp -libutil -lironbee" \
+	    --with-ld-opt="-L/etc/nginx/modules/ironbee/libs -lhtp -libutil -lironbee" \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -174,7 +174,7 @@ patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
         --with-ipv6 \
         --with-http_spdy_module \
 		--with-cc-opt="-I/etc/nginx/modules/ironbee/include" \
-	    --with-ld-opt="-L/etc/nginx/modules/ironbee/lib -lhtp -libutil -lironbee" \
+	    --with-ld-opt="-L/etc/nginx/modules/ironbee/libs -lhtp -libutil -lironbee" \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
