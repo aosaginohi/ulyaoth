@@ -94,6 +94,7 @@ Not stripped version of nginx built with the debugging log support and compiled 
 %setup -q -n nginx-%{nginx_version}
 
 %build
+patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
@@ -136,6 +137,7 @@ Not stripped version of nginx built with the debugging log support and compiled 
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/nginx-%{nginx_version}/objs/nginx \
         %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug
+patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
