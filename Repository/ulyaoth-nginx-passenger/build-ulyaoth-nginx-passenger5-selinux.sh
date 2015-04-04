@@ -17,13 +17,8 @@ useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SELinux/ulyaoth-nginx-passenger5.txt"
-mkdir -p /usr/share/selinux/packages/ulyaoth-nginx-passenger5
-cd /usr/share/selinux/packages/ulyaoth-nginx-passenger5
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SELinux/ulyaoth-nginx-passenger5.fc
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SELinux/ulyaoth-nginx-passenger5.te
-make -f /usr/share/selinux/devel/Makefile
-cp /usr/share/selinux/packages/ulyaoth-nginx-passenger5/ulyaoth-nginx-passenger5.pp /home/ulyaoth/rpmbuild/SOURCES/
-chown -R ulyaoth:ulyaoth /home/ulyaoth/rpmbuild/SOURCES/
+su ulyaoth -c "audit2allow -M ulyaoth-nginx-passenger5 < ulyaoth-nginx-passenger5.txt"
+su ulyaoth -c "mv ulyaoth-nginx-passenger5.pp /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/SPECS/ulyaoth-nginx-passenger5-selinux.spec"
 
