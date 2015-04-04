@@ -19,8 +19,14 @@ else
 echo yeah Fedora!
 fi
 
-useradd ulyaoth
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
+else
 yum install -y pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel yajl-devel lua-devel lua-static
+fi
+
+useradd ulyaoth
 cd /root
 rpmdev-setuptree
 mkdir -p /etc/nginx/modules
@@ -64,7 +70,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-modsecurity.spec
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y ulyaoth-nginx-modsecurity.spec
+else
 yum-builddep -y ulyaoth-nginx-modsecurity.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-modsecurity.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*
 rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*

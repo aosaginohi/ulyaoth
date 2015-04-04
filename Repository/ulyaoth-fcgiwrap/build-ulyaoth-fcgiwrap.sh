@@ -17,7 +17,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-fcgiwrap.spec
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-fcgiwrap.spec
+else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-fcgiwrap.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-fcgiwrap.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

@@ -16,11 +16,16 @@ else
 echo yeah Fedora!
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf install -y go golang
+else
+yum install -y go golang
+fi
 
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-yum install -y go golang
 su ulyaoth -c "git clone git://github.com/jgrahamc/httpdiff.git"
 su ulyaoth -c "cd /home/ulyaoth/httpdiff/ && go build"
 su ulyaoth -c "mv /home/ulyaoth/httpdiff/httpdiff /home/ulyaoth/rpmbuild/SOURCES/"

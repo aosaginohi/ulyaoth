@@ -16,7 +16,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tomcat7.spec
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y ulyaoth-tomcat7.spec
+else
 yum-builddep -y ulyaoth-tomcat7.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat7.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

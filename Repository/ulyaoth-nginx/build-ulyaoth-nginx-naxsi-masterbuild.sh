@@ -53,7 +53,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-naxsi-masterbuild.spec
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec
+else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi-masterbuild.spec"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILD/*"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*"

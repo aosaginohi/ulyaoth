@@ -3,9 +3,15 @@ version=1.5.0
 
 useradd ulyaoth
 cd /home/ulyaoth
-yum install -y ant
-su ulyaoth -c "rpmdev-setuptree"
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf install -y ant
+else
+yum install -y ant
+fi
+
+su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "git clone -b release git://github.com/LucidWorks/banana.git"
 su ulyaoth -c "mkdir -p /home/ulyaoth/banana/build"
 cd /home/ulyaoth/banana

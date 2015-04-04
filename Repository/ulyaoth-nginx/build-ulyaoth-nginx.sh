@@ -50,7 +50,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx.spec
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y ulyaoth-nginx.spec
+else
 yum-builddep -y ulyaoth-nginx.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

@@ -6,7 +6,13 @@ then
 arch="i386"
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf install -y policycoreutils-python
+else
 yum install -y policycoreutils-python
+fi
+
 useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/
@@ -20,7 +26,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-pagespeed-selinux.spec
 fi
 
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-pagespeed-selinux.spec
+else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-pagespeed-selinux.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-pagespeed-selinux.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

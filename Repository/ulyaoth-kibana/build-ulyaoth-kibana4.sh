@@ -28,7 +28,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-kibana4.spec
 fi
 
-yum-builddep -y ulyaoth-kibana4.spec
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-kibana4.spec
+else
+yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-kibana4.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-kibana4.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/

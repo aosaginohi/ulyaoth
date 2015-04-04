@@ -31,6 +31,12 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hhvm.spec
 fi
 
-yum-builddep -y ulyaoth-hhvm.spec
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm.spec
+else
+yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm.spec
+fi
+
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/

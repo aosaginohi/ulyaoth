@@ -53,7 +53,13 @@ then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-passenger4.spec
 fi
 
-yum-builddep -y ulyaoth-nginx-passenger4.spec
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-passenger4.spec
+else
+yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-passenger4.spec
+fi
+
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-passenger4.spec"
 rm -rf /home/ulyaoth/rpmbuild/BUILD/*
 rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*
