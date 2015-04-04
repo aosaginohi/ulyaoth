@@ -5,7 +5,7 @@
 
 Summary:    Perform the same request against two HTTP servers and diff the results. For best results use in a terminal that supports ANSI escape sequences.
 Name:       ulyaoth-httpdiff-masterbuild
-Version:    20150325
+Version:    20150404
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    GNU GENERAL PUBLIC LICENSE Version 2
@@ -66,5 +66,8 @@ BANNER
 
 
 %changelog
+* Sat Apr 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150404-1
+- Updating to today's master branch.
+
 * Wed Mar 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150325-1
 - Initial release for httpdiff.
