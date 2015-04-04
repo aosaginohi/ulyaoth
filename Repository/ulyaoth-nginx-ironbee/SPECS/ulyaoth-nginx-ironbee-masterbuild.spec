@@ -124,7 +124,7 @@ patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
         --with-http_stub_status_module \
         --with-http_auth_request_module \
 	    --with-http_geoip_module \
-		--add-module=/etc/nginx/modules/ironbee/servers/nginx \
+		--add-module=/etc/nginx/modules/ironbee/servers/nginx/ \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -167,7 +167,7 @@ patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
         --with-http_stub_status_module \
         --with-http_auth_request_module \
 	    --with-http_geoip_module \
-		--add-module=/etc/nginx/modules/ironbee/servers/nginx \
+		--add-module=/etc/nginx/modules/ironbee/servers/nginx/ \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
