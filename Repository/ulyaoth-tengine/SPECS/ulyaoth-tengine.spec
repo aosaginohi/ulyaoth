@@ -123,6 +123,7 @@ Not stripped version of tengine built with the debugging log support.
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/tengine-%{version}/objs/nginx \
         %{_builddir}/tengine-%{version}/objs/nginx.debug
+make dso_install
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
@@ -156,6 +157,7 @@ make %{?_smp_mflags}
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
+make dso_install
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
