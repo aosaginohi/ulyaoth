@@ -52,9 +52,9 @@ fi
 
 if grep -q -i "release 22" /etc/fedora-release
 then
-dnf builddep -y ulyaoth-nginx.spec
+dnf builddep -y ulyaoth-tengine.spec
 else
-yum-builddep -y ulyaoth-nginx.spec
+yum-builddep -y ulyaoth-tengine.spec
 fi
 
 su ulyaoth -c "rpmbuild -bb ulyaoth-tengine.spec"
@@ -62,5 +62,5 @@ cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 rm -rf /etc/nginx
-rm -rf /root/build-ulyaoth-nginx.sh
+rm -rf /root/build-ulyaoth-tengine.sh
 rm -rf /home/ulyaoth/rpmbuild
