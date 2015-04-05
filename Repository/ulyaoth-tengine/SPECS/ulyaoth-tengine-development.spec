@@ -37,8 +37,8 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-tengine
-Version: 1.5.2
+Name: ulyaoth-tengine-development
+Version: 2.1.0
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Taobao
@@ -76,6 +76,7 @@ Provides: tengine
 Provides: nginx
 Provides: ulyaoth-tengine
 Provides: ulyaoth-nginx
+Provides: ulyaoth-tengine-development
 
 %description
 Tengine is a web server originated by Taobao, the largest e-commerce website in Asia.
@@ -83,7 +84,7 @@ Tengine is a web server originated by Taobao, the largest e-commerce website in 
 %package debug
 Summary: debug version of tengine
 Group: System Environment/Daemons
-Requires: ulyaoth-tengine
+Requires: ulyaoth-tengine-development
 %description debug
 Not stripped version of tengine built with the debugging log support.
 
@@ -107,9 +108,9 @@ Not stripped version of tengine built with the debugging log support.
         --user=%{nginx_user} \
         --group=%{nginx_group} \
         --with-http_ssl_module \
-        --with-http_realip_module \
         --with-http_dav_module \
-        --with-http_gzip_static_module \
+		--with-http_realip_module=shared \
+        --with-http_gzip_static_module=shared \
         --with-http_random_index_module=shared \
         --with-http_secure_link_module=shared \
         --with-http_flv_module=shared \
@@ -137,10 +138,49 @@ Not stripped version of tengine built with the debugging log support.
 		--with-http_concat_module=shared \
 		--with-http_upstream_ip_hash_module=shared \
 		--with-http_upstream_least_conn_module=shared \
+		--with-http_upstream_keepalive_module=shared \
+		--with-http_upstream_check_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
-		--with-mail \
-        --with-file-aio \
+		--with-http_upstream_module=shared \
+		--with-http_static_module=shared \
+		--with-http_index_module=shared \
+		--with-http_auth_basic_module=shared \
+		--with-http_access_module=shared \
+		--with-http_geo_module=shared \
+		--with-http_google_perftools_module=shared \
+		--with-http_proxy_module=shared \
+		--with-http_degradation_module=shared \
+		--with-http_stub_status_module=shared \
+		--with-http_write_filter_module=shared \
+		--with-http_header_filter_module=shared \
+		--with-http_chunked_filter_module=shared \
+		--with-http_range_header_filter_module=shared \
+		--with-http_gzip_filter_module=shared \
+		--with-http_postpone_filter_module=shared \
+		--with-http_ssi_filter_module=shared \
+		--with-http_charset_filter_module=shared \
+		--with-http_xslt_filter_module=shared \
+		--with-http_image_filter_module=shared \
+		--with-http_sub_filter_module=shared \
+		--with-http_addition_filter_module=shared \
+		--with-http_userid_filter_module=shared \
+		--with-http_footer_filter_module=shared \
+		--with-http_trim_filter_module=shared \
+		--with-http_headers_filter_module=shared \
+		--with-http_copy_filter_module=shared \
+		--with-http_range_body_filter_module=shared \
+		--with-http_not_modified_filter_module=shared \
+		--with-mail_module=shared \
+		--with-mail_core_module=shared \
+		--with-mail_ssl_module=shared \
+		--with-mail_pop3_module=shared \
+		--with-mail_imap_module=shared \
+		--with-mail_smtp_module=shared \
+		--with-mail_auth_http_module=shared \
+		--with-mail_proxy_module=shared \
+		--with-backtrace_module=shared \
+		--with-file-aio \
         --with-ipv6 \
         --with-debug \
 		--dso-path=%{_sysconfdir}/nginx/modules \
@@ -166,12 +206,12 @@ make %{?_smp_mflags}
         --user=%{nginx_user} \
         --group=%{nginx_group} \
         --with-http_ssl_module \
-        --with-http_realip_module \
         --with-http_dav_module \
-        --with-http_gzip_static_module \
+		--with-http_realip_module=shared \
+        --with-http_gzip_static_module=shared \
         --with-http_random_index_module=shared \
         --with-http_secure_link_module=shared \
-		--with-http_flv_module=shared \
+        --with-http_flv_module=shared \
         --with-http_mp4_module=shared \
         --with-http_sub_module=shared \
 		--with-http_addition_module=shared \
@@ -196,10 +236,48 @@ make %{?_smp_mflags}
 		--with-http_concat_module=shared \
 		--with-http_upstream_ip_hash_module=shared \
 		--with-http_upstream_least_conn_module=shared \
+		--with-http_upstream_keepalive_module=shared \
+		--with-http_upstream_check_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
-		--with-mail \
-		--with-mail_ssl_module \
+		--with-http_upstream_module=shared \
+		--with-http_static_module=shared \
+		--with-http_index_module=shared \
+		--with-http_auth_basic_module=shared \
+		--with-http_access_module=shared \
+		--with-http_geo_module=shared \
+		--with-http_google_perftools_module=shared \
+		--with-http_proxy_module=shared \
+		--with-http_degradation_module=shared \
+		--with-http_stub_status_module=shared \
+		--with-http_write_filter_module=shared \
+		--with-http_header_filter_module=shared \
+		--with-http_chunked_filter_module=shared \
+		--with-http_range_header_filter_module=shared \
+		--with-http_gzip_filter_module=shared \
+		--with-http_postpone_filter_module=shared \
+		--with-http_ssi_filter_module=shared \
+		--with-http_charset_filter_module=shared \
+		--with-http_xslt_filter_module=shared \
+		--with-http_image_filter_module=shared \
+		--with-http_sub_filter_module=shared \
+		--with-http_addition_filter_module=shared \
+		--with-http_userid_filter_module=shared \
+		--with-http_footer_filter_module=shared \
+		--with-http_trim_filter_module=shared \
+		--with-http_headers_filter_module=shared \
+		--with-http_copy_filter_module=shared \
+		--with-http_range_body_filter_module=shared \
+		--with-http_not_modified_filter_module=shared \
+		--with-mail_module=shared \
+		--with-mail_core_module=shared \
+		--with-mail_ssl_module=shared \
+		--with-mail_pop3_module=shared \
+		--with-mail_imap_module=shared \
+		--with-mail_smtp_module=shared \
+		--with-mail_auth_http_module=shared \
+		--with-mail_proxy_module=shared \
+		--with-backtrace_module=shared \
         --with-file-aio \
         --with-ipv6 \
 		--dso-path=%{_sysconfdir}/nginx/modules \
@@ -335,7 +413,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-tengine!
+Thanks for using ulyaoth-tengine-development!
 
 Please find the official documentation for tengine here:
 * http://tengine.taobao.org/
@@ -388,5 +466,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Apr 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.2-1
+* Sun Apr 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2.1.0-1
 - Initial release.
