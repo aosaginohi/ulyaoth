@@ -109,8 +109,9 @@ Not stripped version of tengine built with the debugging log support.
         --group=%{nginx_group} \
         --with-http_ssl_module \
         --with-http_dav_module \
-		--with-http_realip_module=shared \
-        --with-http_gzip_static_module=shared \
+		--with-http_realip_module \
+        --with-http_spdy_module \
+        --with-http_gzip_static_module \
         --with-http_random_index_module=shared \
         --with-http_secure_link_module=shared \
         --with-http_flv_module=shared \
@@ -138,48 +139,13 @@ Not stripped version of tengine built with the debugging log support.
 		--with-http_concat_module=shared \
 		--with-http_upstream_ip_hash_module=shared \
 		--with-http_upstream_least_conn_module=shared \
-		--with-http_upstream_keepalive_module=shared \
-		--with-http_upstream_check_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
-		--with-http_upstream_module=shared \
-		--with-http_static_module=shared \
-		--with-http_index_module=shared \
-		--with-http_auth_basic_module=shared \
 		--with-http_access_module=shared \
-		--with-http_geo_module=shared \
-		--with-http_google_perftools_module=shared \
-		--with-http_proxy_module=shared \
-		--with-http_degradation_module=shared \
-		--with-http_stub_status_module=shared \
-		--with-http_write_filter_module=shared \
-		--with-http_header_filter_module=shared \
-		--with-http_chunked_filter_module=shared \
-		--with-http_range_header_filter_module=shared \
-		--with-http_gzip_filter_module=shared \
-		--with-http_postpone_filter_module=shared \
-		--with-http_ssi_filter_module=shared \
-		--with-http_charset_filter_module=shared \
-		--with-http_xslt_filter_module=shared \
-		--with-http_image_filter_module=shared \
-		--with-http_sub_filter_module=shared \
-		--with-http_addition_filter_module=shared \
-		--with-http_userid_filter_module=shared \
-		--with-http_footer_filter_module=shared \
-		--with-http_trim_filter_module=shared \
-		--with-http_headers_filter_module=shared \
-		--with-http_copy_filter_module=shared \
-		--with-http_range_body_filter_module=shared \
-		--with-http_not_modified_filter_module=shared \
-		--with-mail_module=shared \
-		--with-mail_core_module=shared \
-		--with-mail_ssl_module=shared \
-		--with-mail_pop3_module=shared \
-		--with-mail_imap_module=shared \
-		--with-mail_smtp_module=shared \
-		--with-mail_auth_http_module=shared \
-		--with-mail_proxy_module=shared \
-		--with-backtrace_module=shared \
+    	--with-http_degradation_module \
+		--with-http_stub_status_module \
+		--with-mail \
+		--with-mail_ssl_module \
 		--with-file-aio \
         --with-ipv6 \
         --with-debug \
@@ -207,8 +173,9 @@ make %{?_smp_mflags}
         --group=%{nginx_group} \
         --with-http_ssl_module \
         --with-http_dav_module \
-		--with-http_realip_module=shared \
-        --with-http_gzip_static_module=shared \
+		--with-http_realip_module \
+        --with-http_spdy_module \
+        --with-http_gzip_static_module \
         --with-http_random_index_module=shared \
         --with-http_secure_link_module=shared \
         --with-http_flv_module=shared \
@@ -236,48 +203,13 @@ make %{?_smp_mflags}
 		--with-http_concat_module=shared \
 		--with-http_upstream_ip_hash_module=shared \
 		--with-http_upstream_least_conn_module=shared \
-		--with-http_upstream_keepalive_module=shared \
-		--with-http_upstream_check_module=shared \
 		--with-http_upstream_session_sticky_module=shared \
 		--with-http_upstream_consistent_hash_module=shared \
-		--with-http_upstream_module=shared \
-		--with-http_static_module=shared \
-		--with-http_index_module=shared \
-		--with-http_auth_basic_module=shared \
 		--with-http_access_module=shared \
-		--with-http_geo_module=shared \
-		--with-http_google_perftools_module=shared \
-		--with-http_proxy_module=shared \
-		--with-http_degradation_module=shared \
-		--with-http_stub_status_module=shared \
-		--with-http_write_filter_module=shared \
-		--with-http_header_filter_module=shared \
-		--with-http_chunked_filter_module=shared \
-		--with-http_range_header_filter_module=shared \
-		--with-http_gzip_filter_module=shared \
-		--with-http_postpone_filter_module=shared \
-		--with-http_ssi_filter_module=shared \
-		--with-http_charset_filter_module=shared \
-		--with-http_xslt_filter_module=shared \
-		--with-http_image_filter_module=shared \
-		--with-http_sub_filter_module=shared \
-		--with-http_addition_filter_module=shared \
-		--with-http_userid_filter_module=shared \
-		--with-http_footer_filter_module=shared \
-		--with-http_trim_filter_module=shared \
-		--with-http_headers_filter_module=shared \
-		--with-http_copy_filter_module=shared \
-		--with-http_range_body_filter_module=shared \
-		--with-http_not_modified_filter_module=shared \
-		--with-mail_module=shared \
-		--with-mail_core_module=shared \
-		--with-mail_ssl_module=shared \
-		--with-mail_pop3_module=shared \
-		--with-mail_imap_module=shared \
-		--with-mail_smtp_module=shared \
-		--with-mail_auth_http_module=shared \
-		--with-mail_proxy_module=shared \
-		--with-backtrace_module=shared \
+		--with-http_degradation_module \
+		--with-http_stub_status_module \
+		--with-mail \
+		--with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
 		--dso-path=%{_sysconfdir}/nginx/modules \
