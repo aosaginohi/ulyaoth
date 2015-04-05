@@ -24,7 +24,7 @@ usermod -Gulyaoth ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SOURCES
-su ulyaoth -c "wget http://tengine.taobao.org/download/tengine-1.5.2.tar.gz"
+su ulyaoth -c "wget http://tengine.taobao.org/download/tengine-2.1.0.tar.gz"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/logrotate"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/tengine.init"
@@ -36,24 +36,24 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.vh.default.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.vh.example_ssl.conf"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SPECS/ulyaoth-tengine.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SPECS/ulyaoth-tengine-development.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tengine.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-tengine-development.spec
 fi
 
 if grep -q -i "release 22" /etc/fedora-release
 then
-dnf builddep -y ulyaoth-tengine.spec
+dnf builddep -y ulyaoth-tengine-development.spec
 else
-yum-builddep -y ulyaoth-tengine.spec
+yum-builddep -y ulyaoth-tengine-development.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-tengine.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-tengine-development.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 rm -rf /etc/nginx
-rm -rf /root/build-ulyaoth-tengine.sh
+rm -rf /root/build-ulyaoth-tengine-development.sh
 rm -rf /home/ulyaoth/rpmbuild
