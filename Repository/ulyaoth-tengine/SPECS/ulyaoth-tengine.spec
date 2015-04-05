@@ -62,7 +62,7 @@ License: 2-clause BSD-like license
 
 Requires: openssl
 
-BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
+BuildRoot: %{_tmppath}/tengine-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: GeoIP
@@ -72,22 +72,21 @@ BuildRequires: openssl-devel
 BuildRequires: curl-devel
 
 Provides: webserver
-Provides: nginx
-Provides: ulyaoth-nginx
+Provides: tengine
+Provides: ulyaoth-tengine
 
 %description
-nginx [engine x] is an HTTP and reverse proxy server, as well as
-a mail proxy server.
+Tengine is a web server originated by Taobao, the largest e-commerce website in Asia.
 
 %package debug
-Summary: debug version of nginx
+Summary: debug version of tengine
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx
+Requires: ulyaoth-tengine
 %description debug
-Not stripped version of nginx built with the debugging log support.
+Not stripped version of tengine built with the debugging log support.
 
 %prep
-%setup -q -n nginx-%{version}
+%setup -q -n tengine-%{version}
 
 %build
 ./configure \
@@ -129,8 +128,8 @@ Not stripped version of nginx built with the debugging log support.
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{version}/objs/nginx \
-        %{_builddir}/nginx-%{version}/objs/nginx.debug
+%{__mv} %{_builddir}/tengine-%{version}/objs/nginx \
+        %{_builddir}/tengine-%{version}/objs/nginx.debug
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
