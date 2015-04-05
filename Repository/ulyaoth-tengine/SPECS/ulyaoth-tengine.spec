@@ -68,8 +68,6 @@ BuildRequires: pcre-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
-BuildRequires: perl-Test-Simple
-BuildRequires: perl
 
 Provides: webserver
 Provides: tengine
@@ -125,7 +123,6 @@ Not stripped version of tengine built with the debugging log support.
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/tengine-%{version}/objs/nginx \
         %{_builddir}/tengine-%{version}/objs/nginx.debug
-make dso_install
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
@@ -159,7 +156,6 @@ make dso_install
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-make dso_install
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
