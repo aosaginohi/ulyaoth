@@ -68,6 +68,8 @@ BuildRequires: pcre-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
+BuildRequires: perl-Test-Simple
+BuildRequires: perl
 
 Provides: webserver
 Provides: tengine
