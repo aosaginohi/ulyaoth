@@ -111,7 +111,6 @@ Not stripped version of tengine built with the debugging log support.
         --with-http_dav_module \
         --with-http_flv_module \
         --with-http_mp4_module \
-        --with-http_gunzip_module \
         --with-http_gzip_static_module \
         --with-http_random_index_module \
         --with-http_secure_link_module \
@@ -151,7 +150,6 @@ make %{?_smp_mflags}
         --with-http_dav_module \
         --with-http_flv_module \
         --with-http_mp4_module \
-        --with-http_gunzip_module \
         --with-http_gzip_static_module \
         --with-http_random_index_module \
         --with-http_secure_link_module \
@@ -221,7 +219,7 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
+%{__install} -m644 %{_builddir}/tengine-%{version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
 %clean
