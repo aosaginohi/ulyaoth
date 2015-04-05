@@ -239,6 +239,7 @@ make %{?_smp_mflags}
 %config(noreplace) %{_sysconfdir}/nginx/koi-win
 %config(noreplace) %{_sysconfdir}/nginx/win-utf
 %config %{_sysconfdir}/nginx/browsers
+%config %{_sysconfdir}/nginx/module_stubs
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/nginx
 %config(noreplace) %{_sysconfdir}/sysconfig/nginx
