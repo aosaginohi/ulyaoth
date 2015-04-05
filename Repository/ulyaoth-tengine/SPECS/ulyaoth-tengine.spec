@@ -221,9 +221,7 @@ make %{?_smp_mflags}
 %defattr(-,root,root)
 
 %{_sbindir}/nginx
-
-/etc/nginx/sbin/dso_tool
-
+%{_sbindir}/dso_tool
 
 %dir %{_sysconfdir}/nginx
 %dir %{_sysconfdir}/nginx/conf.d
