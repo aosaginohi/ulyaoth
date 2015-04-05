@@ -114,12 +114,12 @@ Not stripped version of tengine built with the debugging log support.
         --with-http_gzip_static_module \
         --with-http_random_index_module \
         --with-http_secure_link_module \
-	    --with-http_geoip_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
+		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -150,11 +150,11 @@ make %{?_smp_mflags}
         --with-http_gzip_static_module \
         --with-http_random_index_module \
         --with-http_secure_link_module \
- 	    --with-http_geoip_module \
-        --with-mail \
+		--with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
+		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
@@ -224,6 +224,9 @@ make %{?_smp_mflags}
 
 %{_sbindir}/nginx
 
+/etc/nginx/sbin/dso_tool
+
+
 %dir %{_sysconfdir}/nginx
 %dir %{_sysconfdir}/nginx/conf.d
 %dir %{_sysconfdir}/nginx/sites-available
@@ -239,6 +242,7 @@ make %{?_smp_mflags}
 %config(noreplace) %{_sysconfdir}/nginx/koi-utf
 %config(noreplace) %{_sysconfdir}/nginx/koi-win
 %config(noreplace) %{_sysconfdir}/nginx/win-utf
+%config %{_sysconfdir}/nginx/browsers
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/nginx
 %config(noreplace) %{_sysconfdir}/sysconfig/nginx
