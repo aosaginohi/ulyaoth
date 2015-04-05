@@ -199,6 +199,17 @@ ulyaoth-httpdiff-masterbuild()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-httpdiff/build-ulyaoth-httpdiff-masterbuild.sh ; chmod +x build-ulyaoth-httpdiff-masterbuild.sh ; ./build-ulyaoth-httpdiff-masterbuild.sh
 }
 
+ulyaoth-tengine()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/build-ulyaoth-tengine.sh ; chmod +x build-ulyaoth-tengine.sh ; ./build-ulyaoth-tengine.sh
+}
+
+ulyaoth-tengine-selinux()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/build-ulyaoth-tengine-selinux.sh ; chmod +x build-ulyaoth-tengine-selinux.sh ; ./build-ulyaoth-tengine-selinux.sh
+}
+
+
 # Move package to repository server
 scppackage()
 {
