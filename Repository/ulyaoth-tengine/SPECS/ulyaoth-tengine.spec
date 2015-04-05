@@ -115,7 +115,6 @@ Not stripped version of tengine built with the debugging log support.
         --with-http_random_index_module \
         --with-http_secure_link_module \
         --with-http_stub_status_module \
-	    --with-http_geoip_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -152,7 +151,6 @@ make %{?_smp_mflags}
         --with-http_random_index_module \
         --with-http_secure_link_module \
         --with-http_stub_status_module \    
-	    --with-http_geoip_module \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
