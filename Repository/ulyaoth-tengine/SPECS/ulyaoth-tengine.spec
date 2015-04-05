@@ -68,8 +68,6 @@ BuildRequires: pcre-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
 
 Provides: webserver
 Provides: tengine
@@ -107,26 +105,25 @@ Not stripped version of tengine built with the debugging log support.
         --with-http_ssl_module \
         --with-http_realip_module \
         --with-http_addition_module \
-        --with-http_sub_module=shared \
-        --with-http_dav_module=shared \
-        --with-http_flv_module=shared \
-        --with-http_mp4_module=shared \
-        --with-http_gzip_static_module=shared \
+        --with-http_sub_module \
+        --with-http_dav_module \
+        --with-http_flv_module \
+        --with-http_mp4_module \
+        --with-http_gzip_static_module \
         --with-http_random_index_module \
         --with-http_secure_link_module \
-		--with-with-http_geoip_module=shared \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
+		--dso-path=%{_sysconfdir}/nginx/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/tengine-%{version}/objs/nginx \
         %{_builddir}/tengine-%{version}/objs/nginx.debug
-make dso_install
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
@@ -145,23 +142,22 @@ make dso_install
         --with-http_ssl_module \
         --with-http_realip_module \
         --with-http_addition_module \
-        --with-http_sub_module=shared \
-        --with-http_dav_module=shared \
-        --with-http_flv_module=shared \
-        --with-http_mp4_module=shared \
-        --with-http_gzip_static_module=shared \
-		--with-with-http_geoip_module=shared \
+        --with-http_sub_module \
+        --with-http_dav_module \
+        --with-http_flv_module \
+        --with-http_mp4_module \
+        --with-http_gzip_static_module \
         --with-http_random_index_module \
         --with-http_secure_link_module \
 		--with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
+		--dso-path=%{_sysconfdir}/nginx/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-make dso_install
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
