@@ -55,5 +55,5 @@ cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 rm -rf /etc/nginx
-rm -rf /root/build-ulyaoth-nginx.sh
+rm -rf /root/build-ulyaoth-tengine.sh
 rm -rf /home/ulyaoth/rpmbuild
