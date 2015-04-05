@@ -47,13 +47,13 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://tengine.taobao.org/download/tengine-%{version}.tar.gz
 Source1: logrotate
-Source2: nginx.init
+Source2: tengine.init
 Source3: nginx.sysconf
 Source4: nginx.conf
 Source5: nginx.vh.default.conf
 Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
-Source8: nginx.service
+Source8: tengine.service
 Source9: nginx.upgrade.sh
 Source10: nginx.suse.logrotate
 
@@ -65,6 +65,8 @@ Requires: openssl
 BuildRoot: %{_tmppath}/tengine-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
+BuildRequires: GeoIP
+BuildRequires: GeoIP-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
@@ -104,16 +106,38 @@ Not stripped version of tengine built with the debugging log support.
         --group=%{nginx_group} \
         --with-http_ssl_module \
         --with-http_realip_module \
-        --with-http_addition_module \
-        --with-http_sub_module \
         --with-http_dav_module \
-        --with-http_flv_module \
-        --with-http_mp4_module \
         --with-http_gzip_static_module \
-        --with-http_random_index_module \
-        --with-http_secure_link_module \
-        --with-mail \
-        --with-mail_ssl_module \
+        --with-http_random_index_module=shared \
+        --with-http_secure_link_module=shared \
+        --with-http_flv_module=shared \
+        --with-http_mp4_module=shared \
+        --with-http_sub_module=shared \
+		--with-http_addition_module=shared \
+		--with-http_memcached_module=shared \
+		--with-http_fastcgi_module=shared \
+		--with-http_geoip_module=shared \
+		--with-http_autoindex_module=shared \
+		--with-http_access_module=shared \
+		--with-http_limit_conn_module=shared \
+		--with-http_limit_req_module=shared \
+		--with-http_sysguard_module=shared \
+		--with-http_map_module=shared \
+		--with-http_split_clients_module=shared \
+		--with-http_user_agent_module=shared \
+		--with-http_referer_module=shared \
+		--with-http_rewrite_module=shared \
+		--with-http_uwsgi_module=shared \
+		--with-http_scgi_module=shared \
+		--with-http_empty_gif_module=shared \
+		--with-http_browser_module=shared \
+		--with-http_slice_module=shared \
+		--with-http_concat_module=shared \
+		--with-http_upstream_ip_hash_module=shared \
+		--with-http_upstream_least_conn_module=shared \
+		--with-http_upstream_session_sticky_module=shared \
+		--with-http_upstream_consistent_hash_module=shared \
+		--with-mail \
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
@@ -141,16 +165,39 @@ make %{?_smp_mflags}
         --group=%{nginx_group} \
         --with-http_ssl_module \
         --with-http_realip_module \
-        --with-http_addition_module \
-        --with-http_sub_module \
         --with-http_dav_module \
-        --with-http_flv_module \
-        --with-http_mp4_module \
         --with-http_gzip_static_module \
-        --with-http_random_index_module \
-        --with-http_secure_link_module \
+        --with-http_random_index_module=shared \
+        --with-http_secure_link_module=shared \
+		--with-http_flv_module=shared \
+        --with-http_mp4_module=shared \
+        --with-http_sub_module=shared \
+		--with-http_addition_module=shared \
+		--with-http_memcached_module=shared \
+		--with-http_fastcgi_module=shared \
+		--with-http_geoip_module=shared \
+		--with-http_autoindex_module=shared \
+		--with-http_access_module=shared \
+		--with-http_limit_conn_module=shared \
+		--with-http_limit_req_module=shared \
+		--with-http_sysguard_module=shared \
+		--with-http_map_module=shared \
+		--with-http_split_clients_module=shared \
+		--with-http_user_agent_module=shared \
+		--with-http_referer_module=shared \
+		--with-http_rewrite_module=shared \
+		--with-http_uwsgi_module=shared \
+		--with-http_scgi_module=shared \
+		--with-http_empty_gif_module=shared \
+		--with-http_browser_module=shared \
+		--with-http_slice_module=shared \
+		--with-http_concat_module=shared \
+		--with-http_upstream_ip_hash_module=shared \
+		--with-http_upstream_least_conn_module=shared \
+		--with-http_upstream_session_sticky_module=shared \
+		--with-http_upstream_consistent_hash_module=shared \
 		--with-mail \
-        --with-mail_ssl_module \
+		--with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
 		--dso-path=%{_sysconfdir}/nginx/modules \
@@ -193,7 +240,7 @@ make %{?_smp_mflags}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__install} -m644 %SOURCE8 \
-        $RPM_BUILD_ROOT%{_unitdir}/nginx.service
+        $RPM_BUILD_ROOT%{_unitdir}/tengine.service
 %{__mkdir} -p $RPM_BUILD_ROOT%{_libexecdir}/initscripts/legacy-actions/nginx
 %{__install} -m755 %SOURCE9 \
         $RPM_BUILD_ROOT%{_libexecdir}/initscripts/legacy-actions/nginx/upgrade
@@ -205,7 +252,7 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_initrddir}/nginx
 %else
 %{__install} -m755 %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_initrddir}/nginx
+   $RPM_BUILD_ROOT%{_initrddir}/tengine
 %endif
 %endif
 
@@ -226,9 +273,12 @@ make %{?_smp_mflags}
 %{_sbindir}/dso_tool
 
 %dir %{_sysconfdir}/nginx
+%dir %{_sysconfdir}/nginx/modules
 %dir %{_sysconfdir}/nginx/conf.d
 %dir %{_sysconfdir}/nginx/sites-available
 %dir %{_sysconfdir}/nginx/sites-enabled
+
+%{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
@@ -246,11 +296,11 @@ make %{?_smp_mflags}
 %config(noreplace) %{_sysconfdir}/logrotate.d/nginx
 %config(noreplace) %{_sysconfdir}/sysconfig/nginx
 %if %{use_systemd}
-%{_unitdir}/nginx.service
+%{_unitdir}/tengine.service
 %dir %{_libexecdir}/initscripts/legacy-actions/nginx
 %{_libexecdir}/initscripts/legacy-actions/nginx/*
 %else
-%{_initrddir}/nginx
+%{_initrddir}/tengine
 %endif
 
 %dir %{_datadir}/nginx
@@ -272,12 +322,12 @@ getent passwd %{nginx_user} >/dev/null || \
 exit 0
 
 %post
-# Register the nginx service
+# Register the tengine service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
-    /usr/bin/systemctl preset nginx.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl preset tengine.service >/dev/null 2>&1 ||:
 %else
-    /sbin/chkconfig --add nginx
+    /sbin/chkconfig --add tengine
 %endif
     # print site info
     cat <<BANNER
@@ -285,8 +335,11 @@ if [ $1 -eq 1 ]; then
 
 Thanks for using ulyaoth-tengine!
 
-Please find the official documentation for nginx here:
+Please find the official documentation for tengine here:
 * http://tengine.taobao.org/
+
+Please find the official documentation for nginx here:
+* http://nginx.org/en/docs/
 
 For any additional help please visit my forum at:
 * http://www.ulyaoth.net
