@@ -202,6 +202,7 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 ulyaoth-nginx-mainline-passenger5-selinux()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/build-ulyaoth-nginx-mainline-passenger5-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-passenger5-selinux.sh ; ./build-ulyaoth-nginx-mainline-passenger5-selinux.sh
+}
 
 ulyaoth-hhvm()
 {
