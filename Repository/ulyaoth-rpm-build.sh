@@ -169,6 +169,11 @@ ulyaoth-nginx-mainline()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx-mainline.sh ; chmod +x build-ulyaoth-nginx-mainline.sh ; ./build-ulyaoth-nginx-mainline.sh
 }
 
+ulyaoth-nginx-mainline-naxsi-masterbuild()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh
+}
+
 ulyaoth-hhvm()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh
