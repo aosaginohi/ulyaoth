@@ -38,7 +38,7 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx
+Name: ulyaoth-nginx-mainline
 Version: 1.7.11
 Release: 1%{?dist}
 BuildArch: x86_64
