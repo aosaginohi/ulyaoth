@@ -16,7 +16,7 @@ fi
 useradd ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/SELinux/ulyaoth-nginx-pagespeed.txt"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/Selinux/ulyaoth-nginx-pagespeed.txt"
 su ulyaoth -c "audit2allow -M ulyaoth-nginx-pagespeed < ulyaoth-nginx-pagespeed.txt"
 su ulyaoth -c "mv ulyaoth-nginx-pagespeed.pp /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS
