@@ -258,8 +258,6 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
-%config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
-%config(noreplace) %{_sysconfdir}/nginx/nbs.rules
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
@@ -285,6 +283,7 @@ tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_datadir}/nginx/html/*
 
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
+%attr(0755,nginx,root) %dir %{_localstatedir}/cache/nginx/pagespeed_cache
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
 
 %files debug
