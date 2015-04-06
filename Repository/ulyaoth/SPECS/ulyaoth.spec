@@ -1,6 +1,6 @@
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.3
+Version: 1.0.4
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://community.ulyaoth.net/
@@ -48,6 +48,9 @@ BANNER
 
 
 %changelog
+* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.4-1
+- Separating debug packages to own repository and disabled it by default. (same as Fedora or RHEL does it)
+
 * Sat Mar 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.3-1
 - Updating public GPG key to a new 4096 bits one.
 
