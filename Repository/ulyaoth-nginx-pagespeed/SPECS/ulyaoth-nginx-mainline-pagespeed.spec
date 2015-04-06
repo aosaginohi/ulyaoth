@@ -51,15 +51,13 @@ Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
-Source4: nginx-naxsi.conf
-Source5: nginx.vh.default-naxsi.conf
+Source4: nginx-pagespeed.conf
+Source5: nginx.vh.default.conf
 Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
-Source10: naxsi.tar.gz
-Source11: naxsi_core.rules
-Source12: nbs.rules
+Source10: pagespeed.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -189,20 +187,17 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx/pagespeed_cache
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
 
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
-%{__install} -m 644 -p %{SOURCE11} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/naxsi_core.rules   
-%{__install} -m 644 -p %{SOURCE12} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nbs.rules 
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
-
+   
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
@@ -210,7 +205,7 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
 
-# Install Naxsi
+# Install Pagespeed
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
 tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 
