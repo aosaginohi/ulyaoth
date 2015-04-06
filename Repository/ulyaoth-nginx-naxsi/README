@@ -4,4 +4,4 @@ ulyaoth-nginx-naxsi-masterbuild:
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-naxsi-masterbuild.sh
 
 ulyaoth-nginx-mainline-naxsi-masterbuild:
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-mainline-naxsi/build-ulyaoth-nginx-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-naxsi-masterbuild.sh ; chmod +x build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh ; ./build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh
