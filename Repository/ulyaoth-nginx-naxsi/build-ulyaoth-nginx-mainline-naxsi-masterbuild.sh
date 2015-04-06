@@ -46,21 +46,21 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.example_ssl.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SOURCES/nbs.rules"
 cd /home/ulyaoth/rpmbuild/SPECS
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec"
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-naxsi-masterbuild.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 fi
 
 if grep -q -i "release 22" /etc/fedora-release
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 else
-yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-naxsi-masterbuild.spec
+yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 fi
 
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi-masterbuild.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline-naxsi-masterbuild.spec"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILD/*"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*"
 su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/RPMS/*"
@@ -69,10 +69,10 @@ cd /etc/nginx/modules/
 su ulyaoth -c "tar cvf naxsi.tar.gz naxsi"
 su ulyaoth -c "mv naxsi.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-naxsi-masterbuild.spec"
+su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline-naxsi-masterbuild.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 rm -rf /home/ulyaoth/rpmbuild/
 rm -rf /etc/nginx
-rm -rf /root/build-ulyaoth-nginx-naxsi-masterbuild.sh
+rm -rf /root/build-ulyaoth-nginx-mainline-naxsi-masterbuild.sh
