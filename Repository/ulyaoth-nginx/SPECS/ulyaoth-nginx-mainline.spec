@@ -5,7 +5,7 @@
 %define nginx_loggroup adm
 
 # distribution specific definitions
-%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
 
 %if 0%{?rhel}  == 6
 Group: System Environment/Daemons
@@ -32,13 +32,14 @@ Epoch: 1
 Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
+%define with_spdy 1
 %endif
 
 # end of distribution specific definitions
 
 Summary: High performance web server
 Name: ulyaoth-nginx
-Version: 1.7.10
+Version: 1.7.11
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -59,17 +60,15 @@ Source10: nginx.suse.logrotate
 
 License: 2-clause BSD-like license
 
-
-Requires: openssl
-
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
-BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
+
+Requires: openssl
+Requires: GeoIP
 
 Provides: webserver
 Provides: nginx
@@ -120,7 +119,7 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	    --with-http_geoip_module \
+        --with-http_geoip_module \
 		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
@@ -161,7 +160,7 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	    --with-http_geoip_module \
+		--with-http_geoip_module \
 		--add-module=/etc/nginx/modules/headersmore \
         --with-mail \
         --with-mail_ssl_module \
@@ -201,7 +200,7 @@ make %{?_smp_mflags}
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
-   
+
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -213,7 +212,7 @@ make %{?_smp_mflags}
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%if 0%{?suse_version}
+%if 0%{?suse_version} == 1110
 %{__install} -m755 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_initrddir}/nginx
 %else
@@ -232,7 +231,7 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
 %endif
 
-%{__install} -m644 %{_builddir}/%{name}-%{version}/objs/nginx.debug \
+%{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
 %clean
@@ -352,6 +351,6 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.10-1
-- Initial release.
+* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.11-1
+- Initial Release.
 - Spec file taken from nginx.com
