@@ -3,10 +3,10 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.6.2
+%define nginx_version 1.7.11
 
 # distribution specific definitions
-%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
 
 %if 0%{?rhel}  == 6
 Group: System Environment/Daemons
@@ -33,14 +33,15 @@ Epoch: 1
 Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
+%define with_spdy 1
 %endif
 
 # end of distribution specific definitions
 
 Summary: High performance web server / Phusion Passenger web & app
-Name: ulyaoth-nginx-passenger5
-Version: 5.0.6
-Release: 3%{?dist}
+Name: ulyaoth-nginx-mainline-passenger4
+Version: 4.0.59
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc. / Phusion
 URL: https://www.phusionpassenger.com/
@@ -56,14 +57,10 @@ Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
-Source10: nginx.vh.passenger5.conf
+Source10: nginx.vh.passenger4.conf
 Source11: passenger.tar.gz
 
 License: 2-clause BSD-like license
-
-Requires: openssl
-Requires: ruby
-Requires: GeoIP
 
 BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
@@ -77,15 +74,25 @@ BuildRequires: rubygem-rake
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
 
+Requires: openssl
+Requires: ruby
+Requires: GeoIP
+
 Provides: webserver
 Provides: nginx
+Provides: nginx-mainline
 Provides: nginx-passenger
-Provides: nginx-passenger5
+Provides: nginx-passenger4
+Provides: nginx-mainline-passenger
+Provides: nginx-mainline-passenger4
 Provides: passenger
-Provides: passenger5
+Provides: passenger4
 Provides: ulyaoth-nginx
 Provides: ulyaoth-nginx-passenger
-Provides: ulyaoth-nginx-passenger5
+Provides: ulyaoth-nginx-passenger4
+Provides: ulyaoth-nginx-mainline
+Provides: ulyaoth-nginx-mainline-passenger
+Provides: ulyaoth-nginx-mainline-passenger4
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well asa mail proxy server.
@@ -94,7 +101,7 @@ Phusion Passenger is a multi-language (Ruby, Python, Node) web & app server whic
 %package debug
 Summary: debug version of nginx with passenger
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-passenger5
+Requires: ulyaoth-nginx-mainline-passenger4
 %description debug
 Not stripped version of nginx and passenger built with the debugging log support.
 
@@ -131,7 +138,7 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
-	    --add-module=/etc/nginx/modules/passenger/ext/nginx \
+		--add-module=/etc/nginx/modules/passenger/ext/nginx \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -171,8 +178,8 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-        --add-module=/etc/nginx/modules/passenger/ext/nginx \
+		--with-http_geoip_module \
+		--add-module=/etc/nginx/modules/passenger/ext/nginx \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -208,15 +215,14 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
 %{__install} -m 644 -p %{SOURCE10} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/passenger.conf
-
+   
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
 
-#Create vhost directories
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled   
-   
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
+
 # Install Passenger
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
 tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
@@ -232,7 +238,7 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%if 0%{?suse_version}
+%if 0%{?suse_version} == 1110
 %{__install} -m755 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_initrddir}/nginx
 %else
@@ -243,8 +249,14 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
+%if 0%{?suse_version}
+%{__install} -m 644 -p %{SOURCE10} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
+%else
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
+%endif
+
 %{__install} -m644 %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
@@ -294,7 +306,6 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
 %attr(0755,root,root) %dir %{_localstatedir}/log/passenger
 
-
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
 
@@ -318,7 +329,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-passenger5!
+Thanks for using ulyaoth-nginx-mainline-passenger4!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -374,36 +385,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat Apr 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.6-3
-- Removing rubyrails-gem dependency from package.
-
-* Fri Apr 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.6-2
-- Created a temp dir and log dir for passenger as requirement for selinux package.
-
-* Tue Mar 31 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.6-1
-- Update to Passenger 5.0.6.
-
-* Thu Mar 26 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.5-1
-- Changing the version numbering.
-
-* Wed Mar 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.5
-- Update to Passenger 5.0.5.
-
-* Wed Mar 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.4
-- Update to Passenger 5.0.4.
-
-* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-3 5.0.3
-- Fixed the missing systemd-devel problem.
-
-* Thu Mar 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2 5.0.3
-- Updating to Passenger 5.0.3
-- Added support for Fedora 22 and CentOS 6 & 7.
-- i386 support.
-- Forced EPEL for RHEL6 for GeoIP.
-- Cleaned spec file.
-
-* Sun Mar 08 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.2
-- Updating to Passenger 5.0.2.
-
-* Thu Mar 05 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1 5.0.1
-- Creating spec file for Passenger 5.0.1.
+* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-1
+- Initial Release.
+- Spec file taken from nginx.com
+- Compiled with Mainline Nginx version 1.7.11

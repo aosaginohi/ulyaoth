@@ -3,9 +3,10 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
+%define nginx_version 1.6.2
 
 # distribution specific definitions
-%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
 
 %if 0%{?rhel}  == 6
 Group: System Environment/Daemons
@@ -32,20 +33,21 @@ Epoch: 1
 Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
+%define with_spdy 1
 %endif
 
 # end of distribution specific definitions
 
-Summary: High performance web server
+Summary: High performance web server / Phusion Passenger web & app
 Name: ulyaoth-nginx-passenger4
-Version: 1.6.2
-Release: 2%{?dist}.4.0.59
+Version: 4.0.59
+Release: 1%{?dist}
 BuildArch: x86_64
-Vendor: nginx inc.
-URL: http://nginx.org/
+Vendor: nginx inc. / Phusion
+URL: https://www.phusionpassenger.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: http://nginx.org/download/nginx-%{version}.tar.gz
+Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
@@ -60,12 +62,7 @@ Source11: passenger.tar.gz
 
 License: 2-clause BSD-like license
 
-Requires: openssl
-Requires: ruby
-Requires: rubygem-rails
-Requires: GeoIP
-
-BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
+BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: openssl
@@ -76,6 +73,10 @@ BuildRequires: curl-devel
 BuildRequires: rubygem-rake
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
+
+Requires: openssl
+Requires: ruby
+Requires: GeoIP
 
 Provides: webserver
 Provides: nginx
@@ -88,18 +89,18 @@ Provides: ulyaoth-nginx-passenger
 Provides: ulyaoth-nginx-passenger4
 
 %description
-nginx [engine x] is an HTTP and reverse proxy server, as well as
-a mail proxy server.
+nginx [engine x] is an HTTP and reverse proxy server, as well asa mail proxy server.
+Phusion Passenger is a multi-language (Ruby, Python, Node) web & app server which can integrate into Apache and Nginx
 
 %package debug
-Summary: debug version of nginx
+Summary: debug version of nginx with passenger
 Group: System Environment/Daemons
 Requires: ulyaoth-nginx-passenger4
 %description debug
-Not stripped version of nginx built with the debugging log support.
+Not stripped version of nginx and passenger built with the debugging log support.
 
 %prep
-%setup -q -n nginx-%{version}
+%setup -q -n nginx-%{nginx_version}
 
 %build
 ./configure \
@@ -131,7 +132,7 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
-	    --add-module=/etc/nginx/modules/passenger/ext/nginx \
+		--add-module=/etc/nginx/modules/passenger/ext/nginx \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -141,8 +142,8 @@ Not stripped version of nginx built with the debugging log support.
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{version}/objs/nginx \
-        %{_builddir}/nginx-%{version}/objs/nginx.debug
+%{__mv} %{_builddir}/nginx-%{nginx_version}/objs/nginx \
+        %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
@@ -171,8 +172,8 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-        --add-module=/etc/nginx/modules/passenger/ext/nginx \
+		--with-http_geoip_module \
+		--add-module=/etc/nginx/modules/passenger/ext/nginx \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -193,8 +194,10 @@ make %{?_smp_mflags}
 %{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/fastcgi.conf
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/passenger
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx/passenger_temp
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
@@ -206,15 +209,14 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
 %{__install} -m 644 -p %{SOURCE10} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/passenger.conf
-
+   
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/nginx
 
-#Create vhost directories
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
-%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled   
-   
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
+
 # Install Passenger
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
 tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
@@ -230,7 +232,7 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%if 0%{?suse_version}
+%if 0%{?suse_version} == 1110
 %{__install} -m755 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_initrddir}/nginx
 %else
@@ -241,9 +243,15 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
+%if 0%{?suse_version}
+%{__install} -m 644 -p %{SOURCE10} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
+%else
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
+%endif
+
+%{__install} -m644 %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
 %clean
@@ -260,8 +268,6 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %dir %{_sysconfdir}/nginx/sites-enabled
 %dir %{_sysconfdir}/nginx/modules
 %{_sysconfdir}/nginx/modules/*
-
-
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
@@ -290,8 +296,9 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_datadir}/nginx/html/*
 
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
+%attr(0755,root,root) %dir %{_localstatedir}/cache/nginx/passenger_temp
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
-
+%attr(0755,root,root) %dir %{_localstatedir}/log/passenger
 
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
@@ -324,7 +331,7 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-Please find the official documentation for passenger here:
+Please find the official documentation or the enterprise version for passenger here:
 * https://www.phusionpassenger.com/ 
 
 For any additional help please visit my forum at:
@@ -333,7 +340,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permisions on default log files on installation
+    # Touch and set permissions on default log files on installation
 
     if [ -d %{_localstatedir}/log/nginx ]; then
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
@@ -372,6 +379,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-1
+- Changing version numbering.
+
 * Wed Mar 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
 - Fixed the missing systemd-devel problem.
 - Added support for Oracle Linux 6 & 7.
