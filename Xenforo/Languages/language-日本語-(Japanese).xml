@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<language title="한국어 (Korean)" date_format="Y/m/d" time_format="H:i" decimal_point="." thousands_separator="," language_code="en-US" text_direction="LTR">
+<language title="日本語 (Japanese)" date_format="Y-m-d" time_format="H:i" decimal_point="." thousands_separator="," language_code="ja-JP" text_direction="LTR">
   <phrase title="1_day_ago" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[One day ago]]></phrase>
   <phrase title="1_month" addon_id="mercDonationManager" version_id="24" version_string="1.0 Beta 3.1.7.1"><![CDATA[1 month]]></phrase>
   <phrase title="1_month_ago" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[One month ago]]></phrase>
@@ -27,6 +27,7 @@
   <phrase title="accept_conversations_from" addon_id="XenForo" version_id="1000033" version_string="1.0.0 Beta 3"><![CDATA[Accept conversations from]]></phrase>
   <phrase title="accept_future_messages" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Accept future messages]]></phrase>
   <phrase title="accepted_file_types" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Accepted file types]]></phrase>
+  <phrase title="access_to_vk_account_denied" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[Access to your VK account was denied. Please ensure that you have given our VK application the necessary privileges.]]></phrase>
   <phrase title="account_confirmation_ip" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Account Confirmation IP]]></phrase>
   <phrase title="account_upgrade" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Account Upgrade]]></phrase>
   <phrase title="account_upgrade_purchased" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Account Upgrade Purchased]]></phrase>
@@ -372,14 +373,38 @@ In the event that some of the selected threads are not eligible to have the sele
   <phrase title="associate_account" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Associate Account]]></phrase>
   <phrase title="associate_existing_account" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Associate Existing Account]]></phrase>
   <phrase title="associate_with" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Associate with]]></phrase>
+  <phrase title="associate_with_battlenet" addon_id="ExternalExtended" version_id="21" version_string="2.0.1"><![CDATA[Associate with Battle.net]]></phrase>
   <phrase title="associate_with_facebook" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Associate with Facebook]]></phrase>
+  <phrase title="associate_with_github" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Associate with GitHub]]></phrase>
   <phrase title="associate_with_google" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Associate with Google]]></phrase>
+  <phrase title="associate_with_instagram" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Associate with Instagram]]></phrase>
+  <phrase title="associate_with_linkedin" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Associate with LinkedIn]]></phrase>
+  <phrase title="associate_with_live" addon_id="ExternalExtended" version_id="260" version_string="2.7.0"><![CDATA[Associate with Live]]></phrase>
+  <phrase title="associate_with_odnoklassniki" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Associate with Odnoklassniki]]></phrase>
+  <phrase title="associate_with_soundcloud" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[Associate with SoundCloud]]></phrase>
   <phrase title="associate_with_steam" addon_id="Steam" version_id="1" version_string="1.0.0"><![CDATA[Associate with Steam]]></phrase>
+  <phrase title="associate_with_strava" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associate with Strava]]></phrase>
+  <phrase title="associate_with_tumblr" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Associate with Tumblr]]></phrase>
+  <phrase title="associate_with_twitch" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Associate with Twitch]]></phrase>
   <phrase title="associate_with_twitter" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Associate with Twitter]]></phrase>
+  <phrase title="associate_with_vimeo" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associate with Vimeo]]></phrase>
+  <phrase title="associate_with_vk" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[Associate with VK]]></phrase>
+  <phrase title="associated_battlenet_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associated Battle.net Account]]></phrase>
   <phrase title="associated_facebook_account" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Associated Facebook Account]]></phrase>
+  <phrase title="associated_github_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associated GitHub Account]]></phrase>
   <phrase title="associated_google_account" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Associated Google Account]]></phrase>
+  <phrase title="associated_instagram_account" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Associated Instagram Account]]></phrase>
+  <phrase title="associated_linkedin_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associated LinkedIn Account]]></phrase>
+  <phrase title="associated_live_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associated Live Account]]></phrase>
+  <phrase title="associated_odnoklassniki_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associate Odnoklassniki Account]]></phrase>
+  <phrase title="associated_soundcloud_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associated SoundCloud Account]]></phrase>
   <phrase title="associated_steam_account" addon_id="Steam" version_id="1" version_string="1.0.0"><![CDATA[Associated Steam Account]]></phrase>
+  <phrase title="associated_strava_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associated Strava Account]]></phrase>
+  <phrase title="associated_tumblr_account" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Associated Tumblr Account]]></phrase>
+  <phrase title="associated_twitch_account" addon_id="ExternalExtended" version_id="21" version_string="2.0.1"><![CDATA[Associated Twitch Account]]></phrase>
   <phrase title="associated_twitter_account" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Associated Twitter Account]]></phrase>
+  <phrase title="associated_vimeo_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Associated Vimeo Account]]></phrase>
+  <phrase title="associated_vk_account" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[Associated VK Account]]></phrase>
   <phrase title="attach_child_nodes_to_another_parent" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Attach child nodes to another parent]]></phrase>
   <phrase title="attached_files" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Attached Files]]></phrase>
   <phrase title="attaches_file_to_watched_thread" addon_id="XenForo" version_id="1000035" version_string="1.0.0 Beta 5"><![CDATA[Attaches a file to a watched thread]]></phrase>
@@ -457,6 +482,7 @@ In the event that some of the selected threads are not eligible to have the sele
   <phrase title="batch_update_threads" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Batch Update Threads]]></phrase>
   <phrase title="batch_update_users" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Batch Update Users]]></phrase>
   <phrase title="batch_update_was_completed_successfully" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[The batch update was completed successfully.]]></phrase>
+  <phrase title="battlenet_integration" addon_id="ExternalExtended" version_id="21" version_string="2.0.1"><![CDATA[Battle.net Integration]]></phrase>
   <phrase title="bb_code_help_align_desc" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Changes the alignment of the wrapped text.]]></phrase>
   <phrase title="bb_code_help_align_example" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[[LEFT]Left-aligned[/LEFT]
 [CENTER]Center-aligned[/CENTER]
@@ -1194,10 +1220,22 @@ To stop receiving email, please edit your contact preferences:
   <phrase title="disables_selected_user_upgrades_while_this_upgrade_is_active" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Disables the selected user upgrades while this upgrade is active. This is helpful if you have tiers of the same upgrade and don't want people to buy multiple levels.]]></phrase>
   <phrase title="disables_the_ability_to_donate_to_this_goal_optional_archive" addon_id="mercDonationManager" version_id="24" version_string="1.0 Beta 3.1.7.1"><![CDATA[Disables the ability to donate to this goal with optional archive after X days.]]></phrase>
   <phrase title="disallowed_words_in_user_names" addon_id="XenForo" version_id="1010370" version_string="1.1.3"><![CDATA[Disallowed Text in User Names]]></phrase>
+  <phrase title="disassociate_battlenet_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Disassociate Battle.net Account]]></phrase>
   <phrase title="disassociate_facebook_account" addon_id="XenForo" version_id="1040570" version_string="1.4.5"><![CDATA[Disassociate Facebook Account]]></phrase>
+  <phrase title="disassociate_github_account" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Disassociate GitHub Account]]></phrase>
   <phrase title="disassociate_google_account" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Disassociate Google Account]]></phrase>
+  <phrase title="disassociate_instagram_account" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Disassociate Instagram Account]]></phrase>
+  <phrase title="disassociate_linkedin_account" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Disassociate LinkedIn Account]]></phrase>
+  <phrase title="disassociate_live_account" addon_id="ExternalExtended" version_id="260" version_string="2.7.0"><![CDATA[Disassociate Live Account]]></phrase>
+  <phrase title="disassociate_odnoklassniki_account" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Disassociate Odnoklassniki Account]]></phrase>
+  <phrase title="disassociate_soundcloud_account" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[Disassociate SoundCloud account]]></phrase>
   <phrase title="disassociate_steam_account" addon_id="Steam" version_id="1" version_string="1.0.0"><![CDATA[Disassociate Steam account]]></phrase>
+  <phrase title="disassociate_strava_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Disassociate Strava Account]]></phrase>
+  <phrase title="disassociate_tumblr_account" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Disassociate Tumblr Account]]></phrase>
+  <phrase title="disassociate_twitch_account" addon_id="ExternalExtended" version_id="21" version_string="2.0.1"><![CDATA[Disassociate Twitch Account]]></phrase>
   <phrase title="disassociate_twitter_account" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Disassociate Twitter Account]]></phrase>
+  <phrase title="disassociate_vimeo_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Disassociate Vimeo Account]]></phrase>
+  <phrase title="disassociate_vk_account" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[Disassociate VK Account]]></phrase>
   <phrase title="disassociating_with_all_accounts_cause_password_emailed_x" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Disassociating with all external accounts will cause a password to be generated for your account and emailed to {email}.]]></phrase>
   <phrase title="disassociating_with_steam_will_cause_password_generated_emailed_x" addon_id="Steam" version_id="1" version_string="1.0.0"><![CDATA[Disassociating with Steam will cause a password to be generated for your account and emailed to {email}.]]></phrase>
   <phrase title="discourage" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Discourage]]></phrase>
@@ -1333,6 +1371,7 @@ To stop receiving email, please edit your contact preferences:
   <phrase title="editable_only_once" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Editable only once]]></phrase>
   <phrase title="edited_by_x" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Edited by {name}]]></phrase>
   <phrase title="editor_icon_url" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Editor Icon URL]]></phrase>
+  <phrase title="ee_returned_unknown_error" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[{provider} returned an unknown error. Please try again later.]]></phrase>
   <phrase title="else_if_tag_found_after_else_tag" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Else if tag found after else tag.]]></phrase>
   <phrase title="else_if_tags_may_not_have_children" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Else if tags may not have children.]]></phrase>
   <phrase title="else_or_else_if_tag_not_found_that_was_not_direct_child_of_an_if_tag" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Else or else if tag not found that was not a direct child of an if tag.]]></phrase>
@@ -1411,6 +1450,7 @@ Your callback should return an HTML string, and have a signature as follows:<br 
   <phrase title="error_method_static" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Method Static]]></phrase>
   <phrase title="error_occurred_or_request_stopped" addon_id="XenForo" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[An error occurred or the request was stopped.]]></phrase>
   <phrase title="error_occurred_when_connecting_to_google" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[An error occurred when connecting to Google. Please try again later.]]></phrase>
+  <phrase title="error_occurred_while_connecting_with_ee" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[An error occurred while connecting with {provider}. Please try again later.]]></phrase>
   <phrase title="error_occurred_while_connecting_with_facebook" addon_id="XenForo" version_id="1000013" version_string="1.0.0 Alpha 3"><![CDATA[An error occurred while connecting with Facebook. Please try again later.]]></phrase>
   <phrase title="error_table_name_illegal" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Table names must contain only a-z, 0-9 and underscore characters.]]></phrase>
   <phrase title="error_unable_to_create_table_due_to_error" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[It is not possible to create the table '{table}' due to the following error: {error}]]></phrase>
@@ -1445,6 +1485,8 @@ Your callback should return an HTML string, and have a signature as follows:<br 
   <phrase title="export_smilies" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Export Smilies]]></phrase>
   <phrase title="export_style" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Export Style]]></phrase>
   <phrase title="external_accounts" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[External Accounts]]></phrase>
+  <phrase title="external_accounts_log_in" addon_id="ExternalExtended" version_id="9" version_string="1.7.0"><![CDATA[Log In with External Services]]></phrase>
+  <phrase title="external_accounts_more" addon_id="ExternalExtended" version_id="9" version_string="1.7.0"><![CDATA[More External Services]]></phrase>
   <phrase title="external_redirect" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[External Redirect]]></phrase>
   <phrase title="extra" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Extra]]></phrase>
   <phrase title="extra_copyright" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[]]></phrase>
@@ -1572,6 +1614,7 @@ Your callback should return an HTML string, and have a signature as follows:<br 
   <phrase title="general_privacy" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[General Privacy]]></phrase>
   <phrase title="generated_by" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Generated By]]></phrase>
   <phrase title="get_untranslated_phrases" addon_id="XenForo" version_id="1000035" version_string="1.0.0 Beta 5"><![CDATA[Get untranslated phrases]]></phrase>
+  <phrase title="github_integration" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[GitHub Integration]]></phrase>
   <phrase title="given_by" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Given By]]></phrase>
   <phrase title="global_permission_values" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Global Permission Values]]></phrase>
   <phrase title="global_permissions" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Global Permissions]]></phrase>
@@ -1804,6 +1847,7 @@ Note that enabling the name calculation at import time can cause this step to ru
   <phrase title="insert_every_image_as_a" addon_id="XenForo" version_id="1000034" version_string="1.0.0 Beta 4"><![CDATA[Insert every image as a]]></phrase>
   <phrase title="insert_quotes" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Insert Quotes]]></phrase>
   <phrase title="inset" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Inset]]></phrase>
+  <phrase title="instagram_integration" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Instagram Integration]]></phrase>
   <phrase title="install_add_on" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Install Add-on]]></phrase>
   <phrase title="install_from_file_on_server" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Install from file on server]]></phrase>
   <phrase title="install_from_uploaded_file" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Install from uploaded file]]></phrase>
@@ -2033,6 +2077,8 @@ Note that enabling the name calculation at import time can cause this step to ru
   <phrase title="link_proxy_log" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Link Proxy Log]]></phrase>
   <phrase title="link_proxy_logs" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Link Proxy Logs]]></phrase>
   <phrase title="link_url" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Link URL]]></phrase>
+  <phrase title="linkedin_did_not_provide_email" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[LinkedIn did provide an email address for your account. Please ensure that you have a confirmed email address listed in LinkedIn and try again.]]></phrase>
+  <phrase title="linkedin_integration" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[LinkedIn Integration]]></phrase>
   <phrase title="list_all_users" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[List All Users]]></phrase>
   <phrase title="list_child_nodes" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[List Child Nodes]]></phrase>
   <phrase title="list_donations" addon_id="mercDonationManager" version_id="0" version_string=""><![CDATA[List Donations]]></phrase>
@@ -2042,6 +2088,7 @@ Note that enabling the name calculation at import time can cause this step to ru
   <phrase title="list_of_bb_codes_you_can_use_to_spice_up_look_of_your_messages" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[The list of BB codes you can use to spice up the look of your messages. This page shows a list of all BB codes that are available.]]></phrase>
   <phrase title="list_sibling_nodes" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[List Sibling Nodes]]></phrase>
   <phrase title="listen_to_event" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Listen to Event]]></phrase>
+  <phrase title="live_integration" addon_id="ExternalExtended" version_id="260" version_string="2.7.0"><![CDATA[Live Integration]]></phrase>
   <phrase title="loading" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Loading]]></phrase>
   <phrase title="locale" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Locale]]></phrase>
   <phrase title="locally_hosted" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Locally Hosted]]></phrase>
@@ -2062,10 +2109,22 @@ Note that enabling the name calculation at import time can cause this step to ru
   <phrase title="log_totals_and_restart_goal" addon_id="mercDonationManager" version_id="24" version_string="1.0 Beta 3.1.7.1"><![CDATA[Log totals and restart goal.]]></phrase>
   <phrase title="logging_in" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Logging in]]></phrase>
   <phrase title="login_required" addon_id="XenForo" version_id="0" version_string=""><![CDATA[You must be logged-in to do that.]]></phrase>
+  <phrase title="login_with_battlenet" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Log in with Battle.net]]></phrase>
   <phrase title="login_with_facebook" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[Log in with Facebook]]></phrase>
+  <phrase title="login_with_github" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Log in with GitHub]]></phrase>
   <phrase title="login_with_google" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[Log in with Google]]></phrase>
+  <phrase title="login_with_instagram" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Log in with Instagram]]></phrase>
+  <phrase title="login_with_linkedin" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Log in with LinkedIn]]></phrase>
+  <phrase title="login_with_live" addon_id="ExternalExtended" version_id="270" version_string="2.7.0"><![CDATA[Log in with Live]]></phrase>
+  <phrase title="login_with_odnoklassniki" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Log in with Odnoklassniki]]></phrase>
+  <phrase title="login_with_soundcloud" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[Log in with SoundCloud]]></phrase>
   <phrase title="login_with_steam" addon_id="Steam" version_id="112" version_string="1.4.3"><![CDATA[Log in with Steam]]></phrase>
+  <phrase title="login_with_strava" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Log in with Strava]]></phrase>
+  <phrase title="login_with_tumblr" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Log in with Tumblr]]></phrase>
+  <phrase title="login_with_twitch" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Log in with Twitch]]></phrase>
   <phrase title="login_with_twitter" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[Log in with Twitter]]></phrase>
+  <phrase title="login_with_vimeo" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Log in with Vimeo]]></phrase>
+  <phrase title="login_with_vk" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[Log in with VK]]></phrase>
   <phrase title="lost_password" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Lost Password]]></phrase>
   <phrase title="make_this_user_administrator" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Make this user an administrator]]></phrase>
   <phrase title="make_this_user_moderator" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Make this user a moderator]]></phrase>
@@ -2627,6 +2686,7 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="number_with_or_without_units" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Number (with or without units)]]></phrase>
   <phrase title="numeric" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Numeric]]></phrase>
   <phrase title="occupation" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Occupation]]></phrase>
+  <phrase title="odnoklassniki_integration" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Odnoklassniki Integration]]></phrase>
   <phrase title="okay" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Okay]]></phrase>
   <phrase title="old" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Old]]></phrase>
   <phrase title="old_value" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Old Value]]></phrase>
@@ -2689,6 +2749,17 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="option_attachmentThumbnailDimensions_explain" addon_id="XenForo" version_id="0" version_string=""><![CDATA[The maximum width and height of generated attachment thumbnails.]]></phrase>
   <phrase title="option_autoEmbedMedia" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Auto-Embed Media Links]]></phrase>
   <phrase title="option_autoEmbedMedia_explain" addon_id="XenForo" version_id="1010035" version_string="1.1.0 Beta 5"><![CDATA[Enable this option to have the system attempt to automatically embed media from URLs posted by visitors that point to registered media sites. If you choose to include a link to the content as well, the media embedding may be duplicated when the message is quoted.]]></phrase>
+  <phrase title="option_battlenetKey" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Application Key]]></phrase>
+  <phrase title="option_battlenetKey_explain" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Entering an Application Key will allow users to login using their Battle.net accounts. You can get an Application Key via Battle.net's <a href="https://dev.battle.net/apps/register" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_battlenetRegion" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Region Selection]]></phrase>
+  <phrase title="option_battlenetRegion_explain" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Choose which region the majority of your users will be logging in from.]]></phrase>
+  <phrase title="option_battlenetScopes" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Scopes]]></phrase>
+  <phrase title="option_battlenetScopes_explain" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Choose what type of data you want to retrieve from the user.<br /><br />
+
+Note: No scopes are required to let users simply login (which is addon only does).
+However if another addon decides to use the user token generated by this addon, and want to access specific features of a user's profiles,  then please choose any scopes you feel appropriate.]]></phrase>
+  <phrase title="option_battlenetSecret" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Application Secret]]></phrase>
+  <phrase title="option_battlenetSecret_explain" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[The secret that corresponds to your Battle.net Application Key. It is located in your <a href="https://dev.battle.net/apps/mykeys" target="_blank">Application Settings</a> for this specific domain.]]></phrase>
   <phrase title="option_bbCodeCacheTrimDays" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Remove data from BB code cache (days)]]></phrase>
   <phrase title="option_bbCodeCacheTrimDays_explain" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Cached BB code data will be maintained for this many days. Use 0 to cache all data indefinitely.]]></phrase>
   <phrase title="option_bbCodeCacheVersion" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[BB Code Cache Version]]></phrase>
@@ -2812,6 +2883,24 @@ All threshold values are limited to bounces generated in the last 30 days.]]></p
   <phrase title="option_enableVerp_explain" addon_id="XenForo" version_id="1040270" version_string="1.4.2"><![CDATA[If enabled, sent emails will include the recipient email address in the bounce address field. This enables more accurate and more secure automated bounce email handling. If using automated bounce processing, enabling this option is strongly recommended.<br />
 <br />
 This option requires that the specified bounce account is a catch-all account or supports a "+" as a wildcard separator (such as in Gmail). For example, if this option is enabled with a bounce address of bounce@example.com, the email might be returned to bounce+123abc+user=domain.com@example.com.]]></phrase>
+  <phrase title="option_externalError" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Enable Logging]]></phrase>
+  <phrase title="option_externalError_explain" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[This option will print more detailed messages about error messages received during the authentication process.]]></phrase>
+  <phrase title="option_externalMinimal" addon_id="ExternalExtended" version_id="9" version_string="1.7.0"><![CDATA[Minimal Mode]]></phrase>
+  <phrase title="option_externalMinimal_explain" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[When enabled, all services selected that a user can login with will be condensed into a single button.
+<br />
+This allows for a much more clean look.]]></phrase>
+  <phrase title="option_externalProvidersMinimalAll" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[Include All Providers]]></phrase>
+  <phrase title="option_externalProvidersMinimalAll_explain" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[This will include every provider in the 'More External Services' button.
+<br /><br />
+When selected, all providers selected in the option 'Minimal List' will appear outline the 'More External Services' button.]]></phrase>
+  <phrase title="option_externalProvidersMinimalList" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[Minimal List]]></phrase>
+  <phrase title="option_externalProvidersMinimalList_explain" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[All providers selected will appear under a button called 'More External Services', with unselected providers appearing directly on the login bar.
+<br /><br />
+The order is based around your settings for the provider order.]]></phrase>
+  <phrase title="option_externalProvidersOrderList" addon_id="ExternalExtended" version_id="250" version_string="2.5.0"><![CDATA[External Providers]]></phrase>
+  <phrase title="option_externalProvidersOrderList_explain" addon_id="ExternalExtended" version_id="250" version_string="2.5.0"><![CDATA[You can change the order and which providers are included (note that if a provider's API key/secret is not in use, it won't appear by default).
+<br /><br />
+When debug mode is enabled, you can add additional providers and modify existing ones.]]></phrase>
   <phrase title="option_extraCaptchaKeys" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Extra CAPTCHA Keys]]></phrase>
   <phrase title="option_extraCaptchaKeys_explain" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[This option can't be edited manually. It is edited only via the "captcha" option.]]></phrase>
   <phrase title="option_facebookAdmins" addon_id="XenForo" version_id="1000053" version_string="1.0.0 Release Candidate 3"><![CDATA[Facebook Page Admins]]></phrase>
@@ -2837,6 +2926,10 @@ This option requires that the specified bounce account is a catch-all account or
   <phrase title="option_forumListNewProfilePosts_explain" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[This controls the maximum number of new profile posts to display on the forum list page. Use 0 to disable this display.]]></phrase>
   <phrase title="option_geoLocationUrl" addon_id="XenForo" version_id="1000053" version_string="1.0.0 Release Candidate 3"><![CDATA[Location Information URL]]></phrase>
   <phrase title="option_geoLocationUrl_explain" addon_id="XenForo" version_id="1000053" version_string="1.0.0 Release Candidate 3"><![CDATA[The URL specified here will be used to give information (such as a map) about a physical location. The URL must include a <strong>{location}</strong> token.]]></phrase>
+  <phrase title="option_githubClientId" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[GitHub Client ID]]></phrase>
+  <phrase title="option_githubClientId_explain" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Entering a client ID will allow users to login using their GitHub accounts. You can get a client ID via GitHub's <a href="https://github.com/settings/applications/new" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_githubClientSecret" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[GitHub Client Secret]]></phrase>
+  <phrase title="option_githubClientSecret_explain" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[The secret that corresponds to your GitHub Client ID.]]></phrase>
   <phrase title="option_googleAnalyticsWebPropertyId" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Google Analytics Web Property ID]]></phrase>
   <phrase title="option_googleAnalyticsWebPropertyId_explain" addon_id="XenForo" version_id="1010470" version_string="1.1.4"><![CDATA[You may enter your <a href="http://www.google.com/analytics/">Google Analytics</a> web property ID here to have the Analytics HTML automatically added to your public-facing pages.]]></phrase>
   <phrase title="option_googleClientId" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Google Client ID]]></phrase>
@@ -2857,6 +2950,8 @@ This option requires that the specified bounce account is a catch-all account or
   <phrase title="option_group_attachments_description" addon_id="XenForo" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Attachments are files that are uploaded to the board along with messages.]]></phrase>
   <phrase title="option_group_basicBoard" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Basic Board Information]]></phrase>
   <phrase title="option_group_basicBoard_description" addon_id="XenForo" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[]]></phrase>
+  <phrase title="option_group_battlenet" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Battle.net]]></phrase>
+  <phrase title="option_group_battlenet_description" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Controls integration with Battle.net services.]]></phrase>
   <phrase title="option_group_belongs_to_disabled_addon" addon_id="XenForo" version_id="1000053" version_string="1.0.0 Release Candidate 3"><![CDATA[The add-on <em>{addon}</em>, to which this option group belongs, is currently disabled.<br />
 <br />
 You may enable the <em>{addon}</em> add-on on the <a href="{link}">list of installed add-ons</a>.]]></phrase>
@@ -2874,11 +2969,21 @@ You may set a user into 'discouraged' mode by editing their user profile, or dis
   <phrase title="option_group_discussionOptions_description" addon_id="XenForo" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Messages are contained within a discussion container, and options relating to these can be found here.]]></phrase>
   <phrase title="option_group_emailOptions" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Email Options]]></phrase>
   <phrase title="option_group_emailOptions_description" addon_id="XenForo" version_id="1000033" version_string="1.0.0 Beta 3"><![CDATA[]]></phrase>
+  <phrase title="option_group_externalAccountsExtended" addon_id="ExternalExtended" version_id="9" version_string="1.7.0"><![CDATA[External Accounts Extended]]></phrase>
+  <phrase title="option_group_externalAccountsExtended_description" addon_id="ExternalExtended" version_id="25" version_string="2.0.5"><![CDATA[Various options for adjusting how external providers are viewed.]]></phrase>
   <phrase title="option_group_facebook" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[Facebook Integration]]></phrase>
   <phrase title="option_group_facebook_description" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[These options control the integration of Facebook features into XenForo.]]></phrase>
+  <phrase title="option_group_github" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[GitHub Integration]]></phrase>
+  <phrase title="option_group_github_description" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Controls integration with GitHub services.]]></phrase>
   <phrase title="option_group_google" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Google Integration]]></phrase>
   <phrase title="option_group_google_description" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Controls integration with various Google services.]]></phrase>
   <phrase title="option_group_ids_must_be_unique" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Option group IDs must be unique. The specified ID is already in use.]]></phrase>
+  <phrase title="option_group_instagram" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Instagram Integration]]></phrase>
+  <phrase title="option_group_instagram_description" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Controls integration with Instagram services.]]></phrase>
+  <phrase title="option_group_linkedin" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[LinkedIn Integration]]></phrase>
+  <phrase title="option_group_linkedin_description" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Controls integration with LinkedIn services.]]></phrase>
+  <phrase title="option_group_live" addon_id="ExternalExtended" version_id="260" version_string="2.6.0"><![CDATA[Live Integration]]></phrase>
+  <phrase title="option_group_live_description" addon_id="ExternalExtended" version_id="260" version_string="2.6.0"><![CDATA[Controls integration with Microsoft Live services.]]></phrase>
   <phrase title="option_group_logging" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Logging Options]]></phrase>
   <phrase title="option_group_logging_description" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Options that control what data is logged and how long it is maintained.]]></phrase>
   <phrase title="option_group_mercDonations" addon_id="mercDonationManager" version_id="1" version_string="1.0.0 Beta 1"><![CDATA[Donation Manager]]></phrase>
@@ -2891,6 +2996,8 @@ You may set a user into 'discouraged' mode by editing their user profile, or dis
 It is possible to filter the news feed down to just users you follow, or a single user.]]></phrase>
   <phrase title="option_group_nodeList" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Node & Forum List]]></phrase>
   <phrase title="option_group_nodeList_description" addon_id="XenForo" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[The node and forum list is the primary navigational structure for XenForo's forums and pages.]]></phrase>
+  <phrase title="option_group_odnoklassniki" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Odnoklassniki Integration]]></phrase>
+  <phrase title="option_group_odnoklassniki_description" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Controls integration with Odnoklassniki services.]]></phrase>
   <phrase title="option_group_performance" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Performance]]></phrase>
   <phrase title="option_group_performance_description" addon_id="XenForo" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[Options here allow you to turn off or tweak systems in order to fine-tune the performance of your site.]]></phrase>
   <phrase title="option_group_searchOptions" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[Search Options]]></phrase>
@@ -2901,16 +3008,28 @@ It is possible to filter the news feed down to just users you follow, or a singl
   <phrase title="option_group_serviceProviders_description" addon_id="XenForo" version_id="1000053" version_string="1.0.0 Release Candidate 3"><![CDATA[For some functions, XenForo will hand off to a third party service provider. You may change some of the defaults used here.]]></phrase>
   <phrase title="option_group_sitemap" addon_id="XenForo" version_id="1040470" version_string="1.4.4"><![CDATA[XML Sitemap Generation]]></phrase>
   <phrase title="option_group_sitemap_description" addon_id="XenForo" version_id="1040470" version_string="1.4.4"><![CDATA[These options allow you to control how the XML sitemap is generated and submitted to search engines. The sitemap can be used to speed up search engine indexing of your site.]]></phrase>
+  <phrase title="option_group_soundcloud" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[SoundCloud Integration]]></phrase>
+  <phrase title="option_group_soundcloud_description" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[Controls Integration with SoundCloud services.]]></phrase>
   <phrase title="option_group_spam" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Spam Management]]></phrase>
   <phrase title="option_group_spam_description" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Default options for the Spam Cleaner and Prevention systems are located here.]]></phrase>
   <phrase title="option_group_stats" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Statistics and Metrics]]></phrase>
   <phrase title="option_group_stats_description" addon_id="XenForo" version_id="1000017" version_string="1.0.0 Alpha 7"><![CDATA[]]></phrase>
+  <phrase title="option_group_strava" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Strava Integration]]></phrase>
+  <phrase title="option_group_strava_description" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Controls integration with Strava services.]]></phrase>
+  <phrase title="option_group_tumblr" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Tumblr Integration]]></phrase>
+  <phrase title="option_group_tumblr_description" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Controls integration with Tumblr services.]]></phrase>
+  <phrase title="option_group_twitch" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Twitch Integration]]></phrase>
+  <phrase title="option_group_twitch_description" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Controls integration with Twitch services.]]></phrase>
   <phrase title="option_group_twitter" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[Twitter Integration]]></phrase>
   <phrase title="option_group_twitter_description" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[Controls to manage integration of XenForo with Twitter]]></phrase>
   <phrase title="option_group_users" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[User Options]]></phrase>
   <phrase title="option_group_usersAndRegistration" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[User Registration]]></phrase>
   <phrase title="option_group_usersAndRegistration_description" addon_id="XenForo" version_id="1000033" version_string="1.0.0 Beta 3"><![CDATA[]]></phrase>
   <phrase title="option_group_users_description" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[]]></phrase>
+  <phrase title="option_group_vimeo" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Vimeo Integration]]></phrase>
+  <phrase title="option_group_vimeo_description" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Controls integration with Vimeo services.]]></phrase>
+  <phrase title="option_group_vk" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[VK Integration]]></phrase>
+  <phrase title="option_group_vk_description" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Controls integration with VK services.]]></phrase>
   <phrase title="option_groups" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Option Groups]]></phrase>
   <phrase title="option_guestShowSignatures" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Show Signatures to Guests]]></phrase>
   <phrase title="option_guestShowSignatures_explain" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[In order to maximise your 'signal to noise' ratio when displaying threads to guests, you may hide your members' signatures.]]></phrase>
@@ -2938,6 +3057,10 @@ It is possible to filter the news feed down to just users you follow, or a singl
   <phrase title="option_includeTitleInUrls_explain" addon_id="XenForo" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[With this disabled, a URL such as /threads/my-thread.128/ would exclude the title and be output as /threads/128/]]></phrase>
   <phrase title="option_indexRoute" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Index Page Route]]></phrase>
   <phrase title="option_indexRoute_explain" addon_id="XenForo" version_id="1030470" version_string="1.3.4"><![CDATA[If you wish to change the default index page of the forums, you may enter the route path here. The route path is the section of the URL to a page after your main forum directory URL, such as forums/ or pages/page-name/. Do not reference a route filter here.]]></phrase>
+  <phrase title="option_instagramClientId" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Instagram Client Id]]></phrase>
+  <phrase title="option_instagramClientId_explain" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Entering a client ID will allow users to login using their Instagram accounts. You can get a client ID via Instagram's <a href="https://instagram.com/developer/register/" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_instagramClientSecret" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Instagram Client Secret]]></phrase>
+  <phrase title="option_instagramClientSecret_explain" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[The secret that corresponds to your Instagram client ID.]]></phrase>
   <phrase title="option_ipInfoUrl" addon_id="XenForo" version_id="1030032" version_string="1.3.0 Beta 2"><![CDATA[IP Information URL (IPv4)]]></phrase>
   <phrase title="option_ipInfoUrl_explain" addon_id="XenForo" version_id="1030032" version_string="1.3.0 Beta 2"><![CDATA[Specify a URL to be used for requesting more information about an IPv4 address. The URL must include <strong>{ip}</strong>, which will be replaced with the actual IP address.]]></phrase>
   <phrase title="option_ipLogCleanUp" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Delete IP usage data after X days:]]></phrase>
@@ -2952,6 +3075,14 @@ It is possible to filter the news feed down to just users you follow, or a singl
   <phrase title="option_lastPageLinks_explain" addon_id="XenForo" version_id="1000033" version_string="1.0.0 Beta 3"><![CDATA[If a discussion spans multiple pages, the last few pages are displayed on the discussion list. Set the maximum number of pages to show here. Set the number to 0 to disable this feature.]]></phrase>
   <phrase title="option_lightBoxUniversal" addon_id="XenForo" version_id="1000370" version_string="1.0.3"><![CDATA[LightBox Displays All Images on Page]]></phrase>
   <phrase title="option_lightBoxUniversal_explain" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[If this option is enabled, the LightBox overlay in which images are loaded will show all attached and hot-linked images from all messages on the current page. If disabled, the LightBox will show only images from the current message.]]></phrase>
+  <phrase title="option_linkedinAppKey" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[LinkedIn Key]]></phrase>
+  <phrase title="option_linkedinAppKey_explain" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Entering a key will allow users to login using their LinkedIn accounts. You can get a key via LinkedIn's <a href="https://www.linkedin.com/secure/developer?newapp=" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_linkedinAppSecret" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[LinkedIn Secret]]></phrase>
+  <phrase title="option_linkedinAppSecret_explain" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[The secret that corresponds to your LinkedIn App ID.]]></phrase>
+  <phrase title="option_liveClientId" addon_id="ExternalExtended" version_id="260" version_string="2.6.0"><![CDATA[Live Client ID]]></phrase>
+  <phrase title="option_liveClientId_explain" addon_id="ExternalExtended" version_id="260" version_string="2.6.0"><![CDATA[Entering a client ID will allow users to login using their Live accounts. You can get a client ID via Live's <a href="https://account.live.com/developers/applications/" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_liveClientSecret" addon_id="ExternalExtended" version_id="260" version_string="2.6.0"><![CDATA[Live Client Secret]]></phrase>
+  <phrase title="option_liveClientSecret_explain" addon_id="ExternalExtended" version_id="260" version_string="2.6.0"><![CDATA[The secret that corresponds to your Live client ID.]]></phrase>
   <phrase title="option_loginLimit" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Login Limit Method]]></phrase>
   <phrase title="option_loginLimit_explain" addon_id="XenForo" version_id="1030051" version_string="1.3.0 Release Candidate 1"><![CDATA[If a user fails to log in 4 or more times in a 15 minute period, this method will be used to prevent brute force attacks.]]></phrase>
   <phrase title="option_logoLink" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Link Logo to Home Page URL]]></phrase>
@@ -2997,6 +3128,12 @@ It is possible to filter the news feed down to just users you follow, or a singl
   <phrase title="option_newsFeedMessageSnippetLength_explain" addon_id="XenForo" version_id="0" version_string=""><![CDATA[When the text of messages is displayed in news feed items, it will be trimmed to the length specified here.]]></phrase>
   <phrase title="option_notAcceptingDonationsMessage" addon_id="mercDonationManager" version_id="1" version_string="1.0.0 Beta 1"><![CDATA[Not Accepting Donations Message]]></phrase>
   <phrase title="option_notAcceptingDonationsMessage_explain" addon_id="mercDonationManager" version_id="9" version_string="1.0.0 Beta 1.1"><![CDATA[The message to be displayed on the donate page. You may use HTML that is valid within a &#060;p&#062; tag.]]></phrase>
+  <phrase title="option_odnoklassnikiAppId" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Odnoklassniki App ID]]></phrase>
+  <phrase title="option_odnoklassnikiAppId_explain" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Entering an app ID will allow users to login using their Odnoklassniki accounts. You can get an app ID via Odnoklassniki's <a href="http://www.odnoklassniki.ru/devaccess" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_odnoklassnikiPublicKey" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Odnoklassniki Public Key]]></phrase>
+  <phrase title="option_odnoklassnikiPublicKey_explain" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[The public key you received in the Odnoklassniki Application Process.]]></phrase>
+  <phrase title="option_odnoklassnikiSecretKey" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Odnoklassniki Secret Key]]></phrase>
+  <phrase title="option_odnoklassnikiSecretKey_explain" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[The secret key you received in the Odnoklassniki Application Process.]]></phrase>
   <phrase title="option_onlineStatusTimeout" addon_id="XenForo" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[Online Status Timeout (minutes)]]></phrase>
   <phrase title="option_onlineStatusTimeout_explain" addon_id="XenForo" version_id="1000031" version_string="1.0.0 Beta 1"><![CDATA[After a user interacts with the system (by clicking a link etc.) they will be considered 'online'. They will be considered to be offline if they do not interact with the system again within the time specified here.]]></phrase>
   <phrase title="option_payPalAlternateAccounts" addon_id="XenForo" version_id="1030170" version_string="1.3.1"><![CDATA[PayPal Alternate Accounts]]></phrase>
@@ -3057,6 +3194,10 @@ It is possible to filter the news feed down to just users you follow, or a singl
   <phrase title="option_sitemapExclude_explain" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[If you wish to exclude certain content types from the sitemap, that can be done here. Note that content must be guest accessible to be included in the sitemap, regardless of this setting.]]></phrase>
   <phrase title="option_sitemapExtraUrls" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Extra Sitemap URLs]]></phrase>
   <phrase title="option_sitemapExtraUrls_explain" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[If desired, you may include additional URLs that would not otherwise be included in the sitemap. Place each URL on separate lines. Note that these URLs must match your board URL or they will not be included. Partial URLs will be converted to absolute URLs automatically.]]></phrase>
+  <phrase title="option_soundcloudClientId" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[SoundCloud Client ID]]></phrase>
+  <phrase title="option_soundcloudClientId_explain" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Entering a client ID will allow users to login using their SoundCloud accounts. You can get a client ID via SoundCloud's <a href="http://soundcloud.com/you/apps" target="_blank">Client Applications</a>]]></phrase>
+  <phrase title="option_soundcloudSecretKey" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[SoundCloud Client Secret]]></phrase>
+  <phrase title="option_soundcloudSecretKey_explain" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[The secret that corresponds to your SoundCloud client ID.]]></phrase>
   <phrase title="option_spamCheckIpsDaysLimit" addon_id="XenForo" version_id="0" version_string=""><![CDATA[IP Check Date Limit]]></phrase>
   <phrase title="option_spamCheckIpsDaysLimit_explain" addon_id="XenForo" version_id="1020370" version_string="1.2.3"><![CDATA[When checking for other users having used the same IP addresses as those logged for a spammer, this control limits the search to the last X days.]]></phrase>
   <phrase title="option_spamDefaultOptions" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Spam Cleaner Default Options:]]></phrase>
@@ -3073,32 +3214,44 @@ It is possible to filter the news feed down to just users you follow, or a singl
   <phrase title="option_spamUserCriteria_explain" addon_id="XenForo" version_id="1000012" version_string="1.0.0 Alpha 2"><![CDATA[The spam cleaner will only be available to act against users who meet these criteria. If any of these criteria are set to 0 (zero) they will be ignored.]]></phrase>
   <phrase title="option_steamAPIKey" addon_id="Steam" version_id="18" version_string="1.0.9"><![CDATA[Steam API Key]]></phrase>
   <phrase title="option_steamAPIKey_explain" addon_id="Steam" version_id="18" version_string="1.0.9"><![CDATA[A <a href="http://steamcommunity.com/dev/apikey" target="_blank">Steam Web API Key</a> is required for this plugin to function. Terms of the API are <a href="http://steamcommunity.com/dev/apiterms" target="_blank">here</a>.]]></phrase>
-  <phrase title="option_steamAltLoginBar" addon_id="Steam" version_id="112" version_string="1.4.3"><![CDATA[Display alternative login bar for Steam]]></phrase>
-  <phrase title="option_steamAltLoginBar_explain" addon_id="Steam" version_id="112" version_string="1.4.3"><![CDATA[Displays an alternative login bar for Steam that mimics other XenForo login bars. Not recommended by Valve because their official images represent the Steam brand to users.]]></phrase>
-  <phrase title="option_steamAvatarReg" addon_id="Steam" version_id="3" version_string="1.4.2"><![CDATA[Set user's steam avatar as forum avatar on registration]]></phrase>
-  <phrase title="option_steamAvatarReg_explain" addon_id="Steam" version_id="1" version_string="1.4.2"><![CDATA[Will use the registering user's steam avatar as their forum avatar. Disabling will give user the default forum avatar.]]></phrase>
-  <phrase title="option_steamDisplayBanner" addon_id="Steam" version_id="56" version_string="1.4.2"><![CDATA[Display SteamProfile in-game banners]]></phrase>
+  <phrase title="option_steamAltLoginBar" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Display alternative login bar for Steam]]></phrase>
+  <phrase title="option_steamAltLoginBar_explain" addon_id="Steam" version_id="167" version_string="1.5.2"><![CDATA[Displays an alternative login bar for Steam that mimics other XenForo login bars. Not recommended by Valve because their official images represent the Steam brand to users. Overrides Steam Login Button option if enabled.]]></phrase>
+  <phrase title="option_steamAvatarReg" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Set user's Steam avatar as forum avatar on registration]]></phrase>
+  <phrase title="option_steamAvatarReg_explain" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Will use the registering user's Steam avatar as their forum avatar. Disabling will give user the default forum avatar.]]></phrase>
+  <phrase title="option_steamDisplayBanner" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Display Steam Profile in-game banners]]></phrase>
   <phrase title="option_steamDisplayBanner_explain" addon_id="Steam" version_id="56" version_string="1.4.2"><![CDATA[Display game banners for people in-game if supported. Can cause an extra API request per user in game.]]></phrase>
-  <phrase title="option_steamDisplayMessageContent" addon_id="Steam" version_id="3" version_string="1.4.2"><![CDATA[Display SteamProfile in message content (top right)]]></phrase>
+  <phrase title="option_steamDisplayMessageContent" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Display Steam Profile in message content (top right)]]></phrase>
   <phrase title="option_steamDisplayMessageContent_explain" addon_id="Steam" version_id="4" version_string="1.4.2"><![CDATA[Display an informational/status block in the message content portion (top right).]]></phrase>
-  <phrase title="option_steamDisplayMessageInfo" addon_id="Steam" version_id="38" version_string="1.4.2"><![CDATA[Display SteamProfile in messages]]></phrase>
+  <phrase title="option_steamDisplayMessageInfo" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Display Steam Profile in messages]]></phrase>
   <phrase title="option_steamDisplayMessageInfo_explain" addon_id="Steam" version_id="3" version_string="1.4.2"><![CDATA[Display an informational/status block on messages user information.]]></phrase>
-  <phrase title="option_steamDisplayProfile" addon_id="Steam" version_id="38" version_string="1.4.2"><![CDATA[Display SteamProfile in profile]]></phrase>
+  <phrase title="option_steamDisplayProfile" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Display Steam Profile in profile]]></phrase>
   <phrase title="option_steamDisplayProfile_explain" addon_id="Steam" version_id="3" version_string="1.4.2"><![CDATA[Display an informational/status block in profile.]]></phrase>
   <phrase title="option_steamExcludeGames" addon_id="Steam" version_id="52" version_string="1.2.4"><![CDATA[Exclude Games]]></phrase>
-  <phrase title="option_steamExcludeGames_explain" addon_id="Steam" version_id="52" version_string="1.2.4"><![CDATA[Exclude display of steam statistics for appids in this list. Comma delimited. Example: 440,550,4000 would exclude stats from Team Fortress 2, Left 4 Dead 2, and Garry's Mod.]]></phrase>
+  <phrase title="option_steamExcludeGames_explain" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Exclude display of Steam statistics for appids in this list. Comma delimited. Example: 440,550,4000 would exclude stats from Team Fortress 2, Left 4 Dead 2, and Garry's Mod.]]></phrase>
   <phrase title="option_steamGameStats" addon_id="Steam" version_id="37" version_string="1.1.4"><![CDATA[Collect game statistics]]></phrase>
+  <phrase title="option_steamGameStatsForce" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Force cron to update images]]></phrase>
+  <phrase title="option_steamGameStatsForce_explain" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[While enabled, when Steam User Polling cron runs it'll forcefully update image links for games from the Steam API. Recommended to leave disabled unless you need to update image links.]]></phrase>
   <phrase title="option_steamGameStatsReg" addon_id="Steam" version_id="37" version_string="1.1.4"><![CDATA[Collect game statistics on registration]]></phrase>
-  <phrase title="option_steamGameStatsReg_explain" addon_id="Steam" version_id="42" version_string="1.2.0"><![CDATA[Polls the SteamAPI for game statistics on a user during registration. Disabling will reduce API requests, however, stats won't exist for the user until the cron runs.]]></phrase>
-  <phrase title="option_steamGameStats_explain" addon_id="Steam" version_id="42" version_string="1.2.0"><![CDATA[Polls the SteamAPI for game statistics on users. Disabling will reduce API requests.]]></phrase>
+  <phrase title="option_steamGameStatsReg_explain" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Polls the Steam Web API for game statistics on a user during registration. Disabling will reduce API requests, however, stats won't exist for the user until the cron runs.]]></phrase>
+  <phrase title="option_steamGameStats_explain" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Polls the Steam Web API for game statistics on users. Disabling will reduce API requests.]]></phrase>
+  <phrase title="option_steamImageCDN" addon_id="Steam" version_id="146" version_string="1.4.5"><![CDATA[Steam Image Source]]></phrase>
+  <phrase title="option_steamImageCDN_explain" addon_id="Steam" version_id="146" version_string="1.4.5"><![CDATA[Controls the source of the images from the Steam CDN. Not all CDN options support HTTPS/SSL. Steamcdn-a.akamaihd.net (HTTPS/HTTP) is recommended, unless you have issues with protocol relative links.]]></phrase>
   <phrase title="option_steamIncludeGames" addon_id="Steam" version_id="52" version_string="1.2.4"><![CDATA[Include Games]]></phrase>
-  <phrase title="option_steamIncludeGames_explain" addon_id="Steam" version_id="52" version_string="1.2.4"><![CDATA[Only display steam statistics from appids in this list. Comma delimited. Example: 440,550,4000 would only show stats from Team Fortress 2, Left 4 Dead 2, and Garry's Mod.]]></phrase>
+  <phrase title="option_steamIncludeGames_explain" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Only display Steam statistics from appids in this list. Comma delimited. Example: 440,550,4000 would only show stats from Team Fortress 2, Left 4 Dead 2, and Garry's Mod.]]></phrase>
+  <phrase title="option_steamJSONLink" addon_id="Steam" version_id="146" version_string="1.4.5"><![CDATA[Steam API Source]]></phrase>
+  <phrase title="option_steamJSONLink_explain" addon_id="Steam" version_id="146" version_string="1.4.5"><![CDATA[Controls the source of the API call. If you want to grab JSON over HTTPS instead of HTTP, change to HTTPS only if cURL is enabled and supports HTTPS OR openssl for PHP is installed if cURL is not enabled.]]></phrase>
+  <phrase title="option_steamLoginButton" addon_id="Steam" version_id="158" version_string="1.5.0"><![CDATA[Steam Login Button (Vistors Panel)]]></phrase>
+  <phrase title="option_steamLoginButton_explain" addon_id="Steam" version_id="158" version_string="1.5.0"><![CDATA[Controls the style of login button on the vistors panel.]]></phrase>
   <phrase title="option_steamNavTab" addon_id="Steam" version_id="25" version_string="1.1.1"><![CDATA[Steam statistics navbar tab]]></phrase>
-  <phrase title="option_steamNavTab_explain" addon_id="Steam" version_id="25" version_string="1.1.1"><![CDATA[Display a navigaton tab for public steam statistics.]]></phrase>
+  <phrase title="option_steamNavTab_explain" addon_id="Steam" version_id="160" version_string="1.5.0"><![CDATA[Display a navigaton tab for public Steam statistics.]]></phrase>
   <phrase title="option_steamVisitorPanel" addon_id="Steam" version_id="112" version_string="1.4.3"><![CDATA[Display Steam login bar on vistor panel]]></phrase>
   <phrase title="option_steamVisitorPanel_explain" addon_id="Steam" version_id="112" version_string="1.4.3"><![CDATA[Displays the login bar underneath the "Sign up now!" button.]]></phrase>
   <phrase title="option_stopForumSpam" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Stop Forum Spam]]></phrase>
   <phrase title="option_stopForumSpam_explain" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[]]></phrase>
+  <phrase title="option_stravaClientId" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Strava Client Id]]></phrase>
+  <phrase title="option_stravaClientId_explain" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Entering a client ID will allow users to login using their Strava accounts. You can get a client ID via Strava's <a href="https://www.strava.com/settings/api" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_stravaClientSecret" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Strava Client Secret]]></phrase>
+  <phrase title="option_stravaClientSecret_explain" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[The secret that corresponds to your Strava client ID.]]></phrase>
   <phrase title="option_swfUpload" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Use Flash Uploader]]></phrase>
   <phrase title="option_swfUpload_explain" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Using the Flash uploader allows those visitors with Adobe Flash installed to select multiple files to upload once, and to see a progress meter during the upload.]]></phrase>
   <phrase title="option_templateFiles" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Fetch public templates as files]]></phrase>
@@ -3107,10 +3260,18 @@ It is possible to filter the news feed down to just users you follow, or a singl
   <phrase title="option_templateHistoryLength_explain" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[The number of days to maintain template edit history records. Use 0 to never remove history.]]></phrase>
   <phrase title="option_tosUrl" addon_id="XenForo" version_id="1000014" version_string="1.0.0 Alpha 4"><![CDATA[Terms and Rules URL]]></phrase>
   <phrase title="option_tosUrl_explain" addon_id="XenForo" version_id="1000014" version_string="1.0.0 Alpha 4"><![CDATA[This link will be shown in the footer and users will have to agree to the terms and rules during registration.]]></phrase>
+  <phrase title="option_tumblrAppKey" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Tumblr Application Consumer Key]]></phrase>
+  <phrase title="option_tumblrAppKey_explain" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[To allow users to sign in with their Tumblr accounts, you must create a <a href="http://www.tumblr.com/oauth/apps" target="_blank">Tumblr application</a> and enter the consumer key.]]></phrase>
+  <phrase title="option_tumblrAppSecret" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Tumblr Application Consumer Secret]]></phrase>
+  <phrase title="option_tumblrAppSecret_explain" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[If you have created a Tumblr application to allow Tumblr sign in, set the application's consumer secret here.]]></phrase>
   <phrase title="option_tweet" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[Enable Tweet Button]]></phrase>
   <phrase title="option_tweet_explain" addon_id="XenForo" version_id="1020470" version_string="1.2.4"><![CDATA[Enabling the Tweet button will allow your visitors to share pages easily using their Twitter account.<br />
 <br />
 You may also specify up to two Twitter accounts to recommend to visitors after they use the Tweet button. <a href="https://about.twitter.com/resources/buttons#tweet" target="_blank">More info...</a>]]></phrase>
+  <phrase title="option_twitchClientId" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Twitch Client ID]]></phrase>
+  <phrase title="option_twitchClientId_explain" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Entering a client ID will allow users to login using their Twitch accounts. You can get a client ID via Twitch's <a href="https://secure.twitch.tv/kraken/oauth2/clients/new" target="_blank">Client Applications</a>]]></phrase>
+  <phrase title="option_twitchClientSecret" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Twitch Client Secret]]></phrase>
+  <phrase title="option_twitchClientSecret_explain" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[The secret that corresponds to your Twitch client ID.]]></phrase>
   <phrase title="option_twitterAppKey" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Twitter Application Consumer Key]]></phrase>
   <phrase title="option_twitterAppKey_explain" addon_id="XenForo" version_id="1040270" version_string="1.4.2"><![CDATA[To allow users to sign in with their Twitter accounts, you must create a <a href="https://apps.twitter.com/" target="_blank">Twitter application</a> and enter the consumer key and secret.]]></phrase>
   <phrase title="option_twitterAppSecret" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Twitter Application Consumer Secret]]></phrase>
@@ -3133,6 +3294,14 @@ You may also specify up to two Twitter accounts to recommend to visitors after t
   <phrase title="option_usernameLength_explain" addon_id="XenForo" version_id="1040033" version_string="1.4.0 Beta 3"><![CDATA[This controls the minimum and maximum length of user names. Use 0 to disable a limit. User names may never be longer than 50 characters.]]></phrase>
   <phrase title="option_usernameValidation" addon_id="XenForo" version_id="1040033" version_string="1.4.0 Beta 3"><![CDATA[User Name Validation]]></phrase>
   <phrase title="option_usernameValidation_explain" addon_id="XenForo" version_id="0" version_string=""><![CDATA[]]></phrase>
+  <phrase title="option_vimeoClientId" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Vimeo Client Id]]></phrase>
+  <phrase title="option_vimeoClientId_explain" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Entering a client ID will allow users to login using their Vimeo accounts. You can get a client ID via Vimeo's <a href="https://developer.vimeo.com/apps/new" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_vimeoClientSecret" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Vimeo Client Secret]]></phrase>
+  <phrase title="option_vimeoClientSecret_explain" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[The secret that corresponds to your Vimeo client ID.]]></phrase>
+  <phrase title="option_vkAppId" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[VK App ID]]></phrase>
+  <phrase title="option_vkAppId_explain" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Entering an app ID will allow users to login using their VK accounts. You can get an app ID via VK's <a href="http://vk.com/editapp?act=create" target="_blank">Application Process</a>]]></phrase>
+  <phrase title="option_vkAppSecret" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[VK App Secret]]></phrase>
+  <phrase title="option_vkAppSecret_explain" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[The secret that corresponds to your VK App ID. It is located in your <a href="http://vk.com/apps?act=settings" target="_blank">Application Settings</a> for this specific domain.]]></phrase>
   <phrase title="option_watchAlertActiveOnly" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Only send watched content alerts/emails to users active in last X days]]></phrase>
   <phrase title="option_watchAlertActiveOnly_explain" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[If enabled, watched content alerts and emails will only be sent to users that have visited within the specified number of days. This can improve performance on large or very active installations.]]></phrase>
   <phrase title="optional" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Optional]]></phrase>
@@ -4154,10 +4323,22 @@ If you are not sure this is the behavior you want, select 'Revoke' instead.
   <phrase title="sibling_node" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Sibling Node]]></phrase>
   <phrase title="sign_up" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[Sign up]]></phrase>
   <phrase title="sign_up_now" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[Sign up now!]]></phrase>
+  <phrase title="sign_up_with_battlenet" addon_id="ExternalExtended" version_id="20" version_string="2.0.0"><![CDATA[Sign up with Battle.net]]></phrase>
   <phrase title="sign_up_with_facebook" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[Sign up with Facebook]]></phrase>
+  <phrase title="sign_up_with_github" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Sign up with GitHub]]></phrase>
   <phrase title="sign_up_with_google" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Sign up with Google]]></phrase>
+  <phrase title="sign_up_with_instagram" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Sign up with Instagram]]></phrase>
+  <phrase title="sign_up_with_linkedin" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Sign up with LinkedIn]]></phrase>
+  <phrase title="sign_up_with_live" addon_id="ExternalExtended" version_id="274" version_string="2.7.4"><![CDATA[Sign up with Live]]></phrase>
+  <phrase title="sign_up_with_odnoklassniki" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Sign up with Odnoklassniki]]></phrase>
+  <phrase title="sign_up_with_soundcloud" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[Sign up with SoundCloud]]></phrase>
   <phrase title="sign_up_with_steam" addon_id="Steam" version_id="1" version_string="1.0.0"><![CDATA[Sign up with Steam]]></phrase>
+  <phrase title="sign_up_with_strava" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Sign up with Strava]]></phrase>
+  <phrase title="sign_up_with_tumblr" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Sign up with Tumblr]]></phrase>
+  <phrase title="sign_up_with_twitch" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Sign up with Twitch]]></phrase>
   <phrase title="sign_up_with_twitter" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Sign up with Twitter]]></phrase>
+  <phrase title="sign_up_with_vimeo" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Sign up with Vimeo]]></phrase>
+  <phrase title="sign_up_with_vk" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[Sign up with VK]]></phrase>
   <phrase title="signature" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Signature]]></phrase>
   <phrase title="signed_in_as_x_sidebar" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[<span class="muted">Signed in as</span> {name}]]></phrase>
   <phrase title="simple_replacement" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Simple Replacement]]></phrase>
@@ -4205,6 +4386,7 @@ If you are not sure this is the behavior you want, select 'Revoke' instead.
   <phrase title="sort" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Sort]]></phrase>
   <phrase title="sort_by" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Sort by]]></phrase>
   <phrase title="sort_threads_by" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Sort threads by]]></phrase>
+  <phrase title="soundcloud_integration" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[SoundCloud Integration]]></phrase>
   <phrase title="source_database_connection_details_not_correct_x" addon_id="XenForo" version_id="0" version_string=""><![CDATA[The source database connection details are not correct: {error}]]></phrase>
   <phrase title="source_user" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Source user]]></phrase>
   <phrase title="spam" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Spam]]></phrase>
@@ -4299,6 +4481,16 @@ If you are not sure this is the behavior you want, select 'Revoke' instead.
   <phrase title="steam_stats_topUsersRecent" addon_id="Steam" version_id="25" version_string="1.1.1"><![CDATA[Most Active Steam Users]]></phrase>
   <phrase title="steam_stats_topUsersRecent_hours" addon_id="Steam" version_id="25" version_string="1.1.1"><![CDATA[Hours]]></phrase>
   <phrase title="steam_stats_topUsersRecent_user" addon_id="Steam" version_id="25" version_string="1.1.1"><![CDATA[User]]></phrase>
+  <phrase title="steam_use_CDN_akamai_HTTP" addon_id="Steam" version_id="147" version_string="1.4.5"><![CDATA[steamcdn-a.akamaihd.net (HTTP Only)]]></phrase>
+  <phrase title="steam_use_CDN_akamai_HTTPS" addon_id="Steam" version_id="147" version_string="1.4.5"><![CDATA[steamcdn-a.akamaihd.net (HTTPS Only)]]></phrase>
+  <phrase title="steam_use_CDN_akamai_alt" addon_id="Steam" version_id="147" version_string="1.4.5"><![CDATA[cdn.akamai.steamstatic.com (HTTP Only)]]></phrase>
+  <phrase title="steam_use_CDN_akamai_both" addon_id="Steam" version_id="147" version_string="1.4.5"><![CDATA[steamcdn-a.akamaihd.net (HTTPS/HTTP)]]></phrase>
+  <phrase title="steam_use_CDN_local" addon_id="Steam" version_id="152" version_string="1.4.5"><![CDATA[XenForo Image Proxy (if enabled)]]></phrase>
+  <phrase title="steam_use_JSON_HTTP" addon_id="Steam" version_id="147" version_string="1.4.5"><![CDATA[Steam API via HTTP]]></phrase>
+  <phrase title="steam_use_JSON_HTTPS" addon_id="Steam" version_id="147" version_string="1.4.5"><![CDATA[Steam API via HTTPS]]></phrase>
+  <phrase title="steam_use_button_large" addon_id="Steam" version_id="158" version_string="1.5.0"><![CDATA[Large button]]></phrase>
+  <phrase title="steam_use_button_large_border" addon_id="Steam" version_id="158" version_string="1.5.0"><![CDATA[Large button with border]]></phrase>
+  <phrase title="steam_use_button_normal" addon_id="Steam" version_id="158" version_string="1.5.0"><![CDATA[Thin button]]></phrase>
   <phrase title="stick_threads" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Stick Threads]]></phrase>
   <phrase title="sticky" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Sticky]]></phrase>
   <phrase title="sticky_threads_appear_at_top_of_first_page_of_list_of_threads" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Sticky threads appear at the top of the first page of the list of threads in their parent forum]]></phrase>
@@ -4324,6 +4516,7 @@ If you are not sure this is the behavior you want, select 'Revoke' instead.
   <phrase title="stopforumspam_submit_information" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Submit spammer information to StopForumSpam using API key]]></phrase>
   <phrase title="stopforumspam_submit_information_explain" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[If you have an API key from StopForumSpam, you may have spammer activity on your site automatically reported back to StopForumSpam in order to improve the database for other users. This option will cause users who are banned via the spam cleaner to be reported.]]></phrase>
   <phrase title="store_drafts_for_x_hours" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Store drafts for X hours]]></phrase>
+  <phrase title="strava_integration" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Strava Integration]]></phrase>
   <phrase title="strike_through" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Strike-through]]></phrase>
   <phrase title="string" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[String]]></phrase>
   <phrase title="string_could_not_be_converted_to_input" addon_id="XenForo" version_id="1000053" version_string="1.0.0 Release Candidate 3"><![CDATA[The specified string could not be converted to an input object, either because it was not found or because it contained errors.]]></phrase>
@@ -4495,6 +4688,10 @@ Its primary function is to provide the content background color.]]></phrase>
   <phrase title="style_property_eAuthButtonWidth_master" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[External Authentication Button Width]]></phrase>
   <phrase title="style_property_editorContent_description_master" addon_id="XenForo" version_id="1000052" version_string="1.0.0 Release Candidate 2"><![CDATA[The content of the rich text editor should appear in the same colors, fonts etc. as your messages. If it does not, you can use this style property to tweak the appearance.]]></phrase>
   <phrase title="style_property_editorContent_master" addon_id="XenForo" version_id="1020031" version_string="1.2.0 Beta 1"><![CDATA[Editor Contents]]></phrase>
+  <phrase title="style_property_eeLoginHorizontal_description_master" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[This will make the provider buttons list horizontally.]]></phrase>
+  <phrase title="style_property_eeLoginHorizontal_master" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[Horizontal Buttons]]></phrase>
+  <phrase title="style_property_eeUIX_description_master" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[This will enable styling support for the external providers for UI.X themes.]]></phrase>
+  <phrase title="style_property_eeUIX_master" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[UI.X Support]]></phrase>
   <phrase title="style_property_enableOverlays_description_master" addon_id="XenForo" version_id="1000013" version_string="1.0.0 Alpha 3"><![CDATA[You may disable all overlays and instead load full pages by switching off this option.]]></phrase>
   <phrase title="style_property_enableOverlays_master" addon_id="XenForo" version_id="1000013" version_string="1.0.0 Alpha 3"><![CDATA[Enable Overlays]]></phrase>
   <phrase title="style_property_enableResponsive_description_master" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[]]></phrase>
@@ -4563,6 +4760,8 @@ Its primary function is to provide the content background color.]]></phrase>
   <phrase title="style_property_group_color_master_desc" addon_id="XenForo" version_id="1010370" version_string="1.1.3"><![CDATA[The set of colors used to build this style.]]></phrase>
   <phrase title="style_property_group_discussionList_master" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Discussion List]]></phrase>
   <phrase title="style_property_group_discussionList_master_desc" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Controls the appearance of the list of discussions within a forum or a conversation etc.]]></phrase>
+  <phrase title="style_property_group_externalAccountsExtended_master" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[External Accounts Extended]]></phrase>
+  <phrase title="style_property_group_externalAccountsExtended_master_desc" addon_id="ExternalExtended" version_id="240" version_string="2.4.0"><![CDATA[Styles the frontend features of External Accounts Extended]]></phrase>
   <phrase title="style_property_group_footer_master" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Footer]]></phrase>
   <phrase title="style_property_group_footer_master_desc" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Controls the bottom of the page]]></phrase>
   <phrase title="style_property_group_formOverlay_master" addon_id="XenForo" version_id="1000034" version_string="1.0.0 Beta 4"><![CDATA[Form-Type Overlays]]></phrase>
@@ -5358,7 +5557,9 @@ Error message: <span class="exceptionMessage">{message}</span>]]></phrase>
   <phrase title="trophy_options" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Trophy Options]]></phrase>
   <phrase title="trophy_points" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Trophy Points]]></phrase>
   <phrase title="trophy_points_between" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Trophy points between]]></phrase>
+  <phrase title="tumblr_integration" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Tumblr Integration]]></phrase>
   <phrase title="tweet" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[Tweet]]></phrase>
+  <phrase title="twitch_integration" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Twitch Integration]]></phrase>
   <phrase title="twitter_integration" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Twitter Integration]]></phrase>
   <phrase title="twitter_returned_following_error_x" addon_id="XenForo" version_id="1030170" version_string="1.3.1"><![CDATA[Twitter returned the following error: {error}.]]></phrase>
   <phrase title="type" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Type]]></phrase>
@@ -5791,9 +5992,11 @@ Thanks,
   <phrase title="viewing_thread" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Viewing thread]]></phrase>
   <phrase title="viewing_unknown_page" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Viewing unknown page]]></phrase>
   <phrase title="views" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Views]]></phrase>
+  <phrase title="vimeo_integration" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Vimeo Integration]]></phrase>
   <phrase title="visible" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Visible]]></phrase>
   <phrase title="visit_site" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Visit Site]]></phrase>
   <phrase title="visits_in_last_hour_may_not_be_considered" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Visits in the last hour may not be considered.]]></phrase>
+  <phrase title="vk_integration" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[VK Integration]]></phrase>
   <phrase title="warn" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warn]]></phrase>
   <phrase title="warn_member" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warn Member]]></phrase>
   <phrase title="warning" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warning]]></phrase>
@@ -6217,16 +6420,52 @@ To disable all emails:
   <phrase title="your_account_does_not_require_confirmation" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Your account does not require confirmation.]]></phrase>
   <phrase title="your_account_has_temporarily_been_locked_due_to_failed_login_attempts" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Your account has temporarily been locked due to failed login attempts.]]></phrase>
   <phrase title="your_account_is_currently_awaiting_confirmation_confirmation_sent_to_x" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Your account is currently awaiting confirmation. Confirmation was sent to {email}.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_battlenet_account" addon_id="ExternalExtended" version_id="21" version_string="2.0.1"><![CDATA[Your account is not currently associated with a Battle.net account.
+
+Associating with Battle.net makes it easier to login to the forum.]]></phrase>
   <phrase title="your_account_is_not_currently_associated_with_facebook_account" addon_id="XenForo" version_id="1000035" version_string="1.0.0 Beta 5"><![CDATA[Your account is not currently associated with a Facebook account.
 
 Associating with Facebook makes it easier to share interesting things with your friends and import content from Facebook here.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_github_account" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Your account is not currently associated with a GitHub account.
+
+Associating with GitHub makes it easier to login to the forum.]]></phrase>
   <phrase title="your_account_is_not_currently_associated_with_google_account" addon_id="XenForo" version_id="1030051" version_string="1.3.0 Release Candidate 1"><![CDATA[Your account is not currently associated with a Google account.
 
 Associating with Google makes it easier to log in to the forum or share content back to Google.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_instagram_account" addon_id="ExternalExtended" version_id="290" version_string="2.9.0"><![CDATA[Your account is not currently associated with a Instagram account.
+
+Associating with Instagram makes it easier to login to the forum.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_linkedin_account" addon_id="ExternalExtended" version_id="7" version_string="1.5.0"><![CDATA[Your account is not currently associated with a LinkedIn account.
+
+Associating with LinkedIn makes it easier to login to the forum.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_live_account" addon_id="ExternalExtended" version_id="260" version_string="2.7.0"><![CDATA[Your account is not currently associated with a Live account.
+
+Associating with Live makes it easier to login to the forum.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_odnoklassniki_account" addon_id="ExternalExtended" version_id="5" version_string="1.3.0"><![CDATA[Your account is not currently associated with an Odnoklassniki account.
+
+Associating with Odnoklassniki makes it easier to login to the forum.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_soundcloud_account" addon_id="ExternalExtended" version_id="1" version_string="1.0.0"><![CDATA[Your account is not currently associated with a SoundCloud account.
+
+Associating with SoundCloud makes it easier to login to the forum.]]></phrase>
   <phrase title="your_account_is_not_currently_associated_with_steam_account" addon_id="Steam" version_id="1" version_string="1.2.0"><![CDATA[Your account is not currently associated with a Steam account.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_strava_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Your account is not currently associated with a Strava account.
+
+Associating with Strava makes it easier to login to the forum.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_tumblr_account" addon_id="ExternalExtended" version_id="3" version_string="1.1.0"><![CDATA[Your account is not currently associated with a Tumblr account.
+
+Associating with Tumblr makes it easier to login to the forum.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_twitch_account" addon_id="ExternalExtended" version_id="8" version_string="1.6.0"><![CDATA[Your account is not currently associated with a Twitch account.
+
+Associating with Twitch makes it easier to login to the forum.]]></phrase>
   <phrase title="your_account_is_not_currently_associated_with_twitter_account" addon_id="XenForo" version_id="1030051" version_string="1.3.0 Release Candidate 1"><![CDATA[Your account is not currently associated with a Twitter account.
 
 Associating with Twitter makes it easier to log in to the forum or share content back to Twitter.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_vimeo_account" addon_id="ExternalExtended" version_id="280" version_string="2.8.0"><![CDATA[Your account is not currently associated with a Vimeo account.
+
+Associating with Vimeo makes it easier to login to the forum.]]></phrase>
+  <phrase title="your_account_is_not_currently_associated_with_vk_account" addon_id="ExternalExtended" version_id="4" version_string="1.2.0"><![CDATA[Your account is not currently associated with a VK account.
+
+Associating with VK makes it easier to login to the forum.]]></phrase>
   <phrase title="your_account_must_be_confirmed_before_follow" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Your account must be confirmed before you can follow any members.]]></phrase>
   <phrase title="your_account_must_be_reconfirmed" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Your account must be reconfirmed. Please check your email for instructions.]]></phrase>
   <phrase title="your_alerts" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Your Alerts]]></phrase>
