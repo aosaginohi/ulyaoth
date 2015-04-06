@@ -184,6 +184,25 @@ ulyaoth-nginx-mainline-pagespeed-selinux()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-pagespeed/build-ulyaoth-nginx-mainline-pagespeed-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-pagespeed-selinux.sh ; ./build-ulyaoth-nginx-mainline-pagespeed-selinux.sh
 }
 
+ulyaoth-nginx-mainline-passenger4()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/build-ulyaoth-nginx-mainline-passenger4.sh ; chmod +x build-ulyaoth-nginx-mainline-passenger4.sh ; ./build-ulyaoth-nginx-mainline-passenger4.sh
+}
+
+ulyaoth-nginx-mainline-passenger4-selinux()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/build-ulyaoth-nginx-mainline-passenger4-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-passenger4-selinux.sh ; ./build-ulyaoth-nginx-mainline-passenger4-selinux.sh
+}
+
+ulyaoth-nginx-mainline-passenger5()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/build-ulyaoth-nginx-mainline-passenger5.sh ; chmod +x build-ulyaoth-nginx-mainline-passenger5.sh ; ./build-ulyaoth-nginx-mainline-passenger5.sh
+}
+
+ulyaoth-nginx-mainline-passenger5-selinux()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-passenger/build-ulyaoth-nginx-mainline-passenger5-selinux.sh ; chmod +x build-ulyaoth-nginx-mainline-passenger5-selinux.sh ; ./build-ulyaoth-nginx-mainline-passenger5-selinux.sh
+
 ulyaoth-hhvm()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh
