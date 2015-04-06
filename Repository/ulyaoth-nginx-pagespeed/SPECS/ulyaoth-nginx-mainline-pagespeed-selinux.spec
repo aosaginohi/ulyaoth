@@ -42,7 +42,7 @@ install -p -m 644 -D %{SOURCE0} $RPM_BUILD_ROOT%{_datadir}/selinux/packages/%{pa
 
 %post
 if [ $1 -eq 1 ]; then
-semodule -i %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-mainline-pagespeed.pp 2>/dev/null || :
+semodule -i %{_datadir}/selinux/packages/ulyaoth-nginx-mainline-pagespeed/ulyaoth-nginx-mainline-pagespeed.pp 2>/dev/null || :
 %if %{use_systemd}
     /usr/bin/systemctl restart nginx.service >/dev/null 2>&1 ||:
 %else
@@ -75,7 +75,7 @@ fi
 
 %postun
 if [ "$1" -ge "1" ] ; then # Upgrade
-semodule -i %{_datadir}/selinux/packages/%{package_name}/ulyaoth-nginx-mainline-pagespeed.pp 2>/dev/null || :
+semodule -i %{_datadir}/selinux/packages/ulyaoth-nginx-mainline-pagespeed/ulyaoth-nginx-mainline-pagespeed.pp 2>/dev/null || :
 fi
 
 %changelog
