@@ -8,9 +8,9 @@ fi
 
 if grep -q -i "release 22" /etc/fedora-release
 then
-dnf install -y policycoreutils-python
+dnf install -y policycoreutils-python checkpolicy selinux-policy-devel
 else
-yum install -y policycoreutils-python
+yum install -y policycoreutils-python checkpolicy selinux-policy-devel
 fi
 
 useradd ulyaoth
