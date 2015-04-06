@@ -1,6 +1,6 @@
 [ulyaoth]
 name=Ulyaoth Repository
-baseurl=https://repos.ulyaoth.net/centos/$releasever/$basearch/
+baseurl=https://repos.ulyaoth.net/centos/$releasever/$basearch/os/
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
