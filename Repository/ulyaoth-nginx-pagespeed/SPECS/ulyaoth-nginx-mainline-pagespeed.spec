@@ -38,9 +38,9 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary: Nginx Anti Xss & Sql Injection.
-Name: ulyaoth-nginx-mainline-naxsi-masterbuild
-Version: 20150406
+Summary: High performance web server compiled with pagespeed.
+Name: ulyaoth-nginx-mainline-pagespeed
+Version: 1.9.32.3
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -76,21 +76,21 @@ Requires: GeoIP
 Provides: webserver
 Provides: nginx
 Provides: nginx-mainline
-Provides: nginx-mainline-naxsi-masterbuild
+Provides: nginx-mainline-pagespeed
 Provides: ulyaoth-nginx
-Provides: ulyaoth-nginx-naxsi-masterbuild
 Provides: ulyaoth-nginx-mainline
-Provides: ulyaoth-nginx-mainline-naxsi-masterbuild
+Provides: ulyaoth-nginx-mainline-pagespeed
 
 %description
-Naxsi behaves like a DROP-by-default firewall, the only job needed is to add required ACCEPT rules for the target website to work properly.
+nginx compile with pagespeed [engine x] is an HTTP and reverse proxy server, as well as
+a mail proxy server.
 
 %package debug
 Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-mainline-naxsi-masterbuild
+Requires: ulyaoth-nginx-mainline-pagespeed
 %description debug
-Not stripped version of nginx built with the debugging log support and compiled with Naxsi.
+Not stripped version of nginx built with the debugging log support and compiled with pagespeed.
 
 %prep
 %setup -q -n nginx-%{nginx_version}
@@ -125,7 +125,7 @@ Not stripped version of nginx built with the debugging log support and compiled 
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
-		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
+		--add-module=/etc/nginx/modules/pagespeed \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -166,7 +166,7 @@ make %{?_smp_mflags}
         --with-http_stub_status_module \
         --with-http_auth_request_module \
 		--with-http_geoip_module \
-		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
+		--add-module=/etc/nginx/modules/pagespeed \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -315,7 +315,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-mainline-naxsi-masterbuild!
+Thanks for using ulyaoth-nginx-mainline-pagespeed!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -323,8 +323,9 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-Please find the official Naxsi documentation here:
-* https://github.com/nbs-system/naxsi
+Please find the official documentation for pagespeed here:
+* https://developers.google.com/speed/pagespeed/
+* https://github.com/pagespeed/ngx_pagespeed
 
 For any additional help please visit my forum at:
 * http://www.ulyaoth.net
