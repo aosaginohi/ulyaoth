@@ -50,7 +50,7 @@ cd /home/ulyaoth/rpmbuild/SPECS
 
 if [ "$arch" != "x86_64" ]
 then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-passenger4.spec
+sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-nginx-mainline-passenger4.spec
 fi
 
 if grep -q -i "release 22" /etc/fedora-release
