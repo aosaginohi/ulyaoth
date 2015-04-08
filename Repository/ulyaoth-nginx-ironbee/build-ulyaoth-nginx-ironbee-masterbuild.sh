@@ -32,7 +32,7 @@ cd /etc/nginx/modules/
 su ulyaoth -c "tar cvf ironbee.tar.gz ironbee"
 su ulyaoth -c "mv ironbee.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget http://nginx.org/download/nginx-1.6.2.tar.gz"
+su ulyaoth -c "wget http://nginx.org/download/nginx-1.6.3.tar.gz"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/logrotate"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.init"

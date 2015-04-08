@@ -43,7 +43,7 @@ cd /etc/nginx/modules
 tar cvf modsecurity.tar.gz modsecurity
 mv modsecurity.tar.gz /root/rpmbuild/SOURCES/
 cd /root/rpmbuild/SOURCES
-wget http://nginx.org/download/nginx-1.6.2.tar.gz
+wget http://nginx.org/download/nginx-1.6.3.tar.gz
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/logrotate
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/modsecurity.conf
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-modsecurity/SOURCES/nginx.conf
