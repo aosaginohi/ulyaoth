@@ -71,7 +71,6 @@ BuildRequires: GeoIP-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
-BuildRequires: ssdeep-devel
 
 Provides: webserver
 Provides: nginx
