@@ -25,14 +25,14 @@ su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify
 su ulyaoth -c "wget http://repository-origin.spotify.com/pool/non-free/s/spotify/spotify-client_0.9.17.1.g9b85d43.7-1_amd64.deb"
 
 su ulyaoth -c "ar x spotify-client-gnome-support_0.9.17.1.g9b85d43.7-1_all.deb"
-su ulyaoth -c "tar xvf data.tar.gz"
-su ulyaoth -c "rm -rf control.tar.gz data.tar.gz debian-binary spotify-client-gnome-support_0.9.17.1.g9b85d43.7-1_all.deb"
+su ulyaoth -c "tar xvf data.tar.xz"
+su ulyaoth -c "rm -rf control.tar.gz data.tar.xz debian-binary spotify-client-gnome-support_0.9.17.1.g9b85d43.7-1_all.deb"
 su ulyaoth -c "ar x spotify-client-qt_0.9.17.1.g9b85d43.7-1_all.deb"
-su ulyaoth -c "tar xvf data.tar.gz"
-su ulyaoth -c "rm -rf control.tar.gz data.tar.gz debian-binary spotify-client-qt_0.9.17.1.g9b85d43.7-1_all.deb"
+su ulyaoth -c "tar xvf data.tar.xz"
+su ulyaoth -c "rm -rf control.tar.gz data.tar.xz debian-binary spotify-client-qt_0.9.17.1.g9b85d43.7-1_all.deb"
 su ulyaoth -c "ar x spotify-client_0.9.17.1.g9b85d43.7-1_amd64.deb"
-su ulyaoth -c "tar xvf data.tar.gz"
-su ulyaoth -c "rm -rf control.tar.gz data.tar.gz debian-binary spotify-client_0.9.17.1.g9b85d43.7-1_amd64.deb"
+su ulyaoth -c "tar xvf data.tar.xz"
+su ulyaoth -c "rm -rf control.tar.gz data.tar.xz debian-binary spotify-client_0.9.17.1.g9b85d43.7-1_amd64.deb"
 
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/lib64/"
 su ulyaoth -c "mkdir -p /home/ulyaoth/usr/share/applications/"
@@ -57,7 +57,7 @@ su ulyaoth -c "cp /home/ulyaoth/opt/spotify/spotify-client/Icons/spotify-linux-2
 su ulyaoth -c "cp /home/ulyaoth/spotify.desktop /home/ulyaoth/usr/share/applications/"
 
 su ulyaoth -c "tar cvf ulyaoth-spotify.tar.gz ./opt/ ./usr/"
-su ulyaoth -c "rm -rf opt/ usr/"
+su ulyaoth -c "rm -rf opt/ usr/ spotify.desktop"
 su ulyaoth -c "mv ulyaoth-spotify.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 
 cd /home/ulyaoth/rpmbuild/SPECS
