@@ -29,8 +29,8 @@ BuildRequires: systemd
 
 Summary: Spotify music player.
 Name: spotify-client
-Version: 0.9.11.27
-Release: 3%{?dist}
+Version: 0.9.17.1
+Release: 1%{?dist}
 URL: https://www.spotify.com
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 License: Proprietary (non-free)
@@ -207,6 +207,9 @@ Please find the official documentation for Spotify here:
 BANNER
 
 %changelog
+* Mon Apr 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.17.1-1
+- Update Spotify version.
+
 * Thu Mar 19 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.9.11.27-3
 - Support for Fedora 22.
 - Support for Oracle Linux 6 & 7.
