@@ -7,7 +7,7 @@
 
 Summary:    Apache Solr Documentations
 Name:       ulyaoth-solr5-docs
-Version:    5.0.0
+Version:    5.1.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -65,5 +65,8 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Thu Apr 16 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.1.0-1
+- Updated to Solr 5.1.0.
+
 * Sat Mar 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.0.0-1
 - Initial release.
