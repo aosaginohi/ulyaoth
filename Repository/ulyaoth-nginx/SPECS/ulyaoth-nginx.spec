@@ -38,7 +38,7 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx
-Version: 1.6.3
+Version: 1.8.0
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -344,6 +344,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Apr 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.8.0-1
+- Updated to Nginx 1.8.0.
+
 * Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.3-1
 - Updated to Nginx 1.6.3.
 

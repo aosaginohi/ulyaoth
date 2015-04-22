@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.6.3
+%define nginx_version 1.8.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-naxsi-masterbuild
-Version: 20150411
+Version: 20150422
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -363,6 +363,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Wed Apr 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150422-1
+- Updated to Nginx 1.8.0.
+- Updated Naxsi to latest master branch.
+
 * Sat Apr 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150411-1
 - Updated to Nginx 1.6.3.
 - Weekly update to latest master branch.

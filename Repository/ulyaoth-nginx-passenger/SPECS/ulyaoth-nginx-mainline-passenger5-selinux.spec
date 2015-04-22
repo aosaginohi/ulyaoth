@@ -21,6 +21,7 @@ Requires(post): policycoreutils, %{package_name}
 Requires(preun): policycoreutils, %{package_name}
 Requires(postun): policycoreutils
 Requires: ulyaoth-nginx-mainline-passenger5
+Requires: policycoreutils-python
 
 Provides: ulyaoth-nginx-mainline-passenger5-selinux
 
