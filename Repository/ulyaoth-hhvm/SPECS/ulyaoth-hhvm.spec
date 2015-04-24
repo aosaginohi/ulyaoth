@@ -85,6 +85,7 @@ BuildRequires: openssl-devel
 BuildRequires: fribidi-devel
 BuildRequires: gmp-devel
 BuildRequires: fastlz-devel
+BuildRequires: gperftools-devel
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
@@ -135,6 +136,7 @@ make
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_scanner_unittest
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_stringpiece_unittest
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/hphpize
+%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/hhvm-gdb
 
 
 
@@ -142,7 +144,6 @@ make
 %files
 %defattr(-,root,root,-)
 /usr/bin/hhvm
-/usr/bin/hhvm-gdb
 /usr/bin/hh_server
 /usr/bin/hh_client
 %dir /etc/hhvm
