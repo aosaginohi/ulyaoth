@@ -6,7 +6,7 @@
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
 Name: ulyaoth-hhvm
-Version: 3.6.2
+Version: 3.7.0
 Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
@@ -193,6 +193,9 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+* Fri Apr 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.0-1
+- Updated to HHVM 3.7.0.
+
 * Thu Apr 2 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.6.2-1
 - Updated to HHVM 3.6.2.
 
