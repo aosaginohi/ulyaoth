@@ -85,7 +85,7 @@ BuildRequires: openssl-devel
 BuildRequires: fribidi-devel
 BuildRequires: gmp-devel
 BuildRequires: fastlz-devel
-BuildRequires: gperftools-devel
+BuildRequires: gperf
 
 Provides: hhvm
 Provides: ulyaoth-hhvm
