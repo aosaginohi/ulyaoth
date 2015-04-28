@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.7.12
+%define nginx_version 1.9.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
@@ -371,6 +371,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150428-1
+- Updated to Nginx 1.9.0.
+- Update to latest master branch.
+
 * Sat Apr 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150411-1
 - Updated to Nginx 1.7.12.
 - Weekly update to latest master branch.
