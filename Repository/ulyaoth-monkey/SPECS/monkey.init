@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Startup script for Monkey Web Server
+#
+# chkconfig: 345 85 15
+# description: a HTTP/1.1 Web server
+#
+# processname: monkey
+# pidfile: /var/www/monkey/logs/monkey.pid
+# config: /etc/monkey/conf/monkey.conf
+
+PID=/var/www/monkey/logs/monkey.pid
+PROG=/usr/bin/monkey
+
+start() {
+    echo -n "Starting monkey: "
+    $PROG -D > /dev/null 2>&1 &&
+    echo -e "$RESULT_OK" ||
+    echo -e "$RESULT_FAIL"
+}
+
+stop() {
+    echo -n "Stopping Monkey: "
+    killall -q $PROG &&
+    if [ -e $PID ]; then rm $PID; fi
+    echo -e "$RESULT_OK" ||
+    echo -e "$RESULT_FAIL"
+}
+
+restart() {
+    $0 stop
+    $0 start
+}
+
+case "$1" in
+    start|stop|restart) ;;
+    *) echo "Usage: $0 {start|stop|restart}" ; exit 1 ;;
+esac
+
+. /lib/lsb/init-functions
