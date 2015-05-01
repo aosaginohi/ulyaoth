@@ -9,7 +9,7 @@
 # description: kibana explore and visualize your data
 #
 ### BEGIN INIT INFO
-# Provides: nginx
+# Provides: kibana
 # Required-Start: $local_fs $remote_fs $network $elasticsearch
 # Required-Stop: $local_fs $remote_fs $network $elasticsearch
 # Default-Start: 2 3 4 5
