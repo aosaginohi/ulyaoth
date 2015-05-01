@@ -43,11 +43,11 @@ It has been designed to be very scalable with low memory and CPU consumption, th
 
 %build
 ./configure \
-  --prefix=/usr/share/monkey \
+  --prefix=/srv/monkey \
   --bindir=/usr/bin \
   --libdir=/usr/lib \
   --incdir=/usr/include/monkey \
-  --datadir=/usr/share/monkey/html \
+  --datadir=/srv/monkey \
   --mandir=/usr/share/man \
   --logdir=/var/log/monkey \
   --plugdir=/etc/monkey/plugins \
@@ -61,10 +61,10 @@ make %{?_smp_mflags}
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libmonkey.so
-%{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/monkey/monkey.conf
+%{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/monkey/conf/monkey.conf
 
 %{__install} -m 644 -p %{SOURCE1} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/monkey/monkey.conf
+   $RPM_BUILD_ROOT%{_sysconfdir}/monkey/conf/monkey.conf
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -108,7 +108,7 @@ make %{?_smp_mflags}
 %config(noreplace) /etc/monkey/conf/plugins/logger/logger.conf
 %config(noreplace) /etc/monkey/conf/plugins/mandril/mandril.conf
 
-/usr/share/monkey/*
+/srv/monkey/*
 /usr/include/monkey/*
 /etc/monkey/*
 /usr/share/man/man1/*
