@@ -5,7 +5,7 @@ After=network.target remote-fs.target nss-lookup.target
 
 [Service]
 Type=simple
-PIDFile=/run/monkey.pid
+PIDFile=/var/run/monkey.pid
 ExecStart=/usr/bin/monkey
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
