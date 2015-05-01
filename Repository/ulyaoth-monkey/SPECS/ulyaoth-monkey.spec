@@ -99,6 +99,12 @@ make %{?_smp_mflags}
 %dir /srv/monkey
 %dir /var/log/monkey
 
+/srv/monkey/*
+/usr/include/monkey/*
+/etc/monkey/*
+/usr/share/man/man1/*
+/usr/share/man/man3/*
+
 %config(noreplace) /etc/monkey/conf/monkey.conf
 %config(noreplace) /etc/monkey/conf/plugins/auth/monkey.users
 %config(noreplace) /etc/monkey/conf/plugins/cgi/cgi.conf
@@ -107,12 +113,7 @@ make %{?_smp_mflags}
 %config(noreplace) /etc/monkey/conf/plugins/fastcgi/fastcgi.conf
 %config(noreplace) /etc/monkey/conf/plugins/logger/logger.conf
 %config(noreplace) /etc/monkey/conf/plugins/mandril/mandril.conf
-
-/srv/monkey/*
-/usr/include/monkey/*
-/etc/monkey/*
-/usr/share/man/man1/*
-/usr/share/man/man3/*
+%config(noreplace) /etc/logrotate.d/monkey
 
 %if %{use_systemd}
 %{_unitdir}/monkey.service
