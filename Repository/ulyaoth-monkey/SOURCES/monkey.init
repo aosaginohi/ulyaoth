@@ -1,40 +1,65 @@
-#!/bin/bash
+#!/bin/sh
 #
-# Startup script for Monkey Web Server
+# kibana        Startup script for kibana
 #
-# chkconfig: 345 85 15
-# description: a HTTP/1.1 Web server
+# chkconfig: - 85 15
+# processname: kibana
+# config: /opt/kibana/config/config.yml
+# pidfile: /var/run/kibana.pid
+# description: kibana explore and visualize your data
 #
-# processname: monkey
-# pidfile: /var/www/monkey/logs/monkey.pid
-# config: /etc/monkey/conf/monkey.conf
+### BEGIN INIT INFO
+# Provides: monkey
+# Required-Start: $local_fs $remote_fs $network
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop monkey
+### END INIT INFO
 
-PID=/var/www/monkey/logs/monkey.pid
-PROG=/usr/bin/monkey
+NAME=monkey
+MONKEY_USER=monkey
+
+monkey_pid() {
+    echo `ps aux | grep monkey | grep -v grep | awk '{ print $2 }'`
+}
 
 start() {
-    echo -n "Starting monkey: "
-    $PROG -D > /dev/null 2>&1 &&
-    echo -e "$RESULT_OK" ||
-    echo -e "$RESULT_FAIL"
+  # Start Monkey web server
+  echo "Starting Monkey web server"
+  /usr/bin/monkey --daemon> /dev/null 2>&1 &
+  return 0
 }
 
 stop() {
-    echo -n "Stopping Monkey: "
-    killall -q $PROG &&
-    if [ -e $PID ]; then rm $PID; fi
-    echo -e "$RESULT_OK" ||
-    echo -e "$RESULT_FAIL"
+  pid=$(monkey_pid)
+  echo "Shutting down Monkey web server"
+  kill -9 $pid
+  return 0
 }
 
-restart() {
-    $0 stop
-    $0 start
-}
-
-case "$1" in
-    start|stop|restart) ;;
-    *) echo "Usage: $0 {start|stop|restart}" ; exit 1 ;;
+case $1 in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    status)
+       pid=$(monkey_pid)
+        if [ -n "$pid" ]
+        then
+           echo "Monkey web server is running with pid: $pid"
+        else
+           echo "Monkey web server is not running"
+        fi
+        ;;
+    *)
+        echo $"Usage: $NAME {start|stop|restart|status}"
 esac
 
-. /lib/lsb/init-functions
+exit 0
