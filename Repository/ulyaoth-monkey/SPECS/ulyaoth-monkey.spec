@@ -116,8 +116,6 @@ make %{?_smp_mflags}
 
 %if %{use_systemd}
 %{_unitdir}/monkey.service
-%dir %{_libexecdir}/initscripts/legacy-actions/monkey
-%{_libexecdir}/initscripts/legacy-actions/monkey/*
 %else
 %{_initrddir}/monkey
 %endif
