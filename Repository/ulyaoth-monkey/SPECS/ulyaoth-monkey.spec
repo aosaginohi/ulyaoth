@@ -17,10 +17,9 @@ URL: http://monkey-project.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://monkey-project.com/releases/1.5/monkey-%{version}.tar.gz
-Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.conf
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.service
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.init
-Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.logrotate
+Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.service
+Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.init
+Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.logrotate
 
 
 License: GPLv2+
@@ -57,6 +56,8 @@ It has been designed to be very scalable with low memory and CPU consumption, th
   --plugdir=/etc/monkey/plugins \
   --sysconfdir=/etc/monkey/conf \
   --pidfile=/var/run/monkey.pid \
+  --default-port=80 \
+  --default-user=monkey \
   $*
 make %{?_smp_mflags}
 
@@ -65,26 +66,22 @@ make %{?_smp_mflags}
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libmonkey.so
-%{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/monkey/conf/monkey.conf
-
-%{__install} -m 644 -p %{SOURCE1} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/monkey/conf/monkey.conf
 
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
-%{__install} -m644 %SOURCE2 \
+%{__install} -m644 %SOURCE1 \
         $RPM_BUILD_ROOT%{_unitdir}/monkey.service
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%{__install} -m755 %{SOURCE3} \
+%{__install} -m755 %{SOURCE2} \
    $RPM_BUILD_ROOT%{_initrddir}/monkey
 %endif
 
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
-%{__install} -m 644 -p %{SOURCE4} \
+%{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/monkey
 
 %clean
