@@ -17,10 +17,10 @@ URL: http://monkey-project.com/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://monkey-project.com/releases/1.5/monkey-%{version}.tar.gz
-Source1: monkey.conf
-Source2: monkey.service
-Source3: monkey.init
-Source4: monkey.logrotate
+Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.conf
+Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.service
+Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.init
+Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.logrotate
 
 
 License: GPLv2+
