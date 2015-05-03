@@ -1,6 +1,6 @@
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.4
+Version: 1.0.5
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://community.ulyaoth.net/
@@ -48,6 +48,9 @@ BANNER
 
 
 %changelog
+* Sun May 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.5-1
+- Changed EOL conversion to Unix, to fix problem with CentOS unable to read the repo file.
+
 * Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.4-1
 - Separating debug packages to own repository and disabled it by default. (same as Fedora or RHEL does it)
 
