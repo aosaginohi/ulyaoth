@@ -2,19 +2,21 @@ buildarch="$(uname -m)"
 
 if grep -q -i "rhel" /etc/ulyaoth
 then
-  su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-rhel.repo -O ulyaoth.repo"
+  wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-rhel.repo -O /etc/yum.repos.d/ulyaoth.repo
 elif grep -q -i "CentOS" /etc/ulyaoth
 then
-  su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-centos.repo -O ulyaoth.repo"
+  wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-centos.repo -O /etc/yum.repos.d/ulyaoth.repo
 elif grep -q -i "Fedora" /etc/ulyaoth
 then
-  su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-fedora.repo -O ulyaoth.repo"
+  wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-fedora.repo -O /etc/yum.repos.d/ulyaoth.repo
 elif grep -q -i "OracleLinux" /etc/ulyaoth
 then
-  su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-oraclelinux.repo -O ulyaoth.repo"
+  wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-oraclelinux.repo -O /etc/yum.repos.d/ulyaoth.repo
 else
   echo "A unsupported OS was detected!"
 fi
+
+sed -i "s/gpgcheck=1/gpgcheck=0/" /etc/yum.repos.d/ulyaoth.repo
 
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
