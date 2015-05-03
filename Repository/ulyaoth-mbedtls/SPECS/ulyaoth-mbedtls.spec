@@ -51,8 +51,7 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
 %pre
 
 %post
-# Register the monkey service
-    # print site info
+# print site info
     cat <<BANNER
 ----------------------------------------------------------------------
 
