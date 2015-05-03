@@ -34,7 +34,8 @@ make %{?_smp_mflags}
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
-
+mkdir -p $RPM_BUILD_ROOT%{_libexecdir}
+mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
 
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -42,10 +43,10 @@ make %{?_smp_mflags}
 %files
 %defattr(-,root,root)
 
-/usr/bin/*
-/usr/include/polarssl/*
+%{_libexecdir}/%{name}/*
+%{_includedir}/polarssl/*
 /usr/lib64/*
-%dir /usr/include/polarssl
+%dir %{_includedir}/polarssl
 
 %pre
 
