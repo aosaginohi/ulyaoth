@@ -45,7 +45,7 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
 
 %{_libexecdir}/mbedtls/*
 %{_includedir}/polarssl/*
-/usr/lib64/*
+%{_libdir}/*
 %dir %{_includedir}/polarssl
 
 %pre
