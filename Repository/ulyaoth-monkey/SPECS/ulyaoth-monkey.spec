@@ -25,11 +25,10 @@ Source4: monkey.logrotate
 
 License: GPLv2+
 
-Requires: polarssl
+Requires: ulyaoth-mbedtls
 
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
-BuildRequires: polarssl
-BuildRequires: polarssl-devel
+BuildRequires: ulyaoth-mbedtls
 
 Provides: webserver
 Provides: monkey

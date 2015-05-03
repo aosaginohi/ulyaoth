@@ -1,20 +1,4 @@
-arch="$(uname -m)"
 buildarch="$(uname -m)"
-
-if [ "$arch" == "i686" ]
-then
-arch="i386"
-fi
-
-if grep -q -i "release 6" /etc/redhat-release
-then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
-elif grep -q -i "release 7" /etc/redhat-release
-then
-yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/7/$arch/e/epel-release-7-5.noarch.rpm
-else
-echo yeah Fedora!
-fi
 
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
