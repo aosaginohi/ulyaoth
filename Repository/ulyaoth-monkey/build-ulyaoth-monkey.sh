@@ -1,4 +1,20 @@
+arch="$(uname -m)"
 buildarch="$(uname -m)"
+
+if [ "$arch" == "i686" ]
+then
+arch="i386"
+fi
+
+if grep -q -i "release 6" /etc/redhat-release
+then
+yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/6/$arch/epel-release-6-8.noarch.rpm
+elif grep -q -i "release 7" /etc/redhat-release
+then
+yum install -y http://ftp.acc.umu.se/mirror/fedora/epel/7/$arch/e/epel-release-7-5.noarch.rpm
+else
+echo yeah Fedora!
+fi
 
 useradd ulyaoth
 usermod -Gulyaoth ulyaoth
@@ -15,6 +31,13 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 if [ "$arch" != "x86_64" ]
 then
 sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-monkey.spec
+fi
+
+if grep -q -i "release 22" /etc/fedora-release
+then
+dnf builddep -y ulyaoth-monkey.spec
+else
+yum-builddep -y ulyaoth-monkey.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-monkey.spec -g -R"
