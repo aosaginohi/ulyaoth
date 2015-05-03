@@ -40,6 +40,10 @@ make %{?_smp_mflags}
 %files
 %defattr(-,root,root)
 
+/usr/bin/*
+/usr/include/polarssl/*
+/usr/lib64/*
+%dir /usr/include/polarssl
 
 %pre
 
