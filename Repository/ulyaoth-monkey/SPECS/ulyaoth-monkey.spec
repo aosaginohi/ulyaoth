@@ -10,7 +10,7 @@
 Summary: Monkey is a lightweight and powerful web server and development stack for GNU/Linux.
 Name: ulyaoth-monkey
 Version: 1.5.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: Monkey HTTP Daemon development group.
 URL: http://monkey-project.com/
@@ -25,7 +25,11 @@ Source4: monkey.logrotate
 
 License: GPLv2+
 
+Requires: polarssl
+
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
+BuildRequires: polarssl
+BuildRequires: polarssl-devel
 
 Provides: webserver
 Provides: monkey
@@ -43,6 +47,7 @@ It has been designed to be very scalable with low memory and CPU consumption, th
 
 %build
 ./configure \
+  --enable-plugins=mbedtls \
   --prefix=/srv/monkey \
   --bindir=/usr/bin \
   --libdir=/usr/lib \
@@ -186,5 +191,8 @@ fi
 %endif
 
 %changelog
+* Sun May 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.6-2
+- Adding Secure Socket Layers (SSL) support.
+
 * Fri May 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.6-1
 - Initial release.
