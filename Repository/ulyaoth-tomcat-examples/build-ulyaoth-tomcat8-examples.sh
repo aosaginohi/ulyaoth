@@ -4,7 +4,7 @@ useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v8.0.21/bin/apache-tomcat-8.0.21.tar.gz"
+su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v8.0.22/bin/apache-tomcat-8.0.22.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/SPECS/ulyaoth-tomcat8-examples.spec"
 
