@@ -5337,7 +5337,7 @@ Its primary purpose in the default style is to provide the left column of the me
   <phrase title="templates_in_this_style_can_not_be_modified" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Templates in this style can not be modified. Please try another.]]></phrase>
   <phrase title="temporary" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Temporary]]></phrase>
   <phrase title="terms_and_rules" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[規約]]></phrase>
-  <phrase title="terms_of_service_and_rules" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Terms of Service and Rules]]></phrase>
+  <phrase title="terms_of_service_and_rules" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[サービスの利用規約とルール]]></phrase>
   <phrase title="terms_rules_text" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[<p>本ウェブサイト（以下、「サービス」）からサービス提供者（以下、「当社」）は、利用者が作成したコンテンツおよびアカウント（以下「コンテンツ」）に対して責任を持ちません。　投稿されたコンテンツは、その著者の意見のみが表明されているものとします。</p>
 
 <p>お客様は本サービスを以下に定めるコンテンツを投稿したり、コンテンツにリンクするために使用しないことを承諾したものとみなします。中傷、侮辱、憎悪、脅迫、スパムまたはスパム的なもの、感情を害するもの、アダルトまたは不快なもの、他人の個人情報を含んでいるもの、著作権侵害の恐れがあるもの、不法行為を助長する可能性のあるもの、もしくは、いずれかの法律に反するもの。</p>
@@ -5545,24 +5545,24 @@ Error message: <span class="exceptionMessage">{message}</span>]]></phrase>
   <phrase title="trim_line_breaks_after" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Trim Line Breaks After]]></phrase>
   <phrase title="trophies" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[トロフィー]]></phrase>
   <phrase title="trophies_awarded_to_x" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[Trophies Awarded to {name}]]></phrase>
-  <phrase title="trophy_1_description" addon_id="" version_id="0" version_string=""><![CDATA[Post a message somewhere on the site to receive this.]]></phrase>
-  <phrase title="trophy_1_title" addon_id="" version_id="0" version_string=""><![CDATA[First Message]]></phrase>
-  <phrase title="trophy_2_description" addon_id="" version_id="0" version_string=""><![CDATA[30 messages posted. You must like it here!]]></phrase>
-  <phrase title="trophy_2_title" addon_id="" version_id="0" version_string=""><![CDATA[Keeps Coming Back]]></phrase>
-  <phrase title="trophy_3_description" addon_id="" version_id="0" version_string=""><![CDATA[You've posted 100 messages. I hope this took you more than a day!]]></phrase>
-  <phrase title="trophy_3_title" addon_id="" version_id="0" version_string=""><![CDATA[Can't Stop!]]></phrase>
-  <phrase title="trophy_4_description" addon_id="" version_id="0" version_string=""><![CDATA[1,000 messages? Impressive!]]></phrase>
-  <phrase title="trophy_4_title" addon_id="" version_id="0" version_string=""><![CDATA[Addicted]]></phrase>
-  <phrase title="trophy_5_description" addon_id="" version_id="0" version_string=""><![CDATA[Somebody out there liked one of your messages. Keep posting like that for more!]]></phrase>
-  <phrase title="trophy_5_title" addon_id="" version_id="0" version_string=""><![CDATA[Somebody Likes You]]></phrase>
-  <phrase title="trophy_6_description" addon_id="" version_id="0" version_string=""><![CDATA[Your messages have been liked 25 times.]]></phrase>
-  <phrase title="trophy_6_title" addon_id="" version_id="0" version_string=""><![CDATA[I Like It a Lot]]></phrase>
-  <phrase title="trophy_7_description" addon_id="" version_id="0" version_string=""><![CDATA[Content you have posted has attracted 100 likes.]]></phrase>
-  <phrase title="trophy_7_title" addon_id="" version_id="0" version_string=""><![CDATA[Seriously Likeable!]]></phrase>
-  <phrase title="trophy_8_description" addon_id="" version_id="0" version_string=""><![CDATA[Your content has been liked 250 times.]]></phrase>
-  <phrase title="trophy_8_title" addon_id="" version_id="0" version_string=""><![CDATA[Can't Get Enough of Your Stuff]]></phrase>
-  <phrase title="trophy_9_description" addon_id="" version_id="0" version_string=""><![CDATA[Content you have posted has attracted 500 likes.]]></phrase>
-  <phrase title="trophy_9_title" addon_id="" version_id="0" version_string=""><![CDATA[I LOVE IT!]]></phrase>
+  <phrase title="trophy_1_description" addon_id="" version_id="0" version_string=""><![CDATA[これを獲得するにはサイトのどこかにメッセージを投稿しましょう。]]></phrase>
+  <phrase title="trophy_1_title" addon_id="" version_id="0" version_string=""><![CDATA[最初のメッセージ]]></phrase>
+  <phrase title="trophy_2_description" addon_id="" version_id="0" version_string=""><![CDATA[メッセージを30回投稿しましょう。ここがあなたのお気に入りの場所になるでしょう!]]></phrase>
+  <phrase title="trophy_2_title" addon_id="" version_id="0" version_string=""><![CDATA[戻り続けて]]></phrase>
+  <phrase title="trophy_3_description" addon_id="" version_id="0" version_string=""><![CDATA[あなたの投稿したメッセージが100に達しました。達成には1日以上かかったでしょうね!]]></phrase>
+  <phrase title="trophy_3_title" addon_id="" version_id="0" version_string=""><![CDATA[もう止まらない!]]></phrase>
+  <phrase title="trophy_4_description" addon_id="" version_id="0" version_string=""><![CDATA[1,000メッセージ? 素晴らしい!]]></phrase>
+  <phrase title="trophy_4_title" addon_id="" version_id="0" version_string=""><![CDATA[やみつき]]></phrase>
+  <phrase title="trophy_5_description" addon_id="" version_id="0" version_string=""><![CDATA[誰かさんがあなたのメッセージのひとつに「いいね! 」しました。その調子でどんどん続けて、もっと気に入ってもらいましょう!]]></phrase>
+  <phrase title="trophy_5_title" addon_id="" version_id="0" version_string=""><![CDATA[誰かさんはあなたが好き]]></phrase>
+  <phrase title="trophy_6_description" addon_id="" version_id="0" version_string=""><![CDATA[あなたのメッセージが25回「いいね! 」されました。]]></phrase>
+  <phrase title="trophy_6_title" addon_id="" version_id="0" version_string=""><![CDATA[わたしは大好き]]></phrase>
+  <phrase title="trophy_7_description" addon_id="" version_id="0" version_string=""><![CDATA[あなたが投稿したコンテンツが100回の「いいね! 」を集めました。]]></phrase>
+  <phrase title="trophy_7_title" addon_id="" version_id="0" version_string=""><![CDATA[冗談抜きでいい感じ!]]></phrase>
+  <phrase title="trophy_8_description" addon_id="" version_id="0" version_string=""><![CDATA[あなたのコンテンツが250回「いいね! 」されました。]]></phrase>
+  <phrase title="trophy_8_title" addon_id="" version_id="0" version_string=""><![CDATA[あなたのものがもっとほしい]]></phrase>
+  <phrase title="trophy_9_description" addon_id="" version_id="0" version_string=""><![CDATA[あなたが投稿したコンテンツが500回の「いいね! 」を集めました。]]></phrase>
+  <phrase title="trophy_9_title" addon_id="" version_id="0" version_string=""><![CDATA[愛しています!]]></phrase>
   <phrase title="trophy_already_exists_for_x_points" addon_id="XenForo" version_id="0" version_string=""><![CDATA[A trophy already exists for {count} points. Please choose another point value.]]></phrase>
   <phrase title="trophy_options" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Trophy Options]]></phrase>
   <phrase title="trophy_points" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[トロフィーポイント]]></phrase>
