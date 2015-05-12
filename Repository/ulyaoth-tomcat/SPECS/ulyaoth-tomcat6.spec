@@ -30,8 +30,8 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat6
-Version:    6.0.43
-Release:    3%{?dist}
+Version:    6.0.44
+Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -167,6 +167,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Tue May 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.44-1
+- Update to version Tomcat 6.0.44.
+
 * Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 6.0.43-3
 - Support for Oracle Linux 6 & 7.
 
