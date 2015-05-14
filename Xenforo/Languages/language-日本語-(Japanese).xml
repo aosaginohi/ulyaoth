@@ -666,6 +666,7 @@ This is [SIZE=1]small[/SIZE] and [SIZE=7]big[/SIZE] text.]]></phrase>
   <phrase title="configure_poll_import" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Configure Poll Import]]></phrase>
   <phrase title="configure_user_group_import" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Configure User Group Import]]></phrase>
   <phrase title="configure_user_import" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Configure User Import]]></phrase>
+  <phrase title="confirm_account" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[アカウントを確認する]]></phrase>
   <phrase title="confirm_delete_smilie_category_footnote" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Any smilies belonging to this category will be uncategorized following the deletion.]]></phrase>
   <phrase title="confirm_deletion" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Confirm deletion]]></phrase>
   <phrase title="confirm_deletion_of_admin_navigation" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Confirm Deletion of Admin Navigation]]></phrase>
@@ -3948,6 +3949,7 @@ Note that account changes such as bans will not be reflected by this system. You
   <phrase title="remove_secondary_user_group" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Remove secondary user group]]></phrase>
   <phrase title="remove_signatures" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Remove signatures]]></phrase>
   <phrase title="removed_from_public_view" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Removed from public view.]]></phrase>
+  <phrase title="removing_likes" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[いいねを削除する]]></phrase>
   <phrase title="reopen_via_admin_control_panel" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Reopen via Admin Control Panel]]></phrase>
   <phrase title="reparsing" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Reparsing]]></phrase>
   <phrase title="repeat" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Repeat]]></phrase>
@@ -6095,6 +6097,7 @@ Your account's access may be limited based on these actions. Please keep this in
   <phrase title="warning_definition_4_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Advertising / Spam]]></phrase>
   <phrase title="warning_for_x" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warning for {name}]]></phrase>
   <phrase title="warning_information" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Warning Information]]></phrase>
+  <phrase title="warning_not_filled_try_again" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[警告の詳細は期待された通りに入力されませんでした。もう一度やり直してください。]]></phrase>
   <phrase title="warning_points" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[警告ポイント]]></phrase>
   <phrase title="warning_type" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warning Type]]></phrase>
   <phrase title="warnings" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warnings]]></phrase>
