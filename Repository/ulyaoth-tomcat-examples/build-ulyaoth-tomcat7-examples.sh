@@ -4,7 +4,7 @@ useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz"
+su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat-examples/SPECS/ulyaoth-tomcat7-examples.spec"
 
