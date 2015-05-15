@@ -167,7 +167,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Fri Maj 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.62-1
+* Fri May 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.62-1
 - Updated to Tomcat 7.0.62.
 
 * Sat Apr 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.61-1
