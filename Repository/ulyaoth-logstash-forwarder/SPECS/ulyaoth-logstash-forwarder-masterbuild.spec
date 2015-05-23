@@ -28,7 +28,7 @@ BuildRequires: systemd
 
 Summary:    Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!
 Name:       ulyaoth-logstash-forwarder-masterbuild
-Version:    20150313
+Version:    20150523
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -147,6 +147,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat May 23 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150523-1
+- Updating to latest master branch from github.
+
 * Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150313-1
 - Support for Oracle Linux 6 & 7.
 
