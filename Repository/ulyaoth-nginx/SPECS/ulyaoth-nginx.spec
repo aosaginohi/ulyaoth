@@ -35,7 +35,7 @@ BuildRequires: systemd
 %define with_spdy 1
 %endif
 
-%if 0%{?distribution} == Mageia
+%if %{distribution} == Mageia
 Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
@@ -48,7 +48,7 @@ BuildRequires: systemd
 Summary: High performance web server
 Name: ulyaoth-nginx
 Version: 1.8.0
-%if 0%{?distribution} == Mageia
+%if %{distribution} == Mageia
 Release %mkrel 1
 %else
 Release: 1%{?dist}
