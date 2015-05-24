@@ -49,7 +49,7 @@ Summary: High performance web server
 Name: ulyaoth-nginx
 Version: 1.8.0
 %if %{distribution} == Mageia
-Release %mkrel 1
+Release: %mkrel 1
 %else
 Release: 1%{?dist}
 %endif
