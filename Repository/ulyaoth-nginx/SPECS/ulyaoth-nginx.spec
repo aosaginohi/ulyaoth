@@ -35,12 +35,24 @@ BuildRequires: systemd
 %define with_spdy 1
 %endif
 
+%if 0%{distribution} == Mageia
+Group: System Environment/Daemons
+Requires: systemd
+BuildRequires: systemd
+%define with_spdy 1
+%endif
+
+
 # end of distribution specific definitions
 
 Summary: High performance web server
 Name: ulyaoth-nginx
 Version: 1.8.0
-Release: 1%{?dist}%mkrel
+%if 0%{distribution} == Mageia
+Release %mkrel 1
+%else
+Release: 1%{?dist}
+%endif
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
