@@ -63,7 +63,7 @@ License: 2-clause BSD-like license
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP-devel
+BuildRequires: geoip-devel
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
 

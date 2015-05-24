@@ -65,8 +65,8 @@ Requires: openssl
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
+BuildRequires: geoip
+BuildRequires: geoip-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
