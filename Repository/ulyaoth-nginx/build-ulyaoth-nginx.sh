@@ -55,7 +55,7 @@ then
 dnf builddep -y ulyaoth-nginx.spec
 elif grep -q -i "mageia" /etc/ulyaoth
 then
-urpmi --buildrequires ulyaoth-nginx.spec
+urpmi --auto --buildrequires ulyaoth-nginx.spec
 else
 yum-builddep -y ulyaoth-nginx.spec
 fi
