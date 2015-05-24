@@ -53,7 +53,7 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-nginx.spec
-if grep -q -i "mageia" /etc/ulyaoth
+elif grep -q -i "mageia" /etc/ulyaoth
 then
 urpmi --buildrequires ulyaoth-nginx.spec
 else
