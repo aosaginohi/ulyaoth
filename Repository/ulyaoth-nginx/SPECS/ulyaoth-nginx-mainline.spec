@@ -161,8 +161,9 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-		--with-http_geoip_module \
-		--add-module=/etc/nginx/modules/headersmore \
+	--with-http_geoip_module \
+	--add-module=/etc/nginx/modules/headersmore \
+        --with-stream \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
