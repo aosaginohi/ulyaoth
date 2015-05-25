@@ -16,7 +16,7 @@ elif grep -q -i "release 7" /etc/oracle-release
 then
 yum install -y http://mirror.centos.org/centos/7/os/x86_64/Packages/GeoIP-devel-1.5.0-9.el7.x86_64.rpm
 else
-echo yeah Fedora!
+echo No additional packages required for your OS!
 fi
 
 useradd ulyaoth
@@ -54,9 +54,13 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-nginx-mainline.spec
+elif grep -q -i "mageia" /etc/ulyaoth
+then
+urpmi --auto --buildrequires ulyaoth-nginx-mainline.spec
 else
 yum-builddep -y ulyaoth-nginx-mainline.spec
 fi
+
 
 su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-mainline.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
