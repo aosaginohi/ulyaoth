@@ -35,12 +35,23 @@ BuildRequires: systemd
 %define with_spdy 1
 %endif
 
+%if %{distribution} == Mageia
+Group: System Environment/Daemons
+Requires: systemd
+BuildRequires: systemd
+%define with_spdy 1
+%endif
+
 # end of distribution specific definitions
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
 Version: 1.9.0
-Release: 1%{?dist}
+%if %{distribution} == Mageia
+Release: %mkrel 2
+%else
+Release: 2%{?dist}
+%endif
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -353,6 +364,10 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon May 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.0-2
+- Added stream functionality.
+- Added Mageia support.
+
 * Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.0-1
 - Updated to Nginx 1.9.0.
 
