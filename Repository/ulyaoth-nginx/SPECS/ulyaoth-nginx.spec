@@ -74,6 +74,7 @@ License: 2-clause BSD-like license
 
 
 Requires: openssl
+Requires: geoip
 
 BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
 BuildRequires: zlib-devel
