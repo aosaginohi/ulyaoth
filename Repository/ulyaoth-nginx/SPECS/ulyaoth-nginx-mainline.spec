@@ -79,7 +79,7 @@ BuildRequires: openssl-devel
 BuildRequires: curl-devel
 
 Requires: openssl
-Requires: GeoIP
+Requires: geoip
 
 Provides: webserver
 Provides: nginx
