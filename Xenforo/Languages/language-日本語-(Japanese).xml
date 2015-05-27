@@ -1407,7 +1407,7 @@ To stop receiving email, please edit your contact preferences:
 Your callback should return an HTML string, and have a signature as follows:<br />
 <br />
 <code>public static function myCallback($mediaKey, array $site, $siteId)</code>]]></phrase>
-  <phrase title="embedded_media" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[Embedded Media]]></phrase>
+  <phrase title="embedded_media" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[組み込まれたメディア]]></phrase>
   <phrase title="embedded_youtube_player_would_appear_here" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[An embedded YouTube player would appear here.]]></phrase>
   <phrase title="empty_the_import_log_without_archiving" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Empty the import log without archiving]]></phrase>
   <phrase title="empty_values_always_allowed" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Empty values are always allowed.]]></phrase>
