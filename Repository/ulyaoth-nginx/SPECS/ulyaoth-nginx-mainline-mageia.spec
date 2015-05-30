@@ -5,7 +5,7 @@
 %define nginx_loggroup adm
 
 # distribution specific definitions
-%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
 
 %if 0%{?rhel}  == 6
 Group: System Environment/Daemons
@@ -35,12 +35,19 @@ BuildRequires: systemd
 %define with_spdy 1
 %endif
 
+%if %{distribution} == Mageia
+Group: System Environment/Daemons
+Requires: systemd
+BuildRequires: systemd
+%define with_spdy 1
+%endif
+
 # end of distribution specific definitions
 
 Summary: High performance web server
-Name: ulyaoth-nginx
-Version: 1.8.0
-Release: 1%{?dist}
+Name: ulyaoth-nginx-mainline
+Version: 1.9.1
+Release: %mkrel 1
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -60,22 +67,21 @@ Source10: nginx.suse.logrotate
 
 License: 2-clause BSD-like license
 
+BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
+BuildRequires: zlib-devel
+BuildRequires: pcre-devel
+BuildRequires: geoip-devel
+BuildRequires: openssl-devel
+BuildRequires: curl-devel
 
 Requires: openssl
 Requires: geoip
 
-BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
-BuildRequires: zlib-devel
-BuildRequires: pcre-devel
-BuildRequires: geoip
-BuildRequires: geoip-devel
-BuildRequires: openssl
-BuildRequires: openssl-devel
-BuildRequires: curl-devel
-
 Provides: webserver
 Provides: nginx
+Provides: nginx-mainline
 Provides: ulyaoth-nginx
+Provides: ulyaoth-nginx-mainline
 
 %description
 nginx [engine x] is an HTTP and reverse proxy server, as well as
@@ -84,7 +90,7 @@ a mail proxy server.
 %package debug
 Summary: debug version of nginx
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx
+Requires: ulyaoth-nginx-mainline
 %description debug
 Not stripped version of nginx built with the debugging log support.
 
@@ -120,8 +126,9 @@ Not stripped version of nginx built with the debugging log support.
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	    --with-http_geoip_module \
-		--add-module=/etc/nginx/modules/headersmore \
+        --with-http_geoip_module \
+	--add-module=/etc/nginx/modules/headersmore \
+        --with-stream \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -161,8 +168,9 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-	    --with-http_geoip_module \
-		--add-module=/etc/nginx/modules/headersmore \
+	--with-http_geoip_module \
+	--add-module=/etc/nginx/modules/headersmore \
+        --with-stream \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -201,7 +209,7 @@ make %{?_smp_mflags}
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
-   
+
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -213,7 +221,7 @@ make %{?_smp_mflags}
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%if 0%{?suse_version}
+%if 0%{?suse_version} == 1110
 %{__install} -m755 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_initrddir}/nginx
 %else
@@ -224,8 +232,14 @@ make %{?_smp_mflags}
 
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
+%if 0%{?suse_version}
+%{__install} -m 644 -p %{SOURCE10} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
+%else
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
+%endif
+
 %{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
@@ -293,7 +307,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx!
+Thanks for using ulyaoth-nginx-mainline!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -307,7 +321,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permisions on default log files on installation
+    # Touch and set permissions on default log files on installation
 
     if [ -d %{_localstatedir}/log/nginx ]; then
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
@@ -346,36 +360,19 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Apr 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.8.0-1
-- Updated to Nginx 1.8.0.
+* Sat May 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.1-1
+- Updated to Nginx 1.9.1.
 
-* Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.3-1
-- Updated to Nginx 1.6.3.
+* Mon May 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.0-2
+- Added stream functionality.
+- Added Mageia support.
 
-* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-4
-- Fixed the missing systemd-devel problem.
+* Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.0-1
+- Updated to Nginx 1.9.0.
 
-* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-3
-- Added support for Fedora 22 and CentOS 6 & 7.
-- i386 support.
-- Forced EPEL for RHEL6 for GeoIP.
-- Cleaned spec file.
+* Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.12-1
+- Updated to Nginx 1.7.12.
 
-* Mon Oct 27 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
-- Added the headers more module.
-
-* Sat Oct 4 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
-- Support for Fedora 21.
-
-* Thu Sep 18 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
-- Updated to Nginx 1.6.2.
-
-* Sat Aug 23 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
-- Change spec to Unix encoding.
-
-* Tue Aug 19 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.1-1
-- Updated to nginx 1.6.1.
-- Forced spdy.
-
-* Sat Jul 26 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.0-1
-- Initial release
+* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.7.11-1
+- Initial Release.
+- Spec file taken from nginx.com
