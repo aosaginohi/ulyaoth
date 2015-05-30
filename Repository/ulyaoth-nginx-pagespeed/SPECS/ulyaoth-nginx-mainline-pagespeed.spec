@@ -41,7 +41,7 @@ BuildRequires: systemd
 Summary: High performance web server compiled with pagespeed.
 Name: ulyaoth-nginx-mainline-pagespeed
 Version: 1.9.32.3
-Release: 3%{?dist}
+Release: 4%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -366,6 +366,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sat May 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-4
+- Updated to Nginx Mainline 1.9.1.
+
 * Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-3
 - Updated to Nginx 1.9.0.
 

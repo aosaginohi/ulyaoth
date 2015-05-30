@@ -3,10 +3,10 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.9.0
+%define nginx_version 1.8.0
 
 # distribution specific definitions
-%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} == 1315)
+%define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
 %if 0%{?rhel}  == 6
 Group: System Environment/Daemons
@@ -33,77 +33,62 @@ Epoch: 1
 Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
-%define with_spdy 1
 %endif
 
 # end of distribution specific definitions
 
-Summary: High performance web server / Phusion Passenger web & app
-Name: ulyaoth-nginx-mainline-passenger4
-Version: 4.0.59
-Release: 4%{?dist}
+Summary: Nginx Anti Xss & Sql Injection.
+Name: ulyaoth-nginx-naxsi-masterbuild
+Version: 20150422
+Release: 1%{?dist}
 BuildArch: x86_64
-Vendor: nginx inc. / Phusion
-URL: https://www.phusionpassenger.com/
+Vendor: nginx inc.
+URL: http://nginx.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
-Source4: nginx.conf
-Source5: nginx.vh.default.conf
+Source4: nginx-naxsi.conf
+Source5: nginx.vh.default-naxsi.conf
 Source6: nginx.vh.example_ssl.conf
 Source7: nginx.suse.init
 Source8: nginx.service
 Source9: nginx.upgrade.sh
-Source10: nginx.vh.passenger4.conf
-Source11: passenger.tar.gz
+Source10: naxsi.tar.gz
+Source11: naxsi_core.rules
+Source12: nbs.rules
 
 License: 2-clause BSD-like license
+
+Requires: openssl
+Requires: GeoIP
 
 BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: openssl
-BuildRequires: openssl-devel
-BuildRequires: ruby
-BuildRequires: ruby-devel
-BuildRequires: curl-devel
-BuildRequires: rubygem-rake
 BuildRequires: GeoIP
 BuildRequires: GeoIP-devel
-
-Requires: openssl
-Requires: ruby
-Requires: GeoIP
+BuildRequires: openssl
+BuildRequires: openssl-devel
+BuildRequires: curl-devel
 
 Provides: webserver
 Provides: nginx
-Provides: nginx-mainline
-Provides: nginx-passenger
-Provides: nginx-passenger4
-Provides: nginx-mainline-passenger
-Provides: nginx-mainline-passenger4
-Provides: passenger
-Provides: passenger4
 Provides: ulyaoth-nginx
-Provides: ulyaoth-nginx-passenger
-Provides: ulyaoth-nginx-passenger4
-Provides: ulyaoth-nginx-mainline
-Provides: ulyaoth-nginx-mainline-passenger
-Provides: ulyaoth-nginx-mainline-passenger4
+Provides: nginx-naxsi
+Provides: ulyaoth-nginx-naxsi
 
 %description
-nginx [engine x] is an HTTP and reverse proxy server, as well asa mail proxy server.
-Phusion Passenger is a multi-language (Ruby, Python, Node) web & app server which can integrate into Apache and Nginx
+Naxsi behaves like a DROP-by-default firewall, the only job needed is to add required ACCEPT rules for the target website to work properly.
 
 %package debug
-Summary: debug version of nginx with passenger
+Summary: debug version of nginx compiled with Naxsi. 
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-mainline-passenger4
+Requires: ulyaoth-nginx-naxsi-masterbuild
 %description debug
-Not stripped version of nginx and passenger built with the debugging log support.
+Not stripped version of nginx built with the debugging log support and compiled with Naxsi.
 
 %prep
 %setup -q -n nginx-%{nginx_version}
@@ -137,8 +122,8 @@ Not stripped version of nginx and passenger built with the debugging log support
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        --with-http_geoip_module \
-		--add-module=/etc/nginx/modules/passenger/ext/nginx \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -178,8 +163,8 @@ make %{?_smp_mflags}
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-		--with-http_geoip_module \
-		--add-module=/etc/nginx/modules/passenger/ext/nginx \
+	    --with-http_geoip_module \
+		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
@@ -200,21 +185,21 @@ make %{?_smp_mflags}
 %{__rm} -f $RPM_BUILD_ROOT%{_sysconfdir}/nginx/fastcgi.conf
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/passenger
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/run/nginx
 %{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx
-%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/cache/nginx/passenger_temp
-
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d
+
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
+%{__install} -m 644 -p %{SOURCE11} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/naxsi_core.rules   
+%{__install} -m 644 -p %{SOURCE12} \
+   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nbs.rules 
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%{__install} -m 644 -p %{SOURCE10} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/passenger.conf
    
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
@@ -223,10 +208,10 @@ make %{?_smp_mflags}
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/sites-enabled
 
-# Install Passenger
+# Install ModSecurity
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules
-tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
-
+tar xvf %{SOURCE10} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
+   
 %if %{use_systemd}
 # install systemd-specific files
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
@@ -238,7 +223,7 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %else
 # install SYSV init stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_initrddir}
-%if 0%{?suse_version} == 1110
+%if 0%{?suse_version}
 %{__install} -m755 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_initrddir}/nginx
 %else
@@ -249,14 +234,8 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 
 # install log rotation stuff
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
-%if 0%{?suse_version}
-%{__install} -m 644 -p %{SOURCE10} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%else
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%endif
-
 %{__install} -m644 %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
@@ -276,9 +255,10 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_sysconfdir}/nginx/modules/*
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
+%config(noreplace) %{_sysconfdir}/nginx/naxsi_core.rules
+%config(noreplace) %{_sysconfdir}/nginx/nbs.rules
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/passenger.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
 %config(noreplace) %{_sysconfdir}/nginx/fastcgi_params
 %config(noreplace) %{_sysconfdir}/nginx/scgi_params
@@ -302,9 +282,7 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{_datadir}/nginx/html/*
 
 %attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
-%attr(0755,root,root) %dir %{_localstatedir}/cache/nginx/passenger_temp
 %attr(0755,root,root) %dir %{_localstatedir}/log/nginx
-%attr(0755,root,root) %dir %{_localstatedir}/log/passenger
 
 %files debug
 %attr(0755,root,root) %{_sbindir}/nginx.debug
@@ -329,7 +307,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-mainline-passenger4!
+Thanks for using ulyaoth-nginx-naxsi-masterbuild!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -337,8 +315,8 @@ Please find the official documentation for nginx here:
 Commercial subscriptions for nginx are available on:
 * http://nginx.com/products/
 
-Please find the official documentation or the enterprise version for passenger here:
-* https://www.phusionpassenger.com/ 
+Please find the official Naxsi documentation here:
+* https://github.com/nbs-system/naxsi
 
 For any additional help please visit my forum at:
 * http://www.ulyaoth.net
@@ -346,7 +324,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permissions on default log files on installation
+    # Touch and set permisions on default log files on installation
 
     if [ -d %{_localstatedir}/log/nginx ]; then
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
@@ -385,16 +363,39 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat May 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-4
-- Updated to Nginx Mainline 1.9.1.
+* Wed Apr 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150422-1
+- Updated to Nginx 1.8.0.
+- Updated Naxsi to latest master branch.
 
-* Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-3
-- Updated to Nginx 1.9.0.
+* Sat Apr 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150411-1
+- Updated to Nginx 1.6.3.
+- Weekly update to latest master branch.
 
-* Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-2
-- Updated to Nginx 1.7.12.
+* Sat Apr 4 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150404-1
+- Updating to today's master branch.
 
-* Mon Apr 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-1
-- Initial Release.
-- Spec file taken from nginx.com
-- Compiled with Mainline Nginx version 1.7.11
+* Sat Mar 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150328-1
+- Updating to today's master branch.
+- Fixed build number to make it more clear.
+
+* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150315
+- Updating to today's master branch.
+
+* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150311
+- Updating to today's master branch.
+- Added support for Fedora 22 and CentOS 6 & 7.
+- i386 support.
+- Forced EPEL for RHEL6 for GeoIP.
+- Cleaned spec file.
+
+* Sat Mar 07 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150307
+- Updating to today's master branch.
+
+* Wed Feb 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1.20150225
+- Renaming package to make clear it is a masterbuild, and adding date version.
+
+* Fri Feb 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-2
+- Updated to the latest master release from github.
+
+* Sun Oct 5 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.6.2-1
+- Initial release.
