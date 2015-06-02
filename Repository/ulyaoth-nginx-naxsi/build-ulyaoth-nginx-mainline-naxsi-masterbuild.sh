@@ -46,12 +46,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SOURCES/nginx.vh.example_ssl.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SOURCES/nbs.rules"
 cd /home/ulyaoth/rpmbuild/SPECS
-if grep -q -i "mageia" /etc/ulyaoth
-then
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec-mageia -O ulyaoth-nginx-mainline-naxsi-masterbuild.spec"
-else
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec"
-fi
 
 if [ "$arch" != "x86_64" ]
 then
@@ -61,9 +56,6 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
-elif grep -q -i "mageia" /etc/ulyaoth
-then
-urpmi --auto --buildrequires /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-mainline-naxsi-masterbuild.spec
 fi

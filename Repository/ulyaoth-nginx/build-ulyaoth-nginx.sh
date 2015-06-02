@@ -43,12 +43,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.vh.default.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.vh.example_ssl.conf"
 cd /home/ulyaoth/rpmbuild/SPECS
-if grep -q -i "mageia" /etc/ulyaoth
-then
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SPECS/ulyaoth-nginx.spec-mageia -O ulyaoth-nginx.spec"
-else
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SPECS/ulyaoth-nginx.spec"
-fi
 
 
 if [ "$arch" != "x86_64" ]
@@ -59,9 +54,6 @@ fi
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-nginx.spec
-elif grep -q -i "mageia" /etc/ulyaoth
-then
-urpmi --auto --buildrequires ulyaoth-nginx.spec
 else
 yum-builddep -y ulyaoth-nginx.spec
 fi
