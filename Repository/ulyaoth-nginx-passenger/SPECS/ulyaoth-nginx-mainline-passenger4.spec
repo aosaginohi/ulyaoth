@@ -385,8 +385,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat May 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-4
-- Updated to Nginx Mainline 1.9.1.
+* Wed Jun 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-4
+- Update to Nginx Mainline 1.9.1.
 
 * Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.59-3
 - Updated to Nginx 1.9.0.
