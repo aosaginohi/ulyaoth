@@ -125,6 +125,7 @@ Not stripped version of nginx built with the debugging log support and compiled 
         --with-http_stub_status_module \
         --with-http_auth_request_module \
         --with-http_geoip_module \
+		--with-stream \
 		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
@@ -166,6 +167,7 @@ make %{?_smp_mflags}
         --with-http_stub_status_module \
         --with-http_auth_request_module \
 		--with-http_geoip_module \
+		--with-stream \
 		--add-module=/etc/nginx/modules/naxsi/naxsi_src \
         --with-mail \
         --with-mail_ssl_module \
