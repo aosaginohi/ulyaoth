@@ -148,12 +148,12 @@ sed -i "s/#ServerId = www-data/ServerId = hiawatha/" %{buildroot}%{_sysconfdir}/
 /srv/hiawatha/public/index.html
 %{_mandir}/*
 
-
 %config(noreplace) %{_sysconfdir}/hiawatha/hiawatha.conf
 %config(noreplace) %{_sysconfdir}/hiawatha/cgi-wrapper.conf
 %config(noreplace) %{_sysconfdir}/hiawatha/mimetype.conf
 %config(noreplace) %{_sysconfdir}/hiawatha/error.xslt
 %config(noreplace) %{_sysconfdir}/hiawatha/index.xslt
+%config(noreplace) %{_sysconfdir}/logrotate.d/hiawatha
 
 %if %{use_systemd}
 %{_unitdir}/hiawatha.service
