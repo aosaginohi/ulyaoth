@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 #
 %define hiawatha_home %{_localstatedir}/cache/hiawatha
 %define hiawatha_user hiawatha
@@ -123,7 +124,7 @@ make %{?_smp_mflags}
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/hiawatha
 
-sed -i "s/#ServerId = www-data/#ServerId = hiawatha/" %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
+sed -i "s/#ServerId = www-data/ServerId = hiawatha/" %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -132,13 +133,13 @@ sed -i "s/#ServerId = www-data/#ServerId = hiawatha/" %{buildroot}%{_sysconfdir}
 %defattr(-,root,root)
 
 %dir %{_sysconfdir}/hiawatha
-%dir %{_sysconfdir}/nginx/sites-available
-%dir %{_sysconfdir}/nginx/sites-enabled
+%dir %{_sysconfdir}/hiawatha/sites-available
+%dir %{_sysconfdir}/hiawatha/sites-enabled
 %attr(0755,root,root) %dir %{_localstatedir}/cache/hiawatha
 %attr(0755,root,root) %dir %{_localstatedir}/log/hiawatha
 %dir /srv/hiawatha
 %dir /srv/hiawatha/public
-%dir %{_libdir}/hiawatha/
+#%dir %{_libdir}/hiawatha/
 
 %{_bindir}/ssi-cgi
 %{_sbindir}/hiawatha
