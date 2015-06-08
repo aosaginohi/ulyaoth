@@ -43,9 +43,9 @@ URL: https://www.hiawatha-webserver.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: https://www.hiawatha-webserver.org/files/%{name}-%{version}.tar.gz
-Source1: logrotate
-Source2: hiawatha.service
-Source3: hiawatha.init
+Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hiawatha/SOURCES/hiawatha-logrotate
+Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hiawatha/SOURCES/hiawatha.service
+Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hiawatha/SOURCES/hiawatha.init
 
 
 License: GPLv2
