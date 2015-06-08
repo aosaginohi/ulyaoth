@@ -307,7 +307,7 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permisions on default log files on installation
+    # Touch and set permissions on default log files on installation
 
     if [ -d %{_localstatedir}/log/nginx ]; then
         if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
