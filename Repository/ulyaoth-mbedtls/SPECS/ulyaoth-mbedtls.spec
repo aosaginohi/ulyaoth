@@ -75,7 +75,7 @@ BANNER
 
 %changelog
 * Mon Jun 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-2
-- Added "-DPOLARSSL_THREADING_PTHREAD" and "-DPOLARSSL_THREADING_C" to compile options.
+- Added "POLARSSL_THREADING_PTHREAD" and "POLARSSL_THREADING_C" to compile options.
 
 * Sat Jun 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-1
 - Updated to version 1.3.11.
