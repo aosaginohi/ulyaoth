@@ -20,6 +20,7 @@ Group: System Environment/Daemons
 Requires(pre): shadow-utils
 Requires: systemd
 BuildRequires: systemd
+BuildRequires: systemd-devel
 Epoch: 1
 %define with_spdy 1
 %endif
@@ -28,6 +29,7 @@ Epoch: 1
 Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
+BuildRequires: systemd-devel
 %define with_spdy 1
 %endif
 
@@ -58,7 +60,6 @@ BuildRequires: glibc-devel
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 BuildRequires: zlib-devel
-BuildRequires: systemd-devel
 
 Requires: libxml2
 Requires: libxslt
