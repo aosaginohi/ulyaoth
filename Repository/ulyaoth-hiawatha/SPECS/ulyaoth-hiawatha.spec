@@ -124,6 +124,7 @@ make %{?_smp_mflags}
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/hiawatha
 
 sed -i "s/#ServerId = www-data/ServerId = hiawatha/" %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
+sed -i '107 c\Include /etc/hiawatha/sites-enabled/' %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
@@ -196,7 +197,7 @@ BANNER
     if [ -d %{_localstatedir}/log/hiawatha ]; then
         if [ ! -e %{_localstatedir}/log/hiawatha/access.log ]; then
             touch %{_localstatedir}/log/hiawatha/access.log
-            %{__chmod} 640 %{_localstatedir}/log/hiawatha/access.log
+            %{__chmod} 0640 %{_localstatedir}/log/hiawatha/access.log
             %{__chown} hiawatha:%{hiawatha_loggroup} %{_localstatedir}/log/hiawatha/access.log
         fi
 
