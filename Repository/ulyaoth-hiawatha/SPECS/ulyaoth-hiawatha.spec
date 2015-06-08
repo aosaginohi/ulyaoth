@@ -60,9 +60,11 @@ BuildRequires: glibc-devel
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 BuildRequires: zlib-devel
+BuildRequires: ulyaoth-mbedtls
 
 Requires: libxml2
 Requires: libxslt
+Requires: ulyaoth-mbedtls
 
 Provides: hiawatha
 Provides: ulyaoth-hiawatha
@@ -93,7 +95,8 @@ cmake -DCMAKE_INSTALL_PREFIX="" \
       -DENABLE_SSL=on \
       -DENABLE_TOMAHAWK=off \
       -DENABLE_TOOLKIT=on \
-      -DENABLE_XSLT=on
+      -DENABLE_XSLT=on \
+	  -DUSE_SYSTEM_MBEDTLS=on
 make %{?_smp_mflags}
 
 %install
