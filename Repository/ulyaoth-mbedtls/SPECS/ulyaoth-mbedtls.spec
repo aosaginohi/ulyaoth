@@ -3,7 +3,7 @@
 Summary: mbed TLS is an open source and commercial SSL library licensed by ARM Limited.. mbed TLS used to be called PolarSSL,
 Name: ulyaoth-mbedtls
 Version: 1.3.11
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: ARM Limited.
 URL: https://tls.mbed.org/
@@ -28,7 +28,7 @@ mbed TLS (formerly known as PolarSSL) makes it trivially easy for developers to 
 %setup -q -n mbedtls-%{version}
 
 %build
-%cmake -D CMAKE_BUILD_TYPE:String="Release" -D USE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE USE_PKCS11_HELPER_LIBRARY:BOOL=TRUE .
+%cmake -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE -DUSE_PKCS11_HELPER_LIBRARY:BOOL=TRUE -DPOLARSSL_THREADING_PTHREAD -DPOLARSSL_THREADING_C .
 make %{?_smp_mflags}
 
 %install
@@ -71,6 +71,9 @@ BANNER
 %postun
 
 %changelog
+* Mon Jun 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-2
+- Added "-DPOLARSSL_THREADING_PTHREAD" and "-DPOLARSSL_THREADING_C" to compile options.
+
 * Sat Jun 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-1
 - Updated to version 1.3.11.
 
