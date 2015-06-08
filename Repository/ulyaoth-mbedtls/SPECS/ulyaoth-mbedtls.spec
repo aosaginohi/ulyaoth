@@ -17,6 +17,7 @@ BuildRoot: %{_tmppath}/mbedtls-%{version}-%{release}-root
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: openssl-devel
+BuildRequires: pkcs11-helper-devel
 
 Provides: mbedtls
 Provides: ulyaoth-mbedtls
@@ -26,9 +27,11 @@ mbed TLS (formerly known as PolarSSL) makes it trivially easy for developers to 
 
 %prep
 %setup -q -n mbedtls-%{version}
+sed -i 's|//\(#define POLARSSL_THREADING_C\)|\1|' include/polarssl/config.h
+sed -i 's|//\(#define POLARSSL_THREADING_PTHREAD\)|\1|' include/polarssl/config.h
 
 %build
-%cmake -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE -DUSE_PKCS11_HELPER_LIBRARY:BOOL=TRUE -DPOLARSSL_THREADING_PTHREAD:BOOL=TRUE -DPOLARSSL_THREADING_C:BOOL=TRUE .
+%cmake -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE -DUSE_PKCS11_HELPER_LIBRARY:BOOL=TRUE .
 make %{?_smp_mflags}
 
 %install
