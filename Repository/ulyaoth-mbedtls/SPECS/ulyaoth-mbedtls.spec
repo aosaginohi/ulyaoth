@@ -1,5 +1,13 @@
 %define debug_package %{nil}
 
+# distribution specific definitions
+
+%if 0%{?fedora} >= 18
+BuildRequires: pkcs11-helper-devel
+%endif
+
+# end of distribution specific definitions
+
 Summary: mbed TLS is an open source and commercial SSL library licensed by ARM Limited.. mbed TLS used to be called PolarSSL,
 Name: ulyaoth-mbedtls
 Version: 1.3.11
@@ -17,7 +25,6 @@ BuildRoot: %{_tmppath}/mbedtls-%{version}-%{release}-root
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: openssl-devel
-BuildRequires: pkcs11-helper-devel
 
 Provides: mbedtls
 Provides: ulyaoth-mbedtls
