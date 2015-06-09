@@ -29,6 +29,11 @@ ulyaoth()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/build-ulyaoth.sh ; chmod +x build-ulyaoth.sh ; ./build-ulyaoth.sh
 }
 
+ulyaoth-hiawatha()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hiawatha/build-ulyaoth-hiawatha.sh ; chmod +x build-ulyaoth-hiawatha.sh ; ./build-ulyaoth-hiawatha.sh
+}
+
 ulyaoth-monkey()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/build-ulyaoth-monkey.sh ; chmod +x build-ulyaoth-monkey.sh ; ./build-ulyaoth-monkey.sh

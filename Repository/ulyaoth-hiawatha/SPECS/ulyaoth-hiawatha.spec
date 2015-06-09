@@ -244,5 +244,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Mon Jun 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 9.13-1
+* Tue Jun 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 9.13-1
 - Initial release.

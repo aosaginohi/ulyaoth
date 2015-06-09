@@ -74,8 +74,9 @@ BANNER
 %postun
 
 %changelog
-* Mon Jun 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-2
+* Tue Jun 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-2
 - Added "POLARSSL_THREADING_PTHREAD" and "POLARSSL_THREADING_C" to compile options.
+- Support for Hiawatha web server.
 
 * Sat Jun 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.3.11-1
 - Updated to version 1.3.11.
