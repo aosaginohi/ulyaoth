@@ -125,6 +125,7 @@ make %{?_smp_mflags}
 
 sed -i "s/#ServerId = www-data/ServerId = hiawatha/" %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
 sed -i '107 c\Include /etc/hiawatha/sites-enabled/' %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
+sed -i '19 c\ServerString = Ulyaoth Hiawatha' %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
    
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
