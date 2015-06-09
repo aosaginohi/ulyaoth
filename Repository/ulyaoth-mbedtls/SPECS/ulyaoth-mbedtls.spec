@@ -38,7 +38,11 @@ sed -i 's|//\(#define POLARSSL_THREADING_C\)|\1|' include/polarssl/config.h
 sed -i 's|//\(#define POLARSSL_THREADING_PTHREAD\)|\1|' include/polarssl/config.h
 
 %build
+%if 0%{?fedora} >= 18
 %cmake -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE -DUSE_PKCS11_HELPER_LIBRARY:BOOL=TRUE .
+%else
+%cmake -DCMAKE_BUILD_TYPE:String="Release" -DUSE_SHARED_MBEDTLS_LIBRARY:BOOL=TRUE -DENABLE_ZLIB_SUPPORT:BOOL=TRUE .
+%endif
 make %{?_smp_mflags}
 
 %install
