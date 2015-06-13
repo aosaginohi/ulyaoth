@@ -10,7 +10,7 @@ su ulyaoth -c "tar cvf fcgiwrap.tar.gz fcgiwrap"
 su ulyaoth -c "mv fcgiwrap.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
 su ulyaoth -c "rm -rf /home/ulyaoth/fcgiwrap/"
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/SPEC/ulyaoth-fcgiwrap.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/SPEC/ulyaoth-fcgiwrap-masterbuild.spec"
 
 if [ "$arch" != "x86_64" ]
 then

@@ -4,9 +4,9 @@
 %define fcgiwrap_group fcgiwrap
 
 Summary: Simple FastCGI wrapper for CGI scripts.
-Name: ulyaoth-fcgiwrap
-Version: 1.1.0
-Release: 3%{?dist}
+Name: ulyaoth-fcgiwrap-masterbuild
+Version: 20150614
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Grzegorz Nosek <root@localdomain.pl>
 URL: http://nginx.localdomain.pl/wiki/FcgiWrap
@@ -70,7 +70,7 @@ exit 0
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-fcgiwrap!
+Thanks for using ulyaoth-fcgiwrap-masterbuild!
 
 Please find the official documentation for fcgiwrap here:
 * https://nginx.localdomain.pl/wiki/FcgiWrap
@@ -91,6 +91,10 @@ if [ $1 -eq 0 ]; then
 
 
 %changelog
+* Sun Jun 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150614-1
+- Update to latest master branch.
+- Renamed package to "-masterbuild".
+
 * Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.1.0-3
 - Support for Oracle Linux 6 & 7.
 
