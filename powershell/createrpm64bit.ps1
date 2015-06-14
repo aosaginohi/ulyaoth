@@ -77,8 +77,8 @@ If ($package -Match "ulyaoth-hhvm")
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildmachine64
 "Starting the virtual machine"
   
-<# Sleep for 25 seconds so machine can boot #>
-"Sleeping 25 seconds while waiting for the Virtual Machine to boot."
+<# Sleep for 30 seconds so machine can boot #>
+"Sleeping 30 seconds while waiting for the Virtual Machine to boot."
 Start-Sleep -Seconds 30
 
 <# ssh into the machine and start the rpm build process #>
