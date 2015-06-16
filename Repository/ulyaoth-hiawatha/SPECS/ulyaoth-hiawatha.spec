@@ -171,12 +171,12 @@ getent passwd %{hiawatha_user} >/dev/null || \
 exit 0
 
 %post
-# Register the nginx service
+# Register the hiawatha service
 if [ $1 -eq 1 ]; then
 %if %{use_systemd}
-    /usr/bin/systemctl preset nginx.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl preset hiawatha.service >/dev/null 2>&1 ||:
 %else
-    /sbin/chkconfig --add nginx
+    /sbin/chkconfig --add hiawatha
 %endif
     # print site info
     cat <<BANNER
