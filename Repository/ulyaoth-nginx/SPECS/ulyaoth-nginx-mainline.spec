@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
-Version: 1.9.1
+Version: 1.9.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -353,6 +353,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Jun 18 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.2-1
+- Updated to Nginx 1.9.2.
+
 * Sat May 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.1-1
 - Updated to Nginx 1.9.1.
 
