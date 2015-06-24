@@ -20,6 +20,7 @@ Source2: config.hdf
 Source3: server.hdf
 Source4: hhvm.service
 Source5: static.mime-types.hdf
+Source6: hhvm.conf
 
 License: GPL
 
@@ -110,6 +111,7 @@ make
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/hhvm/hdf
+%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/tmpfiles.d
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/php.ini
 %{__install} -m 644 -p %{SOURCE2} \
@@ -119,7 +121,9 @@ make
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
 %{__install} -m 644 -p %{SOURCE5} \
-   $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf  
+   $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf
+%{__install} -m 644 -p %{SOURCE6} \
+   RPM_BUILD_ROOT%{_datadir}/tmpfiles.d/hhvm.conf
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
@@ -147,9 +151,11 @@ make
 /usr/bin/hh_server
 /usr/bin/hh_client
 %dir /etc/hhvm
+%dir /etc/tmpfiles.d
 %config(noreplace) /etc/hhvm/config.hdf
 %config(noreplace) /etc/hhvm/php.ini
 %config(noreplace) /etc/hhvm/server.hdf
+%config(noreplace) /etc/tmpfiles.d/hhvm.conf
 %{_unitdir}/hhvm.service
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
@@ -196,6 +202,7 @@ BANNER
 %changelog
 * Wed Jun 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.3-1
 - Updated to HHVM 3.7.3.
+- Added "/etc/tmpfiles.d/hhvm.conf" so "/var/run/hhvm" is created on boot.
 
 * Mon Jun 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.2-1
 - Updated to HHVM 3.7.2.

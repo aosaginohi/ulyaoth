@@ -1,4 +1,4 @@
-PidFile = /var/run/hhvm/pid
+PidFile = /var/run/hhvm/hhvm.pid
 
 Server {
   IP = 127.0.0.1

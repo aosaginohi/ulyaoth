@@ -4,7 +4,7 @@ Documentation=http://www.hhvm.com/
 After=network.target remote-fs.target nss-lookup.target
  
 [Service]
-PIDFile=/run/hhvm/hhvm.pid
+PIDFile=/var/run/hhvm/hhvm.pid
 ExecStart=/usr/bin/hhvm --config /etc/hhvm/server.hdf --user hhvm --mode daemon
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
