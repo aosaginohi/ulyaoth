@@ -111,7 +111,7 @@ make
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hhvm
 %{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/hhvm/hdf
-%{__mkdir} -p $RPM_BUILD_ROOT%{_datadir}/tmpfiles.d
+%{__mkdir} -p $RPM_BUILD_ROOT/etc/tmpfiles.d
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/php.ini
 %{__install} -m 644 -p %{SOURCE2} \
@@ -123,7 +123,7 @@ make
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf
 %{__install} -m 644 -p %{SOURCE6} \
-   RPM_BUILD_ROOT%{_datadir}/tmpfiles.d/hhvm.conf
+   RPM_BUILD_ROOT/etc/tmpfiles.d/hhvm.conf
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
