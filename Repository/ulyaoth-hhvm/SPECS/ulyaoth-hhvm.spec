@@ -123,7 +123,7 @@ make
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf
 %{__install} -m 644 -p %{SOURCE6} \
-   RPM_BUILD_ROOT/etc/tmpfiles.d/hhvm.conf
+   $RPM_BUILD_ROOT/etc/tmpfiles.d/hhvm.conf
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
