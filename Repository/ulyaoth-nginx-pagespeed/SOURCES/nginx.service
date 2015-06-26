@@ -11,6 +11,7 @@ ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
+LimitNOFILE=200000
  
 [Install]
 WantedBy=multi-user.target
