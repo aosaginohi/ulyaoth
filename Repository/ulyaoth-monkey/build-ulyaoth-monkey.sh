@@ -12,6 +12,9 @@ then
 elif grep -q -i "OracleLinux" /etc/ulyaoth
 then
   wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-oraclelinux.repo -O /etc/yum.repos.d/ulyaoth.repo
+elif grep -q -i "Oscientific" /etc/ulyaoth
+then
+  wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth/SOURCES/ulyaoth-scientific.repo -O /etc/yum.repos.d/ulyaoth.repo
 else
   echo "A unsupported OS was detected!"
 fi
