@@ -160,7 +160,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Jun 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.1.0-1
+* Sun Jun 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.1.0-1
 - Updating to Kibana 4.1.0.
 
 * Fri Apr 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.0.2-1
