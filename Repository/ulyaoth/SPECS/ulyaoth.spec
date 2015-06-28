@@ -1,6 +1,6 @@
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.5
+Version: 1.0.6
 Release: 1%{?dist}
 BuildArch: x86_64
 URL: https://community.ulyaoth.net/
@@ -41,13 +41,16 @@ rm -rf $RPM_BUILD_ROOT
 Thanks for using the Ulyaoth repository!
 
 For any additional information or help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
 
 
 %changelog
+* Sun Jun 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.6-1
+- Added support for Scientific Linux 6 and 7.
+
 * Sun May 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.5-1
 - Changed EOL conversion to Unix to resolve a problem with CentOS unable to read the repo file.
 - Changed debug on CentOS repo file to correct: [ulyaoth-debug].
