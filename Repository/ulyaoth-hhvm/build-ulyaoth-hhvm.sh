@@ -10,13 +10,13 @@ fi
 
 su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "git clone -b HHVM-3.7 git://github.com/facebook/hhvm.git"
-mv /home/ulyaoth/hhvm /home/ulyaoth/hhvm-3.7.3
-cd /home/ulyaoth/hhvm-3.7.3
+mv /home/ulyaoth/hhvm /home/ulyaoth/hhvm-3.7.4
+cd /home/ulyaoth/hhvm-3.7.4
 su ulyaoth -c "git submodule update --init --recursive"
 cd /home/ulyaoth
-su ulyaoth -c "tar cvf hhvm-3.7.3.tar.gz hhvm-3.7.3/"
-mv /home/ulyaoth/hhvm-3.7.3.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
-rm -rf /home/ulyaoth/hhvm-3.7.3
+su ulyaoth -c "tar cvf hhvm-3.7.4.tar.gz hhvm-3.7.4/"
+mv /home/ulyaoth/hhvm-3.7.4.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
+rm -rf /home/ulyaoth/hhvm-3.7.4
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
 
