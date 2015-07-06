@@ -2,7 +2,7 @@
 # Argument = -h (shows the help information)
 # Argument = -o (option .i.e install / uninstall)
 # Created By: Sjir Bagmeijer - 2015/03/21
-# Last Edit By: Sjir Bagmeijer - 2015/03/21
+# Last Edit By: Sjir Bagmeijer - 2015/07/06
 # https://community.ulyaoth.net
 
 usage()
@@ -24,13 +24,13 @@ echo "Step 1: adding the required repositories."
 rpm --import http://packages.elasticsearch.org/GPG-KEY-elasticsearch
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/repository/logstash.repo -O /etc/yum.repos.d/logstash.repo
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/guides/logstash/repository/elasticsearch.repo  -O /etc/yum.repos.d/elasticsearch.repo
-yum install -y https://trash.ulyaoth.net/trash/rpm/Fedora/x86_64/ulyaoth-1.0.2-1.fc22.x86_64.rpm
+dnf install -y https://trash.ulyaoth.net/rpm/Fedora/x86_64/ulyaoth-1.0.6-1.fc22.x86_64.rpm
 }
 
 install()
 {
 echo "Step 2: installing the required packages."
-yum install -y ulyaoth-nginx ulyaoth-kibana java elasticsearch logstash rsyslog tar wget policycoreutils-python zip
+dnf install -y ulyaoth-nginx ulyaoth-kibana java elasticsearch logstash rsyslog tar wget policycoreutils-python zip
 }
 
 logstash()
