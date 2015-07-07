@@ -1,4 +1,3 @@
-buildarch="$(uname -m)"
 hhvmversion=3.7.3
 
 useradd ulyaoth
@@ -6,7 +5,7 @@ cd /home/ulyaoth
 
 if grep -q -i "release 7" /etc/redhat-release
 then
-yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/$buildarch/e/epel-release-7-5.noarch.rpm
+yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 fi
 
 su ulyaoth -c "rpmdev-setuptree"
@@ -21,11 +20,6 @@ mv /home/ulyaoth/hhvm-$hhvmversion.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 rm -rf /home/ulyaoth/hhvm-$hhvmversion
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
-
-if [ "$arch" != "x86_64" ]
-then
-sed -i '/BuildArch: x86_64/c\BuildArch: '"$buildarch"'' ulyaoth-hhvm.spec
-fi
 
 if grep -q -i "release 22" /etc/fedora-release
 then
