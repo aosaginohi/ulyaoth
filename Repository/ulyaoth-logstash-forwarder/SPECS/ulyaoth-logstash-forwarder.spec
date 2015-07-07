@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 %define lforward_home /opt/logstash-forwarder
-%define lforward_group lforward
-%define lforward_user lforward
+%define lforward_group logstash-forwarder
+%define lforward_user logstash-forwarder
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -27,8 +27,8 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary:    Logstash Forwarder is a tool to collect logs locally in preparation for processing elsewhere!
-Name:       ulyaoth-logstash-forwarder-masterbuild
-Version:    20150523
+Name:       ulyaoth-logstash-forwarder
+Version:    0.4.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
@@ -37,9 +37,9 @@ URL:        https://github.com/elasticsearch/logstash-forwarder
 Vendor:     Elasticsearch BV
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0:    logstash-forwarder
-Source1:    logstash-forwarder.service
-Source2:    logstash-forwarder.init
-Source3:    logstash-forwarder.conf
+Source1:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.service
+Source2:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.init
+Source3:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SOURCES/logstash-forwarder.conf
 BuildRoot:  %{_tmppath}/logstash-forwarder-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: logstash-forwarder
@@ -82,6 +82,8 @@ install -d -m 755 %{buildroot}/%{lforward_home}/
 %{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT/opt/logstash-forwarder/conf/logstash-forwarder.conf
    
+%{__mkdir} -p $RPM_BUILD_ROOT%{_localstatedir}/log/logstash-forwarder
+   
 %clean
 %{__rm} -rf $RPM_BUILD_ROOT
 
@@ -94,6 +96,7 @@ getent passwd %{lforward_user} >/dev/null || /usr/sbin/useradd --comment "Logsta
 %{lforward_home}
 %{lforward_home}/*
 %config(noreplace) %{lforward_home}/conf/logstash-forwarder.conf
+%attr(0755,logstash-forwarder,root) %dir %{_localstatedir}/log/logstash-forwarder
 
 %defattr(-,root,root)
 %if %{use_systemd}
@@ -121,7 +124,7 @@ Please find the official documentation for logstash-forwarder here:
 * https://github.com/elasticsearch/logstash-forwarder
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://community.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -147,17 +150,6 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sat May 23 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150523-1
-- Updating to latest master branch from github.
-
-* Fri Mar 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150313-1
-- Support for Oracle Linux 6 & 7.
-
-* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150311-1
-- Updating to masterbuild of 20150311.
-- Adding support for Fedora 22 and CentOS 6 & 7.
-- i386 support.
-- Cleaned spec file slightly.
-
-* Sat Feb 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150228-1
-- Creating spec file for Logstash Forwarder using the master branch.
+* Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.4.0-1
+- Creating Stable version from official released "tar.gz" file.
+- Thank you Fred Emmott.
