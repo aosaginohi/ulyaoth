@@ -8,7 +8,7 @@
 Summary:    Banana UI
 Name:       ulyaoth-banana
 Version:    1.5.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
@@ -63,5 +63,10 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.0-2
+- Fixed issue #5 from GitHub where I build wrongly against a Branch directly.
+- Now building from official release "tar.gz" file.
+- Thank you Fred Emmott for reporting and explaing.
+
 * Fri Mar 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.0-1
 - Initial release for Banana based on version 1.5.0.
