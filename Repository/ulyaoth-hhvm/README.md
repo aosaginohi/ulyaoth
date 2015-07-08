@@ -39,3 +39,9 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 * 3.3.1
 * 3.3.0
 
+###Supported operating systems:
+* Fedora 19, 20, 21
+* RHEL 7
+* Scientific Linux 7
+* Oracle Linux 7
+* CentOS 7
