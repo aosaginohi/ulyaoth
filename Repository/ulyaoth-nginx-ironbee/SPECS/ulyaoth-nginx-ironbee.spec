@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
-%define nginx_version 1.6.3
+%define nginx_version 1.8.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -38,8 +38,8 @@ BuildRequires: systemd
 # end of distribution specific definitions
 
 Summary: Nginx Ironbee WAF.
-Name: ulyaoth-nginx-ironbee-masterbuild
-Version: 20150408
+Name: ulyaoth-nginx-ironbee
+Version: 0.12.1
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -76,9 +76,8 @@ Provides: webserver
 Provides: nginx
 Provides: ulyaoth-nginx
 Provides: nginx-ironbee
-Provides: nginx-ironbee-masterbuild
 Provides: ulyaoth-nginx-ironbee
-Provides: ulyaoth-nginx-ironbee-masterbuild
+
 
 %description
 Naxsi is a universal web application security sensor intended for real-time monitoring and defense.
@@ -86,7 +85,7 @@ Naxsi is a universal web application security sensor intended for real-time moni
 %package debug
 Summary: debug version of nginx compiled with Ironbee. 
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-ironbee-masterbuild
+Requires: ulyaoth-nginx-ironbee
 %description debug
 Not stripped version of nginx built with the debugging log support and compiled with Ironbee.
 
@@ -310,7 +309,7 @@ if [ $1 -eq 1 ]; then
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-ironbee-masterbuild!
+Thanks for using ulyaoth-nginx-ironbee!
 
 Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
@@ -322,7 +321,7 @@ Please find the official Ironbee documentation here:
 * https://www.ironbee.com/
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://community.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -366,8 +365,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Wed Apr 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150408-1
-- Updated to Nginx 1.6.3.
-
-* Sun Apr 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 20150405-1
-- Initial release for nginx compiled with Ironbee.
+* Wed Jul 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.12.1-1
+- Initial release for Nginx compiled with Ironbee.
+- Using Ironbee 0.12.1 official tar.gz file.
+- Using Nginx 1.8.0 official released tar.gz file.
