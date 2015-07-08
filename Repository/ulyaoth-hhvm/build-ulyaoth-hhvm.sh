@@ -124,7 +124,7 @@ then
 exit 1
 elif [[ "$hhvmbranchversion" != "3.3" && "$hhvmbranchversion" != "3.6" && "$hhvmbranchversion" != "3.7" ]]
 then
-  usage
+  echo Currently only branch 3.3, 3.6 and 3.7 are supported.
 exit 1
 fi
 
