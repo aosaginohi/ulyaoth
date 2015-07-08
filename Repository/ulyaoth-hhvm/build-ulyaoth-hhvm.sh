@@ -1,5 +1,6 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
+# Argument = -l (lists all supported versions)
 # Argument = -b (branch .i.e 3.3 / 3.6 / 3.7)
 # Argument = -v (version .i.e 3.3.7 / 3.6.5 / 3.7.3)
 # Created By: Sjir Bagmeijer - 2015/07/08
@@ -13,6 +14,7 @@ usage: $0 options
 
 OPTIONS:
    -h  Shows this help information
+   -l  Show list of all supported versions
    -b  Choose to your HHVM branch.
    -v  Choose the HHVM version you wich to install.
 EOF
@@ -97,6 +99,33 @@ b)
 v)
   hhvmversion=$OPTARG
 ;;
+l)
+echo <<EOF
+Branch 3.7 versions supported:
+* 3.7.3
+* 3.7.2
+* 3.7.1
+* 3.7.0
+
+Branch 3.6 versions supported: (LTS build)
+* 3.6.5
+* 3.6.4
+* 3.6.3
+* 3.6.2
+* 3.6.1
+* 3.6.0
+
+Branch 3.3 versions supported: (LTS build)
+* 3.3.7
+* 3.3.6
+* 3.3.5
+* 3.3.4
+* 3.3.3
+* 3.3.2
+* 3.3.1
+* 3.3.0
+EOF
+;;
 \?)
   usage
 ;;
@@ -107,6 +136,8 @@ esac
 done
 
 arch="$(uname -m)"
+supportedbranches=(3.3 3.6 3.7)
+supportedversions=(3.7.3 3.7.2 3.7.1 3.7.0 3.6.5 3.6.4 3.6.3 3.6.2 3.6.1 3.6.0 3.3.7 3.3.6 3.3.5 3.3.4 3.3.3 3.3.2 3.3.1 3.3.0)
 
 if [ "$arch" != "x86_64" ];
 then
@@ -122,9 +153,13 @@ elif [ -z "$hhvmversion" ]
 then
   usage
 exit 1
-elif [[ "$hhvmbranchversion" != "3.3" && "$hhvmbranchversion" != "3.6" && "$hhvmbranchversion" != "3.7" ]]
+elif [[ " ${supportedbranches[*]} " == *" '"$hhvmbranchversion"' "* ]]
 then
   echo Currently only branch 3.3, 3.6 and 3.7 are supported.
+exit 1
+elif [[ " ${supportedversions[*]} " == *" '"$hhvmversion"' "* ]]
+then
+  echo Please run the script with the -l option to see a list of supported versions. (.i.e ulyaoth-hhvm.sh -l)
 exit 1
 fi
 
