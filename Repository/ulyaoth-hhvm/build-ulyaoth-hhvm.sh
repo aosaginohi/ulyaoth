@@ -1,8 +1,8 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
-# Argument = -b (branch .i.e 3.3 / 3.6 / 3.7)
-# Argument = -v (version .i.e 3.3.7 / 3.6.5 / 3.7.3)
+# Argument = -b (branch .i.e 3.7)
+# Argument = -v (version .i.e 3.7.3)
 # Created By: Sjir Bagmeijer - 2015/07/08
 # Last Edit By: Sjir Bagmeijer - 2015/07/08
 # https://community.ulyaoth.net
@@ -155,7 +155,7 @@ then
 exit 1
 elif [[ " ${supportedbranches[*]} " == *" '"$hhvmbranchversion"' "* ]]
 then
-  echo Currently only branch 3.3, 3.6 and 3.7 are supported.
+  echo Currently only the following branches are supported: ${supportedbranches[*]}.
 exit 1
 elif [[ " ${supportedversions[*]} " == *" '"$hhvmversion"' "* ]]
 then
