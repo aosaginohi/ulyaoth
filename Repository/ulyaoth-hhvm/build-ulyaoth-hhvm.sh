@@ -105,7 +105,15 @@ v)
 esac
 done
 
-if if [ -z "$hhvmbranchversion" ];
+arch="$(uname -m)"
+
+if [ "$arch" != "x86_64" ];
+then
+echo Sorry HHVM only supports a 64-bit platform.
+exit 1
+fi
+
+if [ -z "$hhvmbranchversion" ];
 then
   usage
 exit 1
