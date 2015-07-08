@@ -5,9 +5,9 @@
 %define hhvm_group hhvm
 
 Summary: HHVM virtual machine, runtime, and JIT for the PHP language
-Name: ulyaoth-hhvm
-Version: 3.7.3
-Release: 2%{?dist}
+Name: ulyaoth-hhvm-lts-3.6
+Version: 3.6.5
+Release: 1%{?dist}
 BuildArch: x86_64
 Group: Applications/Internet
 URL: http://www.hhvm.com/
@@ -88,8 +88,10 @@ BuildRequires: gmp-devel
 BuildRequires: fastlz-devel
 BuildRequires: gperf
 
-Provides: hhvm
-Provides: ulyaoth-hhvm
+Provides: hhvm-lts
+Provides: hhvm-lts-3.3
+Provides: ulyaoth-hhvm-lts
+Provides: ulyaoth-hhvm-lts-3.3
 
 %description 
 HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT) compilation approach to achieve superior performance while maintaining the development flexibility that PHP provides.
@@ -200,48 +202,5 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
-* Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.3-2
-- Fixing issue #4 from GitHub reported by fredemmott.
-- HHVM is now build from correct tags to get a stable release.
-
-* Wed Jun 24 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.3-1
-- Updated to HHVM 3.7.3.
-- Added "/etc/tmpfiles.d/hhvm.conf" so "/var/run/hhvm" is created on boot.
-
-* Mon Jun 1 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.2-1
-- Updated to HHVM 3.7.2.
-
-* Tue Apr 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.1-1
-- Updated to HHVM 3.7.1.
-
-* Sat Apr 25 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.0-1
-- Updated to HHVM 3.7.0.
-
-* Thu Apr 2 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.6.2-1
-- Updated to HHVM 3.6.2.
-
-* Sun Mar 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.6.1-1
-- Updated to HHVM 3.6.1.
-
-* Wed Mar 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.5.2-2
-- Added support for Fedora 22 and CentOS 6 & 7.
-- Added i386 support.
-- Cleaned spec file slightly.
-
-* Sat Feb 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.5.2-1
-- Updated to version HHVM 3.5.2.
-
-* Sat Oct 11 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.3.1-1
-- Updated to version 3.3.1.
-- Support for Fedora 21.
-
-* Sat Sep 20 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.3.0-1
-- Updated to HHVM 3.3.0.
-
-* Wed Aug 27 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.2.0-1
- - Release 3.2.0
- - Fixes for RHEL
-
-* Sun Jul 13 2014 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.1.1-1
- - Initial Spec file release
- - Release 3.1.1
+* Wed Jul 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.6.5-1
+- Creating RPM for HHVM LTS 3.6.

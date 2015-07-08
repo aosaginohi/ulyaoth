@@ -1,9 +1,23 @@
-# Set Variables
-hhvmversion=3.7.3
-hhvmbranchversion=3.7
+#!/bin/bash
+# Argument = -h (shows the help information)
+# Argument = -b (branch .i.e 3.3 / 3.6 / 3.7)
+# Argument = -v (version .i.e 3.3.7 / 3.6.5 / 3.7.3)
+# Created By: Sjir Bagmeijer - 2015/07/08
+# Last Edit By: Sjir Bagmeijer - 2015/07/08
+# https://community.ulyaoth.net
 
-# Create build user
-useradd ulyaoth &> /dev/null
+usage()
+{
+cat << EOF
+usage: $0 options
+
+OPTIONS:
+   -h  Shows this help information
+   -b  Choose to your HHVM branch.
+   -v  Choose the HHVM version you wich to install.
+EOF
+exit 1
+}
 
 hhvm()
 {
@@ -23,7 +37,17 @@ preparebuild()
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
 cd /home/ulyaoth/rpmbuild/SPECS/
+
+if [ "$hhvmbranchversion" == "3.3" ]
+then
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.3.spec"
+elif [ "$hhvmbranchversion" == "3.6" ]
+then
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
+elif [ "$hhvmbranchversion" == "3.7" ]
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
+fi
+
 installrequirements &
 } &> /dev/null
 
@@ -36,17 +60,17 @@ fi
 
 if grep -q -i "release 22" /etc/fedora-release
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm.spec
+dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec
 else
-yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm.spec
+yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec
 fi
 
-su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm.spec -g -R"
+su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec -g -R"
 } &> /dev/null
 
 build()
 {
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec"
 }
 
 clean()
@@ -54,8 +78,49 @@ clean()
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 rm -rf /home/ulyaoth/hhvm-$hhvmversion
 rm -rf /home/ulyaoth/rpmbuild
+rm -rf /root/build-ulyaoth-hhvm*.sh
 cd /root
 } &> /dev/null
+
+
+option=
+
+while getopts h:b:v: opt; do
+case $opt in
+h)
+  usage
+;;
+b)
+  hhvmbranchversion=$OPTARG
+;;
+v)
+  hhvmversion=$OPTARG
+;;
+\?)
+  usage
+;;
+:)
+  usage
+;;
+esac
+done
+
+if if [ -z "$hhvmbranchversion" ];
+then
+  usage
+exit 1
+elif [ -z "$hhvmversion" ]
+then
+  usage
+exit 1
+elif [[ "$hhvmbranchversion" != "3.3" && "$hhvmbranchversion" != "3.6" && "$hhvmbranchversion" != "3.7" ]]
+then
+  usage
+exit 1
+fi
+
+# Create build user
+useradd ulyaoth &> /dev/null
 
 echo "Step 1: Starting the HHVM Download process in background."
 hhvm &
