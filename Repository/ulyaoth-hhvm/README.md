@@ -9,10 +9,10 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 ```
 
 Options Available:
--h (shows the help information)
--l (lists all supported versions)
--b (branch .i.e 3.7)
--v (version .i.e 3.7.3)
+* -h (shows the help information)
+* -l (lists all supported versions)
+* -b (branch .i.e 3.7)
+* -v (version .i.e 3.7.3)
 
 Supported Versions:
 Branch 3.7 versions supported:
