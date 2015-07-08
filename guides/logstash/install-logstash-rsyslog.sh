@@ -2,7 +2,7 @@
 # Argument = -h (shows the help information)
 # Argument = -o (option .i.e install / uninstall)
 # Created By: Sjir Bagmeijer - 2015/03/21
-# Last Edit By: Sjir Bagmeijer - 2015/07/06
+# Last Edit By: Sjir Bagmeijer - 2015/07/07
 # https://community.ulyaoth.net
 
 usage()
@@ -98,21 +98,21 @@ rm -rf /etc/logstash
 rm -rf /var/log/logstash
 rm -rf /var/lib/elasticsearch
 rm -rf /var/lib/logstash
-rm -rf /var/lib/yum/repos/x86_64/22/logstash-1.4
-rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.4
-rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.4-filenames.solvx
-rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.4.solv
-rm -rf /var/cache/yum/x86_64/22/logstash-1.4
+rm -rf /var/lib/yum/repos/x86_64/22/logstash-1.5
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.5
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.5-filenames.solvx
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/logstash-1.5.solv
+rm -rf /var/cache/yum/x86_64/22/logstash-1.5
 rm -rf /opt/logstash
 rm -rf /opt/kibana
 rm -rf /var/cache/nginx
 rm -rf /usr/share/elasticsearch
-rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.4
-rm -rf /var/cache/yum/x86_64/22/elasticsearch-1.4
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.6
+rm -rf /var/cache/yum/x86_64/22/elasticsearch-1.6
 rm -rf /var/log/elasticsearch
-rm -rf  /var/lib/yum/repos/x86_64/22/elasticsearch-1.4
-rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.4-filenames.solvx
-rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.4.solv
+rm -rf  /var/lib/yum/repos/x86_64/22/elasticsearch-1.6
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.6-filenames.solvx
+rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.6.solv
 }
 
 option=
