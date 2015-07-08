@@ -1,16 +1,18 @@
 buildarch="$(uname -m)"
+fcgiwrapversion=1.1.0
 
 useradd ulyaoth
 cd /home/ulyaoth/
 su ulyaoth -c "rpmdev-setuptree"
-su ulyaoth -c "git clone https://github.com/gnosek/fcgiwrap"
+su ulyaoth -c "wget https://github.com/gnosek/fcgiwrap/archive/'"$fcgiwrapversion"'.tar.gz"
+su ulyaoth -c "tar xvzf '"$fcgiwrapversion"'.tar.gz"
+su ulyaoth -c "mv /home/ulyaoth/fcgiwrap-'"$fcgiwrapversion"' /home/ulyaoth/fcgiwrap"
 su ulyaoth -c "sed -i 's/http/fcgiwrap/g' /home/ulyaoth/fcgiwrap/systemd/fcgiwrap.service"
-su ulyaoth -c "rm -rf /home/ulyaoth/fcgiwrap/.git/"
 su ulyaoth -c "tar cvf fcgiwrap.tar.gz fcgiwrap"
 su ulyaoth -c "mv fcgiwrap.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
-su ulyaoth -c "rm -rf /home/ulyaoth/fcgiwrap/"
+su ulyaoth -c "rm -rf /home/ulyaoth/fcgiwrap/ '"$fcgiwrapversion"'.tar.gz"
 cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/SPEC/ulyaoth-fcgiwrap-masterbuild.spec"
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/SPEC/ulyaoth-fcgiwrap.spec"
 
 if [ "$arch" != "x86_64" ]
 then
