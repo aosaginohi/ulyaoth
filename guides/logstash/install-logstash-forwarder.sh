@@ -69,6 +69,7 @@ systemctl enable elasticsearch.service
 systemctl enable logstash.service
 systemctl enable nginx.service
 systemctl enable kibana.service
+systemctl enable logstash-forwarder.service
 sleep 10
 systemctl start elasticsearch.service
 sleep 5
@@ -77,6 +78,8 @@ sleep 5
 systemctl start nginx.service
 sleep 5
 systemctl start kibana.service
+sleep 5
+systemctl start logstash-forwarder.service
 } &> /dev/null
 
 uninstall()
@@ -118,7 +121,7 @@ rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.6.solv
 
 option=
 
-while getopts h: :o: opt; do
+while getopts "h: :o:" opt; do
 case $opt in
 h)
   usage

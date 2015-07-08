@@ -32,7 +32,7 @@ su ulyaoth -c "git submodule update --init --recursive"
 cd /home/ulyaoth
 su ulyaoth -c "tar cvf hhvm-'"$hhvmversion"'.tar.gz hhvm-'"$hhvmversion"'/"
 mv /home/ulyaoth/hhvm-$hhvmversion.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
-} &> /dev/null
+} >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 preparebuild()
 {
@@ -52,7 +52,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 fi
 
 installrequirements &
-} &> /dev/null
+} >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 installrequirements()
 {
@@ -69,12 +69,12 @@ yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec
 fi
 
 su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec -g -R"
-} &> /dev/null
+} >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 build()
 {
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec"
-} &> /dev/null
+} >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 clean()
 {
@@ -83,7 +83,7 @@ rm -rf /home/ulyaoth/hhvm-$hhvmversion
 rm -rf /home/ulyaoth/rpmbuild
 rm -rf /root/build-ulyaoth-hhvm*.sh
 cd /root
-} &> /dev/null
+} >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 availablehhvmversions()
 {

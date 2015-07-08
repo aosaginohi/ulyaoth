@@ -111,7 +111,7 @@ rm -rf /var/cache/dnf/x86_64/22/x86_64/22/elasticsearch-1.6.solv
 
 option=
 
-while getopts h: :o: opt; do
+while getopts "h: :o:" opt; do
 case $opt in
 h)
   usage
