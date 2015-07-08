@@ -115,9 +115,32 @@ EOF
 exit 1
 }
 
-option=
+arraychecker() {
+    local n=$#
+    local value=${!n}
+    for ((i=1;i < $#;i++)) {
+        if [ "${!i}" == "${value}" ]; then
+            echo "y"
+            return 0
+        fi
+    }
+    echo "n"
+    return 1
+}
 
-while getopts h:l:b:v: opt; do
+hhvmbranchversion=
+hhvmversion=
+arch="$(uname -m)"
+supportedbranches=('3.3' '3.6' '3.7')
+supportedversions=('3.7.3' '3.7.2' '3.7.1' '3.7.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+
+if [ "$arch" != "x86_64" ];
+then
+echo Sorry HHVM only supports a 64-bit platform.
+exit 1
+fi
+
+while getopts ":h :l :b: :v:" opt; do
 case $opt in
 h)
   usage
@@ -140,15 +163,6 @@ v)
 esac
 done
 
-arch="$(uname -m)"
-supportedbranches=(3.3 3.6 3.7)
-supportedversions=(3.7.3 3.7.2 3.7.1 3.7.0 3.6.5 3.6.4 3.6.3 3.6.2 3.6.1 3.6.0 3.3.7 3.3.6 3.3.5 3.3.4 3.3.3 3.3.2 3.3.1 3.3.0)
-
-if [ "$arch" != "x86_64" ];
-then
-echo Sorry HHVM only supports a 64-bit platform.
-exit 1
-fi
 
 if [ -z "$hhvmbranchversion" ];
 then
@@ -156,11 +170,11 @@ then
 elif [ -z "$hhvmversion" ]
 then
   usage
-elif [[ " ${supportedbranches[*]} " == *" '"$hhvmbranchversion"' "* ]]
+elif [[ " ${supportedbranches[*]} " != *" $hhvmbranchversion "* ]]
 then
   echo Currently only the following branches are supported: ${supportedbranches[*]}.
 exit 1
-elif [[ " ${supportedversions[*]} " == *" '"$hhvmversion"' "* ]]
+elif [[ " ${supportedversions[*]} " != *" $hhvmversion "* ]]
 then
   echo "Please run the script with the -l option to see a list of supported versions. (.i.e ulyaoth-hhvm.sh -l)"
 exit 1
