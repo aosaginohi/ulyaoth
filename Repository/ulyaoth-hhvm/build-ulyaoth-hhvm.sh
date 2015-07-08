@@ -74,7 +74,7 @@ su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec -g -R"
 build()
 {
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec"
-}
+} &> /dev/null
 
 clean()
 {
