@@ -1,10 +1,12 @@
 You can build the HHVM package as following: (only 64-bit)
 
+```bash
 ./build-ulyaoth-hhvm.sh -b 3.7 -v 3.7.3
-
-Full build command:
+```
+ulyaoth-hhvm:
+```bash
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/build-ulyaoth-hhvm.sh ; chmod +x build-ulyaoth-hhvm.sh ; ./build-ulyaoth-hhvm.sh -b 3.7 -v 3.7.3
-
+```
 
 Options Available:
 -h (shows the help information)
