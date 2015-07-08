@@ -70,7 +70,7 @@ exit 0
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-fcgiwrap-masterbuild!
+Thanks for using ulyaoth-fcgiwrap!
 
 Please find the official documentation for fcgiwrap here:
 * https://nginx.localdomain.pl/wiki/FcgiWrap
