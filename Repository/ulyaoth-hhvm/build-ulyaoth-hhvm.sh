@@ -45,6 +45,7 @@ elif [ "$hhvmbranchversion" == "3.6" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
 elif [ "$hhvmbranchversion" == "3.7" ]
+then
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
 fi
 
