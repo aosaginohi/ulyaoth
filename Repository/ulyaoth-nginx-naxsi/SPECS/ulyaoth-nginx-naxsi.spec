@@ -39,7 +39,7 @@ BuildRequires: systemd
 
 Summary: Nginx Anti Xss & Sql Injection.
 Name: ulyaoth-nginx-naxsi
-Version: 0.53
+Version: 0.53.2
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
@@ -363,5 +363,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.53-1
+* Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.53.2-1
 - Build with Stable Naxsi version 0.53-2.
