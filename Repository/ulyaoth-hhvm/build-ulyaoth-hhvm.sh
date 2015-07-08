@@ -85,22 +85,9 @@ rm -rf /root/build-ulyaoth-hhvm*.sh
 cd /root
 } &> /dev/null
 
-
-option=
-
-while getopts h:b:v: opt; do
-case $opt in
-h)
-  usage
-;;
-b)
-  hhvmbranchversion=$OPTARG
-;;
-v)
-  hhvmversion=$OPTARG
-;;
-l)
-echo <<EOF
+availablehhvmversions()
+{
+cat <<EOF
 Branch 3.7 versions supported:
 * 3.7.3
 * 3.7.2
@@ -125,6 +112,24 @@ Branch 3.3 versions supported: (LTS build)
 * 3.3.1
 * 3.3.0
 EOF
+exit 1
+}
+
+option=
+
+while getopts h:l:b:v: opt; do
+case $opt in
+h)
+  usage
+;;
+l)
+  availablehhvmversions
+;;
+b)
+  hhvmbranchversion=$OPTARG
+;;
+v)
+  hhvmversion=$OPTARG
 ;;
 \?)
   usage
@@ -148,18 +153,16 @@ fi
 if [ -z "$hhvmbranchversion" ];
 then
   usage
-exit 1
 elif [ -z "$hhvmversion" ]
 then
   usage
-exit 1
 elif [[ " ${supportedbranches[*]} " == *" '"$hhvmbranchversion"' "* ]]
 then
   echo Currently only the following branches are supported: ${supportedbranches[*]}.
 exit 1
 elif [[ " ${supportedversions[*]} " == *" '"$hhvmversion"' "* ]]
 then
-  echo Please run the script with the -l option to see a list of supported versions. (.i.e ulyaoth-hhvm.sh -l)
+  echo "Please run the script with the -l option to see a list of supported versions. (.i.e ulyaoth-hhvm.sh -l)"
 exit 1
 fi
 
