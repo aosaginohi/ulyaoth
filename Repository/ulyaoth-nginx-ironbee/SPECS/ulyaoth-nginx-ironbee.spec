@@ -71,6 +71,13 @@ BuildRequires: GeoIP-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
+BuildRequires: yayl-devel
+BuildRequires: boost-devel
+BuildRequires: boost-build
+BuildRequires: uuid-devel
+BuildRequires: libpcap-devel
+BuildRequires: libnet-devel
+BuildRequires: ruby
 
 Provides: webserver
 Provides: nginx
