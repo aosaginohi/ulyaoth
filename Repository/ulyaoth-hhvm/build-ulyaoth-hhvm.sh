@@ -61,7 +61,7 @@ echo "Step 1: Starting the HHVM Download process in background."
 hhvm &
 echo "Step 2: Downloading & installing all requirements for HHVM."
 preparebuild &
-echo "Waiting for Step 1 and Step 2 to finish before building.(This can take up to 30 minutes depending on your download speed)"
+echo "Waiting for Step 1 and Step 2 to finish before building. (This can take up to 30 minutes depending on your download speed)"
 wait
 
 echo "Step 3: Building the HHVM RPM. (This can take up to 1 hour or longer depending on your build machine)"
