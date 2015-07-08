@@ -119,9 +119,9 @@ ulyaoth-fcgiwrap()
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-fcgiwrap/build-ulyaoth-fcgiwrap.sh ; chmod +x build-ulyaoth-fcgiwrap.sh ; ./build-ulyaoth-fcgiwrap.sh
 }
 
-ulyaoth-logstash-forwarder-masterbuild()
+ulyaoth-logstash-forwarder()
 {
-wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/build-ulyaoth-logstash-forwarder-masterbuild.sh ; chmod +x build-ulyaoth-logstash-forwarder-masterbuild.sh ; ./build-ulyaoth-logstash-forwarder-masterbuild.sh
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/build-ulyaoth-logstash-forwarder.sh ; chmod +x build-ulyaoth-logstash-forwarder.sh ; ./build-ulyaoth-logstash-forwarder.sh
 }
 
 spotify()
@@ -132,6 +132,11 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/spot
 ulyaoth-nginx()
 {
 wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/build-ulyaoth-nginx.sh ; chmod +x build-ulyaoth-nginx.sh ; ./build-ulyaoth-nginx.sh
+}
+
+ulyaoth-nginx-naxsi()
+{
+wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-naxsi/build-ulyaoth-nginx-naxsi.sh ; chmod +x build-ulyaoth-nginx-naxsi.sh ; ./build-ulyaoth-nginx-naxsi.sh
 }
 
 ulyaoth-nginx-pagespeed()
