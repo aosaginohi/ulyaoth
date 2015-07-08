@@ -30,7 +30,7 @@ su ulyaoth -c "rpmdev-setuptree"
 su ulyaoth -c "wget https://github.com/elastic/logstash-forwarder/archive/v'"$logstashforwarderversion"'.tar.gz"
 su ulyaoth -c "tar xvzf v'"$logstashforwarderversion"'.tar.gz"
 su ulyaoth -c "cd /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/ && go build"
-su ulyaoth -c "mv /home/ulyaoth/logstash-forwarder/logstash-forwarder-'"$logstashforwarderversion"' /home/ulyaoth/rpmbuild/SOURCES/logstash-forwarder"
+su ulyaoth -c "mv /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/logstash-forwarder-'"$logstashforwarderversion"' /home/ulyaoth/rpmbuild/SOURCES/logstash-forwarder"
 su ulyaoth -c "rm -rf /home/ulyaoth/logstash-forwarder-'"$logstashforwarderversion"'/"
 cd /home/ulyaoth/rpmbuild/SPECS
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-logstash-forwarder/SPECS/ulyaoth-logstash-forwarder.spec"
