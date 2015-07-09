@@ -156,19 +156,19 @@ arraychecker() {
     return 1
 }
 
-# Check if the platform is 64-bit if not stop script.
-if [ "$arch" != "x86_64" ];
-then
-echo Sorry HHVM only supports a 64-bit platform.
-exit 1
-fi
-
 # Set some required variables
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
 supportedbranches=('3.3' '3.6' '3.7')
 supportedversions=('3.7.3' '3.7.2' '3.7.1' '3.7.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+
+# Check if the platform is 64-bit if not stop script.
+if [ "$arch" != "x86_64" ];
+then
+echo Sorry HHVM only supports a 64-bit platform.
+exit 1
+fi
 
 # Get the option that was in-putted by user.
 while getopts ":h :l :b: :v:" opt; do
