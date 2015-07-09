@@ -1,5 +1,9 @@
+; php options
+
 PidFile = /var/run/hhvm/hhvm.pid
 
+
+; hhvm specific 
 Server {
   IP = 127.0.0.1
   Port = 9000
@@ -23,7 +27,7 @@ Log {
 
 Repo {
   Central {
-    Path = /var/log/hhvm/.hhvm.hhbc
+    Path = /var/run/hhvm/hhvm.hhbc
   }
 }
 
