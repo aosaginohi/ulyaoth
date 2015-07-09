@@ -60,6 +60,7 @@ installrequirements &
 # Downloads all required files for creating the RPM.
 installrequirements()
 {
+cd /home/ulyaoth/rpmbuild/SPECS/
 if grep -q -i "release 7" /etc/redhat-release
 then
 yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -67,35 +68,36 @@ fi
 
 if grep -q -i "release 22" /etc/fedora-release
 then
-dnf builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec
+dnf builddep -y ulyaoth-hhvm*.spec
 else
-yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec
+yum-builddep -y ulyaoth-hhvm*.spec
 fi
 
 if [ "$hhvmbranchversion" == "3.3" ]
 then
-su ulyaoth -c "spectool https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.3.spec -g -R"
+su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.3.spec -g -R"
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
-su ulyaoth -c "spectool https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec -g -R"
+su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.6.spec -g -R"
 elif [ "$hhvmbranchversion" == "3.7" ]
 then
-su ulyaoth -c "spectool https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec -g -R"
+su ulyaoth -c "spectool ulyaoth-hhvm.spec -g -R"
 fi
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 # Builds the actual HHVM RPM.
 build()
 {
+cd /home/ulyaoth/rpmbuild/SPECS/
 if [ "$hhvmbranchversion" == "3.3" ]
 then
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.3.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.3.spec"
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.6.spec"
 elif [ "$hhvmbranchversion" == "3.7" ]
 then
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
 fi
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
