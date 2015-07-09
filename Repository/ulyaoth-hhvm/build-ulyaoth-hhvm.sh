@@ -4,9 +4,10 @@
 # Argument = -b (branch .i.e 3.7)
 # Argument = -v (version .i.e 3.7.3)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2015/07/08
+# Last Edit By: Sjir Bagmeijer - 2015/07/09
 # https://community.ulyaoth.net
 
+# Shows the menu when using -h or wrong option.
 usage()
 {
 cat << EOF
@@ -21,6 +22,7 @@ EOF
 exit 1
 }
 
+# Downloads HHVM and puts it in source folder.
 hhvm()
 {
 cd /home/ulyaoth
@@ -34,6 +36,7 @@ su ulyaoth -c "tar cvf hhvm-'"$hhvmversion"'.tar.gz hhvm-'"$hhvmversion"'/"
 mv /home/ulyaoth/hhvm-$hhvmversion.tar.gz /home/ulyaoth/rpmbuild/SOURCES/
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
+# Prepares the build directory and downloads the spec file.
 preparebuild()
 {
 cd /home/ulyaoth
@@ -54,6 +57,7 @@ fi
 installrequirements &
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
+# Downloads all required files for creating the RPM.
 installrequirements()
 {
 if grep -q -i "release 7" /etc/redhat-release
@@ -71,11 +75,13 @@ fi
 su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec -g -R"
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
+# Builds the actual HHVM RPM.
 build()
 {
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec"
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
+# Cleaning build directory and script.
 clean()
 {
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
@@ -85,6 +91,7 @@ rm -rf /root/build-ulyaoth-hhvm*.sh
 cd /root
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
+# Shows the available versions when using -l option.
 availablehhvmversions()
 {
 cat <<EOF
@@ -115,6 +122,7 @@ EOF
 exit 1
 }
 
+# This function will compare the user input with the arrays for supportedversions and supportedbranches and stops script if non supported input is found.
 arraychecker() {
     local n=$#
     local value=${!n}
@@ -128,18 +136,21 @@ arraychecker() {
     return 1
 }
 
-hhvmbranchversion=
-hhvmversion=
-arch="$(uname -m)"
-supportedbranches=('3.3' '3.6' '3.7')
-supportedversions=('3.7.3' '3.7.2' '3.7.1' '3.7.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
-
+# Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
 then
 echo Sorry HHVM only supports a 64-bit platform.
 exit 1
 fi
 
+# Set some required variables
+hhvmbranchversion=
+hhvmversion=
+arch="$(uname -m)"
+supportedbranches=('3.3' '3.6' '3.7')
+supportedversions=('3.7.3' '3.7.2' '3.7.1' '3.7.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+
+# Get the option that was in-putted by user.
 while getopts ":h :l :b: :v:" opt; do
 case $opt in
 h)
@@ -163,7 +174,7 @@ v)
 esac
 done
 
-
+# Check if all options are filled in and if the branch and version are correct.
 if [ -z "$hhvmbranchversion" ];
 then
   usage
@@ -183,6 +194,7 @@ fi
 # Create build user
 useradd ulyaoth &> /dev/null
 
+# Start the build process by calling the separate functions.
 echo "Step 1: Starting the HHVM Download process in background."
 hhvm &
 echo "Step 2: Downloading & installing all requirements for HHVM."
