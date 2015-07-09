@@ -72,13 +72,31 @@ else
 yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec
 fi
 
-su ulyaoth -c "spectool /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec -g -R"
+if [ "$hhvmbranchversion" == "3.3" ]
+then
+su ulyaoth -c "spectool https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.3.spec -g -R"
+elif [ "$hhvmbranchversion" == "3.6" ]
+then
+su ulyaoth -c "spectool https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec -g -R"
+elif [ "$hhvmbranchversion" == "3.7" ]
+then
+su ulyaoth -c "spectool https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec -g -R"
+fi
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 # Builds the actual HHVM RPM.
 build()
 {
-su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb /home/ulyaoth/rpmbuild/SPECS/ulyaoth-hhvm*.spec"
+if [ "$hhvmbranchversion" == "3.3" ]
+then
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.3.spec"
+elif [ "$hhvmbranchversion" == "3.6" ]
+then
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
+elif [ "$hhvmbranchversion" == "3.7" ]
+then
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
+fi
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
 # Cleaning build directory and script.
@@ -87,7 +105,7 @@ clean()
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 rm -rf /home/ulyaoth/hhvm-$hhvmversion
 rm -rf /home/ulyaoth/rpmbuild
-rm -rf /root/build-ulyaoth-hhvm*.sh
+rm -rf /root/build-ulyaoth-hhvm*
 cd /root
 } >> /var/log/build-ulyaoth-hhvm.log 2>&1
 
