@@ -113,6 +113,7 @@ make
 %{__mkdir} -p $RPM_BUILD_ROOT/usr/share/hhvm/hdf
 %{__mkdir} -p $RPM_BUILD_ROOT/etc/tmpfiles.d
 %{__mkdir} -p $RPM_BUILD_ROOT/var/lib/hhvm/sessions
+%{__mkdir} -p $RPM_BUILD_ROOT/var/cache/hhvm
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/php.ini
 %{__install} -m 644 -p %{SOURCE2} \
@@ -156,7 +157,9 @@ make
 %dir /var/run/hhvm
 %dir /var/lib/hhvm
 %dir /var/lib/hhvm/sessions
-%attr(775, hhvm, hhvm) /var/log/hhvm
+%dir /var/cache/hhvm
+%attr(755, hhvm, hhvm) /var/cache/hhvm
+%attr(755, hhvm, hhvm) /var/log/hhvm
 %attr(775, hhvm, hhvm) /var/run/hhvm
 %attr(775, hhvm, hhvm) /var/lib/hhvm
 %attr(775, hhvm, hhvm) /var/lib/hhvm/sessions
