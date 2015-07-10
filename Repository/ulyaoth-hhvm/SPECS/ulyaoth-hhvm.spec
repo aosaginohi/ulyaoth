@@ -16,10 +16,9 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: hhvm-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/php.ini
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/server.ini
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service
-Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
-Source5: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.conf
+Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service
+Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
+Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.conf
 
 License: GPL
 
@@ -115,12 +114,10 @@ make
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/php.ini
 %{__install} -m 644 -p %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.ini
-%{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
-%{__install} -m 644 -p %{SOURCE4} \
+%{__install} -m 644 -p %{SOURCE3} \
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf
-%{__install} -m 644 -p %{SOURCE5} \
+%{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT/etc/tmpfiles.d/hhvm.conf
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
@@ -150,9 +147,7 @@ make
 /usr/bin/hh_client
 %dir /etc/hhvm
 %dir /etc/tmpfiles.d
-%config(noreplace) /etc/hhvm/config.hdf
 %config(noreplace) /etc/hhvm/php.ini
-%config(noreplace) /etc/hhvm/server.hdf
 %config(noreplace) /etc/tmpfiles.d/hhvm.conf
 %{_unitdir}/hhvm.service
 %dir /usr/share/hhvm
@@ -193,7 +188,7 @@ Please find the official documentation for HHVM here:
 * http://www.hhvm.com/
 
 For any additional help please visit my forum at:
-* https://community.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -202,6 +197,8 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
+- Changed to use only php.ini now.
+
 * Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.3-2
 - Fixing issue #4 from GitHub reported by fredemmott.
 - HHVM is now build from correct tags to get a stable release.

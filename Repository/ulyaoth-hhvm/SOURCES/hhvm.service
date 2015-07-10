@@ -5,7 +5,7 @@ After=network.target remote-fs.target nss-lookup.target
  
 [Service]
 PIDFile=/var/run/hhvm/hhvm.pid
-ExecStart=/usr/bin/hhvm --config /etc/hhvm/server.ini --user hhvm --mode daemon
+ExecStart=/usr/bin/hhvm --user hhvm --mode daemon
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
