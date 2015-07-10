@@ -39,8 +39,8 @@ BuildRequires: systemd
 
 Summary: High performance web server compiled with pagespeed.
 Name: ulyaoth-nginx-pagespeed
-Version: 1.9.32.3
-Release: 3%{?dist}
+Version: 1.9.32.4
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -319,7 +319,7 @@ Please find the official documentation for pagespeed here:
 * https://github.com/pagespeed/ngx_pagespeed
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -363,6 +363,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Jul 10 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.4-1
+- Updating to version Pagespeed v1.9.32.4-beta.
+
 * Wed Apr 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.32.3-3
 - Updated to Nginx 1.8.0.
 
