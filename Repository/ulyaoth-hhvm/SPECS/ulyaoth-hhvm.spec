@@ -16,11 +16,10 @@ Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: hhvm-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/php.ini
-Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/config.hdf
-Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/server.hdf
-Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service
-Source5: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
-Source6: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.conf
+Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/server.ini
+Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service
+Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
+Source5: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.conf
 
 License: GPL
 
@@ -116,14 +115,12 @@ make
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/php.ini
 %{__install} -m 644 -p %{SOURCE2} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/config.hdf
+   $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.ini
 %{__install} -m 644 -p %{SOURCE3} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/hhvm/server.hdf
-%{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_unitdir}/hhvm.service
-%{__install} -m 644 -p %{SOURCE5} \
+%{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf
-%{__install} -m 644 -p %{SOURCE6} \
+%{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT/etc/tmpfiles.d/hhvm.conf
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
@@ -163,6 +160,8 @@ make
 %config /usr/share/hhvm/hdf/static.mime-types.hdf
 %dir /var/log/hhvm
 %dir /var/run/hhvm
+%dir /var/lib/hhvm
+%dir /var/lib/hhvm/sessions
 %attr(775, hhvm, hhvm) /var/log/hhvm
 %attr(775, hhvm, hhvm) /var/run/hhvm
 %attr(775, hhvm, hhvm) /var/lib/hhvm
