@@ -128,7 +128,6 @@ make
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
 %{__rm} -rf $RPM_BUILD_ROOT/usr/include
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib64
-%{__rm} -rf $RPM_BUILD_ROOT/usr/man/
 %{__rm} -rf $RPM_BUILD_ROOT/usr/share/doc/
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libpcre.a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libpcreposix.a
@@ -138,17 +137,17 @@ make
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcrecpp_unittest
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_scanner_unittest
 %{__rm} -rf $RPM_BUILD_ROOT/usr/bin/pcre_stringpiece_unittest
-%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/hphpize
-%{__rm} -rf $RPM_BUILD_ROOT/usr/bin/hhvm-gdb
-
-
-
 
 %files
 %defattr(-,root,root,-)
 /usr/bin/hhvm
 /usr/bin/hh_server
 /usr/bin/hh_client
+/usr/bin/h2tp
+/usr/bin/hh_format
+/usr/bin/hphpize
+/usr/bin/hhvm-repo-mode
+/usr/bin/hhvm-gdb
 %dir /etc/hhvm
 %dir /etc/tmpfiles.d
 %config(noreplace) /etc/hhvm/php.ini
@@ -157,6 +156,11 @@ make
 %{_unitdir}/hhvm-proxygen.service
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
+%dir /usr/share/hhvm/hack
+%dir /usr/share/hhvm/hack/hacklib
+/usr/share/hhvm/hack/hacklib/*
+%dir /usr/share/hhvm/hack/hacklib/containers
+/usr/share/hhvm/hack/hacklib/containers/*
 %config /usr/share/hhvm/hdf/static.mime-types.hdf
 %dir /var/log/hhvm
 %dir /var/run/hhvm
