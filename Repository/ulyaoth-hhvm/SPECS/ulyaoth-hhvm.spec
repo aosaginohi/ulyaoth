@@ -19,6 +19,7 @@ Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/
 Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.service
 Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/static.mime-types.hdf
 Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm.conf
+Source5: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SOURCES/hhvm-proxygen.service
 
 License: GPL
 
@@ -120,6 +121,8 @@ make
    $RPM_BUILD_ROOT%{_datadir}/hhvm/hdf/static.mime-types.hdf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT/etc/tmpfiles.d/hhvm.conf
+%{__install} -m 644 -p %{SOURCE5} \
+   $RPM_BUILD_ROOT%{_unitdir}/hhvm-proxygen.service
 
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.a
 %{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libzip.so
@@ -151,6 +154,7 @@ make
 %config(noreplace) /etc/hhvm/php.ini
 %config(noreplace) /etc/tmpfiles.d/hhvm.conf
 %{_unitdir}/hhvm.service
+%{_unitdir}/hhvm-proxygen.service
 %dir /usr/share/hhvm
 %dir /usr/share/hhvm/hdf
 %config /usr/share/hhvm/hdf/static.mime-types.hdf
@@ -180,6 +184,7 @@ exit 0
 %post
 # Register the HHVM service
 /usr/bin/systemctl preset hhvm.service >/dev/null 2>&1 ||:
+/usr/bin/systemctl preset hhvm-proxygen.service >/dev/null 2>&1 ||:
 
 # print site info
     cat <<BANNER
@@ -203,6 +208,7 @@ BANNER
 * Wed Jul 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.8.0-1
 - Updated to HHVM 3.8.0.
 - Changed to use only php.ini now.
+- Added a "hhvm-proxygen" systemd script to start a proxygen server.
 
 * Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.7.3-2
 - Fixing issue #4 from GitHub reported by fredemmott.
