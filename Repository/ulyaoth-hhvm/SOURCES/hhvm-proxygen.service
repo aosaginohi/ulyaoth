@@ -5,7 +5,7 @@ After=network.target remote-fs.target nss-lookup.target
  
 [Service]
 PIDFile=/var/run/hhvm/hhvm.pid
-ExecStart=/usr/bin/hhvm --user hhvm server -v Server.Type=proxygen
+ExecStart=/usr/bin/hhvm --user hhvm --mode server -v Server.Type=proxygen
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
