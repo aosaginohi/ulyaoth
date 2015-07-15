@@ -1,10 +1,10 @@
 #!/bin/bash
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
-# Argument = -b (branch .i.e 3.7)
-# Argument = -v (version .i.e 3.7.3)
+# Argument = -b (branch .i.e 3.8)
+# Argument = -v (version .i.e 3.8.0)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2015/07/09
+# Last Edit By: Sjir Bagmeijer - 2015/07/15
 # https://community.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -49,7 +49,7 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
-elif [ "$hhvmbranchversion" == "3.7" ]
+elif [ "$hhvmbranchversion" == "3.8" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
 fi
@@ -79,7 +79,7 @@ su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.3.spec -g -R"
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.6.spec -g -R"
-elif [ "$hhvmbranchversion" == "3.7" ]
+elif [ "$hhvmbranchversion" == "3.8" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm.spec -g -R"
 fi
@@ -95,7 +95,7 @@ su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.3.spec"
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.6.spec"
-elif [ "$hhvmbranchversion" == "3.7" ]
+elif [ "$hhvmbranchversion" == "3.8" ]
 then
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
 fi
@@ -115,11 +115,8 @@ cd /root
 availablehhvmversions()
 {
 cat <<EOF
-Branch 3.7 versions supported:
-* 3.7.3
-* 3.7.2
-* 3.7.1
-* 3.7.0
+Branch 3.8 versions supported:
+* 3.8.0
 
 Branch 3.6 versions supported: (LTS build)
 * 3.6.5
@@ -142,7 +139,7 @@ EOF
 exit 1
 }
 
-# This function will compare the user input with the arrays for supportedversions and supportedbranches and stops script if non supported input is found.
+# This function will compare the user input with the arrays for supported versions and supported branches and stops script if non supported input is found.
 arraychecker() {
     local n=$#
     local value=${!n}
@@ -160,8 +157,8 @@ arraychecker() {
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
-supportedbranches=('3.3' '3.6' '3.7')
-supportedversions=('3.7.3' '3.7.2' '3.7.1' '3.7.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedbranches=('3.3' '3.6' '3.8')
+supportedversions=('3.8.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
