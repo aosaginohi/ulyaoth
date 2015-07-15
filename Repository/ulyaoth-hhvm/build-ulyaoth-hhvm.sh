@@ -66,24 +66,27 @@ then
 yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 fi
 
-# HHVM 3.8 Requires ocaml 4.01
-if [ "$hhvmbranchversion" == "3.8" ]
-then
-  if grep -q -i "release 19" /etc/fedora-release
-  then
-  yum install http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-compiler-libs-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-runtime-4.01.0-24.fc21.x86_64.rpm
-  elif grep -q -i "release 20" /etc/fedora-release
-  then
-  yum install -y http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-compiler-libs-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-runtime-4.01.0-24.fc21.x86_64.rpm
-  fi
-fi
-
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-hhvm*.spec
 else
 yum-builddep -y ulyaoth-hhvm*.spec
 fi
+
+# HHVM 3.8 Requires ocaml 4.01
+if [ "$hhvmbranchversion" == "3.8" ]
+then
+  if grep -q -i "release 19" /etc/fedora-release
+  then
+  yum remove -y ocaml
+  yum install http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-compiler-libs-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-runtime-4.01.0-24.fc21.x86_64.rpm
+  elif grep -q -i "release 20" /etc/fedora-release
+  then
+  yum remove -y ocaml
+  yum install -y http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-compiler-libs-4.01.0-24.fc21.x86_64.rpm http://ftp.acc.umu.se/mirror/fedora/linux/releases/21/Everything/x86_64/os/Packages/o/ocaml-runtime-4.01.0-24.fc21.x86_64.rpm
+  fi
+fi
+
 
 if [ "$hhvmbranchversion" == "3.3" ]
 then
