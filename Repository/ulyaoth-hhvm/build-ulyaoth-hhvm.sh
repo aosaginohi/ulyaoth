@@ -4,7 +4,7 @@
 # Argument = -b (branch .i.e 3.8)
 # Argument = -v (version .i.e 3.8.0)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2015/07/15
+# Last Edit By: Sjir Bagmeijer - 2015/07/16
 # https://community.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
@@ -66,23 +66,25 @@ then
 yum install -y  http://mirror.nsc.liu.se/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 fi
 
-# HHVM 3.8 Requires ocaml 4.01 or higher.
-if [ "$hhvmbranchversion" == "3.8" ]
-then
-  if grep -q -i "release 19" /etc/fedora-release
-  then
-  yum install -y https://repos.ulyaoth.net/random/fedora/19/x86_64/ocaml-4.02.0-6.fc19.x86_64.rpm https://repos.ulyaoth.net/random/fedora/19/x86_64/ocaml-compiler-libs-4.02.0-6.fc19.x86_64.rpm https://repos.ulyaoth.net/random/fedora/19/x86_64/ocaml-runtime-4.02.0-6.fc19.x86_64.rpm
-  elif grep -q -i "release 20" /etc/fedora-release
-  then
-  yum install -y https://repos.ulyaoth.net/random/fedora/20/x86_64/ocaml-4.02.0-6.fc20.x86_64.rpm https://repos.ulyaoth.net/random/fedora/20/x86_64/ocaml-compiler-libs-4.02.0-6.fc20.x86_64.rpm https://repos.ulyaoth.net/random/fedora/20/x86_64/ocaml-runtime-4.02.0-6.fc20.x86_64.rpm
-  fi
-fi
-
 if grep -q -i "release 22" /etc/fedora-release
 then
 dnf builddep -y ulyaoth-hhvm*.spec
 else
 yum-builddep -y ulyaoth-hhvm*.spec
+fi
+
+# HHVM 3.8 Requires ocaml 4.01 or higher.
+if [ "$hhvmbranchversion" == "3.8" ]
+then
+  if grep -q -i "release 19" /etc/fedora-release
+  then
+  yum remove -y ocaml
+  yum install -y https://repos.ulyaoth.net/random/fedora/19/x86_64/ocaml-4.02.0-6.fc19.x86_64.rpm https://repos.ulyaoth.net/random/fedora/19/x86_64/ocaml-compiler-libs-4.02.0-6.fc19.x86_64.rpm https://repos.ulyaoth.net/random/fedora/19/x86_64/ocaml-runtime-4.02.0-6.fc19.x86_64.rpm
+  elif grep -q -i "release 20" /etc/fedora-release
+  then
+  yum remove -y ocaml
+  yum install -y https://repos.ulyaoth.net/random/fedora/20/x86_64/ocaml-4.02.0-6.fc20.x86_64.rpm https://repos.ulyaoth.net/random/fedora/20/x86_64/ocaml-compiler-libs-4.02.0-6.fc20.x86_64.rpm https://repos.ulyaoth.net/random/fedora/20/x86_64/ocaml-runtime-4.02.0-6.fc20.x86_64.rpm
+  fi
 fi
 
 if [ "$hhvmbranchversion" == "3.3" ]
