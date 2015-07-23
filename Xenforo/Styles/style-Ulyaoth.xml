@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style title="Ulyaoth" description="" user_selectable="1">
+  <properties/>
+  <templates>
+    <template title="EXTRA.css" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[#moderatorBar .adminLink
+{
+float:left;
+}
+#moderatorBar .visitorTabs
+{
+float: right;
+}
+#moderatorBar .visitorTabs li
+{
+float:left;
+}
+#moderatorBar .visitorTabs .navLink
+{
+line-height: 16px;
+}
+#moderatorBar .visitorTabs .navLink:hover
+{
+}
+#moderatorBar .visitorTabs .navLink .itemCount
+{
+line-height: 16px;
+}
+#moderatorBar .visitorTabs .navLink .itemCount:hover
+{
+}
+
+/* Avatar in visitor tab */
+.navTab .accountPopup img
+{
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-top: 3px;
+    border-radius: 2px;
+}
+
+/* Firefox fix for avatar in visitor tab */
+.navTabs .navTab.account .navLink .accountUsername
+{
+    display: inline-block;
+}]]></template>
+    <template title="header" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="header.css" />
+
+<xen:hook name="header">
+<div id="header">
+	<xen:include template="logo_block" />
+	<xen:include template="navigation" />
+</div>
+</xen:hook>]]></template>
+    <template title="moderator_bar" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:require css="moderator_bar.css" />
+
+<xen:if hascontent="true">
+<fieldset id="moderatorBar">
+	<div class="pageWidth">
+		<div class="pageContent">
+		<xen:contentcheck>
+			<xen:if is="{$visitor.is_admin}">			
+				<a href="admin.php" class="acp adminLink"><span class="itemLabel">{xen:phrase admin_control_panel_short}</span></a>
+				
+				<xen:if is="{$session.permissionTest}">
+					<a href="{xen:link misc/reset-permissions}" class="permissionTest adminLink OverlayTrigger">
+						<span class="itemLabel">{xen:phrase permissions_from_x, 'name={$session.permissionTest.username}'}</span>
+					</a>
+				</xen:if>
+			</xen:if>
+			
+			<xen:if is="{$visitor.is_moderator} AND {$session.moderationCounts.total}">
+				<a href="{xen:link moderation-queue}" class="moderationQueue modLink">
+					<span class="itemLabel">{xen:phrase moderation_queue_short}:</span>
+					<span class="itemCount {xen:if {$session.moderationCounts.total}, 'alert'}">{$session.moderationCounts.total}</span>
+				</a>
+			</xen:if>
+			
+			<xen:if is="{$visitor.is_moderator} && !{$xenOptions.reportIntoForumId}">
+				<a href="{xen:link reports}" class="reportedItems modLink">
+					<span class="itemLabel">{xen:phrase reported_items_short}:</span>
+					<span class="itemCount {xen:if '({$session.reportCounts.total} AND {$session.reportCounts.lastUpdate} > {$session.reportLastRead}) OR {$session.reportCounts.assigned}', 'alert'}" title="{xen:if $session.reportCounts.lastUpdate, '{xen:phrase last_report_update}: {xen:datetime $session.reportCounts.lastUpdate}'}"><xen:if is="{$session.reportCounts.assigned}">{$session.reportCounts.assigned} / {$session.reportCounts.total}<xen:else />{$session.reportCounts.total}</xen:if></span>
+				</a>
+			</xen:if>
+			
+			<xen:if is="{$visitor.is_admin} AND {$session.canAdminUsers} AND {$session.userModerationCounts.total}">
+				<a href="admin.php?users/moderated" class="userModerationQueue modLink">
+					<span class="itemLabel">{xen:phrase users_awaiting_approval_short}:</span>
+					<span class="itemCount {xen:if {$session.userModerationCounts.total}, 'alert'}">{$session.userModerationCounts.total}</span>
+				</a>
+			</xen:if>
+
+<xen:if is="{$visitor.user_id}">
+<xen:include template="navigation_visitor_tab" />
+</xen:if>
+			<xen:hook name="moderator_bar" />
+		</xen:contentcheck>
+			
+			<span class="helper"></span>
+		</div>
+	</div>
+</fieldset>
+</xen:if>]]></template>
+    <template title="navigation" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="navigation.css" />
+
+<div id="navigation" class="pageWidth {xen:if $canSearch, withSearch}">
+	<div class="pageContent">
+		<nav>
+
+<div class="navTabs">
+	<ul class="publicTabs">
+	
+		<!-- home -->
+		<xen:if is="{$showHomeLink}">
+			<li class="navTab home PopupClosed"><a href="{$homeLink}" class="navLink">{xen:phrase home}</a></li>
+		</xen:if>
+		
+		
+		<!-- extra tabs: home -->
+		<xen:if is="{$extraTabs.home}">
+		<xen:foreach loop="$extraTabs.home" key="$extraTabId" value="$extraTab">
+			<xen:if is="{$extraTab.linksTemplate}">
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+				<a href="{$extraTab.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$extraTab.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} {$extraTabId}TabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$extraTab.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					{xen:raw $extraTab.linksTemplate}
+				</div>
+			</li>
+			<xen:else />
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'PopupClosed'}">
+					<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+					<xen:if is="{$extraTab.selected}"><div class="tabLinks"></div></xen:if>
+				</li>
+			</xen:if>
+		</xen:foreach>
+		</xen:if>
+		
+		
+		<!-- forums -->
+		<xen:if is="{$tabs.forums}">
+			<li class="navTab forums {xen:if $tabs.forums.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$tabs.forums.href}" class="navLink">{$tabs.forums.title}</a>
+				<a href="{$tabs.forums.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$tabs.forums.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} forumsTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$tabs.forums.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					<xen:hook name="navigation_tabs_forums">
+						<xen:if is="{$visitor.user_id}"><li><a href="{xen:link 'forums/-/mark-read', $forum, 'date={$serverTime}'}" class="OverlayTrigger">{xen:phrase mark_forums_read}</a></li></xen:if>
+						<xen:if is="{$canSearch}"><li><a href="{xen:link search, '', 'type=post'}">{xen:phrase search_forums}</a></li></xen:if>
+						<xen:if is="{$visitor.user_id}">
+							<li><a href="{xen:link 'watched/forums'}">{xen:phrase watched_forums}</a></li>
+							<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>
+						</xen:if>
+						<li><a href="{xen:link 'find-new/posts'}" rel="nofollow">{xen:if $visitor.user_id, {xen:phrase new_posts}, {xen:phrase recent_posts}}</a></li>
+					</xen:hook>
+					</ul>
+				</div>
+			</li>
+		</xen:if>
+		
+		
+		<!-- extra tabs: middle -->
+		<xen:if is="{$extraTabs.middle}">
+		<xen:foreach loop="$extraTabs.middle" key="$extraTabId" value="$extraTab">
+			<xen:if is="{$extraTab.linksTemplate}">
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+				<a href="{$extraTab.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$extraTab.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} {$extraTabId}TabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$extraTab.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					{xen:raw $extraTab.linksTemplate}
+				</div>
+			</li>
+			<xen:else />
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'PopupClosed'}">
+					<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+					<xen:if is="{$extraTab.selected}"><div class="tabLinks"></div></xen:if>
+				</li>
+			</xen:if>
+		</xen:foreach>
+		</xen:if>
+		
+		
+		<!-- members -->
+		<xen:if is="{$tabs.members}">
+			<li class="navTab members {xen:if $tabs.members.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$tabs.members.href}" class="navLink">{$tabs.members.title}</a>
+				<a href="{$tabs.members.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$tabs.members.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} membersTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$tabs.members.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					<xen:hook name="navigation_tabs_members">
+						<li><a href="{xen:link members}">{xen:phrase notable_members}</a></li>
+						<xen:if is="{$xenOptions.enableMemberList}"><li><a href="{xen:link members/list}">{xen:phrase registered_members}</a></li></xen:if>
+						<li><a href="{xen:link online}">{xen:phrase current_visitors}</a></li>
+						<xen:if is="{$xenOptions.enableNewsFeed}"><li><a href="{xen:link recent-activity}">{xen:phrase recent_activity}</a></li></xen:if>
+						<xen:if is="{$canViewProfilePosts}"><li><a href="{xen:link find-new/profile-posts}">{xen:phrase new_profile_posts}</a></li></xen:if>
+					</xen:hook>
+					</ul>
+				</div>
+			</li>
+		</xen:if>				
+		
+		<!-- extra tabs: end -->
+		<xen:if is="{$extraTabs.end}">
+		<xen:foreach loop="$extraTabs.end" key="$extraTabId" value="$extraTab">
+			<xen:if is="{$extraTab.linksTemplate}">
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+				<a href="{$extraTab.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$extraTab.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} {$extraTabId}TabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$extraTab.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					{xen:raw $extraTab.linksTemplate}
+				</div>
+			</li>
+			<xen:else />
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'PopupClosed'}">
+					<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+					<xen:if is="{$extraTab.selected}"><div class="tabLinks"></div></xen:if>
+				</li>
+			</xen:if>
+		</xen:foreach>
+		</xen:if>
+
+		<!-- responsive popup -->
+		<li class="navTab navigationHiddenTabs Popup PopupControl PopupClosed" style="display:none">	
+						
+			<a rel="Menu" class="navLink NoPopupGadget"><span class="menuIcon">{xen:phrase menu}</span></a>
+			
+			<div class="Menu JsOnly blockLinksList primaryContent" id="NavigationHiddenMenu"></div>
+		</li>
+			
+		
+		<!-- no selection -->
+		<xen:if is="!{$selectedTab}">
+			<li class="navTab selected"><div class="tabLinks"></div></li>
+		</xen:if>
+		
+	</ul>
+	
+	<xen:if is="{$tabs.account.selected}">
+<li class="navTab selected blankTab PopupClosed">
+<div class="tabLinks">
+<div class="primaryContent menuHeader">
+<h3>{$tabs.account.title}</h3>
+<div class="muted">{xen:phrase quick_links}</div>
+</div>
+<ul class="secondaryContent blockLinksList">
+<xen:hook name="navigation_tabs_account">
+<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+<!--<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>-->
+</xen:hook>
+</ul>
+</div>
+</li>
+</xen:if>
+</ul>
+ 
+<xen:comment>
+<xen:if is="{$visitor.user_id}"><xen:include template="navigation_visitor_tab" /></xen:if>
+</xen:comment>
+</div>
+
+<span class="helper"></span>
+			
+		</nav>	
+	</div>
+</div>]]></template>
+    <template title="navigation_visitor_tab" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="navigation.css" />
+
+<ul class="visitorTabs">
+
+	<xen:hook name="navigation_visitor_tabs_start" />
+
+	<!-- account -->
+	<li class="navTab account Popup PopupControl PopupClosed {xen:if $tabs.account.selected, 'selected'}">
+
+		<xen:set var="$visitorHiddenUnread" value="{xen:calc '{$visitor.alerts_unread} + {$visitor.conversations_unread}'}" />
+		<a href="{xen:link account}" class="navLink accountPopup NoPopupGadget" rel="Menu"><img src="{xen:helper avatar, $visitor, s}" class="miniMe" alt="{$visitor_username}" /><strong class="accountUsername">{$visitor.username}</strong>
+			<strong class="itemCount ResponsiveOnly {xen:if $visitorHiddenUnread, '', 'Zero'}"
+				id="VisitorExtraMenu_Counter">
+				<span class="Total">{xen:number $visitorHiddenUnread}</span>
+				<span class="arrow"></span>
+			</strong>
+		</a>
+		
+		<div class="Menu JsOnly" id="AccountMenu">
+			<div class="primaryContent menuHeader">
+				<xen:avatar user="$visitor" size="m" class="NoOverlay plainImage" title="{xen:phrase view_your_profile}" />
+				
+				<h3><a href="{xen:link members, $visitor}" class="concealed" title="{xen:phrase view_your_profile}">{$visitor.username}</a></h3>
+				
+				<xen:if hascontent="true"><div class="muted"><xen:contentcheck>{xen:helper usertitle, $visitor}</xen:contentcheck></div></xen:if>
+				
+				<ul class="links">
+					<li class="fl"><a href="{xen:link members, $visitor}">{xen:phrase your_profile_page}</a></li>
+				</ul>
+			</div>
+			<div class="menuColumns secondaryContent">
+				<ul class="col1 blockLinksList">
+				<xen:hook name="navigation_visitor_tab_links1">
+					<xen:if is="{$canEditProfile}"><li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li></xen:if>
+					<xen:if is="{$canEditSignature}"><li><a href="{xen:link account/signature}">{xen:phrase signature}</a></li></xen:if>
+					<li><a href="{xen:link account/contact-details}">{xen:phrase contact_details}</a></li>
+					<li><a href="{xen:link account/privacy}">{xen:phrase privacy}</a></li>
+					<li><a href="{xen:link account/preferences}" class="OverlayTrigger">{xen:phrase preferences}</a></li>
+					<li><a href="{xen:link account/alert-preferences}">{xen:phrase alert_preferences}</a></li>
+					<xen:if is="{$canUploadAvatar}"><li><a href="{xen:link account/avatar}" class="OverlayTrigger" data-cacheOverlay="true">{xen:phrase avatar}</a></li></xen:if>
+					<xen:if is="{$xenOptions.facebookAppId} OR {$xenOptions.twitterAppKey} OR {$xenOptions.googleClientId}"><li><a href="{xen:link account/external-accounts}">{xen:phrase external_accounts}</a></li></xen:if>
+					<li><a href="{xen:link account/security}">{xen:phrase password}</a></li>
+				</xen:hook>
+				</ul>
+				<ul class="col2 blockLinksList">
+				<xen:hook name="navigation_visitor_tab_links2">
+					<xen:if is="{$xenOptions.enableNewsFeed}"><li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li></xen:if>
+					<li><a href="{xen:link conversations}">{xen:phrase conversations}
+						<strong class="itemCount {xen:if $visitor.conversations_unread, '', 'Zero'}"
+							id="VisitorExtraMenu_ConversationsCounter">
+							<span class="Total">{xen:number $visitor.conversations_unread}</span>
+						</strong></a></li>
+					<li><a href="{xen:link account/alerts}">{xen:phrase alerts}
+						<strong class="itemCount {xen:if $visitor.alerts_unread, '', 'Zero'}"
+							id="VisitorExtraMenu_AlertsCounter">
+							<span class="Total">{xen:number $visitor.alerts_unread}</span>
+						</strong></a></li>
+					<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+					<li><a href="{xen:link search/member, '', 'user_id={$visitor.user_id}'}">{xen:phrase your_content}</a></li>
+					<li><a href="{xen:link account/following}">{xen:phrase people_you_follow}</a></li>
+					<li><a href="{xen:link account/ignored}">{xen:phrase people_you_ignore}</a></li>
+					<xen:if is="{$xenCache.userUpgradeCount}"><li><a href="{xen:link account/upgrades}">{xen:phrase account_upgrades}</a></li></xen:if>
+					<li><a href="{xen:link account/two-step}">{xen:phrase two_step_verification}</a></li>
+				</xen:hook>
+				</ul>
+			</div>
+			<div class="menuColumns secondaryContent">
+				<ul class="col1 blockLinksList">
+					<li>				
+						<form action="{xen:link account/toggle-visibility}" method="post" class="AutoValidator visibilityForm">
+							<label><input type="checkbox" name="visible" value="1" class="SubmitOnChange" {xen:checked $visitor.visible} />
+								{xen:phrase show_online_status}</label>
+							<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+						</form>
+					</li>
+				</ul>
+				<ul class="col2 blockLinksList">
+					<li><a href="{xen:link logout, '', '_xfToken={$visitor.csrf_token_page}'}" class="LogOut">{xen:phrase log_out}</a></li>
+				</ul>
+			</div>
+			<xen:if is="{$canUpdateStatus}">
+				<form action="{xen:link members/post, $visitor}" method="post" class="sectionFooter statusPoster AutoValidator" data-optInOut="OptIn">
+					<textarea name="message" class="textCtrl StatusEditor UserTagger Elastic" placeholder="{xen:phrase update_your_status}..." rows="1" cols="40" style="height:18px" data-statusEditorCounter="#visMenuSEdCount" data-nofocus="true"></textarea>
+					<div class="submitUnit">
+						<span id="visMenuSEdCount" title="{xen:phrase characters_remaining}"></span>
+						<input type="submit" class="button primary MenuCloser" value="{xen:phrase post_verb}" />
+						<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+						<input type="hidden" name="return" value="1" /> 
+					</div>
+				</form>
+			</xen:if>
+		</div>		
+	</li>
+		
+<xen:comment>
+<xen:if is="{$tabs.account.selected}">
+<li class="navTab selected PopupClosed">
+<div class="tabLinks">
+<div class="primaryContent menuHeader">
+<h3>{$tabs.account.title}</h3>
+<div class="muted">{xen:phrase quick_links}</div>
+</div>
+<ul class="secondaryContent blockLinksList">
+<xen:hook name="navigation_tabs_account">
+<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+<!--<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>-->
+</xen:hook>
+  </ul>
+</div>
+</li>
+</xen:if>
+</xen:comment>
+	
+	<!-- conversations popup -->
+	<li class="navTab inbox Popup PopupControl PopupClosed {xen:if $tabs.inbox.selected, 'selected'}">
+					
+		<a href="{xen:link conversations}" rel="Menu" class="navLink NoPopupGadget">{xen:phrase inbox}
+			<strong class="itemCount {xen:if {$visitor.conversations_unread}, '', 'Zero'}"
+				id="ConversationsMenu_Counter" data-text="{xen:phrase you_have_x_new_unread_conversations}">
+				<span class="Total">{xen:number $visitor.conversations_unread}</span>
+				<span class="arrow"></span>
+			</strong>
+		</a>
+		
+		<div class="Menu JsOnly navPopup" id="ConversationsMenu"
+			data-contentSrc="{xen:link 'conversations/popup'}"
+			data-contentDest="#ConversationsMenu .listPlaceholder">
+			
+			<div class="menuHeader primaryContent">
+				<h3>
+					<span class="Progress InProgress"></span>
+					<a href="{xen:link conversations}" class="concealed">{xen:phrase conversations}</a>
+				</h3>						
+			</div>
+			
+			<div class="listPlaceholder"></div>
+			
+			<div class="sectionFooter">
+				<xen:if is="{$canStartConversation}"><a href="{xen:link conversations/add}" class="floatLink">{xen:phrase start_new_conversation}</a></xen:if>
+				<a href="{xen:link conversations}">{xen:phrase show_all}...</a>
+			</div>
+		</div>
+	</li>
+	
+	<xen:if is="{$tabs.inbox.selected}">
+	<li class="navTab selected">
+		<div class="tabLinks">
+			<ul class="secondaryContent blockLinksList">
+				<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+				<li><a href="{xen:link conversations/starred}">{xen:phrase starred_conversations}</a></li>
+				<li><a href="{xen:link conversations/yours}">{xen:phrase conversations_you_started}</a></li>
+			</ul>
+		</div>
+	</li>
+	</xen:if>
+	
+	<xen:hook name="navigation_visitor_tabs_middle" />
+	
+	<!-- alerts popup -->
+	<li class="navTab alerts Popup PopupControl PopupClosed">	
+					
+		<a href="{xen:link account/alerts}" rel="Menu" class="navLink NoPopupGadget">{xen:phrase alerts}
+			<strong class="itemCount {xen:if {$visitor.alerts_unread}, '', 'Zero'}"
+				id="AlertsMenu_Counter" data-text="{xen:phrase you_have_x_new_alerts}">
+				<span class="Total">{xen:number $visitor.alerts_unread}</span>
+				<span class="arrow"></span>
+			</strong>
+		</a>
+		
+		<div class="Menu JsOnly navPopup" id="AlertsMenu"
+			data-contentSrc="{xen:link 'account/alerts-popup'}"
+			data-contentDest="#AlertsMenu .listPlaceholder"
+			data-removeCounter="#AlertsMenu_Counter">
+			
+			<div class="menuHeader primaryContent">
+				<h3>
+					<span class="Progress InProgress"></span>
+					<a href="{xen:link account/alerts}" class="concealed">{xen:phrase alerts}</a>
+				</h3>
+			</div>
+			
+			<div class="listPlaceholder"></div>
+			
+			<div class="sectionFooter">
+				<a href="{xen:link account/alert-preferences}" class="floatLink">{xen:phrase alert_preferences}</a>
+				<a href="{xen:link account/alerts}">{xen:phrase show_all}...</a>
+			</div>
+		</div>
+	</li>
+	
+	<xen:hook name="navigation_visitor_tabs_end" />
+</ul>]]></template>
+    <template title="PAGE_CONTAINER" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<!DOCTYPE html><xen:set var="$isResponsive" value="{xen:if '{xen:property enableResponsive} AND !{$noResponsive}', 1, 0}" />
+<html id="XenForo" lang="{$visitorLanguage.language_code}" dir="{$visitorLanguage.text_direction}" class="Public NoJs {xen:if {$visitor.user_id}, 'LoggedIn', 'LoggedOut'} {xen:if {$sidebar}, 'Sidebar', 'NoSidebar'} {xen:if $hasAutoDeferred, RunDeferred} {xen:if $isResponsive, Responsive, NoResponsive}" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<xen:hook name="page_container_head">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<xen:if is="{$isResponsive}">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</xen:if>
+	<xen:if is="{$requestPaths.fullBasePath}">
+		<base href="{$requestPaths.fullBasePath}" />
+		<script><xen:comment>/* Chrome bug and for Google cache */</xen:comment>
+			var _b = document.getElementsByTagName('base')[0], _bH = "{xen:jsescape $requestPaths.fullBasePath}";
+			if (_b && _b.href != _bH) _b.href = _bH;
+		</script>
+	</xen:if>
+
+	<title><xen:if is="{$title}">{xen:raw $title} | {$xenOptions.boardTitle}<xen:else />{$xenOptions.boardTitle}</xen:if></title>
+	
+	<noscript><style>.JsOnly, .jsOnly { display: none !important; }</style></noscript>
+	<link rel="stylesheet" href="css.php?css=xenforo,form,public&amp;style={xen:urlencode $_styleId}&amp;dir={$visitorLanguage.text_direction}&amp;d={$visitorStyle.last_modified_date}" />
+	<!--XenForo_Require:CSS-->	
+	{xen:helper ignoredCss, {$visitor.ignoredUsers}}
+
+	<xen:include template="google_analytics" />
+	<xen:include template="page_container_js_head" />
+	
+	<link rel="apple-touch-icon" href="{xen:helper fullurl, {xen:property ogLogoPath}, 1}" />
+	<link rel="alternate" type="application/rss+xml" title="{xen:phrase rss_feed_for_x, 'title={$xenOptions.boardTitle}'}" href="{xen:link forums/-/index.rss}" />
+	<xen:if is="{$pageDescription.content} AND !{$pageDescription.skipmeta} AND !{$head.description}"><meta name="description" content="{xen:string wordTrim, {xen:helper stripHtml, {xen:raw $pageDescription.content}}, 200}" /></xen:if>
+	<xen:if is="{$head}"><xen:foreach loop="$head" value="$headElement">{xen:raw $headElement}</xen:foreach></xen:if>
+</xen:hook>
+</head>
+
+<body{xen:if {$bodyClasses}, ' class="{$bodyClasses}"'}>
+<xen:hook name="body">
+
+<xen:if is="{$visitor.user_id}">
+<xen:include template="moderator_bar" />
+<xen:elseif is="!{$visitor.user_id} && !{$hideLoginBar}" />
+<xen:include template="login_bar" />
+</xen:if>
+
+<div id="headerMover">
+	<div id="headerProxy"></div>
+
+<div id="content" class="{$contentTemplate}">
+	<div class="pageWidth">
+		<div class="pageContent">
+			<!-- main content area -->
+			
+			<xen:hook name="page_container_content_top" />
+			
+			<xen:if is="{$sidebar}">
+				<div class="mainContainer">
+					<div class="mainContent"></xen:if>
+						
+						<xen:include template="ad_above_top_breadcrumb" />
+						
+						<xen:hook name="page_container_breadcrumb_top">
+						<div class="breadBoxTop {xen:if $topctrl, withTopCtrl}">
+							<xen:if is="{$topctrl}"><div class="topCtrl">{xen:raw $topctrl}</div></xen:if>
+							<xen:include template="breadcrumb"><xen:set var="$microdata">1</xen:set></xen:include>
+						</div>
+						</xen:hook>
+						
+						<xen:include template="ad_below_top_breadcrumb" />
+					
+						<!--[if lt IE 8]>
+							<p class="importantMessage">{xen:phrase you_are_using_out_of_date_browser_upgrade}</p>
+						<![endif]-->
+
+						<xen:hook name="page_container_notices">
+						<xen:include template="notices" />						
+						</xen:hook>
+						
+						<xen:hook name="page_container_content_title_bar">
+						<xen:if is="!{$noH1}">						
+							<!-- h1 title, description -->
+							<div class="titleBar">
+								{xen:raw $beforeH1}
+								<h1><xen:if
+									is="{$h1}">{xen:raw $h1}<xen:elseif
+									is="{$title}" />{xen:raw $title}<xen:else
+									/>{$xenOptions.boardTitle}</xen:if></h1>
+								
+								<xen:if is="{$pageDescription.content}"><p id="pageDescription" class="muted {$pageDescription.class}">{xen:raw $pageDescription.content}</p></xen:if>
+							</div>
+						</xen:if>
+						</xen:hook>
+						
+						<xen:include template="ad_above_content" />
+						
+						<!-- main template -->
+						{xen:raw $contents}
+						
+						<xen:include template="ad_below_content" />
+						
+						<xen:if is="!{$visitor.user_id} && !{$hideLoginBar}">
+							<!-- login form, to be moved to the upper drop-down -->
+							<xen:include template="login_bar_form" />
+						</xen:if>
+						
+					<xen:if is="{$sidebar}"></div>
+				</div>
+				
+				<!-- sidebar -->
+				<aside>
+					<div class="sidebar">
+						<xen:hook name="page_container_sidebar">
+						<xen:include template="ad_sidebar_top" />
+						<xen:if is="!{$noVisitorPanel}"><xen:include template="sidebar_visitor_panel" /></xen:if>
+						{xen:raw $sidebar}
+						<xen:include template="ad_sidebar_bottom" />
+						</xen:hook>
+					</div>
+				</aside>
+			</xen:if>
+			
+			<xen:hook name="page_container_breadcrumb_bottom">			
+			<div class="breadBoxBottom"><xen:include template="breadcrumb" /></div>
+			</xen:hook>
+						
+			<xen:include template="ad_below_bottom_breadcrumb" />
+						
+		</div>
+	</div>
+</div>
+
+<header>
+	<xen:include template="header" />
+	<xen:edithint template="navigation" />
+	<xen:edithint template="search_bar" />
+</header>
+
+</div>
+
+<footer>
+	<xen:include template="footer" />
+</footer>
+
+<xen:include template="page_container_js_body" />
+
+<xen:if is="{$isIndexPage} AND {$canSearch}">
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "{xen:jsescape {xen:link canonical:index}}",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "{xen:jsescape {xen:link canonical:search/search}}{xen:if $xenOptions.useFriendlyUrls, '?', '&'}keywords={search_keywords}",
+		"query-input": "required name=search_keywords"
+	}
+}
+</script>
+</xen:if>
+
+</xen:hook>
+</body>
+</html>]]></template>
+  </templates>
+</style>
