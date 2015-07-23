@@ -44,6 +44,11 @@ line-height: 16px;
 .navTabs .navTab.account .navLink .accountUsername
 {
     display: inline-block;
+}
+
+#header
+{
+	background-color: White;
 }]]></template>
     <template title="header" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="header.css" />
 
