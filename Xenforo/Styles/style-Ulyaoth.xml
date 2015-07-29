@@ -1,5 +1,3779 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style title="Ulyaoth" description="" user_selectable="1" addon_id="ulyaoth">
-  <properties/>
-  <templates/>
+<style title="Ulyaoth" description="" user_selectable="1">
+  <properties>
+    <property property_name="footer" property_type="css"><![CDATA[{"background-color":"@primaryMedium","border-bottom-left-radius":"5px","border-bottom-right-radius":"5px","color":"@primaryLighter","extra":"overflow: hidden;\nzoom: 1;","font-size":"11px"}]]></property>
+  </properties>
+  <templates>
+    <template title="EXTRA.css" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[#moderatorBar .adminLink
+{
+float:left;
+}
+#moderatorBar .visitorTabs
+{
+float: right;
+}
+#moderatorBar .visitorTabs li
+{
+float:left;
+}
+#moderatorBar .visitorTabs .navLink
+{
+line-height: 16px;
+}
+#moderatorBar .visitorTabs .navLink:hover
+{
+}
+#moderatorBar .visitorTabs .navLink .itemCount
+{
+line-height: 16px;
+}
+#moderatorBar .visitorTabs .navLink .itemCount:hover
+{
+}
+
+/* Avatar in visitor tab */
+.navTab .accountPopup img
+{
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-top: 3px;
+    border-radius: 2px;
+}
+
+/* Firefox fix for avatar in visitor tab */
+.navTabs .navTab.account .navLink .accountUsername
+{
+    display: inline-block;
+}
+
+#header
+{
+	background-color: White;
+}]]></template>
+    <template title="footer" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="footer.css" />
+
+<xen:hook name="footer">
+<div class="footer">
+	<div class="pageWidth">
+		<div class="pageContent">
+			<xen:if is="{$canChangeStyle} OR {$canChangeLanguage}">
+			<dl class="choosers">
+				<xen:if is="{$canChangeStyle}">
+					<dt>{xen:phrase style}</dt>
+					<dd><a href="{xen:link 'misc/style', '', 'redirect={$requestPaths.requestUri}'}" class="OverlayTrigger Tooltip" title="{xen:phrase style_chooser}" rel="nofollow">{$visitorStyle.title}</a></dd>
+				</xen:if>
+				<xen:if is="{$canChangeLanguage}">
+					<dt>{xen:phrase language}</dt>
+					<dd><a href="{xen:link 'misc/language', '', 'redirect={$requestPaths.requestUri}'}" class="OverlayTrigger Tooltip" title="{xen:phrase language_chooser}" rel="nofollow">{$visitorLanguage.title}</a></dd>
+				</xen:if>
+			</dl>
+			</xen:if>
+			
+			<ul class="footerLinks">
+			<xen:hook name="footer_links">
+				<xen:if is="{$xenOptions.contactUrl.type} === 'default'">
+					<li><a href="{xen:link 'misc/contact'}" class="OverlayTrigger" data-overlayOptions="{&quot;fixed&quot;:false}">{xen:phrase contact_us}</a></li>
+				<xen:elseif is="{$xenOptions.contactUrl.type} === 'custom'" />
+					<li><a href="{$xenOptions.contactUrl.custom}" {xen:if {$xenOptions.contactUrl.overlay}, 'class="OverlayTrigger" data-overlayOptions="{&quot;fixed&quot;:false}"'}>{xen:phrase contact_us}</a></li>
+				</xen:if>
+				<li><a href="{xen:link help}">{xen:phrase help}</a></li>
+				<xen:if is="{$homeLink}"><li><a href="{$homeLink}" class="homeLink">{xen:phrase home}</a></li></xen:if>
+				<li><a href="{$requestPaths.requestUri}#navigation" class="topLink">{xen:phrase go_to_top}</a></li>
+				<li><a href="{xen:link forums/-/index.rss}" rel="alternate" class="globalFeed" target="_blank"
+					title="{xen:phrase rss_feed_for_x, 'title={$xenOptions.boardTitle}'}">{xen:phrase rss}</a></li>
+			</xen:hook>
+			</ul>
+			
+			<span class="helper"></span>
+		</div>
+	</div>
+</div>
+
+<div class="footerLegal">
+	<div class="pageWidth">
+		<div class="pageContent">
+			<ul id="legal">
+			<xen:hook name="footer_links_legal">
+				<xen:if is="{$tosUrl}"><li><a href="{$tosUrl}">{xen:phrase terms_and_rules}</a></li></xen:if>
+				<xen:if is="{$xenOptions.privacyPolicyUrl}"><li><a href="{$xenOptions.privacyPolicyUrl}">{xen:phrase privacy_policy}</a></li></xen:if>
+			</xen:hook>
+			</ul>
+			
+			<div id="copyright">{xen:helper copyright} {xen:phrase extra_copyright}</div>
+			<xen:hook name="footer_after_copyright" />
+		
+			<xen:if is="{$debugMode}">
+				<xen:if hascontent="true">
+					<dl class="pairsInline debugInfo" title="{$controllerName}-&gt;{$controllerAction}{xen:if $viewName, ' ({$viewName})'}">
+					<xen:contentcheck>
+						<xen:if is="{$page_time}"><dt>{xen:phrase timing}:</dt> <dd><a href="{$debug_url}" rel="nofollow">{xen:phrase x_seconds, 'time={xen:number $page_time, 4}'}</a></dd></xen:if>
+						<xen:if is="{$memory_usage}"><dt>{xen:phrase memory}:</dt> <dd>{xen:phrase x_mb, 'size={xen:number {xen:calc "{$memory_usage} / 1024 / 1024"}, 3}'}</dd></xen:if>
+						<xen:if is="{$db_queries}"><dt>{xen:phrase db_queries}:</dt> <dd>{xen:number {$db_queries}}</dd></xen:if>
+					</xen:contentcheck>
+					</dl>
+				</xen:if>
+			</xen:if>
+			
+			<span class="helper"></span>
+		</div>
+	</div>	
+</div>
+</xen:hook>]]></template>
+    <template title="footer.css" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[.footer .pageContent
+{
+	{xen:property footer}
+}
+	
+	.footer a,
+	.footer a:visited
+	{
+		{xen:property footerLink}
+	}
+	
+		.footer a:hover,
+		.footer a:active
+		{
+			{xen:property footerLinkHover}
+		}
+
+	.footer .choosers
+	{
+		{xen:property footerLeftBlock}
+	}
+	
+		.footer .choosers dt
+		{
+			display: none;
+		}
+		
+		.footer .choosers dd
+		{
+			float: left;
+			<xen:if is="{$pageIsRtl}">*display: inline; *float: none; *zoom: 1;</xen:if>
+		}
+		
+	.footerLinks
+	{
+		{xen:property footerRightBlock}
+	}
+	
+		.footerLinks li
+		{
+			float: left;
+			<xen:if is="{$pageIsRtl}">*display: inline; *float: none; *zoom: 1;</xen:if>
+		}
+		
+			.footerLinks a.globalFeed
+			{
+				width: 14px;
+				height: 14px;
+				display: block;
+				text-indent: -9999px;
+				white-space: nowrap;
+				background: url('{xen:property imagePath}/xenforo/xenforo-ui-sprite.png') no-repeat -112px -16px;
+				padding: 0;
+				margin: 5px;
+			}
+
+.footerLegal .pageContent
+{
+	font-size: 11px;
+	overflow: hidden; zoom: 1;
+	padding: 5px 5px 15px;
+	text-align: center;
+}
+	
+	#copyright
+	{
+		color: {xen:property dimmedTextColor};
+		float: left;
+	}
+	
+	#legal
+	{
+		float: right;
+	}
+	
+		#legal li
+		{
+			float: left;
+			<xen:if is="{$pageIsRtl}">*display: inline; *float: none; *zoom: 1;</xen:if>
+			margin-left: 10px;
+		}
+
+<xen:if is="{xen:property enableResponsive}">
+@media (max-width:{xen:property maxResponsiveMediumWidth})
+{
+	.Responsive .footerLinks a.globalFeed,
+	.Responsive .footerLinks a.topLink,
+	.Responsive .footerLinks a.homeLink
+	{
+		display: none;
+	}
+
+	.Responsive .footerLegal .debugInfo
+	{
+		clear: both;
+	}
+}
+
+@media (max-width:{xen:property maxResponsiveNarrowWidth})
+{
+	.Responsive #copyright span
+	{
+		display: none;
+	}
+}
+</xen:if>]]></template>
+    <template title="header" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="header.css" />
+
+<xen:hook name="header">
+<div id="header">
+	<xen:include template="logo_block" />
+</div>
+</xen:hook>]]></template>
+    <template title="moderator_bar" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[]]></template>
+    <template title="moderator_bar.css" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[]]></template>
+    <template title="navigation" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="navigation.css" />
+
+<div id="navigation" class="pageWidth {xen:if $canSearch, withSearch}">
+	<div class="pageContent">
+		<nav>
+
+<div class="navTabs">
+	<ul class="publicTabs">
+	
+		<!-- home -->
+		<xen:if is="{$showHomeLink}">
+			<li class="navTab home PopupClosed"><a href="{$homeLink}" class="navLink">{xen:phrase home}</a></li>
+		</xen:if>
+		
+		
+		<!-- extra tabs: home -->
+		<xen:if is="{$extraTabs.home}">
+		<xen:foreach loop="$extraTabs.home" key="$extraTabId" value="$extraTab">
+			<xen:if is="{$extraTab.linksTemplate}">
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+				<a href="{$extraTab.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$extraTab.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} {$extraTabId}TabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$extraTab.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					{xen:raw $extraTab.linksTemplate}
+				</div>
+			</li>
+			<xen:else />
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'PopupClosed'}">
+					<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+					<xen:if is="{$extraTab.selected}"><div class="tabLinks"></div></xen:if>
+				</li>
+			</xen:if>
+		</xen:foreach>
+		</xen:if>
+		
+		
+		<!-- forums -->
+		<xen:if is="{$tabs.forums}">
+			<li class="navTab forums {xen:if $tabs.forums.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$tabs.forums.href}" class="navLink">{$tabs.forums.title}</a>
+				<a href="{$tabs.forums.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$tabs.forums.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} forumsTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$tabs.forums.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					<xen:hook name="navigation_tabs_forums">
+						<xen:if is="{$visitor.user_id}"><li><a href="{xen:link 'forums/-/mark-read', $forum, 'date={$serverTime}'}" class="OverlayTrigger">{xen:phrase mark_forums_read}</a></li></xen:if>
+						<xen:if is="{$canSearch}"><li><a href="{xen:link search, '', 'type=post'}">{xen:phrase search_forums}</a></li></xen:if>
+						<xen:if is="{$visitor.user_id}">
+							<li><a href="{xen:link 'watched/forums'}">{xen:phrase watched_forums}</a></li>
+							<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>
+						</xen:if>
+						<li><a href="{xen:link 'find-new/posts'}" rel="nofollow">{xen:if $visitor.user_id, {xen:phrase new_posts}, {xen:phrase recent_posts}}</a></li>
+					</xen:hook>
+					</ul>
+				</div>
+			</li>
+		</xen:if>
+		
+		
+		<!-- extra tabs: middle -->
+		<xen:if is="{$extraTabs.middle}">
+		<xen:foreach loop="$extraTabs.middle" key="$extraTabId" value="$extraTab">
+			<xen:if is="{$extraTab.linksTemplate}">
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+				<a href="{$extraTab.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$extraTab.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} {$extraTabId}TabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$extraTab.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					{xen:raw $extraTab.linksTemplate}
+				</div>
+			</li>
+			<xen:else />
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'PopupClosed'}">
+					<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+					<xen:if is="{$extraTab.selected}"><div class="tabLinks"></div></xen:if>
+				</li>
+			</xen:if>
+		</xen:foreach>
+		</xen:if>
+		
+		
+		<!-- members -->
+		<xen:if is="{$tabs.members}">
+			<li class="navTab members {xen:if $tabs.members.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$tabs.members.href}" class="navLink">{$tabs.members.title}</a>
+				<a href="{$tabs.members.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$tabs.members.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} membersTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$tabs.members.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					<xen:hook name="navigation_tabs_members">
+						<li><a href="{xen:link members}">{xen:phrase notable_members}</a></li>
+						<xen:if is="{$xenOptions.enableMemberList}"><li><a href="{xen:link members/list}">{xen:phrase registered_members}</a></li></xen:if>
+						<li><a href="{xen:link online}">{xen:phrase current_visitors}</a></li>
+						<xen:if is="{$xenOptions.enableNewsFeed}"><li><a href="{xen:link recent-activity}">{xen:phrase recent_activity}</a></li></xen:if>
+						<xen:if is="{$canViewProfilePosts}"><li><a href="{xen:link find-new/profile-posts}">{xen:phrase new_profile_posts}</a></li></xen:if>
+					</xen:hook>
+					</ul>
+				</div>
+			</li>
+		</xen:if>				
+		
+		<!-- extra tabs: end -->
+		<xen:if is="{$extraTabs.end}">
+		<xen:foreach loop="$extraTabs.end" key="$extraTabId" value="$extraTab">
+			<xen:if is="{$extraTab.linksTemplate}">
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'Popup PopupControl PopupClosed'}">
+			
+				<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+				<a href="{$extraTab.href}" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="{xen:if {$extraTab.selected}, 'tabLinks', 'Menu JsOnly tabMenu'} {$extraTabId}TabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>{$extraTab.title}</h3>
+						<div class="muted">{xen:phrase quick_links}</div>
+					</div>
+					{xen:raw $extraTab.linksTemplate}
+				</div>
+			</li>
+			<xen:else />
+				<li class="navTab {$extraTabId} {xen:if $extraTab.selected, 'selected', 'PopupClosed'}">
+					<a href="{$extraTab.href}" class="navLink">{$extraTab.title}<xen:if is="{$extraTab.counter}"><strong class="itemCount"><span class="Total">{$extraTab.counter}</span><span class="arrow"></span></strong></xen:if></a>
+					<xen:if is="{$extraTab.selected}"><div class="tabLinks"></div></xen:if>
+				</li>
+			</xen:if>
+		</xen:foreach>
+		</xen:if>
+
+		<!-- responsive popup -->
+		<li class="navTab navigationHiddenTabs Popup PopupControl PopupClosed" style="display:none">	
+						
+			<a rel="Menu" class="navLink NoPopupGadget"><span class="menuIcon">{xen:phrase menu}</span></a>
+			
+			<div class="Menu JsOnly blockLinksList primaryContent" id="NavigationHiddenMenu"></div>
+		</li>
+			
+		
+		<!-- no selection -->
+		<xen:if is="!{$selectedTab}">
+			<li class="navTab selected"><div class="tabLinks"></div></li>
+		</xen:if>
+		
+	</ul>
+	
+	<xen:if is="{$tabs.account.selected}">
+<li class="navTab selected blankTab PopupClosed">
+<div class="tabLinks">
+<div class="primaryContent menuHeader">
+<h3>{$tabs.account.title}</h3>
+<div class="muted">{xen:phrase quick_links}</div>
+</div>
+<ul class="secondaryContent blockLinksList">
+<xen:hook name="navigation_tabs_account">
+<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+<!--<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>-->
+</xen:hook>
+</ul>
+</div>
+</li>
+</xen:if>
+</ul>
+ 
+<xen:comment>
+<xen:if is="{$visitor.user_id}"><xen:include template="navigation_visitor_tab" /></xen:if>
+</xen:comment>
+</div>
+
+<span class="helper"></span>
+			
+		</nav>	
+	</div>
+</div>]]></template>
+    <template title="navigation_visitor_tab" addon_id="XenForo" version_id="1050033" version_string="1.5.0 Beta 3" disable_modifications="0"><![CDATA[<xen:edithint template="navigation.css" />
+
+<ul class="visitorTabs">
+
+	<xen:hook name="navigation_visitor_tabs_start" />
+
+	<!-- account -->
+	<li class="navTab account Popup PopupControl PopupClosed {xen:if $tabs.account.selected, 'selected'}">
+
+		<xen:set var="$visitorHiddenUnread" value="{xen:calc '{$visitor.alerts_unread} + {$visitor.conversations_unread}'}" />
+		<a href="{xen:link account}" class="navLink accountPopup NoPopupGadget" rel="Menu"><img src="{xen:helper avatar, $visitor, s}" class="miniMe" alt="{$visitor_username}" /><strong class="accountUsername">{$visitor.username}</strong>
+			<strong class="itemCount ResponsiveOnly {xen:if $visitorHiddenUnread, '', 'Zero'}"
+				id="VisitorExtraMenu_Counter">
+				<span class="Total">{xen:number $visitorHiddenUnread}</span>
+				<span class="arrow"></span>
+			</strong>
+		</a>
+		
+		<div class="Menu JsOnly" id="AccountMenu">
+			<div class="primaryContent menuHeader">
+				<xen:avatar user="$visitor" size="m" class="NoOverlay plainImage" title="{xen:phrase view_your_profile}" />
+				
+				<h3><a href="{xen:link members, $visitor}" class="concealed" title="{xen:phrase view_your_profile}">{$visitor.username}</a></h3>
+				
+				<xen:if hascontent="true"><div class="muted"><xen:contentcheck>{xen:helper usertitle, $visitor}</xen:contentcheck></div></xen:if>
+				
+				<ul class="links">
+					<li class="fl"><a href="{xen:link members, $visitor}">{xen:phrase your_profile_page}</a></li>
+				</ul>
+			</div>
+			<div class="menuColumns secondaryContent">
+				<ul class="col1 blockLinksList">
+				<xen:hook name="navigation_visitor_tab_links1">
+					<xen:if is="{$canEditProfile}"><li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li></xen:if>
+					<xen:if is="{$canEditSignature}"><li><a href="{xen:link account/signature}">{xen:phrase signature}</a></li></xen:if>
+					<li><a href="{xen:link account/contact-details}">{xen:phrase contact_details}</a></li>
+					<li><a href="{xen:link account/privacy}">{xen:phrase privacy}</a></li>
+					<li><a href="{xen:link account/preferences}" class="OverlayTrigger">{xen:phrase preferences}</a></li>
+					<li><a href="{xen:link account/alert-preferences}">{xen:phrase alert_preferences}</a></li>
+					<xen:if is="{$canUploadAvatar}"><li><a href="{xen:link account/avatar}" class="OverlayTrigger" data-cacheOverlay="true">{xen:phrase avatar}</a></li></xen:if>
+					<xen:if is="{$xenOptions.facebookAppId} OR {$xenOptions.twitterAppKey} OR {$xenOptions.googleClientId}"><li><a href="{xen:link account/external-accounts}">{xen:phrase external_accounts}</a></li></xen:if>
+					<li><a href="{xen:link account/security}">{xen:phrase password}</a></li>
+				</xen:hook>
+				</ul>
+				<ul class="col2 blockLinksList">
+				<xen:hook name="navigation_visitor_tab_links2">
+					<xen:if is="{$xenOptions.enableNewsFeed}"><li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li></xen:if>
+					<li><a href="{xen:link conversations}">{xen:phrase conversations}
+						<strong class="itemCount {xen:if $visitor.conversations_unread, '', 'Zero'}"
+							id="VisitorExtraMenu_ConversationsCounter">
+							<span class="Total">{xen:number $visitor.conversations_unread}</span>
+						</strong></a></li>
+					<li><a href="{xen:link account/alerts}">{xen:phrase alerts}
+						<strong class="itemCount {xen:if $visitor.alerts_unread, '', 'Zero'}"
+							id="VisitorExtraMenu_AlertsCounter">
+							<span class="Total">{xen:number $visitor.alerts_unread}</span>
+						</strong></a></li>
+					<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+					<li><a href="{xen:link search/member, '', 'user_id={$visitor.user_id}'}">{xen:phrase your_content}</a></li>
+					<li><a href="{xen:link account/following}">{xen:phrase people_you_follow}</a></li>
+					<li><a href="{xen:link account/ignored}">{xen:phrase people_you_ignore}</a></li>
+					<xen:if is="{$xenCache.userUpgradeCount}"><li><a href="{xen:link account/upgrades}">{xen:phrase account_upgrades}</a></li></xen:if>
+					<li><a href="{xen:link account/two-step}">{xen:phrase two_step_verification}</a></li>
+				</xen:hook>
+				</ul>
+			</div>
+			<div class="menuColumns secondaryContent">
+				<ul class="col1 blockLinksList">
+					<li>				
+						<form action="{xen:link account/toggle-visibility}" method="post" class="AutoValidator visibilityForm">
+							<label><input type="checkbox" name="visible" value="1" class="SubmitOnChange" {xen:checked $visitor.visible} />
+								{xen:phrase show_online_status}</label>
+							<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+						</form>
+					</li>
+				</ul>
+				<ul class="col2 blockLinksList">
+					<li><a href="{xen:link logout, '', '_xfToken={$visitor.csrf_token_page}'}" class="LogOut">{xen:phrase log_out}</a></li>
+				</ul>
+			</div>
+			<xen:if is="{$canUpdateStatus}">
+				<form action="{xen:link members/post, $visitor}" method="post" class="sectionFooter statusPoster AutoValidator" data-optInOut="OptIn">
+					<textarea name="message" class="textCtrl StatusEditor UserTagger Elastic" placeholder="{xen:phrase update_your_status}..." rows="1" cols="40" style="height:18px" data-statusEditorCounter="#visMenuSEdCount" data-nofocus="true"></textarea>
+					<div class="submitUnit">
+						<span id="visMenuSEdCount" title="{xen:phrase characters_remaining}"></span>
+						<input type="submit" class="button primary MenuCloser" value="{xen:phrase post_verb}" />
+						<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+						<input type="hidden" name="return" value="1" /> 
+					</div>
+				</form>
+			</xen:if>
+		</div>		
+	</li>
+		
+<xen:comment>
+<xen:if is="{$tabs.account.selected}">
+<li class="navTab selected PopupClosed">
+<div class="tabLinks">
+<div class="primaryContent menuHeader">
+<h3>{$tabs.account.title}</h3>
+<div class="muted">{xen:phrase quick_links}</div>
+</div>
+<ul class="secondaryContent blockLinksList">
+<xen:hook name="navigation_tabs_account">
+<li><a href="{xen:link account/personal-details}">{xen:phrase personal_details}</a></li>
+<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+<li><a href="{xen:link account/news-feed}">{xen:phrase your_news_feed}</a></li>
+<li><a href="{xen:link account/likes}">{xen:phrase likes_youve_received}</a></li>
+<!--<li><a href="{xen:link 'watched/threads'}">{xen:phrase watched_threads}</a></li>-->
+</xen:hook>
+  </ul>
+</div>
+</li>
+</xen:if>
+</xen:comment>
+	
+	<!-- conversations popup -->
+	<li class="navTab inbox Popup PopupControl PopupClosed {xen:if $tabs.inbox.selected, 'selected'}">
+					
+		<a href="{xen:link conversations}" rel="Menu" class="navLink NoPopupGadget">{xen:phrase inbox}
+			<strong class="itemCount {xen:if {$visitor.conversations_unread}, '', 'Zero'}"
+				id="ConversationsMenu_Counter" data-text="{xen:phrase you_have_x_new_unread_conversations}">
+				<span class="Total">{xen:number $visitor.conversations_unread}</span>
+				<span class="arrow"></span>
+			</strong>
+		</a>
+		
+		<div class="Menu JsOnly navPopup" id="ConversationsMenu"
+			data-contentSrc="{xen:link 'conversations/popup'}"
+			data-contentDest="#ConversationsMenu .listPlaceholder">
+			
+			<div class="menuHeader primaryContent">
+				<h3>
+					<span class="Progress InProgress"></span>
+					<a href="{xen:link conversations}" class="concealed">{xen:phrase conversations}</a>
+				</h3>						
+			</div>
+			
+			<div class="listPlaceholder"></div>
+			
+			<div class="sectionFooter">
+				<xen:if is="{$canStartConversation}"><a href="{xen:link conversations/add}" class="floatLink">{xen:phrase start_new_conversation}</a></xen:if>
+				<a href="{xen:link conversations}">{xen:phrase show_all}...</a>
+			</div>
+		</div>
+	</li>
+	
+	<xen:if is="{$tabs.inbox.selected}">
+	<li class="navTab selected">
+		<div class="tabLinks">
+			<ul class="secondaryContent blockLinksList">
+				<li><a href="{xen:link conversations}">{xen:phrase conversations}</a></li>
+				<li><a href="{xen:link conversations/starred}">{xen:phrase starred_conversations}</a></li>
+				<li><a href="{xen:link conversations/yours}">{xen:phrase conversations_you_started}</a></li>
+			</ul>
+		</div>
+	</li>
+	</xen:if>
+	
+	<xen:hook name="navigation_visitor_tabs_middle" />
+	
+	<!-- alerts popup -->
+	<li class="navTab alerts Popup PopupControl PopupClosed">	
+					
+		<a href="{xen:link account/alerts}" rel="Menu" class="navLink NoPopupGadget">{xen:phrase alerts}
+			<strong class="itemCount {xen:if {$visitor.alerts_unread}, '', 'Zero'}"
+				id="AlertsMenu_Counter" data-text="{xen:phrase you_have_x_new_alerts}">
+				<span class="Total">{xen:number $visitor.alerts_unread}</span>
+				<span class="arrow"></span>
+			</strong>
+		</a>
+		
+		<div class="Menu JsOnly navPopup" id="AlertsMenu"
+			data-contentSrc="{xen:link 'account/alerts-popup'}"
+			data-contentDest="#AlertsMenu .listPlaceholder"
+			data-removeCounter="#AlertsMenu_Counter">
+			
+			<div class="menuHeader primaryContent">
+				<h3>
+					<span class="Progress InProgress"></span>
+					<a href="{xen:link account/alerts}" class="concealed">{xen:phrase alerts}</a>
+				</h3>
+			</div>
+			
+			<div class="listPlaceholder"></div>
+			
+			<div class="sectionFooter">
+				<a href="{xen:link account/alert-preferences}" class="floatLink">{xen:phrase alert_preferences}</a>
+				<a href="{xen:link account/alerts}">{xen:phrase show_all}...</a>
+			</div>
+		</div>
+	</li>
+	
+	<xen:hook name="navigation_visitor_tabs_end" />
+</ul>]]></template>
+    <template title="PAGE_CONTAINER" addon_id="XenForo" version_id="1050034" version_string="1.5.0 Beta 4" disable_modifications="0"><![CDATA[<xen:require css="ulyaoth.css" />
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+        Post List
+    </title>
+
+<link rel="stylesheet" href="css.php?css=ulyaoth&amp;style={xen:urlencode $_styleId}&amp;dir={$visitorLanguage.text_direction}&amp;d={$visitorStyle.last_modified_date}" />
+
+
+<link rel="icon" type="image/png" href=https://tutorials.ulyaoth.net/static/images/favicon.ico/>
+
+	
+
+    
+        
+    
+
+
+
+</head>
+<body>
+
+
+    
+
+
+<div class="container" id="header">
+    
+    
+        <div class="subdomain">
+        Subdomain: Ulyaoth Tutorials
+        </div>
+    
+    
+    
+
+
+
+<div class="row">
+
+    <div id="logo">
+        <a href="/"><img src="https://tutorials.ulyaoth.net/static/images/ulyaoth.png"></a>
+    </div>
+
+    <div>
+        <div id="navbar">
+            
+            <div class="item">
+                <ul class="dropdown">
+                    <a href="#">
+                        <div class="icon"><i class="fa fa-bars"></i></div>
+                        <div class="navlabel">Shortcuts</div>
+                    </a>
+                    <ul class="items">
+                        
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Questions/">Questions</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Tutorial/">Tutorials</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Forum/">Forum</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/How-to/">How-to</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Job/">Jobs</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/p/unanswered/">Unanswered</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/list/">All Tags</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/site/me/"><b>Your Account</b></a>
+                            </li>
+                        
+                            <li>
+                                <a href="/site/edit/my/profile/"><b>Edit Profile</b></a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+
+            </div>
+
+            
+                <div class="item">
+                    <a href="/accounts/login/">
+                        <div class="icon"><i class="fa fa-sign-in"></i></div>
+                        <div class="navlabel">Sign&nbsp;in</div>
+                    </a>
+                </div>
+            
+
+
+
+            <div class="item">
+                <a href="/site/new/post/">
+                    <div class="icon"><i class="fa fa-plus-circle"></i></div>
+                    <div class="navlabel">New&nbsp;Post</div>
+                </a>
+            </div>
+
+            <!-- <div class="item">
+            <a href="/u/list/">
+                <div class="icon"><i class="fa fa-user"></i></div>
+                <div class="navlabel">Users</div>
+            </a>
+        </div> -->
+
+
+            <div class="item">
+                <a href="/planet/">
+                    <div class="icon"><i class="fa fa-globe"></i></div>
+                    <div class="navlabel">Planet</div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="/sites/">
+                    <div class="icon"><i class="fa fa-sitemap"></i></div>
+                    <div class="navlabel">Sites</div>
+                </a>
+            </div>
+
+
+            
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+<div class="container" id="body">
+    
+
+    
+
+
+
+
+    
+    <div class="row">
+
+
+
+        <div class="twelve columns">
+
+            <div id="userbar">
+
+
+
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row" id="post_list">
+
+        <div class="nine columns">
+
+
+            
+
+
+
+<div class="row">
+    <div class="twelve columns" id="search_bar">
+        <form action="/site/search/" method="get">
+            <input type="text" name="q" class="u-full-width"
+                   maxlength="100" placeholder="Search" id="search" value="">
+        </form>
+    </div>
+</div>
+
+
+
+
+
+    
+
+
+<div class="row">
+
+    <div class="page_bar">
+
+        
+
+            <div class="left">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> sort by activity</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> sort by activity</a>
+                            </li>
+                        
+                            <li><a href="?sort=views&days=0&q="> sort by views</a>
+                            </li>
+                        
+                            <li><a href="?sort=followers&days=0&q="> sort by followers</a>
+                            </li>
+                        
+                            <li><a href="?sort=replies&days=0&q="> sort by answers</a>
+                            </li>
+                        
+                            <li><a href="?sort=bookmarks&days=0&q="> sort by bookmarks</a>
+                            </li>
+                        
+                            <li><a href="?sort=votes&days=0&q="> sort by votes</a>
+                            </li>
+                        
+                            <li><a href="?sort=rank&days=0&q="> sort by rank</a>
+                            </li>
+                        
+                            <li><a href="?sort=creation&days=0&q="> sort by creation</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        
+            <div class="right">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> all time</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> all time</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=1&q="> today</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=7&q="> this week</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=36&q="> this month</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=365&q="> this year</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        <div>
+            
+                &lt;prev
+            
+
+            &bull; 7 results &bull; page 1
+            of 1 &bull;
+
+            
+                next&gt;
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+            
+
+
+<xen:foreach loop="$latestThreads" value="$thread">            
+                <div class="row post_row Open">
+
+                    <div class="box vote_count">
+                        <div class="c">
+                          
+                            {$thread.likes}
+                          
+                        </div>
+                        <div class="t">likes</div>
+                    </div>
+
+                    <div class="box Tutorial">
+                        
+                          <div class="c">
+                            {$thread.reply_count}
+                          </div>
+                          <div class="t">replies</div>
+                        
+                    </div>
+
+                    <div class="box view_count lg">
+                        <div class="c">{$thread.view_count}</div>
+                        <div class="t">views</div>
+                    </div>
+
+                    <div class="post_title">
+                        <a href="{xen:link threads, $thread}">{$thread.title}</a>
+                    </div>
+                    
+
+
+<xen:foreach loop="$thread.tags" value="$tag">
+<div class="tag_bar">
+    
+        <a class="tag" href="/index.php?tags/{$tag.tag}/">{$tag.tag}</a>
+    
+</div>
+</xen:foreach>
+
+
+
+
+
+
+                    
+
+
+<div class="userlink right">
+    last activity {xen:datetime $thread.last_post_date, html} by 
+
+
+  <a href="index.php?members/{$thread.username}.{$thread.user_id}/">{$thread.username}</a>
+
+
+
+
+</div>
+                </div>
+</xen:foreach>            
+
+            
+
+
+            
+
+
+<div class="row">
+
+    <div class="page_bar">
+
+        
+
+            <div class="left">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> sort by activity</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> sort by activity</a>
+                            </li>
+                        
+                            <li><a href="?sort=views&days=0&q="> sort by views</a>
+                            </li>
+                        
+                            <li><a href="?sort=followers&days=0&q="> sort by followers</a>
+                            </li>
+                        
+                            <li><a href="?sort=replies&days=0&q="> sort by answers</a>
+                            </li>
+                        
+                            <li><a href="?sort=bookmarks&days=0&q="> sort by bookmarks</a>
+                            </li>
+                        
+                            <li><a href="?sort=votes&days=0&q="> sort by votes</a>
+                            </li>
+                        
+                            <li><a href="?sort=rank&days=0&q="> sort by rank</a>
+                            </li>
+                        
+                            <li><a href="?sort=creation&days=0&q="> sort by creation</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        
+            <div class="right">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> all time</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> all time</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=1&q="> today</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=7&q="> this week</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=36&q="> this month</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=365&q="> this year</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        <div>
+            
+                &lt;prev
+            
+
+            &bull; 7 results &bull; page 1
+            of 1 &bull;
+
+            
+                next&gt;
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        </div>
+
+        <div class="three columns recent_list">
+
+            
+
+                
+
+
+<div class="subtitle">Recent Votes</div>
+
+<ul>
+    
+</ul>
+
+
+
+                
+
+
+<div class="subtitle">Recent Locations &raquo; <a href="/u/list/">
+    <i class="fa fa-user"></i> Community</a></div>
+<ul>
+    
+        <li>
+            
+               Sweden, Stockholm
+            
+        	&bull; 21 hours ago
+        </li>
+    
+        <li>
+            
+               Sweden, Stockholm
+            
+        	&bull; 7 days ago
+        </li>
+    
+        <li>
+            
+               (Private Address)
+            
+        	&bull; 7 days ago
+        </li>
+    
+</ul>
+
+
+                
+
+<div class="subtitle">Recent Awards &raquo; <a href="/badge/list/">See All</a></div>
+<ul>
+    
+</ul>
+
+
+                
+
+<div class="subtitle">Recent Activity</div>
+<ul>
+    
+</ul>
+
+
+            
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="container" id="footer">
+    
+    <div>
+        <ul class="simple_navbar">
+            <li>
+                <a href="/charms/"><i class="fa fa-desktop"></i> Charms</a>
+            </li>
+
+            <li>
+                <a href="/u/list/"><i class="fa fa-user"></i> Users</a>
+            </li>
+
+            <li>
+                <a href="/page/info/"><i class="fa fa-info-circle"></i> About</a>
+            </li>
+            <li>
+                <a href="/page/rss/"><i class="fa fa-rss"></i> RSS</a>
+            </li>
+            <li>
+                <a href="/page/faq/"><i class="fa fa-bell"></i> FAQ</a>
+            </li>
+            <li>
+                <a href="/page/api/"><i class="fa fa-tasks"></i> API</a>
+            </li>
+            <li>
+                <a href="/page/policy/"><i class="fa fa-user"></i> Terms of Use</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        Powered by <a href="https://github.com/ialbert/biostar-central">Biostars</a> &bull;
+    </div>
+    
+    <div id="traffic">Traffic: 0 users visited in the last hour</div>
+
+</div>
+
+
+    
+
+
+
+
+<script type="text/javascript" src="/static/CACHE/js/5c5294c39237.js"></script>
+
+
+
+    
+
+
+</body>
+</html>]]></template>
+    <template title="ulyaoth.css" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Grid
+- Base Styles
+- Typography
+- Links
+- Buttons
+- Forms
+- Lists
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+- Media Queries
+*/
+
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0; }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .container {
+    width: 80%; }
+  .column,
+  .columns {
+    margin-left: 4%; }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .one.column,
+  .one.columns                    { width: 4.66666666667%; }
+  .two.columns                    { width: 13.3333333333%; }
+  .three.columns                  { width: 22%;            }
+  .four.columns                   { width: 30.6666666667%; }
+  .five.columns                   { width: 39.3333333333%; }
+  .six.columns                    { width: 48%;            }
+  .seven.columns                  { width: 56.6666666667%; }
+  .eight.columns                  { width: 65.3333333333%; }
+  .nine.columns                   { width: 74.0%;          }
+  .ten.columns                    { width: 82.6666666667%; }
+  .eleven.columns                 { width: 91.3333333333%; }
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: 30.6666666667%; }
+  .two-thirds.column              { width: 65.3333333333%; }
+
+  .one-half.column                { width: 48%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 26%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 52%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 78.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
+
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 4.2rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+
+p {
+  margin-top: 0; }
+
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: #1EAEDB; }
+a:hover {
+  color: #0FA0CE; }
+
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB; }
+
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul {
+  list-style: circle inside; }
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li {
+  margin-bottom: 1rem; }
+
+
+/* Code
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px; }
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre; }
+
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }
+
+
+/* Spacing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+button,
+.button {
+  margin-bottom: 1rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 2.5rem; }
+
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+
+
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+
+body 
+{ 
+	background-color: White;
+    font-family: sans-serif;
+}
+
+blockquote {
+	border-left: 2px dotted #888;
+	padding-left: 5px;
+	background: #d0f0ff;
+}
+
+.wmd-panel
+{
+	//margin-left: 25%;
+	//margin-right: 25%;
+	width: auto;
+	//min-width: 500px;
+}
+
+.wmd-button-bar 
+{
+	width: 100%;
+	background-color: Silver; 
+}
+
+.wmd-input 
+{ 
+	height: 300px;
+	width: 100%;
+	background-color: #ECECEC;
+	border: 1px solid DarkGray;
+}
+
+.wmd-preview 
+{ 
+	background-color: #c0e0ff; 
+}
+
+.wmd-button-row 
+{
+	position: relative; 
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	padding: 0px;  
+	height: 20px;
+}
+
+.wmd-spacer
+{
+	width: 1px; 
+	height: 20px; 
+	margin-left: 14px;
+	
+	position: absolute;
+	background-color: Silver;
+	display: inline-block; 
+	list-style: none;
+}
+
+.wmd-button {
+    width: 20px;
+    height: 20px;
+    padding-left: 2px;
+    padding-right: 3px;
+    position: absolute;
+    display: inline-block;
+    list-style: none;
+    cursor: pointer;
+}
+
+.wmd-button > span {
+    background-image: url('/static/lib/pagedown/wmd-buttons.png?e71e7ff7eea0');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.wmd-spacer1
+{
+    left: 50px;
+}
+.wmd-spacer2
+{
+    left: 175px;
+}
+.wmd-spacer3
+{
+    left: 300px;
+}
+
+
+
+
+.wmd-prompt-background
+{
+	background-color: Black;
+}
+
+.wmd-prompt-dialog
+{
+	border: 1px solid #999999;
+	background-color: #F5F5F5;
+}
+
+.wmd-prompt-dialog > div {
+	font-size: 0.8em;
+	font-family: arial, helvetica, sans-serif;
+}
+
+
+.wmd-prompt-dialog > form > input[type="text"] {
+	border: 1px solid #999999;
+	color: black;
+}
+
+.wmd-prompt-dialog > form > input[type="button"]{
+	border: 1px solid #888888;
+	font-family: trebuchet MS, helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-id,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-list .hljs-keyword,
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-class .hljs-title,
+.hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080;
+}
+
+.hljs-regexp {
+  color: #009926;
+}
+
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.clojure .hljs-keyword,
+.scheme .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073;
+}
+
+.hljs-built_in {
+  color: #0086b3;
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.diff .hljs-change {
+  background: #0086b3;
+}
+
+.hljs-chunk {
+  color: #aaa;
+}
+
+
+#tooltip {
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.6);
+  max-width: 300px;
+  display: none;
+  position: absolute;
+  z-index: 100;
+}
+
+#tooltip.black {
+  background: rgba(0,0,0,0.95);
+  color: #fff;
+}
+
+#tooltip.white {
+  background: rgba(255,255,255,0.95);
+  color: #222;
+}
+
+#tooltip .arrow {
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  background-image: url('/static/lib/tooltip/tooltip.png?e71e7ff7eea0');
+  background-repeat: no-repeat;
+}
+
+#tooltip.black.top .arrow {
+  background-position: -6px -17px;
+}
+
+#tooltip.black.right .arrow {
+  background-position: 5px -6px;
+}
+
+#tooltip.black.bottom .arrow {
+  background-position: -6px 5px;
+}
+
+#tooltip.black.left .arrow {
+  background-position: -17px -6px;
+}
+
+#tooltip.white.top .arrow {
+  background-position: -39px -17px;
+}
+
+#tooltip.white.right .arrow {
+  background-position: -28px -6px;
+}
+
+#tooltip.white.bottom .arrow {
+  background-position: -39px 5px;
+}
+
+#tooltip.white.left .arrow {
+  background-position: -50px -6px;
+}
+
+
+/*!
+ *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */@font-face{font-family:'FontAwesome';src:url('/static/lib/font-awesome-4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0&e71e7ff7eea0');src:url('/static/lib/font-awesome-4.3.0/fonts/fontawesome-webfont.eot?&e71e7ff7eea0#iefix&v=4.3.0') format('embedded-opentype'),url('/static/lib/font-awesome-4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0&e71e7ff7eea0') format('woff2'),url('/static/lib/font-awesome-4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0&e71e7ff7eea0') format('woff'),url('/static/lib/font-awesome-4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0&e71e7ff7eea0') format('truetype'),url('/static/lib/font-awesome-4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0&e71e7ff7eea0#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transform:translate(0, 0)}.fa-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.28571429em;text-align:center}.fa-ul{padding-left:0;margin-left:2.14285714em;list-style-type:none}.fa-ul>li{position:relative}.fa-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em;text-align:center}.fa-li.fa-lg{left:-1.85714286em}.fa-border{padding:.2em .25em .15em;border:solid .08em #eee;border-radius:.1em}.pull-right{float:right}.pull-left{float:left}.fa.pull-left{margin-right:.3em}.fa.pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}.fa-rotate-90{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);-webkit-transform:scale(-1, 1);-ms-transform:scale(-1, 1);transform:scale(-1, 1)}.fa-flip-vertical{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);-webkit-transform:scale(1, -1);-ms-transform:scale(1, -1);transform:scale(1, -1)}:root .fa-rotate-90,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-flip-horizontal,:root .fa-flip-vertical{filter:none}.fa-stack{position:relative;display:inline-block;width:2em;height:2em;line-height:2em;vertical-align:middle}.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%;text-align:center}.fa-stack-1x{line-height:inherit}.fa-stack-2x{font-size:2em}.fa-inverse{color:#fff}.fa-glass:before{content:"\f000"}.fa-music:before{content:"\f001"}.fa-search:before{content:"\f002"}.fa-envelope-o:before{content:"\f003"}.fa-heart:before{content:"\f004"}.fa-star:before{content:"\f005"}.fa-star-o:before{content:"\f006"}.fa-user:before{content:"\f007"}.fa-film:before{content:"\f008"}.fa-th-large:before{content:"\f009"}.fa-th:before{content:"\f00a"}.fa-th-list:before{content:"\f00b"}.fa-check:before{content:"\f00c"}.fa-remove:before,.fa-close:before,.fa-times:before{content:"\f00d"}.fa-search-plus:before{content:"\f00e"}.fa-search-minus:before{content:"\f010"}.fa-power-off:before{content:"\f011"}.fa-signal:before{content:"\f012"}.fa-gear:before,.fa-cog:before{content:"\f013"}.fa-trash-o:before{content:"\f014"}.fa-home:before{content:"\f015"}.fa-file-o:before{content:"\f016"}.fa-clock-o:before{content:"\f017"}.fa-road:before{content:"\f018"}.fa-download:before{content:"\f019"}.fa-arrow-circle-o-down:before{content:"\f01a"}.fa-arrow-circle-o-up:before{content:"\f01b"}.fa-inbox:before{content:"\f01c"}.fa-play-circle-o:before{content:"\f01d"}.fa-rotate-right:before,.fa-repeat:before{content:"\f01e"}.fa-refresh:before{content:"\f021"}.fa-list-alt:before{content:"\f022"}.fa-lock:before{content:"\f023"}.fa-flag:before{content:"\f024"}.fa-headphones:before{content:"\f025"}.fa-volume-off:before{content:"\f026"}.fa-volume-down:before{content:"\f027"}.fa-volume-up:before{content:"\f028"}.fa-qrcode:before{content:"\f029"}.fa-barcode:before{content:"\f02a"}.fa-tag:before{content:"\f02b"}.fa-tags:before{content:"\f02c"}.fa-book:before{content:"\f02d"}.fa-bookmark:before{content:"\f02e"}.fa-print:before{content:"\f02f"}.fa-camera:before{content:"\f030"}.fa-font:before{content:"\f031"}.fa-bold:before{content:"\f032"}.fa-italic:before{content:"\f033"}.fa-text-height:before{content:"\f034"}.fa-text-width:before{content:"\f035"}.fa-align-left:before{content:"\f036"}.fa-align-center:before{content:"\f037"}.fa-align-right:before{content:"\f038"}.fa-align-justify:before{content:"\f039"}.fa-list:before{content:"\f03a"}.fa-dedent:before,.fa-outdent:before{content:"\f03b"}.fa-indent:before{content:"\f03c"}.fa-video-camera:before{content:"\f03d"}.fa-photo:before,.fa-image:before,.fa-picture-o:before{content:"\f03e"}.fa-pencil:before{content:"\f040"}.fa-map-marker:before{content:"\f041"}.fa-adjust:before{content:"\f042"}.fa-tint:before{content:"\f043"}.fa-edit:before,.fa-pencil-square-o:before{content:"\f044"}.fa-share-square-o:before{content:"\f045"}.fa-check-square-o:before{content:"\f046"}.fa-arrows:before{content:"\f047"}.fa-step-backward:before{content:"\f048"}.fa-fast-backward:before{content:"\f049"}.fa-backward:before{content:"\f04a"}.fa-play:before{content:"\f04b"}.fa-pause:before{content:"\f04c"}.fa-stop:before{content:"\f04d"}.fa-forward:before{content:"\f04e"}.fa-fast-forward:before{content:"\f050"}.fa-step-forward:before{content:"\f051"}.fa-eject:before{content:"\f052"}.fa-chevron-left:before{content:"\f053"}.fa-chevron-right:before{content:"\f054"}.fa-plus-circle:before{content:"\f055"}.fa-minus-circle:before{content:"\f056"}.fa-times-circle:before{content:"\f057"}.fa-check-circle:before{content:"\f058"}.fa-question-circle:before{content:"\f059"}.fa-info-circle:before{content:"\f05a"}.fa-crosshairs:before{content:"\f05b"}.fa-times-circle-o:before{content:"\f05c"}.fa-check-circle-o:before{content:"\f05d"}.fa-ban:before{content:"\f05e"}.fa-arrow-left:before{content:"\f060"}.fa-arrow-right:before{content:"\f061"}.fa-arrow-up:before{content:"\f062"}.fa-arrow-down:before{content:"\f063"}.fa-mail-forward:before,.fa-share:before{content:"\f064"}.fa-expand:before{content:"\f065"}.fa-compress:before{content:"\f066"}.fa-plus:before{content:"\f067"}.fa-minus:before{content:"\f068"}.fa-asterisk:before{content:"\f069"}.fa-exclamation-circle:before{content:"\f06a"}.fa-gift:before{content:"\f06b"}.fa-leaf:before{content:"\f06c"}.fa-fire:before{content:"\f06d"}.fa-eye:before{content:"\f06e"}.fa-eye-slash:before{content:"\f070"}.fa-warning:before,.fa-exclamation-triangle:before{content:"\f071"}.fa-plane:before{content:"\f072"}.fa-calendar:before{content:"\f073"}.fa-random:before{content:"\f074"}.fa-comment:before{content:"\f075"}.fa-magnet:before{content:"\f076"}.fa-chevron-up:before{content:"\f077"}.fa-chevron-down:before{content:"\f078"}.fa-retweet:before{content:"\f079"}.fa-shopping-cart:before{content:"\f07a"}.fa-folder:before{content:"\f07b"}.fa-folder-open:before{content:"\f07c"}.fa-arrows-v:before{content:"\f07d"}.fa-arrows-h:before{content:"\f07e"}.fa-bar-chart-o:before,.fa-bar-chart:before{content:"\f080"}.fa-twitter-square:before{content:"\f081"}.fa-facebook-square:before{content:"\f082"}.fa-camera-retro:before{content:"\f083"}.fa-key:before{content:"\f084"}.fa-gears:before,.fa-cogs:before{content:"\f085"}.fa-comments:before{content:"\f086"}.fa-thumbs-o-up:before{content:"\f087"}.fa-thumbs-o-down:before{content:"\f088"}.fa-star-half:before{content:"\f089"}.fa-heart-o:before{content:"\f08a"}.fa-sign-out:before{content:"\f08b"}.fa-linkedin-square:before{content:"\f08c"}.fa-thumb-tack:before{content:"\f08d"}.fa-external-link:before{content:"\f08e"}.fa-sign-in:before{content:"\f090"}.fa-trophy:before{content:"\f091"}.fa-github-square:before{content:"\f092"}.fa-upload:before{content:"\f093"}.fa-lemon-o:before{content:"\f094"}.fa-phone:before{content:"\f095"}.fa-square-o:before{content:"\f096"}.fa-bookmark-o:before{content:"\f097"}.fa-phone-square:before{content:"\f098"}.fa-twitter:before{content:"\f099"}.fa-facebook-f:before,.fa-facebook:before{content:"\f09a"}.fa-github:before{content:"\f09b"}.fa-unlock:before{content:"\f09c"}.fa-credit-card:before{content:"\f09d"}.fa-rss:before{content:"\f09e"}.fa-hdd-o:before{content:"\f0a0"}.fa-bullhorn:before{content:"\f0a1"}.fa-bell:before{content:"\f0f3"}.fa-certificate:before{content:"\f0a3"}.fa-hand-o-right:before{content:"\f0a4"}.fa-hand-o-left:before{content:"\f0a5"}.fa-hand-o-up:before{content:"\f0a6"}.fa-hand-o-down:before{content:"\f0a7"}.fa-arrow-circle-left:before{content:"\f0a8"}.fa-arrow-circle-right:before{content:"\f0a9"}.fa-arrow-circle-up:before{content:"\f0aa"}.fa-arrow-circle-down:before{content:"\f0ab"}.fa-globe:before{content:"\f0ac"}.fa-wrench:before{content:"\f0ad"}.fa-tasks:before{content:"\f0ae"}.fa-filter:before{content:"\f0b0"}.fa-briefcase:before{content:"\f0b1"}.fa-arrows-alt:before{content:"\f0b2"}.fa-group:before,.fa-users:before{content:"\f0c0"}.fa-chain:before,.fa-link:before{content:"\f0c1"}.fa-cloud:before{content:"\f0c2"}.fa-flask:before{content:"\f0c3"}.fa-cut:before,.fa-scissors:before{content:"\f0c4"}.fa-copy:before,.fa-files-o:before{content:"\f0c5"}.fa-paperclip:before{content:"\f0c6"}.fa-save:before,.fa-floppy-o:before{content:"\f0c7"}.fa-square:before{content:"\f0c8"}.fa-navicon:before,.fa-reorder:before,.fa-bars:before{content:"\f0c9"}.fa-list-ul:before{content:"\f0ca"}.fa-list-ol:before{content:"\f0cb"}.fa-strikethrough:before{content:"\f0cc"}.fa-underline:before{content:"\f0cd"}.fa-table:before{content:"\f0ce"}.fa-magic:before{content:"\f0d0"}.fa-truck:before{content:"\f0d1"}.fa-pinterest:before{content:"\f0d2"}.fa-pinterest-square:before{content:"\f0d3"}.fa-google-plus-square:before{content:"\f0d4"}.fa-google-plus:before{content:"\f0d5"}.fa-money:before{content:"\f0d6"}.fa-caret-down:before{content:"\f0d7"}.fa-caret-up:before{content:"\f0d8"}.fa-caret-left:before{content:"\f0d9"}.fa-caret-right:before{content:"\f0da"}.fa-columns:before{content:"\f0db"}.fa-unsorted:before,.fa-sort:before{content:"\f0dc"}.fa-sort-down:before,.fa-sort-desc:before{content:"\f0dd"}.fa-sort-up:before,.fa-sort-asc:before{content:"\f0de"}.fa-envelope:before{content:"\f0e0"}.fa-linkedin:before{content:"\f0e1"}.fa-rotate-left:before,.fa-undo:before{content:"\f0e2"}.fa-legal:before,.fa-gavel:before{content:"\f0e3"}.fa-dashboard:before,.fa-tachometer:before{content:"\f0e4"}.fa-comment-o:before{content:"\f0e5"}.fa-comments-o:before{content:"\f0e6"}.fa-flash:before,.fa-bolt:before{content:"\f0e7"}.fa-sitemap:before{content:"\f0e8"}.fa-umbrella:before{content:"\f0e9"}.fa-paste:before,.fa-clipboard:before{content:"\f0ea"}.fa-lightbulb-o:before{content:"\f0eb"}.fa-exchange:before{content:"\f0ec"}.fa-cloud-download:before{content:"\f0ed"}.fa-cloud-upload:before{content:"\f0ee"}.fa-user-md:before{content:"\f0f0"}.fa-stethoscope:before{content:"\f0f1"}.fa-suitcase:before{content:"\f0f2"}.fa-bell-o:before{content:"\f0a2"}.fa-coffee:before{content:"\f0f4"}.fa-cutlery:before{content:"\f0f5"}.fa-file-text-o:before{content:"\f0f6"}.fa-building-o:before{content:"\f0f7"}.fa-hospital-o:before{content:"\f0f8"}.fa-ambulance:before{content:"\f0f9"}.fa-medkit:before{content:"\f0fa"}.fa-fighter-jet:before{content:"\f0fb"}.fa-beer:before{content:"\f0fc"}.fa-h-square:before{content:"\f0fd"}.fa-plus-square:before{content:"\f0fe"}.fa-angle-double-left:before{content:"\f100"}.fa-angle-double-right:before{content:"\f101"}.fa-angle-double-up:before{content:"\f102"}.fa-angle-double-down:before{content:"\f103"}.fa-angle-left:before{content:"\f104"}.fa-angle-right:before{content:"\f105"}.fa-angle-up:before{content:"\f106"}.fa-angle-down:before{content:"\f107"}.fa-desktop:before{content:"\f108"}.fa-laptop:before{content:"\f109"}.fa-tablet:before{content:"\f10a"}.fa-mobile-phone:before,.fa-mobile:before{content:"\f10b"}.fa-circle-o:before{content:"\f10c"}.fa-quote-left:before{content:"\f10d"}.fa-quote-right:before{content:"\f10e"}.fa-spinner:before{content:"\f110"}.fa-circle:before{content:"\f111"}.fa-mail-reply:before,.fa-reply:before{content:"\f112"}.fa-github-alt:before{content:"\f113"}.fa-folder-o:before{content:"\f114"}.fa-folder-open-o:before{content:"\f115"}.fa-smile-o:before{content:"\f118"}.fa-frown-o:before{content:"\f119"}.fa-meh-o:before{content:"\f11a"}.fa-gamepad:before{content:"\f11b"}.fa-keyboard-o:before{content:"\f11c"}.fa-flag-o:before{content:"\f11d"}.fa-flag-checkered:before{content:"\f11e"}.fa-terminal:before{content:"\f120"}.fa-code:before{content:"\f121"}.fa-mail-reply-all:before,.fa-reply-all:before{content:"\f122"}.fa-star-half-empty:before,.fa-star-half-full:before,.fa-star-half-o:before{content:"\f123"}.fa-location-arrow:before{content:"\f124"}.fa-crop:before{content:"\f125"}.fa-code-fork:before{content:"\f126"}.fa-unlink:before,.fa-chain-broken:before{content:"\f127"}.fa-question:before{content:"\f128"}.fa-info:before{content:"\f129"}.fa-exclamation:before{content:"\f12a"}.fa-superscript:before{content:"\f12b"}.fa-subscript:before{content:"\f12c"}.fa-eraser:before{content:"\f12d"}.fa-puzzle-piece:before{content:"\f12e"}.fa-microphone:before{content:"\f130"}.fa-microphone-slash:before{content:"\f131"}.fa-shield:before{content:"\f132"}.fa-calendar-o:before{content:"\f133"}.fa-fire-extinguisher:before{content:"\f134"}.fa-rocket:before{content:"\f135"}.fa-maxcdn:before{content:"\f136"}.fa-chevron-circle-left:before{content:"\f137"}.fa-chevron-circle-right:before{content:"\f138"}.fa-chevron-circle-up:before{content:"\f139"}.fa-chevron-circle-down:before{content:"\f13a"}.fa-html5:before{content:"\f13b"}.fa-css3:before{content:"\f13c"}.fa-anchor:before{content:"\f13d"}.fa-unlock-alt:before{content:"\f13e"}.fa-bullseye:before{content:"\f140"}.fa-ellipsis-h:before{content:"\f141"}.fa-ellipsis-v:before{content:"\f142"}.fa-rss-square:before{content:"\f143"}.fa-play-circle:before{content:"\f144"}.fa-ticket:before{content:"\f145"}.fa-minus-square:before{content:"\f146"}.fa-minus-square-o:before{content:"\f147"}.fa-level-up:before{content:"\f148"}.fa-level-down:before{content:"\f149"}.fa-check-square:before{content:"\f14a"}.fa-pencil-square:before{content:"\f14b"}.fa-external-link-square:before{content:"\f14c"}.fa-share-square:before{content:"\f14d"}.fa-compass:before{content:"\f14e"}.fa-toggle-down:before,.fa-caret-square-o-down:before{content:"\f150"}.fa-toggle-up:before,.fa-caret-square-o-up:before{content:"\f151"}.fa-toggle-right:before,.fa-caret-square-o-right:before{content:"\f152"}.fa-euro:before,.fa-eur:before{content:"\f153"}.fa-gbp:before{content:"\f154"}.fa-dollar:before,.fa-usd:before{content:"\f155"}.fa-rupee:before,.fa-inr:before{content:"\f156"}.fa-cny:before,.fa-rmb:before,.fa-yen:before,.fa-jpy:before{content:"\f157"}.fa-ruble:before,.fa-rouble:before,.fa-rub:before{content:"\f158"}.fa-won:before,.fa-krw:before{content:"\f159"}.fa-bitcoin:before,.fa-btc:before{content:"\f15a"}.fa-file:before{content:"\f15b"}.fa-file-text:before{content:"\f15c"}.fa-sort-alpha-asc:before{content:"\f15d"}.fa-sort-alpha-desc:before{content:"\f15e"}.fa-sort-amount-asc:before{content:"\f160"}.fa-sort-amount-desc:before{content:"\f161"}.fa-sort-numeric-asc:before{content:"\f162"}.fa-sort-numeric-desc:before{content:"\f163"}.fa-thumbs-up:before{content:"\f164"}.fa-thumbs-down:before{content:"\f165"}.fa-youtube-square:before{content:"\f166"}.fa-youtube:before{content:"\f167"}.fa-xing:before{content:"\f168"}.fa-xing-square:before{content:"\f169"}.fa-youtube-play:before{content:"\f16a"}.fa-dropbox:before{content:"\f16b"}.fa-stack-overflow:before{content:"\f16c"}.fa-instagram:before{content:"\f16d"}.fa-flickr:before{content:"\f16e"}.fa-adn:before{content:"\f170"}.fa-bitbucket:before{content:"\f171"}.fa-bitbucket-square:before{content:"\f172"}.fa-tumblr:before{content:"\f173"}.fa-tumblr-square:before{content:"\f174"}.fa-long-arrow-down:before{content:"\f175"}.fa-long-arrow-up:before{content:"\f176"}.fa-long-arrow-left:before{content:"\f177"}.fa-long-arrow-right:before{content:"\f178"}.fa-apple:before{content:"\f179"}.fa-windows:before{content:"\f17a"}.fa-android:before{content:"\f17b"}.fa-linux:before{content:"\f17c"}.fa-dribbble:before{content:"\f17d"}.fa-skype:before{content:"\f17e"}.fa-foursquare:before{content:"\f180"}.fa-trello:before{content:"\f181"}.fa-female:before{content:"\f182"}.fa-male:before{content:"\f183"}.fa-gittip:before,.fa-gratipay:before{content:"\f184"}.fa-sun-o:before{content:"\f185"}.fa-moon-o:before{content:"\f186"}.fa-archive:before{content:"\f187"}.fa-bug:before{content:"\f188"}.fa-vk:before{content:"\f189"}.fa-weibo:before{content:"\f18a"}.fa-renren:before{content:"\f18b"}.fa-pagelines:before{content:"\f18c"}.fa-stack-exchange:before{content:"\f18d"}.fa-arrow-circle-o-right:before{content:"\f18e"}.fa-arrow-circle-o-left:before{content:"\f190"}.fa-toggle-left:before,.fa-caret-square-o-left:before{content:"\f191"}.fa-dot-circle-o:before{content:"\f192"}.fa-wheelchair:before{content:"\f193"}.fa-vimeo-square:before{content:"\f194"}.fa-turkish-lira:before,.fa-try:before{content:"\f195"}.fa-plus-square-o:before{content:"\f196"}.fa-space-shuttle:before{content:"\f197"}.fa-slack:before{content:"\f198"}.fa-envelope-square:before{content:"\f199"}.fa-wordpress:before{content:"\f19a"}.fa-openid:before{content:"\f19b"}.fa-institution:before,.fa-bank:before,.fa-university:before{content:"\f19c"}.fa-mortar-board:before,.fa-graduation-cap:before{content:"\f19d"}.fa-yahoo:before{content:"\f19e"}.fa-google:before{content:"\f1a0"}.fa-reddit:before{content:"\f1a1"}.fa-reddit-square:before{content:"\f1a2"}.fa-stumbleupon-circle:before{content:"\f1a3"}.fa-stumbleupon:before{content:"\f1a4"}.fa-delicious:before{content:"\f1a5"}.fa-digg:before{content:"\f1a6"}.fa-pied-piper:before{content:"\f1a7"}.fa-pied-piper-alt:before{content:"\f1a8"}.fa-drupal:before{content:"\f1a9"}.fa-joomla:before{content:"\f1aa"}.fa-language:before{content:"\f1ab"}.fa-fax:before{content:"\f1ac"}.fa-building:before{content:"\f1ad"}.fa-child:before{content:"\f1ae"}.fa-paw:before{content:"\f1b0"}.fa-spoon:before{content:"\f1b1"}.fa-cube:before{content:"\f1b2"}.fa-cubes:before{content:"\f1b3"}.fa-behance:before{content:"\f1b4"}.fa-behance-square:before{content:"\f1b5"}.fa-steam:before{content:"\f1b6"}.fa-steam-square:before{content:"\f1b7"}.fa-recycle:before{content:"\f1b8"}.fa-automobile:before,.fa-car:before{content:"\f1b9"}.fa-cab:before,.fa-taxi:before{content:"\f1ba"}.fa-tree:before{content:"\f1bb"}.fa-spotify:before{content:"\f1bc"}.fa-deviantart:before{content:"\f1bd"}.fa-soundcloud:before{content:"\f1be"}.fa-database:before{content:"\f1c0"}.fa-file-pdf-o:before{content:"\f1c1"}.fa-file-word-o:before{content:"\f1c2"}.fa-file-excel-o:before{content:"\f1c3"}.fa-file-powerpoint-o:before{content:"\f1c4"}.fa-file-photo-o:before,.fa-file-picture-o:before,.fa-file-image-o:before{content:"\f1c5"}.fa-file-zip-o:before,.fa-file-archive-o:before{content:"\f1c6"}.fa-file-sound-o:before,.fa-file-audio-o:before{content:"\f1c7"}.fa-file-movie-o:before,.fa-file-video-o:before{content:"\f1c8"}.fa-file-code-o:before{content:"\f1c9"}.fa-vine:before{content:"\f1ca"}.fa-codepen:before{content:"\f1cb"}.fa-jsfiddle:before{content:"\f1cc"}.fa-life-bouy:before,.fa-life-buoy:before,.fa-life-saver:before,.fa-support:before,.fa-life-ring:before{content:"\f1cd"}.fa-circle-o-notch:before{content:"\f1ce"}.fa-ra:before,.fa-rebel:before{content:"\f1d0"}.fa-ge:before,.fa-empire:before{content:"\f1d1"}.fa-git-square:before{content:"\f1d2"}.fa-git:before{content:"\f1d3"}.fa-hacker-news:before{content:"\f1d4"}.fa-tencent-weibo:before{content:"\f1d5"}.fa-qq:before{content:"\f1d6"}.fa-wechat:before,.fa-weixin:before{content:"\f1d7"}.fa-send:before,.fa-paper-plane:before{content:"\f1d8"}.fa-send-o:before,.fa-paper-plane-o:before{content:"\f1d9"}.fa-history:before{content:"\f1da"}.fa-genderless:before,.fa-circle-thin:before{content:"\f1db"}.fa-header:before{content:"\f1dc"}.fa-paragraph:before{content:"\f1dd"}.fa-sliders:before{content:"\f1de"}.fa-share-alt:before{content:"\f1e0"}.fa-share-alt-square:before{content:"\f1e1"}.fa-bomb:before{content:"\f1e2"}.fa-soccer-ball-o:before,.fa-futbol-o:before{content:"\f1e3"}.fa-tty:before{content:"\f1e4"}.fa-binoculars:before{content:"\f1e5"}.fa-plug:before{content:"\f1e6"}.fa-slideshare:before{content:"\f1e7"}.fa-twitch:before{content:"\f1e8"}.fa-yelp:before{content:"\f1e9"}.fa-newspaper-o:before{content:"\f1ea"}.fa-wifi:before{content:"\f1eb"}.fa-calculator:before{content:"\f1ec"}.fa-paypal:before{content:"\f1ed"}.fa-google-wallet:before{content:"\f1ee"}.fa-cc-visa:before{content:"\f1f0"}.fa-cc-mastercard:before{content:"\f1f1"}.fa-cc-discover:before{content:"\f1f2"}.fa-cc-amex:before{content:"\f1f3"}.fa-cc-paypal:before{content:"\f1f4"}.fa-cc-stripe:before{content:"\f1f5"}.fa-bell-slash:before{content:"\f1f6"}.fa-bell-slash-o:before{content:"\f1f7"}.fa-trash:before{content:"\f1f8"}.fa-copyright:before{content:"\f1f9"}.fa-at:before{content:"\f1fa"}.fa-eyedropper:before{content:"\f1fb"}.fa-paint-brush:before{content:"\f1fc"}.fa-birthday-cake:before{content:"\f1fd"}.fa-area-chart:before{content:"\f1fe"}.fa-pie-chart:before{content:"\f200"}.fa-line-chart:before{content:"\f201"}.fa-lastfm:before{content:"\f202"}.fa-lastfm-square:before{content:"\f203"}.fa-toggle-off:before{content:"\f204"}.fa-toggle-on:before{content:"\f205"}.fa-bicycle:before{content:"\f206"}.fa-bus:before{content:"\f207"}.fa-ioxhost:before{content:"\f208"}.fa-angellist:before{content:"\f209"}.fa-cc:before{content:"\f20a"}.fa-shekel:before,.fa-sheqel:before,.fa-ils:before{content:"\f20b"}.fa-meanpath:before{content:"\f20c"}.fa-buysellads:before{content:"\f20d"}.fa-connectdevelop:before{content:"\f20e"}.fa-dashcube:before{content:"\f210"}.fa-forumbee:before{content:"\f211"}.fa-leanpub:before{content:"\f212"}.fa-sellsy:before{content:"\f213"}.fa-shirtsinbulk:before{content:"\f214"}.fa-simplybuilt:before{content:"\f215"}.fa-skyatlas:before{content:"\f216"}.fa-cart-plus:before{content:"\f217"}.fa-cart-arrow-down:before{content:"\f218"}.fa-diamond:before{content:"\f219"}.fa-ship:before{content:"\f21a"}.fa-user-secret:before{content:"\f21b"}.fa-motorcycle:before{content:"\f21c"}.fa-street-view:before{content:"\f21d"}.fa-heartbeat:before{content:"\f21e"}.fa-venus:before{content:"\f221"}.fa-mars:before{content:"\f222"}.fa-mercury:before{content:"\f223"}.fa-transgender:before{content:"\f224"}.fa-transgender-alt:before{content:"\f225"}.fa-venus-double:before{content:"\f226"}.fa-mars-double:before{content:"\f227"}.fa-venus-mars:before{content:"\f228"}.fa-mars-stroke:before{content:"\f229"}.fa-mars-stroke-v:before{content:"\f22a"}.fa-mars-stroke-h:before{content:"\f22b"}.fa-neuter:before{content:"\f22c"}.fa-facebook-official:before{content:"\f230"}.fa-pinterest-p:before{content:"\f231"}.fa-whatsapp:before{content:"\f232"}.fa-server:before{content:"\f233"}.fa-user-plus:before{content:"\f234"}.fa-user-times:before{content:"\f235"}.fa-hotel:before,.fa-bed:before{content:"\f236"}.fa-viacoin:before{content:"\f237"}.fa-train:before{content:"\f238"}.fa-subway:before{content:"\f239"}.fa-medium:before{content:"\f23a"}
+/*
+This file uses LESS: http://lesscss.org/
+*/
+/* Import the colors styles */
+/*
+This file is included in site.less.
+*/
+/*
+Set up colors fo various widgets.
+*/
+.box.Answered {
+  background-color: #5b8c3e;
+  color: white;
+}
+.box.Accepted {
+  background-color: #5b8c3e;
+  color: yellow;
+}
+.box.Unanswered {
+  background-color: #8f2c47;
+  color: white;
+}
+.box.Forum {
+  background-color: #b79538;
+  color: white;
+}
+.box.Job {
+  background-color: #e9530f;
+  color: white;
+}
+.box.News {
+  background-color: #762c90;
+  color: white;
+}
+.box.Tool {
+  background-color: #265040;
+  color: white;
+}
+.box.Tutorial {
+  background-color: #2c7990;
+  color: white;
+}
+.box > .mark {
+  color: #2f5b14;
+}
+.error,
+.errorlist {
+  color: #712d2d;
+  background-color: #f2dede;
+  border-color: #c77070;
+  padding: 0.5ex;
+}
+.info {
+  color: #9c8611;
+  background-color: #fcf8e3;
+  border-color: #edd559;
+}
+.warning {
+  color: #1b6083;
+  background-color: #d9edf7;
+  border-color: #5bb1dc;
+}
+.success {
+  color: #3d6c2a;
+  background-color: #dff0d8;
+  border-color: #84c569;
+}
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #111111;
+  font-size: 13px;
+  line-height: 19px;
+}
+body p {
+  margin-bottom: 1ex;
+}
+body a {
+  color: #428bca;
+  text-decoration: none;
+}
+body .container {
+  max-width: 1200px;
+}
+body .highlighted {
+  background-color: yellow;
+}
+ul {
+  list-style: disc;
+  list-style-position: inside;
+  margin-bottom: 5px;
+}
+.recent_list ul {
+  opacity: 0.9;
+  line-height: 1.4;
+}
+.recent_list ul li {
+  margin-bottom: 2px;
+}
+.recent_list > .muted {
+  color: #808080;
+}
+.recent_list .subtitle {
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 1ex;
+}
+.award_row {
+  padding-bottom: 1ex;
+  width: 200px;
+  height: 300px;
+  float: left;
+  margin-right: 1em;
+}
+.award_row div {
+  text-align: center;
+}
+.content {
+  word-wrap: break-word;
+}
+.search-info {
+  padding: 0.5ex 0ex 0.5ex 0ex;
+  text-align: center;
+  background-color: #F1F1F1;
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+}
+.user_box {
+  float: right;
+  width: 150px;
+  padding: 0.5em 0.2em 0.5em 0.2em;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #f5f5f5;
+  margin-left: 0.5em;
+  color: #999999;
+}
+.user_list_box {
+  float: left;
+  width: 20%;
+  height: 180px;
+  padding: 1ex;
+  text-align: center;
+  margin: 0em;
+  overflow: hidden;
+  color: #808080;
+}
+.popover {
+  position: absolute;
+  background-color: #ECECEC;
+  border-color: #6B3E4A;
+  color: #3c763d;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.popover.error {
+  color: red;
+}
+.page_bar {
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+.action_bar {
+  float: left;
+  padding: 1ex 0em 1ex 0em;
+}
+.post .count {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 5px 0px 5px 0px;
+}
+.vote_box {
+  float: left;
+  text-align: center;
+  margin-right: 0.5em;
+}
+.vote_box .mark {
+  margin-top: 1px;
+  cursor: pointer;
+  color: #2F5B14;
+  opacity: 0.9;
+}
+.vote_box .off {
+  opacity: 0.4;
+}
+.comment {
+  padding: 1ex;
+  background-color: #EFEFEF;
+  margin-bottom: 0.5ex;
+}
+.indent {
+  margin-left: 4%;
+}
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.answer {
+  border-top: 1px solid #E1E1E1;
+  margin: 0.5em 0em 0.5em 0em;
+  padding-top: 0.5em;
+  overflow: auto;
+  width: 100%;
+}
+/* User link */
+.userlink {
+  color: #808080;
+  padding-left: 0.5em;
+  text-align: right;
+}
+/* Post listing */
+#post_list {
+  line-height: 1.6em;
+}
+#post_list .post_title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+/* Post detail */
+#post_detail .post_title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #E1E1E1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* Edit Post */
+#edit_post input[type=text],
+#edit_post select {
+  width: 100%;
+}
+.wmd-preview {
+  padding: 2ex;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+/* Tags */
+#tag_list .tag {
+  margin: 1ex;
+  font-size: larger;
+}
+.tag_bar {
+  margin: 0ex 0ex 0.2ex 0ex;
+  float: left;
+}
+.tag {
+  padding: 0.3ex 0.3em 0.3ex 0.3em;
+  text-decoration: none;
+  background-color: #ececec;
+  border-bottom: 1px solid #BBB;
+  border-right: 1px solid #BBB;
+  color: #6b3e4a;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.tag:hover {
+  color: white;
+  background-color: #6b3e4a;
+}
+.subdomain {
+  border-radius: 3px;
+  text-align: center;
+  background-color: #fcf8e3;
+}
+.Deleted {
+  background-color: #f2dede;
+  opacity: 0.4;
+}
+/* Count boxes */
+.post_row {
+  margin: 0.2em 0em 0em 0em;
+  padding: 0.2em 0em 0.2em 0em;
+  border-bottom: 1px solid #efefef;
+}
+.box.vote_count {
+  background-color: #eeeeee;
+}
+.box:last-child {
+  margin-right: 0px;
+}
+.box {
+  float: left;
+  width: 4em;
+  text-align: center;
+  min-height: 100%;
+  margin: 0em 0.2em 0em 0em;
+}
+.box .c {
+  font-size: 1.4em;
+  font-weight: bold;
+  height: 2ex;
+  vertical-align: middle;
+  text-align: center;
+  margin-bottom: 2px;
+  padding-top: 0.2em;
+}
+.box .t {
+  font-size: smaller;
+}
+.box .div {
+  padding: 0.1em;
+}
+#shortcuts {
+  float: left;
+}
+/* Search bar */
+#search_bar {
+  float: left;
+  padding: 1ex;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #EFEFEF;
+}
+#search_bar form,
+#search_bar input {
+  margin: 0px;
+}
+#search_input {
+  width: 70%;
+  float: left;
+}
+/* Labels */
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background-color: #999999;
+}
+.upload {
+  margin-bottom: 1ex;
+}
+.upload label {
+  display: inline;
+}
+.moderate {
+  background-color: #EDF3FE;
+  padding: 1em;
+}
+.modbox {
+  padding: 1ex;
+  float: left;
+  margin: 0ex 1ex 1ex 0ex;
+  background-color: #ECECEC;
+  border-radius: 4px;
+}
+#user_attr div {
+  margin-top: 1ex;
+}
+.center {
+  text-align: center;
+}
+.title {
+  font-size: 2.4rem;
+  line-height: 1.5;
+  letter-spacing: -0.05rem;
+  font-weight: 300;
+  margin-bottom: 1ex;
+}
+#page_view h2 {
+  font-size: 2em;
+}
+#page_view h3 {
+  font-size: 1.4em;
+}
+#page_title {
+  float: left;
+  padding: 5px 10px 0px 0px;
+  vertical-align: middle;
+  line-height: 1.0;
+}
+/* Footer */
+#footer {
+  margin-top: 1em;
+  text-align: center;
+  padding: 1em;
+}
+#footer div {
+  margin-bottom: 1ex;
+}
+#traffic {
+  position: fixed;
+  font-size: smaller;
+  bottom: 0px;
+  left: 0px;
+  color: #999999;
+  background-color: white;
+  padding: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+#group_list div {
+  margin-top: 0.5ex;
+}
+#group_list * > li {
+  display: inline;
+  margin-right: 1em;
+}
+/* Alert styles */
+.alert {
+  padding: 0.5em;
+  margin: 0.5em 0em 0.5em 0em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+ul.dropdown:hover ul.items {
+  display: block;
+}
+ul.dropdown {
+  margin: 0px;
+  padding: 0px;
+  z-index: 99;
+}
+ul.dropdown ul.items {
+  position: absolute;
+  margin: 0ex;
+  padding: 0ex;
+  list-style-type: none;
+  display: none;
+  background-color: white;
+  border-radius: 4px;
+  border: 3px solid #efefef;
+  z-index: 99;
+}
+ul.dropdown ul.items li:last-child {
+  border-bottom: 0px solid #d3d3d3;
+}
+ul.dropdown ul.items li {
+  margin: 0ex 0ex 0ex 0ex;
+  border-bottom: 1px solid #d3d3d3;
+  float: left;
+  min-width: 150px;
+  text-align: left;
+  clear: both;
+}
+ul.dropdown ul.items li a {
+  padding: 1ex 1em 1ex 1em;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+ul.dropdown ul.items li :hover {
+  background-color: #efefef;
+}
+.group_info {
+  border-top: 1px solid #ECECEC;
+  margin-top: 1ex;
+  padding-top: 1ex;
+}
+.user_suspended {
+  background-color: #f2dede;
+}
+.simple_navbar {
+  list-style-type: none;
+}
+.simple_navbar li {
+  display: inline;
+  padding-right: 1em;
+  margin: 0;
+}
+.simple_navbar li a {
+  display: inline-block;
+  padding: 1ex;
+}
+.simple_navbar li a:hover {
+  background-color: #EFEFEF;
+  cursor: pointer;
+  border-radius: 4px;
+}
+/* Navigation */
+#logo {
+  float: left;
+}
+#logo * img {
+  margin-top: 5px;
+  width: 299px;
+}
+#votelist .item {
+  padding: 1ex;
+  font-size: larger;
+}
+.glow {
+  background-color: #dff0d8;
+}
+.message {
+  padding: 1ex;
+  margin-bottom: 0.5ex;
+  border-bottom: 1px solid #cdcdcd;
+}
+#userbar {
+  border-top: 1px solid #efefef;
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  margin-bottom: 10px;
+}
+#userbar *.glow {
+  color: white;
+  background-color: #5b8c3e;
+  border-radius: 25px;
+}
+#userbar *.glow:hover {
+  color: #5b8c3e;
+}
+#userbar .item {
+  margin-top: 0.5ex;
+  float: left;
+  text-align: center;
+}
+#userbar .item a {
+  display: inline-block;
+  padding: 1ex;
+}
+#userbar .item a:hover {
+  background-color: #EFEFEF;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#navbar {
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  margin-bottom: 2px;
+}
+#navbar .icon {
+  font-size: 2em;
+}
+#navbar .navlabel {
+  font-size: small;
+}
+#navbar .item {
+  margin-top: 0.5ex;
+  float: left;
+  text-align: center;
+}
+#navbar .item a {
+  display: inline-block;
+  padding: 1ex;
+}
+#navbar .item a:hover {
+  background-color: #EFEFEF;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#panel {
+  padding: 0.5ex 0em 1ex 0ex;
+}
+#panel input {
+  margin: 0px;
+}
+#panel textarea {
+  margin: 0px;
+  background-color: #EFEFEF;
+}
+#panel form {
+  margin: 0px;
+}
+#panel .cancel {
+  float: right;
+  background-color: white;
+}
+#panel .submit {
+  float: left;
+  background-color: white;
+}
+.reply {
+  cursor: pointer;
+  border-radius: 3px;
+}
+.reply:hover {
+  background-color: #5b8c3e;
+}
+.lg {
+  display: none;
+}
+.nav-sep {
+  margin: 0.2em 0em 0.2em 0em;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 3px 2px -2px rgba(200, 200, 200, 0.3);
+}
+.muted {
+  color: #808080;
+}
+.blog {
+  padding-bottom: 1ex;
+  margin-bottom: 1ex;
+  border-bottom: 1px solid #ececec;
+}
+.blog .title {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.5ex;
+}
+.blog .muted {
+  margin-bottom: 0.5ex;
+  color: #808080;
+}
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 768px) {
+  .box {
+    margin: 0em 0.2em 0.5em 0em;
+  }
+  #navbar {
+    padding-top: 0.5ex;
+  }
+  #logo {
+    margin-right: 2em;
+  }
+  #logo * img {
+    margin-top: 5px;
+    width: 230px;
+  }
+  .lg {
+    display: block;
+  }
+  #navbar {
+    width: auto;
+  }
+}
+
+/* Override the CSS in this file */]]></template>
+    <template title="ulyaoth_bar" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[<xen:require css="ulyaoth_bar.css" />
+
+<div class="ulyaothBar">
+</div>]]></template>
+    <template title="ulyaoth_bar.css" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[.ulyaothBar {
+  height: 34px;
+  background-color:lightblue;
+  border-width: 2px;
+  border-bottom-width:2px;
+  border-bottom-color:Black;
+  border-bottom-style: solid;
+  margin: 0 -9999rem;
+  padding: 0.25rem 9999rem;
+  position: relative;
+  overflow: hidden;
+}]]></template>
+    <template title="ulyaoth_footer" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[<xen:require css="ulyaoth_footer.css" />
+
+<div class="ulyaothFooter">
+
+<div class="container" id="footer">
+    
+    <div>
+        <ul class="simple_navbar">
+            <li>
+                <a href="/charms/"><i class="fa fa-desktop"></i> Charms</a>
+            </li>
+
+            <li>
+                <a href="/u/list/"><i class="fa fa-user"></i> Users</a>
+            </li>
+
+            <li>
+                <a href="/page/info/"><i class="fa fa-info-circle"></i> About</a>
+            </li>
+            <li>
+                <a href="/page/rss/"><i class="fa fa-rss"></i> RSS</a>
+            </li>
+            <li>
+                <a href="/page/faq/"><i class="fa fa-bell"></i> FAQ</a>
+            </li>
+            <li>
+                <a href="/page/api/"><i class="fa fa-tasks"></i> API</a>
+            </li>
+            <li>
+                <a href="/page/policy/"><i class="fa fa-user"></i> Terms of Use</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        {xen:helper copyright} <br>Template based on: <a href="https://github.com/ialbert/biostar-central">Biostars</a>
+    </div>
+
+</div>
+</div>]]></template>
+    <template title="ulyaoth_footer.css" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[.ulyaothFooter{
+  background:white;
+  width:100%;
+  height:150px;
+  bottom:0;
+  left:0;
+  position: relative;
+  overflow: hidden;
+}]]></template>
+    <template title="ulyaoth_header" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[<xen:require css="ulyaoth_header.css" />
+
+<div id="ulyaothHeader">
+
+<div class="row">
+
+<div id="logo">
+  <a href="/"><img src="https://tutorials.ulyaoth.net/static/images/ulyaoth.png"></a>
+</div>
+
+</div>
+
+</div>]]></template>
+    <template title="ulyaoth_header.css" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[#ulyaothHeader {
+  height: 71px;
+  background-color:white;
+}]]></template>
+    <template title="ulyaoth_main" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[<xen:require css="ulyaoth.css" />
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+        Post List
+    </title>
+
+<link rel="stylesheet" href="css.php?css=ulyaoth&amp;style={xen:urlencode $_styleId}&amp;dir={$visitorLanguage.text_direction}&amp;d={$visitorStyle.last_modified_date}" />
+
+
+<link rel="icon" type="image/png" href=https://tutorials.ulyaoth.net/static/images/favicon.ico/>
+
+	
+
+    
+        
+    
+
+
+
+</head>
+<body>
+
+
+    
+
+
+<div class="container" id="header">
+    
+    
+        <div class="subdomain">
+        Subdomain: Ulyaoth Tutorials
+        </div>
+    
+    
+    
+
+
+
+<div class="row">
+
+    <div id="logo">
+        <a href="/"><img src="https://tutorials.ulyaoth.net/static/images/ulyaoth.png"></a>
+    </div>
+
+    <div>
+        <div id="navbar">
+            
+            <div class="item">
+                <ul class="dropdown">
+                    <a href="#">
+                        <div class="icon"><i class="fa fa-bars"></i></div>
+                        <div class="navlabel">Shortcuts</div>
+                    </a>
+                    <ul class="items">
+                        
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Questions/">Questions</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Tutorial/">Tutorials</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Forum/">Forum</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/How-to/">How-to</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/Job/">Jobs</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/p/unanswered/">Unanswered</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/t/list/">All Tags</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/site/me/"><b>Your Account</b></a>
+                            </li>
+                        
+                            <li>
+                                <a href="/site/edit/my/profile/"><b>Edit Profile</b></a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+
+            </div>
+
+            
+                <div class="item">
+                    <a href="/accounts/login/">
+                        <div class="icon"><i class="fa fa-sign-in"></i></div>
+                        <div class="navlabel">Sign&nbsp;in</div>
+                    </a>
+                </div>
+            
+
+
+
+            <div class="item">
+                <a href="/site/new/post/">
+                    <div class="icon"><i class="fa fa-plus-circle"></i></div>
+                    <div class="navlabel">New&nbsp;Post</div>
+                </a>
+            </div>
+
+            <!-- <div class="item">
+            <a href="/u/list/">
+                <div class="icon"><i class="fa fa-user"></i></div>
+                <div class="navlabel">Users</div>
+            </a>
+        </div> -->
+
+
+            <div class="item">
+                <a href="/planet/">
+                    <div class="icon"><i class="fa fa-globe"></i></div>
+                    <div class="navlabel">Planet</div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="/sites/">
+                    <div class="icon"><i class="fa fa-sitemap"></i></div>
+                    <div class="navlabel">Sites</div>
+                </a>
+            </div>
+
+
+            
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+<div class="container" id="body">
+    
+
+    
+
+
+
+
+    
+    <div class="row">
+
+
+
+        <div class="twelve columns">
+
+            <div id="userbar">
+
+
+
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row" id="post_list">
+
+        <div class="nine columns">
+
+
+            
+
+
+
+<div class="row">
+    <div class="twelve columns" id="search_bar">
+        <form action="/site/search/" method="get">
+            <input type="text" name="q" class="u-full-width"
+                   maxlength="100" placeholder="Search" id="search" value="">
+        </form>
+    </div>
+</div>
+
+
+
+
+
+    
+
+
+<div class="row">
+
+    <div class="page_bar">
+
+        
+
+            <div class="left">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> sort by activity</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> sort by activity</a>
+                            </li>
+                        
+                            <li><a href="?sort=views&days=0&q="> sort by views</a>
+                            </li>
+                        
+                            <li><a href="?sort=followers&days=0&q="> sort by followers</a>
+                            </li>
+                        
+                            <li><a href="?sort=replies&days=0&q="> sort by answers</a>
+                            </li>
+                        
+                            <li><a href="?sort=bookmarks&days=0&q="> sort by bookmarks</a>
+                            </li>
+                        
+                            <li><a href="?sort=votes&days=0&q="> sort by votes</a>
+                            </li>
+                        
+                            <li><a href="?sort=rank&days=0&q="> sort by rank</a>
+                            </li>
+                        
+                            <li><a href="?sort=creation&days=0&q="> sort by creation</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        
+            <div class="right">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> all time</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> all time</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=1&q="> today</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=7&q="> this week</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=36&q="> this month</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=365&q="> this year</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        <div>
+            
+                &lt;prev
+            
+
+            &bull; 7 results &bull; page 1
+            of 1 &bull;
+
+            
+                next&gt;
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+            
+
+
+<xen:foreach loop="$latestThreads" value="$thread">            
+                <div class="row post_row Open">
+
+                    <div class="box vote_count">
+                        <div class="c">
+                          
+                            {$thread.likes}
+                          
+                        </div>
+                        <div class="t">likes</div>
+                    </div>
+
+                    <div class="box Tutorial">
+                        
+                          <div class="c">
+                            {$thread.reply_count}
+                          </div>
+                          <div class="t">replies</div>
+                        
+                    </div>
+
+                    <div class="box view_count lg">
+                        <div class="c">{$thread.view_count}</div>
+                        <div class="t">views</div>
+                    </div>
+
+                    <div class="post_title">
+                        <a href="{xen:link threads, $thread}">{$thread.title}</a>
+                    </div>
+                    
+
+
+<xen:foreach loop="$thread.tags" value="$tag">
+<div class="tag_bar">
+    
+        <a class="tag" href="/index.php?tags/{$tag.tag}/">{$tag.tag}</a>
+    
+</div>
+</xen:foreach>
+
+
+
+
+
+
+                    
+
+
+<div class="userlink right">
+    last activity {xen:datetime $thread.last_post_date, html} by 
+
+
+  <a href="index.php?members/{$thread.username}.{$thread.user_id}/">{$thread.username}</a>
+
+
+
+
+</div>
+                </div>
+</xen:foreach>            
+
+            
+
+
+            
+
+
+<div class="row">
+
+    <div class="page_bar">
+
+        
+
+            <div class="left">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> sort by activity</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> sort by activity</a>
+                            </li>
+                        
+                            <li><a href="?sort=views&days=0&q="> sort by views</a>
+                            </li>
+                        
+                            <li><a href="?sort=followers&days=0&q="> sort by followers</a>
+                            </li>
+                        
+                            <li><a href="?sort=replies&days=0&q="> sort by answers</a>
+                            </li>
+                        
+                            <li><a href="?sort=bookmarks&days=0&q="> sort by bookmarks</a>
+                            </li>
+                        
+                            <li><a href="?sort=votes&days=0&q="> sort by votes</a>
+                            </li>
+                        
+                            <li><a href="?sort=rank&days=0&q="> sort by rank</a>
+                            </li>
+                        
+                            <li><a href="?sort=creation&days=0&q="> sort by creation</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        
+            <div class="right">
+                <ul class="dropdown">
+                    <a href="#"><i class="fa fa-caret-down"></i> all time</a>
+                    <ul class="items">
+                        
+                            <li><a href="?sort=update&days=0&q="> all time</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=1&q="> today</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=7&q="> this week</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=36&q="> this month</a>
+                            </li>
+                        
+                            <li><a href="?sort=update&days=365&q="> this year</a>
+                            </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+        
+
+        <div>
+            
+                &lt;prev
+            
+
+            &bull; 7 results &bull; page 1
+            of 1 &bull;
+
+            
+                next&gt;
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        </div>
+
+        <div class="three columns recent_list">
+
+            
+
+                
+
+
+<div class="subtitle">Recent Votes</div>
+
+<ul>
+    
+</ul>
+
+
+
+                
+
+
+<div class="subtitle">Recent Locations &raquo; <a href="/u/list/">
+    <i class="fa fa-user"></i> Community</a></div>
+<ul>
+    
+        <li>
+            
+               Sweden, Stockholm
+            
+        	&bull; 21 hours ago
+        </li>
+    
+        <li>
+            
+               Sweden, Stockholm
+            
+        	&bull; 7 days ago
+        </li>
+    
+        <li>
+            
+               (Private Address)
+            
+        	&bull; 7 days ago
+        </li>
+    
+</ul>
+
+
+                
+
+<div class="subtitle">Recent Awards &raquo; <a href="/badge/list/">See All</a></div>
+<ul>
+    
+</ul>
+
+
+                
+
+<div class="subtitle">Recent Activity</div>
+<ul>
+    
+</ul>
+
+
+            
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="container" id="footer">
+    
+    <div>
+        <ul class="simple_navbar">
+            <li>
+                <a href="/charms/"><i class="fa fa-desktop"></i> Charms</a>
+            </li>
+
+            <li>
+                <a href="/u/list/"><i class="fa fa-user"></i> Users</a>
+            </li>
+
+            <li>
+                <a href="/page/info/"><i class="fa fa-info-circle"></i> About</a>
+            </li>
+            <li>
+                <a href="/page/rss/"><i class="fa fa-rss"></i> RSS</a>
+            </li>
+            <li>
+                <a href="/page/faq/"><i class="fa fa-bell"></i> FAQ</a>
+            </li>
+            <li>
+                <a href="/page/api/"><i class="fa fa-tasks"></i> API</a>
+            </li>
+            <li>
+                <a href="/page/policy/"><i class="fa fa-user"></i> Terms of Use</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        Powered by <a href="https://github.com/ialbert/biostar-central">Biostars</a> &bull;
+    </div>
+    
+    <div id="traffic">Traffic: 0 users visited in the last hour</div>
+
+</div>
+
+
+    
+
+
+
+
+<script type="text/javascript" src="http://tutorials.ulyaoth.net/static/CACHE/js/5c5294c39237.js"></script>
+
+
+
+    
+
+
+</body>
+</html>]]></template>
+    <template title="ulyaoth_main.css" addon_id="" version_id="0" version_string="" disable_modifications="0"><![CDATA[.post_row {
+  margin: 0.2em 0em 0em 0em;
+  padding: 0.2em 0em 0.2em 0em;
+  border-bottom: 1px solid #efefef;
+}
+.box.vote_count {
+  background-color: #eeeeee;
+}
+.box.Tutorial {
+  background-color: #2c7990;
+  color: white;
+}
+.box {
+  float: left;
+  width: 4em;
+  text-align: center;
+  margin: 0em 0.2em 0em 0em;
+}
+.box .c {
+  font-size: 1.4em;
+  font-weight: bold;
+  height: 2ex;
+  vertical-align: middle;
+  text-align: center;
+  margin-bottom: 2px;
+  padding-top: 0.2em;
+}
+.box .t {
+  font-size: smaller;
+}
+.lg {
+  display: block;
+}
+.post_title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+body a {
+  color: #428bca;
+  text-decoration: none;
+}
+a {
+  background-color: transparent;
+}
+.tag_bar {
+  margin: 0ex 0ex 0.2ex 0ex;
+  float: left;
+}
+.tag {
+  padding: 0.3ex 0.3em 0.3ex 0.3em;
+  text-decoration: none;
+  background-color: #ececec;
+  border-bottom: 1px solid #BBB;
+  border-right: 1px solid #BBB;
+  color: #6b3e4a;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.userlink {
+  color: #808080;
+  padding-left: 0.5em;
+  text-align: right;
+}
+.right {
+  float: right;
+}
+b, strong {
+  font-weight: bold;
+}
+.nine.columns {
+  width: 74.0%;
+}
+.container:after, .row:after, .u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}]]></template>
+  </templates>
 </style>

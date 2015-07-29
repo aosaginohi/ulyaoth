@@ -10,6 +10,13 @@ public static function template_create(&$templateName, array &$params, XenForo_T
                                       ON thread.first_post_id = post.post_id
                                   ORDER BY thread.post_date DESC
                                   LIMIT 30");
+
+foreach ($latestThreads AS &$thread)
+{
+  $thread['tags'] = unserialize($thread['tags']);
+   
+}
+
   $params['latestThreads'] = $latestThreads;
 }
 
