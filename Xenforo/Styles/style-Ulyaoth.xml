@@ -1184,7 +1184,8 @@ line-height: 16px;
     </div>
 
     <div>
-        Powered by <a href="https://github.com/ialbert/biostar-central">Biostars</a> &bull;
+	{xen:helper copyright}<br>
+        Original template by <a href="https://github.com/ialbert/biostar-central">Biostars</a> &bull;
     </div>
     
     <div id="traffic">Traffic: 0 users visited in the last hour</div>
@@ -1197,7 +1198,7 @@ line-height: 16px;
 
 
 
-<script type="text/javascript" src="/static/CACHE/js/5c5294c39237.js"></script>
+<script type="text/javascript" src="https://tutorials.ulyaoth.net/static/CACHE/js/5c5294c39237.js"></script>
 
 
 
