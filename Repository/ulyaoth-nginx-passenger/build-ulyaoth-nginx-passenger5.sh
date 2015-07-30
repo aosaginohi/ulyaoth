@@ -21,9 +21,9 @@ cd /root
 rpmdev-setuptree
 mkdir -p /etc/nginx/modules
 cd /etc/nginx/modules
-wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.14.tar.gz
-tar xvf passenger-5.0.14.tar.gz
-mv passenger-5.0.14 passenger
+wget http://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.15.tar.gz
+tar xvf passenger-5.0.15.tar.gz
+mv passenger-5.0.15 passenger
 rm -rf /etc/nginx/modules/passenger/packaging
 tar cvf passenger.tar.gz passenger
 mv passenger.tar.gz /root/rpmbuild/SOURCES/
