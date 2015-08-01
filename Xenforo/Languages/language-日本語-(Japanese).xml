@@ -71,7 +71,7 @@
   <phrase title="add_option" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Add Option]]></phrase>
   <phrase title="add_option_group" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Add Option Group]]></phrase>
   <phrase title="add_poll" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[投票を追加]]></phrase>
-  <phrase title="add_resource" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Add Resource]]></phrase>
+  <phrase title="add_resource" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[リソースを追加]]></phrase>
   <phrase title="add_resource_update" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Add Resource Update]]></phrase>
   <phrase title="add_secondary_user_group" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Add secondary user group]]></phrase>
   <phrase title="add_sibling" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Add Sibling]]></phrase>
@@ -196,7 +196,7 @@
   <phrase title="admin_navigation_resourceFields" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Resource Fields]]></phrase>
   <phrase title="admin_navigation_resourceManagerOptions" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Resource Manager Options]]></phrase>
   <phrase title="admin_navigation_resourcePrefixes" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Resource Prefixes]]></phrase>
-  <phrase title="admin_navigation_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Resources]]></phrase>
+  <phrase title="admin_navigation_resources" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[リソース]]></phrase>
   <phrase title="admin_navigation_routeFilters" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[経路フィルター]]></phrase>
   <phrase title="admin_navigation_routePrefixes" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Route Prefixes]]></phrase>
   <phrase title="admin_navigation_searchForUsers" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Search for Users]]></phrase>
@@ -297,7 +297,7 @@
   <phrase title="align_right" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[Align Right]]></phrase>
   <phrase title="alignment" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[認証]]></phrase>
   <phrase title="all" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[All]]></phrase>
-  <phrase title="all_categories" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[All Categories]]></phrase>
+  <phrase title="all_categories" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[全てのカテゴリー]]></phrase>
   <phrase title="all_content_types" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[All Content Types]]></phrase>
   <phrase title="all_forums" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[All Forums]]></phrase>
   <phrase title="all_forums_marked_as_read" addon_id="XenForo" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[All forums marked as read.]]></phrase>
@@ -327,7 +327,7 @@
   <phrase title="allow_this_bb_code_in_signatures" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Allow this BB code in signatures]]></phrase>
   <phrase title="allow_user_selection" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Allow user selection]]></phrase>
   <phrase title="allow_voters_to_change_their_votes" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[投票者に投票の変更を許可する]]></phrase>
-  <phrase title="allow_x_to_invite_others_to_this_conversation" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Allow {user} to invite others to this conversation]]></phrase>
+  <phrase title="allow_x_to_invite_others_to_this_conversation" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[この対話に{user}が他の誰かを招待することを許可する]]></phrase>
   <phrase title="allowed_resource_types" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Allowed Resource Types]]></phrase>
   <phrase title="allows_delay_each_page_load_by_specified_length_of_time" addon_id="XenForo" version_id="1000033" version_string="1.0.0 Beta 3"><![CDATA[This allows you to delay each page load by the specified length of time. This will make the rebuild take longer, but can reduce load on an active server.]]></phrase>
   <phrase title="also_comments_on_profile_post" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[プロフィール記事に関するコメントも]]></phrase>
@@ -343,7 +343,7 @@
   <phrase title="and_receive_email_notifications_of_replies" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[そして返信の電子メール通知を受信する]]></phrase>
   <phrase title="and_x_more" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[and {count} more]]></phrase>
   <phrase title="answer" addon_id="XenForo" version_id="1000051" version_string="1.0.0 Release Candidate 1"><![CDATA[Answer]]></phrase>
-  <phrase title="any" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Any]]></phrase>
+  <phrase title="any" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[全て]]></phrase>
   <phrase title="any_forum" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Any Forum]]></phrase>
   <phrase title="api_key" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[API Key]]></phrase>
   <phrase title="appearance" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[外観]]></phrase>
@@ -369,7 +369,7 @@ In the event that some of the selected resources are not eligible to have the se
 <br />
 In the event that some of the selected threads are not eligible to have the selected prefix applied, they will not be altered, and will remain selected.]]></phrase>
   <phrase title="apply_user_group_options" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Apply user group options]]></phrase>
-  <phrase title="apply_warning_points" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Apply warning points]]></phrase>
+  <phrase title="apply_warning_points" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[警戒点を適用]]></phrase>
   <phrase title="approve" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[承認]]></phrase>
   <phrase title="approve_posts" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[投稿を承認]]></phrase>
   <phrase title="approve_resource" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Approve Resource]]></phrase>
@@ -607,7 +607,7 @@ This is [SIZE=1]small[/SIZE] and [SIZE=7]big[/SIZE] text.]]></phrase>
   <phrase title="captcha_question_answers_explain" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[You may add as many correct answers as you like. Empty answer fields will be ignored. Answers are not case-sensitive.]]></phrase>
   <phrase title="case_sensitive" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Case sensitive]]></phrase>
   <phrase title="cast_your_vote" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Cast Your Vote]]></phrase>
-  <phrase title="categories" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Categories]]></phrase>
+  <phrase title="categories" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[カテゴリー]]></phrase>
   <phrase title="category" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Category]]></phrase>
   <phrase title="category_not_allow_new_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[This category does not allow new resources.]]></phrase>
   <phrase title="certain_events_take_hints_that_can_limit_when_listener_is_run" addon_id="XenForo" version_id="1020270" version_string="1.2.2"><![CDATA[When certain events are triggered, they will be triggered with a hint. This hint can be used to limit your listener to only being executed when it's needed, increasing performance. If an event is triggered with a hint, the potential hint values will be listed in the event description above. If you specify a hint here, your listener will only be run if your hint matches the hint provided when the event is triggered.]]></phrase>
@@ -786,7 +786,7 @@ Eメール: {email}
   <phrase title="containing_messages_by" addon_id="XenForo" version_id="1010034" version_string="1.1.0 Beta 4"><![CDATA[Containing messages by]]></phrase>
   <phrase title="contains_no_messages" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[メッセージなし]]></phrase>
   <phrase title="content" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[コンテンツ]]></phrase>
-  <phrase title="content_action" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Content Action]]></phrase>
+  <phrase title="content_action" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[コンテンツアクション]]></phrase>
   <phrase title="content_and_achievements" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Content and Achievements]]></phrase>
   <phrase title="content_creator" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Content creator]]></phrase>
   <phrase title="content_history" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Content History]]></phrase>
@@ -1087,7 +1087,7 @@ To stop receiving email, please edit your contact preferences:
   <phrase title="custom_user_fields" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Custom User Fields]]></phrase>
   <phrase title="custom_userfield_criteria" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Custom User Field Criteria]]></phrase>
   <phrase title="custom_version" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Custom Version]]></phrase>
-  <phrase title="custom_warning" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Custom Warning]]></phrase>
+  <phrase title="custom_warning" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[警告のカスタム]]></phrase>
   <phrase title="customized_in_version" addon_id="XenForo" version_id="1010035" version_string="1.1.0 Beta 5"><![CDATA[Customized in {version}.]]></phrase>
   <phrase title="customized_style_components" addon_id="XenForo" version_id="1010035" version_string="1.1.0 Beta 5"><![CDATA[Customized Style Components]]></phrase>
   <phrase title="customized_templates" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Customized templates]]></phrase>
@@ -1213,7 +1213,7 @@ To stop receiving email, please edit your contact preferences:
   <phrase title="delete_super_moderator" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Delete Super Moderator]]></phrase>
   <phrase title="delete_template" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Delete Template]]></phrase>
   <phrase title="delete_template_modification" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Delete Template Modification]]></phrase>
-  <phrase title="delete_the_content" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Delete the content]]></phrase>
+  <phrase title="delete_the_content" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[コンテンツを削除]]></phrase>
   <phrase title="delete_this_nodes_children" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Delete this node's children]]></phrase>
   <phrase title="delete_thread" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[スレッドを削除]]></phrase>
   <phrase title="delete_thread_prefix" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Delete Thread Prefix]]></phrase>
@@ -1258,7 +1258,7 @@ To stop receiving email, please edit your contact preferences:
   <phrase title="disable_email_notification" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[Eメール通知を無効にする]]></phrase>
   <phrase title="disable_line_break_conversion" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Disable line break conversion]]></phrase>
   <phrase title="disable_smilies" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Disable smilies]]></phrase>
-  <phrase title="disable_sub_category_notifications" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Disable sub-category notifications]]></phrase>
+  <phrase title="disable_sub_category_notifications" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[サブカテゴリーの通知を無効化]]></phrase>
   <phrase title="disable_to_prevent_feed_import" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[You may disable this option to temporarily prevent entries from this feed being imported.]]></phrase>
   <phrase title="disabled_user_upgrades" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Disabled User Upgrades]]></phrase>
   <phrase title="disables_selected_user_upgrades_while_this_upgrade_is_active" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Disables the selected user upgrades while this upgrade is active. This is helpful if you have tiers of the same upgrade and don't want people to buy multiple levels.]]></phrase>
@@ -1306,7 +1306,7 @@ To stop receiving email, please edit your contact preferences:
   <phrase title="do_not_change" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Do not change]]></phrase>
   <phrase title="do_not_have_permission" addon_id="XenForo" version_id="0" version_string=""><![CDATA[You do not have permission to view this page or perform this action.]]></phrase>
   <phrase title="do_not_leave_redirect" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Do not leave a redirect]]></phrase>
-  <phrase title="do_nothing" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Do nothing]]></phrase>
+  <phrase title="do_nothing" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[何もしない]]></phrase>
   <phrase title="do_you_already_have_account" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[既にアカウントをお持ちですか?]]></phrase>
   <phrase title="dob_day" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Day of Birth]]></phrase>
   <phrase title="dob_month" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Month of Birth]]></phrase>
@@ -1467,7 +1467,7 @@ Your callback should return an HTML string, and have a signature as follows:<br 
   <phrase title="enable_registration" addon_id="XenForo" version_id="1000370" version_string="1.0.3"><![CDATA[Enable Registration]]></phrase>
   <phrase title="enable_rte" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Enable Rich Text Editor]]></phrase>
   <phrase title="enable_sprite_mode_with_following_parameters" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Enable CSS sprite mode with the following parameters:]]></phrase>
-  <phrase title="enable_sub_category_notifications" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Enable sub-category notifications]]></phrase>
+  <phrase title="enable_sub_category_notifications" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[サブカテゴリーの通知を有効化]]></phrase>
   <phrase title="enabled" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Enabled]]></phrase>
   <phrase title="encryption" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Encryption]]></phrase>
   <phrase title="end_date" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[End Date]]></phrase>
@@ -1481,7 +1481,7 @@ Your callback should return an HTML string, and have a signature as follows:<br 
   <phrase title="enter_spoiler_title" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Enter Spoiler Title]]></phrase>
   <phrase title="enter_spoiler_title_explain" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[If you would like the 'Spoiler' button show a title that hints at its content, enter your text here. To avoid having a title, leave the text box empty.]]></phrase>
   <phrase title="enter_your_password_in_first_box_and_confirm_it_in_second" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[1つ目の入力欄にパスワードを入力し、確認のため、2つ目にも同じものを入力してください]]></phrase>
-  <phrase title="enter_your_search_and_hit_enter" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Enter your search and hit enter]]></phrase>
+  <phrase title="enter_your_search_and_hit_enter" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[検索欄に入力してエンターキーを押して下さい]]></phrase>
   <phrase title="error" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Error]]></phrase>
   <phrase title="error_could_not_find_uploads_directory_at_specified_path" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Either the specified path to your IP.Board installation does not exist, or it does not contain the 'uploads' folder that contains avatars and file attachments.]]></phrase>
   <phrase title="error_info" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Error Info]]></phrase>
@@ -1593,7 +1593,7 @@ Your callback should return an HTML string, and have a signature as follows:<br 
   <phrase title="filter" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Filter]]></phrase>
   <phrase title="filter_by_user" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Filter by user]]></phrase>
   <phrase title="filter_items" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Filter items]]></phrase>
-  <phrase title="filters" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Filters]]></phrase>
+  <phrase title="filters" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[フィルター]]></phrase>
   <phrase title="final_value_content" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Final Value (Content)]]></phrase>
   <phrase title="final_value_global" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Final Value (Global)]]></phrase>
   <phrase title="finalizing" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Finalizing]]></phrase>
@@ -1654,7 +1654,7 @@ Your callback should return an HTML string, and have a signature as follows:<br 
   <phrase title="forums_and_permissions" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Forums and Permissions]]></phrase>
   <phrase title="found_unexpected_content_within_an_admin_control_tag" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Found unexpected content within an admin control tag.]]></phrase>
   <phrase title="found_unexpected_tag_x_as_disabled_control" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Found unexpected tag '{tag}' as a disabled control.]]></phrase>
-  <phrase title="free" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Free]]></phrase>
+  <phrase title="free" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[無料]]></phrase>
   <phrase title="free_form_text_allows_loose_grouping_of_adjacent_scalar_properties" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Free-form text, allows loose grouping of adjacent <i>scalar</i> properties.]]></phrase>
   <phrase title="from_email" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[From Email]]></phrase>
   <phrase title="from_name" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[From Name]]></phrase>
@@ -2093,7 +2093,7 @@ Note that enabling the name calculation at import time can cause this step to ru
   <phrase title="last_activity" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最後のアクティビティー]]></phrase>
   <phrase title="last_administrator_cannot_be_deleted" addon_id="XenForo" version_id="0" version_string=""><![CDATA[The last administrator cannot be deleted.]]></phrase>
   <phrase title="last_edited" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[最後に編集]]></phrase>
-  <phrase title="last_edited_by_moderator" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Last edited by a moderator]]></phrase>
+  <phrase title="last_edited_by_moderator" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[最終的に議長により編集されました]]></phrase>
   <phrase title="last_message" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最新のメッセージ]]></phrase>
   <phrase title="last_message_by_x" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Last message by {name}]]></phrase>
   <phrase title="last_message_time" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最後に更新されたメッセージの時間]]></phrase>
@@ -2110,7 +2110,7 @@ Note that enabling the name calculation at import time can cause this step to ru
   <phrase title="latest" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[=最新]]></phrase>
   <phrase title="latest_alerts" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最新のアラート]]></phrase>
   <phrase title="latest_member" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[=最新の会員]]></phrase>
-  <phrase title="latest_updates" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Latest Updates]]></phrase>
+  <phrase title="latest_updates" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[最新のリソース]]></phrase>
   <phrase title="layout" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Layout]]></phrase>
   <phrase title="learn_more" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[詳しくはこちらをご覧ください。]]></phrase>
   <phrase title="leave_conversation" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[会話から抜ける]]></phrase>
@@ -2139,7 +2139,7 @@ Note that enabling the name calculation at import time can cause this step to ru
   <phrase title="likes_user1_user2_user3_and_x_others_like_this" addon_id="XenForo" global_cache="1" version_id="0" version_string=""><![CDATA[{user1}, {user2}, {user3} and <a href="{likesLink}" class="OverlayTrigger">{others} others</a> like this.]]></phrase>
   <phrase title="likes_x_people_like_this" addon_id="XenForo" global_cache="1" version_id="0" version_string=""><![CDATA[{likes} people like this.]]></phrase>
   <phrase title="likes_you_and_user1_like_this" addon_id="XenForo" global_cache="1" version_id="0" version_string=""><![CDATA[You and {user1} like this.]]></phrase>
-  <phrase title="likes_you_like_this" addon_id="XenForo" global_cache="1" version_id="0" version_string=""><![CDATA[You like this.]]></phrase>
+  <phrase title="likes_you_like_this" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[あなたのお気に入り。]]></phrase>
   <phrase title="likes_you_user1_and_user2_like_this" addon_id="XenForo" global_cache="1" version_id="0" version_string=""><![CDATA[You, {user1} and {user2} like this.]]></phrase>
   <phrase title="likes_you_user1_user2_and_1_other_like_this" addon_id="XenForo" global_cache="1" version_id="1000013" version_string="1.0.0 Alpha 3"><![CDATA[You, {user1}, {user2} and <a href="{likesLink}" class="OverlayTrigger">1 other person</a> like this.]]></phrase>
   <phrase title="likes_you_user1_user2_and_x_others_like_this" addon_id="XenForo" global_cache="1" version_id="0" version_string=""><![CDATA[You, {user1}, {user2} and <a href="{likesLink}" class="OverlayTrigger">{others} others</a> like this.]]></phrase>
@@ -2249,7 +2249,7 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="media_site_ids_must_be_unique" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Media site IDs must be unique. The specified ID is already in use.]]></phrase>
   <phrase title="member" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[メンバー]]></phrase>
   <phrase title="member_limits_viewing_profile" addon_id="XenForo" version_id="0" version_string=""><![CDATA[This member limits who may view their full profile.]]></phrase>
-  <phrase title="member_notification" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Member Notification]]></phrase>
+  <phrase title="member_notification" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[メンバー通知]]></phrase>
   <phrase title="member_of_any_of_these_secondary_groups" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Member of any of these secondary groups]]></phrase>
   <phrase title="member_of_no_secondary_groups" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Member of no secondary groups]]></phrase>
   <phrase title="member_since" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[メンバー登録日]]></phrase>
@@ -2568,14 +2568,14 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="more_records_matching_filter_more_specific" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[There are more records matching your filter. Please be more specific.]]></phrase>
   <phrase title="more_resources_from_x" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[More Resources from {name}]]></phrase>
   <phrase title="more_users" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[More Users]]></phrase>
-  <phrase title="most_active_authors" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Most Active Authors]]></phrase>
-  <phrase title="most_downloaded" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Most Downloaded]]></phrase>
+  <phrase title="most_active_authors" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[最も活発な作者]]></phrase>
+  <phrase title="most_downloaded" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[最も多くダウンロードされたもの]]></phrase>
   <phrase title="most_likes" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最大「いいね!」]]></phrase>
   <phrase title="most_messages" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最大メッセージ]]></phrase>
   <phrase title="most_points" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最大ポイント]]></phrase>
   <phrase title="most_recent" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最近]]></phrase>
   <phrase title="most_replies" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最多リプライ]]></phrase>
-  <phrase title="most_resources" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Most Resources]]></phrase>
+  <phrase title="most_resources" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[最も多いリソース]]></phrase>
   <phrase title="move_delete_spammers_threads" addon_id="XenForo" version_id="1000033" version_string="1.0.0 Beta 3"><![CDATA[Move / delete spammer's threads]]></phrase>
   <phrase title="move_down" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Move down]]></phrase>
   <phrase title="move_posts" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[投稿を移動]]></phrase>
@@ -2638,7 +2638,7 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="newer_than" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[よりも新しい]]></phrase>
   <phrase title="newest_members" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[最新の会員]]></phrase>
   <phrase title="newest_registrations" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Newest Registrations]]></phrase>
-  <phrase title="newest_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Newest Resources]]></phrase>
+  <phrase title="newest_resources" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[一番新しいのリソース]]></phrase>
   <phrase title="news_feed" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[News Feed]]></phrase>
   <phrase title="news_feed_disabled" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[The news feed is currently disabled. This may be a temporary performance-saving measure if the site is very busy at present.]]></phrase>
   <phrase title="news_feed_is_currently_empty" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[The news feed is currently empty.]]></phrase>
@@ -2753,7 +2753,7 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="not_sticky" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Not sticky]]></phrase>
   <phrase title="notable_members" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[注目の会員]]></phrase>
   <phrase title="note" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[注意事項]]></phrase>
-  <phrase title="note_that_author_will_see_alert_even_no_longer_view_message" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Note that the author will see this alert even if they can no longer view their message.]]></phrase>
+  <phrase title="note_that_author_will_see_alert_even_no_longer_view_message" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[例えメッセージを全く読めなくても、作者はこの警告を目にするということを留意して下さい。]]></phrase>
   <phrase title="note_that_email_clients_handle_html_in_widely_varying_ways" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Note that email clients handle HTML in widely varying ways. Be sure to test before sending HTML emails. A text version of your email will be generated by removing all HTML tags.]]></phrase>
   <phrase title="note_thread_starter_see_alert_even_no_longer_view_thread" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Note that the thread starter will see this alert even if they can no longer view their thread.]]></phrase>
   <phrase title="note_you_not_editing_master_style" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Note: you are not editing the master style.]]></phrase>
@@ -2774,7 +2774,7 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="notices_restored" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Notices Restored]]></phrase>
   <phrase title="notices_system_options" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Notices System Options]]></phrase>
   <phrase title="notifications" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Notifications]]></phrase>
-  <phrase title="notify_author_of_this_action" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Notify author of this action.]]></phrase>
+  <phrase title="notify_author_of_this_action" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[この行為を作者に知らせる]]></phrase>
   <phrase title="notify_members_watching_destination_forum" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Notify members watching the destination forum]]></phrase>
   <phrase title="notify_non_destination_thread_starters_of_this_action" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Notify non-destination thread starters of this action.]]></phrase>
   <phrase title="notify_thread_starter_of_this_action" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Notify thread starter of this action.]]></phrase>
@@ -2813,7 +2813,7 @@ Example regular expression with 'id' named sub-pattern:<br />
   <phrase title="only_when_data_is_provided" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Only when data is provided]]></phrase>
   <phrase title="open_in_new_window" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Open in new window]]></phrase>
   <phrase title="open_in_overlay" addon_id="XenForo" version_id="1000070" version_string="1.0.0"><![CDATA[Open this link in an overlay]]></phrase>
-  <phrase title="open_quick_navigation" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Open quick navigation]]></phrase>
+  <phrase title="open_quick_navigation" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[クイックナビゲーションを開く]]></phrase>
   <phrase title="open_report" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[開く]]></phrase>
   <phrase title="open_thread" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[開く]]></phrase>
   <phrase title="optgroups_must_have_label" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Optgroups must have a label.]]></phrase>
@@ -3318,7 +3318,7 @@ You may also specify up to two Twitter accounts to recommend to visitors after t
   <phrase title="option_usernameValidation_explain" addon_id="XenForo" version_id="0" version_string=""><![CDATA[]]></phrase>
   <phrase title="option_watchAlertActiveOnly" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Only send watched content alerts/emails to users active in last X days]]></phrase>
   <phrase title="option_watchAlertActiveOnly_explain" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[If enabled, watched content alerts and emails will only be sent to users that have visited within the specified number of days. This can improve performance on large or very active installations.]]></phrase>
-  <phrase title="optional" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Optional]]></phrase>
+  <phrase title="optional" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[任意]]></phrase>
   <phrase title="optional_components" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Optional Components]]></phrase>
   <phrase title="optionally_describe_trophy_and_criteria_user_needs_to_award" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Optionally describe the trophy and the criteria the user needs to meet to be awarded it.]]></phrase>
   <phrase title="options" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[オプション]]></phrase>
@@ -3364,7 +3364,7 @@ Callback arguments:
   <phrase title="page_views" addon_id="XenForo" version_id="1040051" version_string="1.4.0 Release Candidate 1"><![CDATA[Page Views]]></phrase>
   <phrase title="page_x" addon_id="XenForo" global_cache="1" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[ | Page {page}]]></phrase>
   <phrase title="page_x_of_y" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[全{total}ページの{current}ページ目]]></phrase>
-  <phrase title="paid" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Paid]]></phrase>
+  <phrase title="paid" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[有料]]></phrase>
   <phrase title="parameters" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Parameters]]></phrase>
   <phrase title="parent_category" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Parent Category]]></phrase>
   <phrase title="parent_language" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Parent Language]]></phrase>
@@ -3788,8 +3788,8 @@ Note that account changes such as bans will not be reflected by this system. You
   <phrase title="points" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[ポイント]]></phrase>
   <phrase title="points_and_expiry_time_editable_when_giving_warning" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Points and expiry time are editable when giving warning]]></phrase>
   <phrase title="points_can_be_used_track_progression_and_change_title" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[These points can be used to track progression and change a user's title.]]></phrase>
-  <phrase title="points_expire_after" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Points expire after]]></phrase>
-  <phrase title="points_expiry" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Points Expiry]]></phrase>
+  <phrase title="points_expire_after" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[警戒点の有効期限]]></phrase>
+  <phrase title="points_expiry" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[警戒点の終了]]></phrase>
   <phrase title="points_threshold" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Points Threshold]]></phrase>
   <phrase title="poll_choice" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[投票オプション]]></phrase>
   <phrase title="poll_results" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Poll Results]]></phrase>
@@ -3815,7 +3815,7 @@ Note that account changes such as bans will not be reflected by this system. You
   <phrase title="post_moderation" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Post Moderation]]></phrase>
   <phrase title="post_new_thread" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[新しいスレッドを投稿する]]></phrase>
   <phrase title="post_poll" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[投票を投稿する]]></phrase>
-  <phrase title="post_public_warning" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Post a public warning]]></phrase>
+  <phrase title="post_public_warning" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[公に警告を掲示する]]></phrase>
   <phrase title="post_reply" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[リプライする]]></phrase>
   <phrase title="post_resource_update" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Post Resource Update]]></phrase>
   <phrase title="post_verb" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[投稿]]></phrase>
@@ -3846,7 +3846,7 @@ Note that account changes such as bans will not be reflected by this system. You
   <phrase title="previously_imported_data_found" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Previously Imported, Unarchived Data Has Been Found]]></phrase>
   <phrase title="previously_imported_data_has_been_found_redirect_break" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[If you are currently redirecting URLs from a previous import to XenForo or intend to do so, these redirections will stop working if you begin another import without archiving the data to a new database table. For full details see this help article: <a href="http://xenforo.com/help/import-redirection/" target="_blank">Import Redirection</a>.]]></phrase>
   <phrase title="price" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Price]]></phrase>
-  <phrase title="price_filters" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Price Filters]]></phrase>
+  <phrase title="price_filters" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[価格フィルター]]></phrase>
   <phrase title="primary_user_group" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[Primary User Group]]></phrase>
   <phrase title="privacy" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[プライバシー]]></phrase>
   <phrase title="privacy_policy" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Privacy Policy]]></phrase>
@@ -3891,7 +3891,7 @@ Note that account changes such as bans will not be reflected by this system. You
   <phrase title="proxy_links" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Proxy Links]]></phrase>
   <phrase title="public" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Public]]></phrase>
   <phrase title="public_route_prefixes" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Public Route Prefixes]]></phrase>
-  <phrase title="public_warning_text" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Public Warning Text]]></phrase>
+  <phrase title="public_warning_text" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[警告文を公開]]></phrase>
   <phrase title="published" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Published]]></phrase>
   <phrase title="purchase" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Purchase]]></phrase>
   <phrase title="purchase_url" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Purchase URL]]></phrase>
@@ -3903,7 +3903,7 @@ Note that account changes such as bans will not be reflected by this system. You
   <phrase title="question_import_choice_explain" addon_id="XenForo" version_id="1000170" version_string="1.0.1"><![CDATA[In the event that multiple questions are found in a single poll, would you prefer to import the first, or the last question found?]]></phrase>
   <phrase title="question_is_active" addon_id="XenForo" version_id="1000036" version_string="1.0.0 Beta 6"><![CDATA[Question is active]]></phrase>
   <phrase title="quick_check_all" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[Quick check all]]></phrase>
-  <phrase title="quick_links" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Quick Links]]></phrase>
+  <phrase title="quick_links" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[クイックリンク]]></phrase>
   <phrase title="quick_navigation_menu" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[クイックナビゲーションメニュー]]></phrase>
   <phrase title="quick_set_selected_items" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Quick-Set Selected Items]]></phrase>
   <phrase title="quick_set_thread_prefixes" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Quick-Set Thread Prefixes]]></phrase>
@@ -3930,7 +3930,7 @@ Note that account changes such as bans will not be reflected by this system. You
   <phrase title="reason" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[理由]]></phrase>
   <phrase title="reason_for_ban" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Reason for the ban]]></phrase>
   <phrase title="reason_for_banning" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Reason for banning]]></phrase>
-  <phrase title="reason_for_deletion" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Reason for Deletion]]></phrase>
+  <phrase title="reason_for_deletion" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[削除理由]]></phrase>
   <phrase title="reassign_report" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Reassign Report]]></phrase>
   <phrase title="reassign_resource" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Reassign Resource]]></phrase>
   <phrase title="reassign_resources" addon_id="XenResource" version_id="1010570" version_string="1.1.5"><![CDATA[Reassign Resources]]></phrase>
@@ -4194,7 +4194,7 @@ Content being reported:
   <phrase title="resource_version" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Resource Version]]></phrase>
   <phrase title="resource_x_created" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[{resource} Created]]></phrase>
   <phrase title="resource_x_updated_y" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[{resource} Updated: {update}]]></phrase>
-  <phrase title="resources" addon_id="XenResource" global_cache="1" version_id="1" version_string="1.0.0 Alpha 1"><![CDATA[Resources]]></phrase>
+  <phrase title="resources" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[リソース]]></phrase>
   <phrase title="resources_being_shown_from_all_child_categories" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Resources are being shown from all child categories.]]></phrase>
   <phrase title="resources_from_x" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Resources from {name}]]></phrase>
   <phrase title="restart" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Restart]]></phrase>
@@ -4316,25 +4316,25 @@ Content being reported:
   <phrase title="search_admin_templates" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Search Admin Templates]]></phrase>
   <phrase title="search_again" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[再検索する]]></phrase>
   <phrase title="search_by_ip_address" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Search by IP Address]]></phrase>
-  <phrase title="search_child_categories_as_well" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Search child categories as well]]></phrase>
+  <phrase title="search_child_categories_as_well" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[子供のカテゴリーも同様に検索]]></phrase>
   <phrase title="search_child_forums_as_well" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[チャイルドフォーラムを同時に検索]]></phrase>
   <phrase title="search_could_not_be_completed_because_search_keywords_were_too" addon_id="XenForo" version_id="0" version_string=""><![CDATA[The search could not be completed because the search keywords were too short, too long, or too common.]]></phrase>
   <phrase title="search_everything" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[すべてを検索する]]></phrase>
   <phrase title="search_for_gravatar_when_users_do_not_have_avatar" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Search for Gravatar when users do not have an avatar]]></phrase>
   <phrase title="search_for_users" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Search for Users]]></phrase>
   <phrase title="search_forums" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[フォーラムを探す]]></phrase>
-  <phrase title="search_in_categories" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Search in Categories]]></phrase>
+  <phrase title="search_in_categories" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[カテゴリーで検索]]></phrase>
   <phrase title="search_in_forums" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[検索するフォーラム]]></phrase>
   <phrase title="search_index" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Search Index]]></phrase>
   <phrase title="search_location" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Search Location]]></phrase>
   <phrase title="search_only_in_thread" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Search Only in Thread]]></phrase>
-  <phrase title="search_only_resource_descriptions" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Search only resource descriptions]]></phrase>
+  <phrase title="search_only_resource_descriptions" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[リソースの記述のみを検索]]></phrase>
   <phrase title="search_only_x" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Search only {title}]]></phrase>
   <phrase title="search_phrases" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Search Phrases]]></phrase>
   <phrase title="search_preferences" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Search Preferences]]></phrase>
   <phrase title="search_profile_posts" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[プロフィールポストを検索]]></phrase>
   <phrase title="search_promotion_history" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Search Promotion History]]></phrase>
-  <phrase title="search_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Search Resources]]></phrase>
+  <phrase title="search_resources" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[リソースを検索]]></phrase>
   <phrase title="search_resources_only" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Search resources only]]></phrase>
   <phrase title="search_results" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[検索結果]]></phrase>
   <phrase title="search_results_for_query" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Search Results for Query]]></phrase>
@@ -4574,7 +4574,7 @@ If you are not sure this is the behavior you want, select 'Revoke' instead.
   <phrase title="starred_conversations" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[スターが付けられた会話]]></phrase>
   <phrase title="start_a_conversation_now" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[今会話を始める]]></phrase>
   <phrase title="start_conversation" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[会話を始める]]></phrase>
-  <phrase title="start_conversation_with_x" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Start a conversation with {name}]]></phrase>
+  <phrase title="start_conversation_with_x" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[{name}との対話を開始する]]></phrase>
   <phrase title="start_conversations_with_you" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[あなたと会話を始めました]]></phrase>
   <phrase title="start_date" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[開始日]]></phrase>
   <phrase title="start_fresh_import" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Start a fresh import]]></phrase>
@@ -4616,7 +4616,7 @@ If you are not sure this is the behavior you want, select 'Revoke' instead.
   <phrase title="stop_parsing_bb_code" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Stop parsing BB code]]></phrase>
   <phrase title="stop_rebuilding" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Stop rebuilding]]></phrase>
   <phrase title="stop_watching" addon_id="XenForo" version_id="1010270" version_string="1.1.2"><![CDATA[Stop watching]]></phrase>
-  <phrase title="stop_watching_categories" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Stop watching categories]]></phrase>
+  <phrase title="stop_watching_categories" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[カテゴリーの監視を止める]]></phrase>
   <phrase title="stop_watching_forums" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[フォーラムの閲覧を停止]]></phrase>
   <phrase title="stop_watching_this_resource" addon_id="XenResource" version_id="1010070" version_string="1.1.0"><![CDATA[Stop Watching This Resource]]></phrase>
   <phrase title="stop_watching_this_thread" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[Stop Watching This Thread]]></phrase>
@@ -5492,7 +5492,7 @@ Its primary purpose in the default style is to provide the left column of the me
   <phrase title="there_are_no_outdated_phrases" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[There are no outdated phrases.]]></phrase>
   <phrase title="there_are_no_outdated_templates" addon_id="XenForo" version_id="1000032" version_string="1.0.0 Beta 2"><![CDATA[There are no outdated templates.]]></phrase>
   <phrase title="there_currently_no_moderators_use_link_create" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[There are currently no moderators. Use the link above to create one.]]></phrase>
-  <phrase title="there_currently_no_resources_to_display" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[There are currently no resources to display.]]></phrase>
+  <phrase title="there_currently_no_resources_to_display" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[現在表示できるリソースはありません。]]></phrase>
   <phrase title="there_is_no_history_to_show_for_this_goal" addon_id="mercDonationManager" version_id="24" version_string="1.0 Beta 3.1.7.1"><![CDATA[There is no history to show for this goal.]]></phrase>
   <phrase title="there_may_be_more_to_view" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[まだ閲覧するものがあるかもしれません。]]></phrase>
   <phrase title="there_more_messages_to_display" addon_id="XenForo" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[There are more messages to display.]]></phrase>
@@ -5515,7 +5515,7 @@ Error message: <span class="exceptionMessage">{message}</span>]]></phrase>
   <phrase title="this_category_does_not_allow_external_commercial_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[This category does not allow external commercial resources.]]></phrase>
   <phrase title="this_category_does_not_allow_fileless_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[This category does not allow fileless resources.]]></phrase>
   <phrase title="this_content_edit_history_has_been_removed" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[This content edit history has been removed.]]></phrase>
-  <phrase title="this_content_edited_total_of_x_times_old_records_removed" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[This content has been edited a total of {count} times. Some older edit history records have been removed.]]></phrase>
+  <phrase title="this_content_edited_total_of_x_times_old_records_removed" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[このコンテンツは合計で{count}回編集されています。いくつかの古い編集履歴の記録は削除されています。]]></phrase>
   <phrase title="this_content_has_not_been_edited" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[This content has not been edited.]]></phrase>
   <phrase title="this_does_not_apply_to_fields_displayed_within_preferences_page" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[This does not apply to fields displayed within the preferences page.]]></phrase>
   <phrase title="this_feature_attempt_automatically_merge_custom_template_changes" addon_id="XenForo" version_id="1020052" version_string="1.2.0 Release Candidate 2"><![CDATA[This feature will attempt to automatically merge your custom template changes with any updates to the template they are based on. As this is an automated process, it is recommended that you check your customized templates after merging to ensure that they are correct.]]></phrase>
@@ -5585,11 +5585,11 @@ Error message: <span class="exceptionMessage">{message}</span>]]></phrase>
   <phrase title="this_will_be_shown_to_user_if_you_choose_to_notify_them" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[This will be shown to the user if you choose to notify them.]]></phrase>
   <phrase title="this_will_be_shown_to_users" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[This will be shown to users.]]></phrase>
   <phrase title="this_will_be_used_to_identify_media_site_to_load_in_bb_code" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[This will be used to identify the media site to load in the BB code.]]></phrase>
-  <phrase title="this_will_be_visible_only_to_you_and_this_member" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[This will be visible only to you and this member.]]></phrase>
-  <phrase title="this_will_be_visible_to_anyone_who_can_see_content_for_warning" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[This will be visible to anyone who can see the content for which this member is being warned.]]></phrase>
+  <phrase title="this_will_be_visible_only_to_you_and_this_member" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[こちらは、あなた自身とここのメンバーのみに見えるようになっています。]]></phrase>
+  <phrase title="this_will_be_visible_to_anyone_who_can_see_content_for_warning" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[このメンバーが警告を受けていることは、このコンテンツを見ることができる方全員の目に触れることになります。]]></phrase>
   <phrase title="this_will_clean_up_permission_combinations_no_longer_in_use" addon_id="XenForo" version_id="1020034" version_string="1.2.0 Beta 4"><![CDATA[This will clean up any permission combinations which are no longer in use. This can speed up permission update and rebuild operations and remove unused data from the database.]]></phrase>
   <phrase title="this_will_delete_conversations_started_by_user_cannot_be_undone" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[This will delete all conversations started by this user. This action cannot be undone.]]></phrase>
-  <phrase title="this_will_not_be_shown_to_member_receiving_warning" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[This will not be shown to the member receiving the warning.]]></phrase>
+  <phrase title="this_will_not_be_shown_to_member_receiving_warning" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[こちらは警告を受けているメンバーには表示されません。]]></phrase>
   <phrase title="this_will_not_remove_any_content_this_user_has_already_created" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[This will not remove any content this user has already created.]]></phrase>
   <phrase title="this_will_send_copy_of_this_email_to_x_for_testing" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[This will send a copy of this email to {email} for testing.]]></phrase>
   <phrase title="this_will_test_xenforo_facebook_integration" addon_id="XenForo" version_id="1000035" version_string="1.0.0 Beta 5"><![CDATA[This will test the XenForo's Facebook integration. You must have a Facebook account to perform this test.]]></phrase>
@@ -5644,7 +5644,7 @@ Error message: <span class="exceptionMessage">{message}</span>]]></phrase>
   <phrase title="tool_helps_diagnose_errors_relating_to_image_proxy_system" addon_id="XenForo" version_id="1030033" version_string="1.3.0 Beta 3"><![CDATA[This tool helps diagnose errors relating to the image proxy system by giving more detailed information than can be given when displaying an image.]]></phrase>
   <phrase title="tools" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[ツール]]></phrase>
   <phrase title="top" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[トップ]]></phrase>
-  <phrase title="top_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Top Resources]]></phrase>
+  <phrase title="top_resources" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[トップリソース]]></phrase>
   <phrase title="total_downloads" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Total Downloads]]></phrase>
   <phrase title="total_files" addon_id="XenForo" version_id="1040010" version_string="1.4.0 Alpha"><![CDATA[Total Files]]></phrase>
   <phrase title="total_members" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[トータルのメンバー]]></phrase>
@@ -5729,7 +5729,7 @@ Error message: <span class="exceptionMessage">{message}</span>]]></phrase>
   <phrase title="unknown_member" addon_id="XenForo" version_id="1010051" version_string="1.1.0 Release Candidate 1"><![CDATA[Unknown Member]]></phrase>
   <phrase title="unknown_tag_x" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Unknown tag: {tag}]]></phrase>
   <phrase title="unknown_upgrade" addon_id="XenForo" version_id="1030010" version_string="1.3.0 Alpha"><![CDATA[Unknown Upgrade]]></phrase>
-  <phrase title="unlike" addon_id="XenForo" version_id="0" version_string=""><![CDATA[Unlike]]></phrase>
+  <phrase title="unlike" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[異なる]]></phrase>
   <phrase title="unlike_post" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Unlike Post]]></phrase>
   <phrase title="unlike_profile_post" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Unlike Profile Post]]></phrase>
   <phrase title="unlike_resource_update" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Unlike Resource Update]]></phrase>
@@ -6194,7 +6194,7 @@ Thanks,
   <phrase title="visit_site" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Visit Site]]></phrase>
   <phrase title="visits_in_last_hour_may_not_be_considered" addon_id="XenForo" version_id="1000016" version_string="1.0.0 Alpha 6"><![CDATA[Visits in the last hour may not be considered.]]></phrase>
   <phrase title="warn" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[警告する]]></phrase>
-  <phrase title="warn_member" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warn Member]]></phrase>
+  <phrase title="warn_member" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[メンバーに警告する]]></phrase>
   <phrase title="warning" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[警告する]]></phrase>
   <phrase title="warning_action_applied_crossing_threshold" addon_id="XenForo" version_id="1040370" version_string="1.4.3"><![CDATA[This warning action will only be applied when a user crosses the points threshold. As such, users with this many points or more will not have this action applied until their warning point total drops below this threshold and then crosses it again.]]></phrase>
   <phrase title="warning_actions" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warning Actions]]></phrase>
@@ -6207,8 +6207,8 @@ Your message ([url={url}]{title}[/url]) contains inappropriate content:
 Please do not discuss content of this nature on our site. This does not follow our rules. Your message may have been removed or altered.
 
 Your account's access may be limited based on these actions. Please keep this in mind when posting or using our site.]]></phrase>
-  <phrase title="warning_definition_1_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Content]]></phrase>
-  <phrase title="warning_definition_1_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Content]]></phrase>
+  <phrase title="warning_definition_1_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切なコンテンツ]]></phrase>
+  <phrase title="warning_definition_1_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切なコンテンツ]]></phrase>
   <phrase title="warning_definition_2_conversation_text" addon_id="" version_id="0" version_string=""><![CDATA[{name},
 
 Your actions in this message ([url={url}]{title}[/url]) are not appropriate:
@@ -6217,8 +6217,8 @@ Your actions in this message ([url={url}]{title}[/url]) are not appropriate:
 We cannot allow users to be abusive, overly aggressive, threatening, or to "troll". This does not follow our rules. Your message may have been removed or altered.
 
 Your account's access may be limited based on these actions. Please keep this in mind when posting or using our site.]]></phrase>
-  <phrase title="warning_definition_2_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Behavior]]></phrase>
-  <phrase title="warning_definition_2_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Behavior]]></phrase>
+  <phrase title="warning_definition_2_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切な行為]]></phrase>
+  <phrase title="warning_definition_2_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切な行為]]></phrase>
   <phrase title="warning_definition_3_conversation_text" addon_id="" version_id="0" version_string=""><![CDATA[{name},
 
 Your message ([url={url}]{title}[/url]) contains inappropriate language:
@@ -6227,8 +6227,8 @@ Your message ([url={url}]{title}[/url]) contains inappropriate language:
 This does not follow our rules. Your message may have been removed or altered.
 
 Your account's access may be limited based on these actions. Please keep this in mind when posting or using our site.]]></phrase>
-  <phrase title="warning_definition_3_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Language]]></phrase>
-  <phrase title="warning_definition_3_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Language]]></phrase>
+  <phrase title="warning_definition_3_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切な言語]]></phrase>
+  <phrase title="warning_definition_3_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切な言語]]></phrase>
   <phrase title="warning_definition_4_conversation_text" addon_id="" version_id="0" version_string=""><![CDATA[{name},
 
 Your message ([url={url}]{title}[/url]) contains inappropriate advertising or spam:
@@ -6237,15 +6237,15 @@ Your message ([url={url}]{title}[/url]) contains inappropriate advertising or sp
 This does not follow our rules. Your message may have been removed or altered.
 
 Your account's access may be limited based on these actions. Please keep this in mind when posting or using our site.]]></phrase>
-  <phrase title="warning_definition_4_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Advertising / Spam]]></phrase>
-  <phrase title="warning_definition_4_title" addon_id="" version_id="0" version_string=""><![CDATA[Inappropriate Advertising / Spam]]></phrase>
+  <phrase title="warning_definition_4_conversation_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切な広告／スパム]]></phrase>
+  <phrase title="warning_definition_4_title" addon_id="" version_id="0" version_string=""><![CDATA[不適切な広告／スパム]]></phrase>
   <phrase title="warning_for_x" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warning for {name}]]></phrase>
-  <phrase title="warning_information" addon_id="XenForo" version_id="1010033" version_string="1.1.0 Beta 3"><![CDATA[Warning Information]]></phrase>
+  <phrase title="warning_information" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[警告情報]]></phrase>
   <phrase title="warning_not_filled_try_again" addon_id="XenForo" version_id="1040770" version_string="1.4.7"><![CDATA[警告の詳細は期待された通りに入力されませんでした。もう一度やり直してください。]]></phrase>
   <phrase title="warning_points" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[警告ポイント]]></phrase>
-  <phrase title="warning_type" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warning Type]]></phrase>
+  <phrase title="warning_type" addon_id="XenForo" version_id="1041070" version_string="1.4.10"><![CDATA[警告の種類]]></phrase>
   <phrase title="warnings" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[Warnings]]></phrase>
-  <phrase title="watch_category" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Watch Category]]></phrase>
+  <phrase title="watch_category" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[カテゴリーを監視する]]></phrase>
   <phrase title="watch_forum" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[フォーラムをチェックする]]></phrase>
   <phrase title="watch_resource_button" addon_id="XenResource" version_id="1000170" version_string="1.0.1"><![CDATA[Watch Resource]]></phrase>
   <phrase title="watch_this_resource" addon_id="XenResource" version_id="1010070" version_string="1.1.0"><![CDATA[Watch This Resource]]></phrase>
@@ -6256,7 +6256,7 @@ Your account's access may be limited based on these actions. Please keep this in
   <phrase title="watch_thread_button" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[スレッドを閲覧]]></phrase>
   <phrase title="watch_threads_when_creating_or_replying" addon_id="XenForo" version_id="1000035" version_string="1.0.0 Beta 5"><![CDATA[Watch threads when creating or replying]]></phrase>
   <phrase title="watched" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[Watched]]></phrase>
-  <phrase title="watched_categories" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[Watched Categories]]></phrase>
+  <phrase title="watched_categories" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[監視済みのカテゴリー]]></phrase>
   <phrase title="watched_forum_email_html_footer_1" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[This message was sent to you because you opted to watch the forum "{node_title}" at {board} with email notification of new threads or messages. You will not receive any further emails about this thread until you have read the new messages.]]></phrase>
   <phrase title="watched_forum_email_html_footer_2" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[If you no longer wish to receive these emails, you may <a href="{disable_this_link}" style="{link_style}">disable emails from this forum</a> or  <a href="{disable_all_link}" style="{link_style}">disable all emails</a>.]]></phrase>
   <phrase title="watched_forum_message_email_html" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[{receiver}, {replier} posted a new message to a forum you are watching at {board}.]]></phrase>
@@ -6510,7 +6510,7 @@ To disable all emails:
 {disable_all_link}
 
 {board_link}]]></phrase>
-  <phrase title="watched_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[Watched Resources]]></phrase>
+  <phrase title="watched_resources" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[監視済みのリソース]]></phrase>
   <phrase title="watched_thread_email_html_footer_1" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[This message was sent to you because you opted to watch the thread {thread} at {board} with email notification of new replies. You will not receive any further emails about this thread until you have read the new messages.]]></phrase>
   <phrase title="watched_thread_email_html_footer_2" addon_id="XenForo" version_id="1020010" version_string="1.2.0 Alpha"><![CDATA[If you no longer wish to receive these emails, you may <a href="{disable_this_link}" style="{link_style}">disable emails from this thread</a> or  <a href="{disable_all_link}" style="{link_style}">disable all emails</a>.]]></phrase>
   <phrase title="watched_thread_reply_email_html" addon_id="XenForo" version_id="1010010" version_string="1.1.0 Alpha"><![CDATA[{receiver}, {replier} replied to a thread you are watching at {board}.]]></phrase>
@@ -6760,7 +6760,7 @@ To disable all emails:
   <phrase title="you_must_upload_file_to_create_version_or_resource" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[You must upload a file to create a version or resource.]]></phrase>
   <phrase title="you_must_verify_existing_password_before_changing" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[セキュリティ上の理由から、新しいパスワードを設定する前に既存のパスワードを検証する必要があります。]]></phrase>
   <phrase title="you_not_currently_watching_any_resources" addon_id="XenResource" version_id="1000011" version_string="1.0.0 Alpha 1"><![CDATA[You are not currently watching any resources.]]></phrase>
-  <phrase title="you_not_watching_any_categories" addon_id="XenResource" version_id="1010031" version_string="1.1.0 Beta 1"><![CDATA[You are not watching any categories.]]></phrase>
+  <phrase title="you_not_watching_any_categories" addon_id="XenResource" version_id="1010670" version_string="1.1.6"><![CDATA[あなたはどのカテゴリーも監視していません。]]></phrase>
   <phrase title="you_not_watching_any_forums" addon_id="XenForo" version_id="1040670" version_string="1.4.6"><![CDATA[フォーラムの閲覧履歴がありません。]]></phrase>
   <phrase title="you_not_watching_any_threads" addon_id="XenForo" version_id="1000015" version_string="1.0.0 Alpha 5"><![CDATA[You are not watching any threads.]]></phrase>
   <phrase title="you_only_rate_resource_version_downloaded" addon_id="XenResource" version_id="1000170" version_string="1.0.1"><![CDATA[You can only rate a resource version that you have downloaded.]]></phrase>
