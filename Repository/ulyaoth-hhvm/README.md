@@ -1,7 +1,7 @@
 ### You can build the HHVM package as following: (only 64-bit)
 
 ```bash
-./build-ulyaoth-hhvm.sh -b 3.8 -v 3.8.0
+./build-ulyaoth-hhvm.sh -b 3.8 -v 3.8.1
 ```
 ##### ulyaoth-hhvm:
 ```bash
@@ -12,10 +12,11 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 * -h (shows the help information)
 * -l (lists all supported versions)
 * -b (branch .i.e 3.8)
-* -v (version .i.e 3.8.0)
+* -v (version .i.e 3.8.1)
 
 ###Supported Versions:
 ##### Branch 3.8 versions supported:
+* 3.8.1
 * 3.8.0
 
 ##### Branch 3.6 versions supported: (LTS build)
