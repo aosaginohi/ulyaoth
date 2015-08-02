@@ -41,7 +41,7 @@ else
   <# check if the plink application exist and if not then download it #>
   if(!(Test-Path -Path c:\ulyaoth\createrpm\plink.exe))
   {
-   Invoke-WebRequest -uri https://trash.ulyaoth.net/trash/exe/putty/0.63/plink.exe -Method Get -OutFile c:\ulyaoth\createrpm\plink.exe
+   Invoke-WebRequest -uri https://downloads.ulyaoth.net/exe/putty/0.63/plink.exe -Method Get -OutFile c:\ulyaoth\createrpm\plink.exe
    "The program plink was downloaded."
   }
 else
@@ -52,7 +52,7 @@ else
   <# check if the psftp application exist and if not then download it #>
   if(!(Test-Path -Path c:\ulyaoth\createrpm\psftp.exe))
   {
-   Invoke-WebRequest -uri https://trash.ulyaoth.net/trash/exe/putty/0.63/psftp.exe -Method Get -OutFile c:\ulyaoth\createrpm\psftp.exe
+   Invoke-WebRequest -uri https://downloads.ulyaoth.net/exe/putty/0.63/psftp.exe -Method Get -OutFile c:\ulyaoth\createrpm\psftp.exe
    "The program psftp was downloaded."
   }
 else
