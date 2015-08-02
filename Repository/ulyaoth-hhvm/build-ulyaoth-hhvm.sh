@@ -2,7 +2,7 @@
 # Argument = -h (shows the help information)
 # Argument = -l (lists all supported versions)
 # Argument = -b (branch .i.e 3.8)
-# Argument = -v (version .i.e 3.8.0)
+# Argument = -v (version .i.e 3.8.1)
 # Created By: Sjir Bagmeijer - 2015/07/08
 # Last Edit By: Sjir Bagmeijer - 2015/07/16
 # https://community.ulyaoth.net
@@ -130,6 +130,7 @@ availablehhvmversions()
 {
 cat <<EOF
 Branch 3.8 versions supported:
+* 3.8.1
 * 3.8.0
 
 Branch 3.6 versions supported: (LTS build)
