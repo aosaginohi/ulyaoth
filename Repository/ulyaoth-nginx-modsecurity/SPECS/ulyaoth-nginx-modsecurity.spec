@@ -361,7 +361,7 @@ fi
 
 %changelog
 * Mon Aug 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2.9.0-1
-- Renamed the package versioning to the ModSecurity version.
+- Renamed the package version to the ModSecurity version.
 - Updated to the fixed Nginx branch from the ModSecurity Github.
 - Special thanks to Daniel Abrahamsson for reporting and resolving this.
 - And a thank you to Bent Terp for reporting this on my forum.
