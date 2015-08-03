@@ -3,6 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nginx_loggroup adm
+%define nginx_version 1.8.0
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -45,7 +46,7 @@ Vendor: nginx inc & Trustwave Holdings, Inc.
 URL: https://www.modsecurity.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: http://nginx.org/download/nginx-%{version}.tar.gz
+Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: logrotate
 Source2: nginx.init
 Source3: nginx.sysconf
@@ -63,7 +64,7 @@ License: 2-clause BSD-like license
 Requires: openssl
 Requires: GeoIP
 
-BuildRoot: %{_tmppath}/nginx-%{version}-%{release}-root
+BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
 BuildRequires: GeoIP
@@ -90,7 +91,7 @@ Requires: ulyaoth-nginx-modsecurity
 Not stripped version of nginx built with the debugging log support.
 
 %prep
-%setup -q -n nginx-%{version}
+%setup -q -n nginx-%{nginx_version}
 
 %build
 ./configure \
@@ -132,8 +133,8 @@ Not stripped version of nginx built with the debugging log support.
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
         $*
 make %{?_smp_mflags}
-%{__mv} %{_builddir}/nginx-%{version}/objs/nginx \
-        %{_builddir}/nginx-%{version}/objs/nginx.debug
+%{__mv} %{_builddir}/nginx-%{nginx_version}/objs/nginx \
+        %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug
 ./configure \
         --prefix=%{_sysconfdir}/nginx \
         --sbin-path=%{_sbindir}/nginx \
@@ -233,7 +234,7 @@ tar xvf %{SOURCE11} -C $RPM_BUILD_ROOT%{_sysconfdir}/nginx/modules/
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 %{__install} -m 644 -p %{SOURCE1} \
    $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/nginx
-%{__install} -m644 %{_builddir}/nginx-%{version}/objs/nginx.debug \
+%{__install} -m644 %{_builddir}/nginx-%{nginx_version}/objs/nginx.debug \
    $RPM_BUILD_ROOT%{_sbindir}/nginx.debug
 
 %clean
