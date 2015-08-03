@@ -38,11 +38,11 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-modsecurity
-Version: 1.8.0
+Version: 2.9.0
 Release: 1%{?dist}
 BuildArch: x86_64
-Vendor: nginx inc.
-URL: http://nginx.org/
+Vendor: nginx inc & Trustwave Holdings, Inc.
+URL: https://www.modsecurity.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
@@ -74,8 +74,8 @@ BuildRequires: curl-devel
 
 Provides: webserver
 Provides: nginx
-Provides: ulyaoth-nginx
 Provides: nginx-modsecurity
+Provides: ulyaoth-nginx
 Provides: ulyaoth-nginx-modsecurity
 
 %description
@@ -359,6 +359,13 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Mon Aug 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 2.9.0-1
+- Renamed the package versioning to the ModSecurity version.
+- Updated to the fixed Nginx branch from the ModSecurity Github.
+- Special thanks to Daniel Abrahamsson for reporting and resolving this.
+- And a thank you to Bent Terp for reporting this on my forum.
+- Fixes Github pull request #8. 
+
 * Wed Apr 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.8.0-1
 - Updated to Nginx 1.8.0.
 
