@@ -36,8 +36,8 @@ mbed TLS (formerly known as PolarSSL) makes it trivially easy for developers to 
 
 %prep
 %setup -q -n mbedtls-%{version}
-sed -i 's|//\(#define POLARSSL_THREADING_C\)|\1|' include/polarssl/config.h
-sed -i 's|//\(#define POLARSSL_THREADING_PTHREAD\)|\1|' include/polarssl/config.h
+sed -i 's|//\(#define MBEDTLS_THREADING_C\)|\1|' include/mbedtls/config.h
+sed -i 's|//\(#define MBEDTLS_THREADING_PTHREAD\)|\1|' include/mbedtls/config.h
 
 %build
 %if 0%{?fedora} >= 18
@@ -60,7 +60,6 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
 %defattr(-,root,root)
 
 %{_libexecdir}/mbedtls/*
-%{_includedir}/polarssl/*
 %{_libdir}/*
 %dir %{_includedir}/polarssl
 
