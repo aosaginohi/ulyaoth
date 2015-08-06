@@ -38,7 +38,7 @@ BuildRequires: systemd-devel
 
 Summary: Hiawatha is an open source webserver with a focus on security.
 Name: ulyaoth-hiawatha
-Version: 9.13
+Version: 9.14
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
@@ -60,11 +60,11 @@ BuildRequires: glibc-devel
 BuildRequires: libxml2-devel
 BuildRequires: libxslt-devel
 BuildRequires: zlib-devel
-BuildRequires: ulyaoth-mbedtls
+BuildRequires: ulyaoth-mbedtls2
 
 Requires: libxml2
 Requires: libxslt
-Requires: ulyaoth-mbedtls
+Requires: ulyaoth-mbedtls2
 
 Provides: hiawatha
 Provides: ulyaoth-hiawatha
@@ -188,7 +188,7 @@ Please find the official documentation for hiawatha here:
 * https://www.hiawatha-webserver.org
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -245,5 +245,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Thu Aug 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 9.14-1
+- Updated to Hiawatha 9.14.
+- Updated to mbed TLS 2.0.0.
+
 * Tue Jun 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 9.13-1
 - Initial release.
