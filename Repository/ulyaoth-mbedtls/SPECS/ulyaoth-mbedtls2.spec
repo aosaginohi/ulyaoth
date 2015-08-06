@@ -60,7 +60,9 @@ mv $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libexecdir}/mbedtls
 %defattr(-,root,root)
 
 %{_libexecdir}/mbedtls/*
+%{_includedir}/mbedtls/*
 %{_libdir}/*
+%dir %{_includedir}/mbedtls
 
 %pre
 
