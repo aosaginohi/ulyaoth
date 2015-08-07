@@ -76,7 +76,7 @@ Hiawatha is an open source webserver with a focus on security. I started Hiawath
 %setup -q -n hiawatha-%{version}
 
 %build
-export LDFLAGS="$LDFLAGS -lm"
+export LDFLAGS="$LDFLAGS -lz"
 cmake -DCMAKE_INSTALL_PREFIX="" \
       -DCMAKE_INSTALL_BINDIR=%{_bindir} \
       -DCMAKE_INSTALL_SBINDIR=%{_sbindir} \
