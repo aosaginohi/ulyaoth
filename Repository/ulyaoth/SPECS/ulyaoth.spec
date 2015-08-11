@@ -6,7 +6,7 @@ BuildArch: x86_64
 URL: https://www.ulyaoth.net/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://repos.ulyaoth.net/RPM-GPG-KEY-ulyaoth.public
+Source0: https://repos.ulyaoth.net/RPM-GPG-KEY-ulyaoth
 Source1: ulyaoth.repo
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -29,13 +29,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
-%{_sysconfdir}/yum.repos.d/ulyaoth.repo
+%config(noreplace) /etc/yum.repos.d/ulyaoth.repo
+/etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
 
 %post
-# Import the gpg key.
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
-
     cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -46,10 +43,6 @@ For any additional information or help please visit my forum at:
 
 ----------------------------------------------------------------------
 BANNER
-
-%preun
-# Delete the gpg key.
-rpm -e gpg-pubkey-0ea73f68-55c99ba2
 
 %changelog
 * Tue Aug 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.7-1
