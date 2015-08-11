@@ -1,15 +1,14 @@
 Summary: Contains the repository file and GPG Key for the Ulyaoth Repository.
 Name: ulyaoth
-Version: 1.0.6
+Version: 1.0.7
 Release: 1%{?dist}
 BuildArch: x86_64
-URL: https://community.ulyaoth.net/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+URL: https://www.ulyaoth.net/
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: RPM-GPG-KEY-ulyaoth
+Source0: https://repos.ulyaoth.net/RPM-GPG-KEY-ulyaoth.public
 Source1: ulyaoth.repo
 BuildRoot:  %{_tmppath}/ulyaoth-%{version}-%{release}-root-%(%{__id_u} -n)
-
 
 License:        GPLv3
 
@@ -28,13 +27,15 @@ Ulyaoth repository.
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
 %files
 %defattr(-,root,root,-)
-%config %{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
-%config %{_sysconfdir}/yum.repos.d/ulyaoth.repo
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
+%{_sysconfdir}/yum.repos.d/ulyaoth.repo
 
 %post
+# Import the gpg key.
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
+
     cat <<BANNER
 ----------------------------------------------------------------------
 
@@ -46,8 +47,14 @@ For any additional information or help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
+%preun
+# Delete the gpg key.
+rpm -e gpg-pubkey-0ea73f68-55c99ba2
 
 %changelog
+* Tue Aug 11 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.0.7-1
+- Changed to a new gpg2 key that fixes the import problem.
+
 * Sun Jun 28 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.0.6-1
 - Added support for Scientific Linux 6 and 7.
 
