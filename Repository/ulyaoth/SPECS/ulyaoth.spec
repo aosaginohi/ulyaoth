@@ -33,8 +33,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
+%dir /usr/share/licenses/ulyaoth
 %config(noreplace) /etc/yum.repos.d/ulyaoth.repo
 /etc/pki/rpm-gpg/RPM-GPG-KEY-ulyaoth
+/usr/share/licenses/ulyaoth/COPYING
 
 %post
     cat <<BANNER
