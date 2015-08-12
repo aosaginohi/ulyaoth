@@ -45,20 +45,20 @@ It has been designed to be very scalable with low memory and CPU consumption, th
 
 %build
 ./configure \
-  --enable-plugins=mbedtls \
   --prefix=/srv/monkey \
   --sbindir=/usr/bin \
-  --libdir=/usr/lib \
+  --libdir=/usr/lib64 \
   --incdir=/usr/include/monkey \
-  --webroot=/srv/monkey \
+  --sysconfdir=/etc/monkey \
+  --webroot=/srv/monkey/public \
   --mandir=/usr/share/man \
   --logdir=/var/log/monkey \
-  --sysconfdir=/etc/monkey/conf \
   --pidfile=/var/run/monkey.pid \
+  --systemddir=/usr/lib/systemd/system \
+  --enable-plugins=tls \
+  --mbedtls-shared \
   --default-port=80 \
   --default-user=monkey \
-  --systemddir=%{_unitdir} \
-  --mbedtls-shared \
   $*
 make %{?_smp_mflags}
 
@@ -98,7 +98,7 @@ make %{?_smp_mflags}
 
 %dir %{_sysconfdir}/monkey
 %dir /usr/include/monkey
-%dir /srv/monkey
+%dir /srv/monkey/public
 %dir /var/log/monkey
 
 /srv/monkey/*
@@ -107,14 +107,14 @@ make %{?_smp_mflags}
 /usr/share/man/man1/*
 /usr/share/man/man3/*
 
-%config(noreplace) /etc/monkey/conf/monkey.conf
-%config(noreplace) /etc/monkey/conf/plugins/auth/monkey.users
-%config(noreplace) /etc/monkey/conf/plugins/cgi/cgi.conf
-%config(noreplace) /etc/monkey/conf/plugins/cheetah/cheetah.conf
-%config(noreplace) /etc/monkey/conf/plugins/dirlisting/dirhtml.conf
-%config(noreplace) /etc/monkey/conf/plugins/fastcgi/fastcgi.conf
-%config(noreplace) /etc/monkey/conf/plugins/logger/logger.conf
-%config(noreplace) /etc/monkey/conf/plugins/mandril/mandril.conf
+%config(noreplace) /etc/monkey/monkey.conf
+%config(noreplace) /etc/monkey/plugins/auth/monkey.users
+%config(noreplace) /etc/monkey/plugins/cgi/cgi.conf
+%config(noreplace) /etc/monkey/plugins/cheetah/cheetah.conf
+%config(noreplace) /etc/monkey/plugins/dirlisting/dirhtml.conf
+%config(noreplace) /etc/monkey/plugins/fastcgi/fastcgi.conf
+%config(noreplace) /etc/monkey/plugins/logger/logger.conf
+%config(noreplace) /etc/monkey/plugins/mandril/mandril.conf
 %config(noreplace) /etc/logrotate.d/monkey
 
 %if %{use_systemd}
