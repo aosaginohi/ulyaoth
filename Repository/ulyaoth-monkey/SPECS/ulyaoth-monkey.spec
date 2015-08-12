@@ -92,19 +92,19 @@ make %{?_smp_mflags}
 %files
 %defattr(-,root,root)
 
-/usr/bin/monkey
-/usr/bin/mk_passwd
+%{_sbindir}/monkey
+%{_sbindir}/mk_passwd
 
-%dir %{_sysconfdir}/monkey
+%dir /etc/monkey
 %dir /usr/include/monkey
 %dir /srv/monkey/public
 %dir /var/log/monkey
 
 /srv/monkey/*
-/usr/include/monkey/*
-/etc/monkey/*
-/usr/share/man/man1/*
-/usr/share/man/man3/*
+%{_includedir}/monkey/*
+%{_sysconfdir}/monkey/*
+%{_mandir}/*
+%{_libdir}/*
 
 %config(noreplace) /etc/monkey/monkey.conf
 %config(noreplace) /etc/monkey/plugins/auth/monkey.users
