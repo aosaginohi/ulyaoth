@@ -24,7 +24,7 @@ Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/
 
 License: GPLv2+
 
-Requires: ulyaoth-mbedtls
+Requires: ulyaoth-mbedtls2
 
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
 BuildRequires: ulyaoth-mbedtls
