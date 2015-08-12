@@ -47,17 +47,18 @@ It has been designed to be very scalable with low memory and CPU consumption, th
 ./configure \
   --enable-plugins=mbedtls \
   --prefix=/srv/monkey \
-  --bindir=/usr/bin \
+  --sbindir=/usr/bin \
   --libdir=/usr/lib \
   --incdir=/usr/include/monkey \
-  --datadir=/srv/monkey \
+  --webroot=/srv/monkey \
   --mandir=/usr/share/man \
   --logdir=/var/log/monkey \
-  --plugdir=/etc/monkey/plugins \
   --sysconfdir=/etc/monkey/conf \
   --pidfile=/var/run/monkey.pid \
   --default-port=80 \
   --default-user=monkey \
+  --systemddir=%{_unitdir} \
+  --mbedtls-shared \
   $*
 make %{?_smp_mflags}
 
