@@ -4,13 +4,12 @@ Documentation=http://monkey-project.com/
 After=network.target remote-fs.target nss-lookup.target
 
 [Service]
-Type=simple
+Type=fork
 PIDFile=/var/run/monkey.pid.80
-ExecStart=/usr/bin/monkey
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s QUIT $MAINPID
+ExecStart=/usr/bin/monkey --daemon
 LimitNOFILE=2000000
 PrivateTmp=true
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
