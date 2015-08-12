@@ -47,15 +47,15 @@ It has been designed to be very scalable with low memory and CPU consumption, th
 ./configure \
   --malloc-libc \
   --prefix=/srv/monkey \
-  --sbindir=/usr/bin \
-  --libdir=/usr/lib64 \
-  --includedir=/usr/include/monkey \
-  --sysconfdir=/etc/monkey \
+  --sbindir=%{_sbindir} \
+  --libdir=%{_libdir} \
+  --includedir=%{_includedir}/monkey \
+  --sysconfdir=%{_sysconfdir}/monkey \
   --webroot=/srv/monkey/public \
-  --mandir=/usr/share/man \
-  --logdir=/var/log/monkey \
-  --pidfile=/var/run/monkey.pid \
-  --systemddir=/usr/lib/systemd/system \
+  --mandir=%{_mandir} \
+  --logdir=%{_localstatedir}/log/monkey \
+  --pidfile=%{_localstatedir}/run/monkey.pid \
+  --systemddir=%{_prefix}/lib/systemd/system \
   --enable-plugins=tls \
   --mbedtls-shared \
   --default-port=80 \
@@ -93,9 +93,7 @@ make %{?_smp_mflags}
 %defattr(-,root,root)
 
 /usr/bin/monkey
-/usr/bin/banana
 /usr/bin/mk_passwd
-/usr/lib/pkgconfig/monkey.pc
 
 %dir %{_sysconfdir}/monkey
 %dir /usr/include/monkey
