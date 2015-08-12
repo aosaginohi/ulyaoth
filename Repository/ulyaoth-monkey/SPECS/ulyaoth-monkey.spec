@@ -103,12 +103,9 @@ make %{?_smp_mflags}
 /srv/monkey/*
 %{_includedir}/monkey/*
 %{_sysconfdir}/monkey/*
-%{_mandir}/*
 %{_libdir}/*
 
 %config(noreplace) /etc/monkey/monkey.conf
-%config(noreplace) /etc/monkey/plugins/auth/monkey.users
-%config(noreplace) /etc/monkey/plugins/cgi/cgi.conf
 %config(noreplace) /etc/monkey/plugins/cheetah/cheetah.conf
 %config(noreplace) /etc/monkey/plugins/dirlisting/dirhtml.conf
 %config(noreplace) /etc/monkey/plugins/fastcgi/fastcgi.conf
