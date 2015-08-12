@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 #
 %define monkey_home %{_localstatedir}/cache/monkey
 %define monkey_user monkey
