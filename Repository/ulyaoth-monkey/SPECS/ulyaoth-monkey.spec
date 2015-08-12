@@ -27,7 +27,7 @@ License: GPLv2+
 Requires: ulyaoth-mbedtls2
 
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
-BuildRequires: ulyaoth-mbedtls
+BuildRequires: ulyaoth-mbedtls2
 
 Provides: webserver
 Provides: monkey
@@ -45,6 +45,7 @@ It has been designed to be very scalable with low memory and CPU consumption, th
 
 %build
 ./configure \
+  --malloc-libc \
   --prefix=/srv/monkey \
   --sbindir=/usr/bin \
   --libdir=/usr/lib64 \
