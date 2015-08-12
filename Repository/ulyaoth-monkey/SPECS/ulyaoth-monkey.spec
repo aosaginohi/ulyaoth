@@ -48,7 +48,7 @@ It has been designed to be very scalable with low memory and CPU consumption, th
   --prefix=/srv/monkey \
   --sbindir=/usr/bin \
   --libdir=/usr/lib64 \
-  --incdir=/usr/include/monkey \
+  --includedir=/usr/include/monkey \
   --sysconfdir=/etc/monkey \
   --webroot=/srv/monkey/public \
   --mandir=/usr/share/man \
