@@ -9,14 +9,14 @@
 
 Summary: Monkey is a lightweight and powerful web server and development stack for GNU/Linux.
 Name: ulyaoth-monkey
-Version: 1.5.6
-Release: 2%{?dist}
+Version: 1.6.0
+Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Monkey HTTP Daemon development group.
 URL: http://monkey-project.com/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: http://monkey-project.com/releases/1.5/monkey-%{version}.tar.gz
+Source0: http://monkey-project.com/releases/1.6/monkey-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.service
 Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.init
 Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-monkey/SOURCES/monkey.logrotate
@@ -148,7 +148,7 @@ Please find the official documentation for monkey here:
 * http://monkey-project.com/
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -187,6 +187,9 @@ fi
 %endif
 
 %changelog
+* Wed Aug 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
+- Updated to Monkey 1.6.0.
+
 * Sun May 3 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.6-2
 - Adding Secure Socket Layers (SSL) support.
 
