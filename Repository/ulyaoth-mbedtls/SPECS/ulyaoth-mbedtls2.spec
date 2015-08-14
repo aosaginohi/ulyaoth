@@ -17,7 +17,7 @@ Vendor: ARM Limited.
 URL: https://tls.mbed.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 
-Source0: https://polarssl.org/download/latest-stable
+Source0: https://tls.mbed.org/download/start/mbedtls-2.0.0-gpl.tgz
 
 License: GPLv2 or proprietary
 
