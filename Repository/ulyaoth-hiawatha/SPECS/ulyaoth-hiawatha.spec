@@ -43,7 +43,7 @@ Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Hiawatha.
 URL: https://www.hiawatha-webserver.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: https://downloads.ulyaoth.net/hiawatha-%{version}.tar.gz
 Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hiawatha/SOURCES/hiawatha.service
@@ -244,7 +244,7 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Thu Aug 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 9.14-1
+* Fri Aug 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 9.14-1
 - Updated to Hiawatha 9.14.
 - Updated to mbed TLS 2.0.0.
 
