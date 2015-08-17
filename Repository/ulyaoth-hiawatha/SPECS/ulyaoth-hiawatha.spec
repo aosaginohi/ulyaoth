@@ -104,6 +104,7 @@ make %{?_smp_mflags}
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/sites-available
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/sites-enabled
+%{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/hiawatha/ssl
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -135,6 +136,7 @@ sed -i '19 c\ServerString = Hiawatha' %{buildroot}%{_sysconfdir}/hiawatha/hiawat
 %dir %{_sysconfdir}/hiawatha
 %dir %{_sysconfdir}/hiawatha/sites-available
 %dir %{_sysconfdir}/hiawatha/sites-enabled
+%dir %{_sysconfdir}/hiawatha/ssl
 %attr(0755,root,root) %dir %{_localstatedir}/cache/hiawatha
 %attr(0755,root,root) %dir %{_localstatedir}/log/hiawatha
 %dir /srv/hiawatha
