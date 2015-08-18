@@ -29,6 +29,7 @@ Requires: ulyaoth-mbedtls2
 
 BuildRoot: %{_tmppath}/monkey-%{version}-%{release}-root
 BuildRequires: ulyaoth-mbedtls2
+BuildRequires: cmake
 
 Provides: webserver
 Provides: monkey
@@ -55,7 +56,8 @@ It has been designed to be very scalable with low memory and CPU consumption, th
   --webroot=/srv/monkey/public \
   --mandir=%{_mandir} \
   --logdir=%{_localstatedir}/log/monkey \
-  --pidfile=%{_localstatedir}/run/monkey.pid \
+  --pidpath=%{_localstatedir}/run \
+  --pidfile=monkey.pid \
   --systemddir=%{_prefix}/lib/systemd/system \
   --enable-plugins=tls \
   --mbedtls-shared \
