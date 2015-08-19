@@ -31,6 +31,9 @@ Provides: ulyaoth-mbedtls
 Provides: mbedtls2
 Provides: ulyaoth-mbedtls2
 
+Obsoletes: ulyaoth-mbedtls
+Conflicts: ulyaoth-mbedtls
+
 %description
 mbed TLS (formerly known as PolarSSL) makes it trivially easy for developers to include cryptographic and SSL/TLS capabilities in their (embedded) products, facilitating this functionality with a minimal coding footprint.
 
