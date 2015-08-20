@@ -27,7 +27,6 @@ BuildRequires: zlib-devel
 BuildRequires: openssl-devel
 
 Provides: mbedtls
-Provides: ulyaoth-mbedtls
 Provides: mbedtls2
 Provides: ulyaoth-mbedtls2
 
