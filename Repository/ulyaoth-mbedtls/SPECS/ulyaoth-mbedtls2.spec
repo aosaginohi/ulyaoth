@@ -11,7 +11,7 @@ BuildRequires: pkcs11-helper-devel
 Summary: mbed TLS is an open source and commercial SSL library licensed by ARM Limited.. mbed TLS used to be called PolarSSL,
 Name: ulyaoth-mbedtls2
 Version: 2.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 BuildArch: x86_64
 Vendor: ARM Limited.
 URL: https://tls.mbed.org/
@@ -90,6 +90,9 @@ BANNER
 %postun
 
 %changelog
+* Thu Aug 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.0-3
+- Added obsoletes and conflicts package ulyaoth-mbedtls.
+
 * Fri Aug 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.0.0-2
 - Recompiled with the github fixes for libmbedcrypto.a and libmbedx509.a.
 
