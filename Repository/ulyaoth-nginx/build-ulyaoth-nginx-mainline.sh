@@ -31,7 +31,7 @@ su ulyaoth -c "mv headers-more-nginx-module-0.25 /etc/nginx/modules/headersmore"
 su ulyaoth -c "rm -rf v0.25.tar.gz"
 chown -R ulyaoth:ulyaoth /etc/nginx
 cd /home/ulyaoth/rpmbuild/SOURCES
-su ulyaoth -c "wget http://nginx.org/download/nginx-1.9.3.tar.gz"
+su ulyaoth -c "wget http://nginx.org/download/nginx-1.9.4.tar.gz"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/logrotate"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.conf"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx/SOURCES/nginx.init"

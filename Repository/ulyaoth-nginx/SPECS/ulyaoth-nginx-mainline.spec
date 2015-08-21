@@ -39,12 +39,12 @@ BuildRequires: systemd
 
 Summary: High performance web server
 Name: ulyaoth-nginx-mainline
-Version: 1.9.3
+Version: 1.9.4
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: nginx inc.
 URL: http://nginx.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{version}.tar.gz
 Source1: logrotate
@@ -353,6 +353,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Fri Aug 21 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.9.4-1
+- Updated to Nginx Mainline 1.9.4.
+
 * Thu Jul 16 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.9.3-1
 - Updated to Nginx Mainline 1.9.3.
 
