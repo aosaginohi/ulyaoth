@@ -4,9 +4,9 @@ Documentation=http://monkey-project.com/
 After=network.target remote-fs.target nss-lookup.target
 
 [Service]
-Type=fork
-PIDFile=/var/run/monkey.pid.80
-ExecStart=/usr/bin/monkey --daemon
+Type=daemon
+PIDFile=/var/run/monkey.pid
+ExecStart=/usr/sbin/monkey
 LimitNOFILE=2000000
 PrivateTmp=true
 Restart=always

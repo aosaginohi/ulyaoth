@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# kibana        Startup script for kibana
+# monkey        Startup script for monkey
 #
 # chkconfig: - 85 15
-# processname: kibana
-# config: /opt/kibana/config/config.yml
-# pidfile: /var/run/kibana.pid
-# description: kibana explore and visualize your data
+# processname: monkey
+# config: /etc/monkey/monkey.conf
+# pidfile: /var/run/monkey.pid
+# description: Monkey web server
 #
 ### BEGIN INIT INFO
 # Provides: monkey

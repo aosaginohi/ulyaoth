@@ -58,7 +58,6 @@ It has been designed to be very scalable with low memory and CPU consumption, th
   --logdir=%{_localstatedir}/log/monkey \
   --pidpath=%{_localstatedir}/run \
   --pidfile=monkey.pid \
-  --systemddir=%{_prefix}/lib/systemd/system \
   --enable-plugins=tls \
   --mbedtls-shared \
   --default-port=80 \
