@@ -61,7 +61,6 @@ It has been designed to be very scalable with low memory and CPU consumption, th
   --enable-plugins=tls \
   --mbedtls-shared \
   --default-port=80 \
-  --default-user=monkey \
   $*
 make %{?_smp_mflags}
 

@@ -1,65 +1,97 @@
 #!/bin/sh
-#
-# monkey        Startup script for monkey
-#
-# chkconfig: - 85 15
-# processname: monkey
-# config: /etc/monkey/monkey.conf
-# pidfile: /var/run/monkey.pid
-# description: Monkey web server
-#
-### BEGIN INIT INFO
-# Provides: monkey
-# Required-Start: $local_fs $remote_fs $network
-# Required-Stop: $local_fs $remote_fs $network
-# Default-Start: 2 3 4 5
-# Default-Stop: 0 1 6
-# Short-Description: start and stop monkey
-### END INIT INFO
+# Description: Starts and stops the Monkey service
+#              used to provide reverse proxy status.
+# chkconfig: - 80 30
 
-NAME=monkey
-MONKEY_USER=monkey
+prefix=/usr
+exec_prefix=${prefix}
+MONKEY=${exec_prefix}/sbin/monkey
+PIDFILE=/var/run/monkey.pid
 
-monkey_pid() {
-    echo `ps aux | grep monkey | grep -v grep | awk '{ print $2 }'`
-}
-
-start() {
-  # Start Monkey web server
-  echo "Starting Monkey web server"
-  /usr/sbin/monkey --daemon> /dev/null 2>&1 &
-  return 0
-}
-
-stop() {
-  pid=$(monkey_pid)
-  echo "Shutting down Monkey web server"
-  kill -9 $pid
-  return 0
-}
-
-case $1 in
-    start)
-        start
-        ;;
-    stop)
-        stop
-        ;;
-    restart)
-        stop
-        start
-        ;;
-    status)
-       pid=$(monkey_pid)
-        if [ -n "$pid" ]
-        then
-           echo "Monkey web server is running with pid: $pid"
-        else
-           echo "Monkey web server is not running"
+status_monkey () {
+        if ps -p $monkeyPID > /dev/null 2>&1; then
+                return 0
         fi
-        ;;
-    *)
-        echo $"Usage: $NAME {start|stop|restart|status}"
-esac
 
-exit 0
+        return 1
+}
+
+printstatus_monkey() {
+        if status_monkey $1 $2; then
+                echo "monkey (pid $monkeyPID) is running..."
+        else
+                echo "monkey is not running"
+        fi
+}
+
+killproc_monkey () {
+        kill $2 $monkeyPID
+}
+
+pid_monkey () {
+        if test ! -f ${PIDFILE}; then
+        echo "No lock file found in ${PIDFILE}"
+        exit 1
+        fi
+        monkeyPID=`head -n 1 ${PIDFILE}`
+}
+
+# Check that monkey exists.
+if [ ! -f ${MONKEY} ]; then
+        echo "Executable file ${MONKEY} not found.  Exiting."
+        exit 1
+fi
+
+# See how we were called.
+case "$1" in
+        start)
+                echo -n "Starting monkey: "
+                echo
+                if [ -f ${PIDFILE} ]; then
+                        pid_monkey
+                        printstatus_monkey monkey
+                else
+                        /usr/sbin/monkey
+                fi
+                ;;
+
+        stop)
+                echo -n "Stopping monkey: "
+                echo
+                pid_monkey
+                killproc_monkey monkey
+
+                for i in 1 2 3 4 5 6 7 8 9 10 ; do
+                if status_monkey > /dev/null; then
+                        echo -n '.'
+                        sleep 1
+                else
+                        break
+                fi
+                done
+                if status_monkey > /dev/null; then
+                        echo ''
+                        echo 'Warning - monkey did not exit in a timely manner'
+                else
+                        rm -f ${PIDFILE}
+                        echo 'done.'
+                fi
+                ;;
+
+        status)
+                pid_monkey
+                printstatus_monkey monkey
+                ;;
+
+        restart)
+                printf "Restarting monkey..."
+                $0 stop
+                $0 start
+                ;;
+
+        *)
+                echo "Usage: monkey {start|stop|restart|status}"
+                exit 1
+                ;;
+
+esac
