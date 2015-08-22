@@ -46,6 +46,7 @@ It has been designed to be very scalable with low memory and CPU consumption, th
 %setup -q -n monkey-%{version}
 
 %build
+%if %{use_systemd}
 ./configure \
   --malloc-libc \
   --prefix=/srv/monkey \
@@ -61,7 +62,27 @@ It has been designed to be very scalable with low memory and CPU consumption, th
   --enable-plugins=tls \
   --mbedtls-shared \
   --default-port=80 \
+  --default-user=monkey \
   $*
+%else
+./configure \
+  --malloc-libc \
+  --prefix=/srv/monkey \
+  --sbindir=%{_sbindir} \
+  --libdir=%{_libdir} \
+  --includedir=%{_includedir}/monkey \
+  --sysconfdir=%{_sysconfdir}/monkey \
+  --webroot=/srv/monkey/public \
+  --mandir=%{_mandir} \
+  --logdir=%{_localstatedir}/log/monkey \
+  --pidpath=%{_localstatedir}/run \
+  --pidfile=monkey.pid \
+  --enable-plugins=tls \
+  --mbedtls-shared \
+  --default-port=80 \
+  --default-user=root \
+  $*
+%endif
 make %{?_smp_mflags}
 
 %install

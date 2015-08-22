@@ -51,7 +51,7 @@ case "$1" in
                         pid_monkey
                         printstatus_monkey monkey
                 else
-                        /usr/sbin/monkey
+                        /usr/sbin/monkey --daemon
                 fi
                 ;;
 
