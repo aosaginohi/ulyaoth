@@ -10,7 +10,7 @@
 
 Summary: Monkey is a lightweight and powerful web server and development stack for GNU/Linux.
 Name: ulyaoth-monkey
-Version: 1.6.0
+Version: 1.6.1
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Monkey HTTP Daemon development group.
@@ -69,8 +69,6 @@ make %{?_smp_mflags}
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
-
-%{__rm} -rf $RPM_BUILD_ROOT/usr/lib/libmonkey.so
 
 %if %{use_systemd}
 # install systemd-specific files
@@ -187,6 +185,9 @@ fi
 %endif
 
 %changelog
+* Sat Aug 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
+- Updated to Monkey 1.6.1.
+
 * Wed Aug 12 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 1.6.0-1
 - Updated to Monkey 1.6.0.
 
