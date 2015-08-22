@@ -97,6 +97,7 @@ make %{?_smp_mflags}
 
 %dir /etc/monkey
 %dir /usr/include/monkey
+%dir /srv/monkey
 %dir /srv/monkey/public
 %dir /var/log/monkey
 
