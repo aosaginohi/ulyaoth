@@ -104,6 +104,7 @@ make %{?_smp_mflags}
 %{_includedir}/monkey/*
 %{_sysconfdir}/monkey/*
 %{_libdir}/*
+%{_mandir}/*
 
 %config(noreplace) /etc/monkey/monkey.conf
 %config(noreplace) /etc/monkey/plugins/cheetah/cheetah.conf
