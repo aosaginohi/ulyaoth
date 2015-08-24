@@ -4,8 +4,8 @@
 # Argument = -b (branch .i.e 3.8)
 # Argument = -v (version .i.e 3.8.1)
 # Created By: Sjir Bagmeijer - 2015/07/08
-# Last Edit By: Sjir Bagmeijer - 2015/07/16
-# https://community.ulyaoth.net
+# Last Edit By: Sjir Bagmeijer - 2015/08/24
+# https://www.ulyaoth.net
 
 # Shows the menu when using -h or wrong option.
 usage()
@@ -49,6 +49,9 @@ su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.6.spec"
+elif [ "$hhvmbranchversion" == "3.9" ]
+then
+su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm-lts-3.9.spec"
 elif [ "$hhvmbranchversion" == "3.8" ]
 then
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-hhvm/SPECS/ulyaoth-hhvm.spec"
@@ -93,6 +96,9 @@ su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.3.spec -g -R"
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.6.spec -g -R"
+elif [ "$hhvmbranchversion" == "3.9" ]
+then
+su ulyaoth -c "spectool ulyaoth-hhvm-lts-3.9.spec -g -R"
 elif [ "$hhvmbranchversion" == "3.8" ]
 then
 su ulyaoth -c "spectool ulyaoth-hhvm.spec -g -R"
@@ -109,6 +115,9 @@ su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.3.spec"
 elif [ "$hhvmbranchversion" == "3.6" ]
 then
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.6.spec"
+elif [ "$hhvmbranchversion" == "3.9" ]
+then
+su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm-lts-3.9.spec"
 elif [ "$hhvmbranchversion" == "3.8" ]
 then
 su ulyaoth -c "QA_SKIP_BUILD_ROOT=1 rpmbuild -bb ulyaoth-hhvm.spec"
@@ -132,6 +141,9 @@ cat <<EOF
 Branch 3.8 versions supported:
 * 3.8.1
 * 3.8.0
+
+Branch 3.9 versions supported: (LTS build)
+* 3.9.0
 
 Branch 3.6 versions supported: (LTS build)
 * 3.6.5
@@ -172,8 +184,8 @@ arraychecker() {
 hhvmbranchversion=
 hhvmversion=
 arch="$(uname -m)"
-supportedbranches=('3.3' '3.6' '3.8')
-supportedversions=('3.8.1' '3.8.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
+supportedbranches=('3.3' '3.6' '3.9' '3.8')
+supportedversions=('3.8.1' '3.8.0' '3.9.0' '3.6.5' '3.6.4' '3.6.3' '3.6.2' '3.6.1' '3.6.0' '3.3.7' '3.3.6' '3.3.5' '3.3.4' '3.3.3' '3.3.2' '3.3.1' '3.3.0')
 
 # Check if the platform is 64-bit if not stop script.
 if [ "$arch" != "x86_64" ];
