@@ -19,6 +19,9 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 * 3.8.1
 * 3.8.0
 
+##### Branch 3.9 versions supported: (LTS build)
+* 3.9.0
+
 ##### Branch 3.6 versions supported: (LTS build)
 * 3.6.5
 * 3.6.4
@@ -26,16 +29,6 @@ wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulya
 * 3.6.2
 * 3.6.1
 * 3.6.0
-
-##### Branch 3.3 versions supported: (LTS build) (does not support Fedora 21)
-* 3.3.7
-* 3.3.6
-* 3.3.5
-* 3.3.4
-* 3.3.3
-* 3.3.2
-* 3.3.1
-* 3.3.0
 
 ### Supported operating systems:
 * Fedora 19, 20, 21
