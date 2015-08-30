@@ -7,14 +7,14 @@
 
 Summary:    Apache Solr Documentations
 Name:       ulyaoth-solr5-docs
-Version:    5.2.1
+Version:    5.3.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://lucene.apache.org/solr/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/solr-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -65,6 +65,9 @@ For any additional help please visit my forum at:
 BANNER
 
 %changelog
+* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.0-1
+- Updated to Solr 5.3.0.
+
 * Mon Jun 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.2.1-1
 - Updated to Solr 5.2.1.
 

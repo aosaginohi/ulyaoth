@@ -28,14 +28,14 @@ BuildRequires: systemd
 
 Summary:    Apache Solr
 Name:       ulyaoth-solr5
-Version:    5.2.1
+Version:    5.3.0
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        https://lucene.apache.org/solr/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    solr-%{version}.tar.gz
 Source1:    solr5-log4j.properties
 Source2:    solr5-solr.init
@@ -165,6 +165,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 5.3.0-1
+- Updated to Solr 5.3.0.
+
 * Mon Jun 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 5.2.1-1
 - Updated to Solr 5.2.1.
 
