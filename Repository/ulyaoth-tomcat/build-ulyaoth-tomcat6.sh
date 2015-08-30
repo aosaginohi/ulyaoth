@@ -3,11 +3,6 @@ buildarch="$(uname -m)"
 useradd ulyaoth
 cd /home/ulyaoth
 su ulyaoth -c "rpmdev-setuptree"
-cd /home/ulyaoth/rpmbuild/SOURCES/
-su ulyaoth -c "wget http://apache.mirrors.spacedump.net/tomcat/tomcat-6/v6.0.44/bin/apache-tomcat-6.0.44.tar.gz"
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.init"
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.logrotate"
-su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.service"
 cd /home/ulyaoth/rpmbuild/SPECS/
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SPECS/ulyaoth-tomcat6.spec"
 su ulyaoth -c "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SPECS/ulyaoth-tomcat6-admin.spec"
@@ -28,6 +23,8 @@ dnf builddep -y ulyaoth-tomcat6.spec
 else
 yum-builddep -y ulyaoth-tomcat6.spec
 fi
+
+su ulyaoth -c "spectool ulyaoth-tomcat6.spec -g -R"
 
 su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat6.spec"
 su ulyaoth -c "rpmbuild -bb ulyaoth-tomcat6-admin.spec"

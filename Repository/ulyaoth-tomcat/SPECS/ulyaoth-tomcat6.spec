@@ -37,11 +37,11 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
-Source0:    apache-tomcat-%{version}.tar.gz
-Source1:	tomcat.service
-Source2:    tomcat.init
-Source3:    tomcat.logrotate
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-6/v%{version}/bin/apache-tomcat-%{version}.tar.gz
+Source1:	https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.service
+Source2:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.init
+Source3:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tomcat/SOURCES/tomcat.logrotate
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Provides: tomcat
@@ -141,7 +141,7 @@ Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER

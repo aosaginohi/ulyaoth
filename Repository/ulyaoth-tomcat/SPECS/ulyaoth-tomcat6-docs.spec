@@ -14,8 +14,8 @@ License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
-Source0:    apache-tomcat-%{version}.tar.gz
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
+Source0:    http://apache.mirrors.spacedump.net/tomcat/tomcat-6/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/tomcat-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires: ulyaoth-tomcat6
@@ -71,7 +71,7 @@ Please find the official documentation for tomcat here:
 * http://tomcat.apache.org/
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
