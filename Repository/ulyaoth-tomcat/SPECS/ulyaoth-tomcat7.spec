@@ -30,14 +30,14 @@ BuildRequires: systemd
 
 Summary:    Apache Servlet/JSP Engine
 Name:       ulyaoth-tomcat7
-Version:    7.0.63
+Version:    7.0.64
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://tomcat.apache.org/
 Vendor:     Apache Software Foundation
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 Source0:    apache-tomcat-%{version}.tar.gz
 Source1:	tomcat.service
 Source2:    tomcat.init
@@ -167,6 +167,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Aug 30 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 7.0.64-1
+- Updated to Tomcat 7.0.64.
+
 * Thu Jul 9 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 7.0.63-1
 - Updated to Tomcat 7.0.63.
 
