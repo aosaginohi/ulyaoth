@@ -199,7 +199,5 @@ BANNER
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 
 %changelog
-- Changed to use only php.ini now.
-
 * Wed Jul 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 3.3.7-1
 - Creating RPM for HHVM LTS 3.3.
