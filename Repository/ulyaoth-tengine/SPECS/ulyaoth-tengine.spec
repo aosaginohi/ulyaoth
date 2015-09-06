@@ -32,41 +32,43 @@ Epoch: 1
 Group: System Environment/Daemons
 Requires: systemd
 BuildRequires: systemd
+%define with_spdy 1
 %endif
 
 # end of distribution specific definitions
 
 Summary: High performance web server
 Name: ulyaoth-tengine
-Version: 1.5.2
+Version: 2.1.1
 Release: 1%{?dist}
 BuildArch: x86_64
 Vendor: Taobao
 URL: http://tengine.taobao.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://tengine.taobao.org/download/tengine-%{version}.tar.gz
-Source1: logrotate
-Source2: tengine.init
-Source3: nginx.sysconf
-Source4: nginx.conf
-Source5: nginx.vh.default.conf
-Source6: nginx.vh.example_ssl.conf
-Source7: nginx.suse.init
-Source8: tengine.service
-Source9: nginx.upgrade.sh
-Source10: nginx.suse.logrotate
+Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/tengine.init
+Source3: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.sysconf
+Source4: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.conf
+Source5: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.vh.default.conf
+Source6: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.vh.example_ssl.conf
+Source7: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/tengine.service
+Source9: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.upgrade.sh
+Source10: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-tengine/SOURCES/nginx.suse.logrotate
 
 License: 2-clause BSD-like license
 
 
 Requires: openssl
+Requires: geoip
 
 BuildRoot: %{_tmppath}/tengine-%{version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
+BuildRequires: geoip
+BuildRequires: geoip-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
@@ -143,6 +145,7 @@ Not stripped version of tengine built with the debugging log support.
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
+		--with-http_spdy_module \
 		--dso-path=%{_sysconfdir}/nginx/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
@@ -202,6 +205,7 @@ make %{?_smp_mflags}
 		--with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
+		--with-http_spdy_module \
 		--dso-path=%{_sysconfdir}/nginx/modules \
 		--dso-tool-path=%{_sbindir} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
@@ -344,7 +348,7 @@ Please find the official documentation for nginx here:
 * http://nginx.org/en/docs/
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -388,5 +392,8 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Sep 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-1
+- Updated to Tengine 2.1.1.
+
 * Sun Apr 5 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.2-1
 - Initial release.

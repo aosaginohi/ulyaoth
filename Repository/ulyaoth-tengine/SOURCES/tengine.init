@@ -1,21 +1,21 @@
 #!/bin/sh
 #
-# nginx        Startup script for nginx
+# tengine        Startup script for tengine
 #
 # chkconfig: - 85 15
-# processname: nginx
+# processname: tengine
 # config: /etc/nginx/nginx.conf
 # config: /etc/sysconfig/nginx
 # pidfile: /var/run/nginx.pid
-# description: nginx is an HTTP and reverse proxy server
+# description: tengine is an HTTP and reverse proxy server
 #
 ### BEGIN INIT INFO
-# Provides: nginx
+# Provides: tengine
 # Required-Start: $local_fs $remote_fs $network
 # Required-Stop: $local_fs $remote_fs $network
 # Default-Start: 2 3 4 5
 # Default-Stop: 0 1 6
-# Short-Description: start and stop nginx
+# Short-Description: start and stop tengine
 ### END INIT INFO
 
 # Source function library.

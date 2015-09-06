@@ -1,6 +1,6 @@
 [Unit]
-Description=nginx - high performance web server
-Documentation=http://nginx.org/en/docs/
+Description=Tengine - high performance web server
+Documentation=http://tengine.taobao.org/
 After=network.target remote-fs.target nss-lookup.target
  
 [Service]
