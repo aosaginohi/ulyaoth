@@ -37,14 +37,14 @@ BuildRequires: systemd
 
 # end of distribution specific definitions
 
-Summary: Nginx Ironbee WAF.
+Summary: Nginx Ironbee Open Source WAF.
 Name: ulyaoth-nginx-ironbee
-Version: 0.12.1
+Version: 0.12.2
 Release: 1%{?dist}
 BuildArch: x86_64
-Vendor: nginx inc.
-URL: http://nginx.org/
-Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Vendor: Qualys, Inc.
+URL: https://www.ironbee.com/
+Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 Source0: http://nginx.org/download/nginx-%{nginx_version}.tar.gz
 Source1: https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-nginx-ironbee/SOURCES/logrotate
@@ -87,14 +87,14 @@ Provides: ulyaoth-nginx-ironbee
 
 
 %description
-Naxsi is a universal web application security sensor intended for real-time monitoring and defense.
+The next-generation open source web application firewall engine, designed to be modular, portable, and efficient, and to give you the tools you need to defend sites from attack.
 
 %package debug
-Summary: debug version of nginx compiled with Ironbee. 
+Summary: debug version of nginx compiled with Ironbee Open Source WAF. 
 Group: System Environment/Daemons
 Requires: ulyaoth-nginx-ironbee
 %description debug
-Not stripped version of nginx built with the debugging log support and compiled with Ironbee.
+Not stripped version of nginx built with the debugging log support and compiled with Ironbee Open Source WAF.
 
 %prep
 %setup -q -n nginx-%{nginx_version}
@@ -203,10 +203,6 @@ make %{?_smp_mflags}
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
-%{__install} -m 644 -p %{SOURCE11} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/naxsi_core.rules   
-%{__install} -m 644 -p %{SOURCE12} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nbs.rules 
 %{__install} -m 644 -p %{SOURCE5} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
 %{__install} -m 644 -p %{SOURCE6} \
@@ -328,7 +324,7 @@ Please find the official Ironbee documentation here:
 * https://www.ironbee.com/
 
 For any additional help please visit my forum at:
-* https://community.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
@@ -372,6 +368,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Aug 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12.2-1
+- Updating to Ironbee 0.12.2.
+
 * Wed Jul 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.12.1-1
 - Initial release for Nginx compiled with Ironbee.
 - Using Ironbee 0.12.1 official tar.gz file.
