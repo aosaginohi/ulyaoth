@@ -1,6 +1,6 @@
 arch="$(uname -m)"
 buildarch="$(uname -m)"
-ironbeeversion=0.12.1
+ironbeeversion=0.12.2
 
 if [ "$arch" == "i686" ]
 then
