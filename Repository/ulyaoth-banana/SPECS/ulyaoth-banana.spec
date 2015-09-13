@@ -16,8 +16,10 @@ URL:        https://github.com/LucidWorks/banana/
 Vendor:     Apache Software Foundation
 Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
 Source0:    banana.war
-Source1:    banana-context.xml
+Source1:    https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-banana/SOURCES/banana-context.xml
 BuildRoot:  %{_tmppath}/banana-%{version}-%{release}-root-%(%{__id_u} -n)
+
+BuildRequires: ant
 
 Provides: banana
 Provides: ulyaoth-banana
@@ -66,7 +68,7 @@ BANNER
 * Tue Jul 7 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.0-2
 - Fixed issue #5 from GitHub where I build wrongly against a Branch directly.
 - Now building from official release "tar.gz" file.
-- Thank you Fred Emmott for reporting and explaing.
+- Thank you Fred Emmott for reporting and explaining.
 
 * Fri Mar 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 1.5.0-1
 - Initial release for Banana based on version 1.5.0.
