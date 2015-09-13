@@ -61,17 +61,17 @@ Source10: ironbee.tar.gz
 License: 2-clause BSD-like license
 
 Requires: openssl
-Requires: GeoIP
+Requires: geoip
 
 BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
 BuildRequires: pcre-devel
-BuildRequires: GeoIP
-BuildRequires: GeoIP-devel
+BuildRequires: geoip
+BuildRequires: geoip-devel
 BuildRequires: openssl
 BuildRequires: openssl-devel
 BuildRequires: curl-devel
-BuildRequires: yayl-devel
+BuildRequires: yajl-devel
 BuildRequires: boost-devel
 BuildRequires: boost-build
 BuildRequires: uuid-devel
