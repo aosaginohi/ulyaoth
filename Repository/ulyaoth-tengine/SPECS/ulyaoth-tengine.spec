@@ -40,7 +40,7 @@ BuildRequires: systemd
 Summary: High performance web server
 Name: ulyaoth-tengine
 Version: 2.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 BuildArch: x86_64
 Vendor: Taobao
 URL: http://tengine.taobao.org/
@@ -375,11 +375,11 @@ fi
 %preun
 if [ $1 -eq 0 ]; then
 %if %use_systemd
-    /usr/bin/systemctl --no-reload disable nginx.service >/dev/null 2>&1 ||:
-    /usr/bin/systemctl stop nginx.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl --no-reload disable tengine.service >/dev/null 2>&1 ||:
+    /usr/bin/systemctl stop tengine.service >/dev/null 2>&1 ||:
 %else
-    /sbin/service nginx stop > /dev/null 2>&1
-    /sbin/chkconfig --del nginx
+    /sbin/service tengine stop > /dev/null 2>&1
+    /sbin/chkconfig --del tengine
 %endif
 fi
 
@@ -388,12 +388,15 @@ fi
 /usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
 %endif
 if [ $1 -ge 1 ]; then
-    /sbin/service nginx status  >/dev/null 2>&1 || exit 0
-    /sbin/service nginx upgrade >/dev/null 2>&1 || echo \
-        "Binary upgrade failed, please check nginx's error.log"
+    /sbin/service tengine status  >/dev/null 2>&1 || exit 0
+    /sbin/service tengine upgrade >/dev/null 2>&1 || echo \
+        "Binary upgrade failed, please check tengine's error.log"
 fi
 
 %changelog
+* Tue Sep 15 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-2
+- Fixed wrong preun and postun as repoted by Botao Pan in issue #17.
+
 * Sun Sep 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 2.1.1-1
 - Updated to Tengine 2.1.1.
 
