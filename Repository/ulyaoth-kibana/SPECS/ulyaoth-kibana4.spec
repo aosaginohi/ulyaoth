@@ -1,4 +1,6 @@
 
+%global __os_install_post %{nil}
+
 %define __jar_repack %{nil}
 %define debug_package %{nil}
 %define kibana_home /opt/kibana
@@ -134,7 +136,7 @@ Please find the official documentation for kibana here:
 * http://www.elasticsearch.org/overview/kibana/
 
 For any additional help please visit my forum at:
-* http://www.ulyaoth.net
+* https://www.ulyaoth.net
 
 ----------------------------------------------------------------------
 BANNER
