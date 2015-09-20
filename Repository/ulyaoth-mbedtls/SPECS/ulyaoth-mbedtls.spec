@@ -17,7 +17,7 @@ Vendor: ARM Limited.
 URL: https://tls.mbed.org/
 Packager: Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
-Source0: https://tls.mbed.org/download/mbedtls-1.3.13-gpl.tgz
+Source0: https://github.com/ARMmbed/mbedtls/archive/mbedtls-1.3.13.tar.gz
 
 License: GPLv2 or proprietary
 
