@@ -33,7 +33,7 @@ Provides: ulyaoth-mbedtls
 mbed TLS (formerly known as PolarSSL) makes it trivially easy for developers to include cryptographic and SSL/TLS capabilities in their (embedded) products, facilitating this functionality with a minimal coding footprint.
 
 %prep
-%setup -q -n mbedtls-%{version}
+%setup -q -n mbedtls-mbedtls-%{version}
 sed -i 's|//\(#define POLARSSL_THREADING_C\)|\1|' include/polarssl/config.h
 sed -i 's|//\(#define POLARSSL_THREADING_PTHREAD\)|\1|' include/polarssl/config.h
 
