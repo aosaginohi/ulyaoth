@@ -30,14 +30,14 @@ BuildRequires: systemd
 
 Summary:    Kibana explore and visualize your data
 Name:       ulyaoth-kibana4
-Version:    4.1.1
+Version:    4.1.2
 Release:    1%{?dist}
 BuildArch: x86_64
 License:    Apache License version 2
 Group:      Applications/Internet
 URL:        http://www.elasticsearch.org/overview/kibana/
 Vendor:     Elasticsearch BV
-Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr>
+Packager:   Sjir Bagmeijer <sbagmeijer@ulyaoth.net>
 
 %ifarch x86_64
 Source0:    kibana-%{version}-linux-x64.tar.gz
@@ -160,6 +160,9 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
+* Sun Sep 20 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 4.1.2-1
+- Updating to Kibana 4.1.2.
+
 * Mon Jul 6 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 4.1.1-1
 - Updating to Kibana 4.1.1.
 
