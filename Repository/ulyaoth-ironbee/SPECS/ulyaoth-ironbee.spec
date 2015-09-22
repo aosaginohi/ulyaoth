@@ -53,6 +53,7 @@ BuildRequires: libnet-devel
 BuildRequires: ruby-devel
 BuildRequires: boost-devel
 BuildRequires: boost-build
+BuildRequires: protobuf-devel
 
 Provides: ironbee
 Provides: ulyaoth-ironbee
