@@ -64,7 +64,7 @@ The next-generation open source web application firewall engine, designed to be 
 %package debug
 Summary: debug version of nginx compiled with Ironbee Open Source WAF. 
 Group: System Environment/Daemons
-Requires: ulyaoth-nginx-ironbee
+Requires: ulyaoth-ironbee
 %description debug
 Not stripped version of nginx built with the debugging log support and compiled with Ironbee Open Source WAF.
 
