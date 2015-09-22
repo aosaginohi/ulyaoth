@@ -156,32 +156,19 @@ mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/run/ironbee
 %attr(0755,root,root) %{_sbindir}/nginx.debug
 
 %pre
-# Add the "nginx" user
-getent group %{nginx_group} >/dev/null || groupadd -r %{nginx_group}
-getent passwd %{nginx_user} >/dev/null || \
-    useradd -r -g %{nginx_group} -s /sbin/nologin \
-    -d %{nginx_home} -c "nginx user"  %{nginx_user}
+# Add the "ironbee" user
+getent group %{ironbee_group} >/dev/null || groupadd -r %{ironbee_group}
+getent passwd %{ironbee_user} >/dev/null || \
+    useradd -r -g %{ironbee_group} -s /sbin/nologin \
+    -d %{ironbee_home} -c "ironbee user"  %{ironbee_user}
 exit 0
 
 %post
-# Register the nginx service
-if [ $1 -eq 1 ]; then
-%if %{use_systemd}
-    /usr/bin/systemctl preset nginx.service >/dev/null 2>&1 ||:
-%else
-    /sbin/chkconfig --add nginx
-%endif
     # print site info
     cat <<BANNER
 ----------------------------------------------------------------------
 
-Thanks for using ulyaoth-nginx-ironbee!
-
-Please find the official documentation for nginx here:
-* http://nginx.org/en/docs/
-
-Commercial subscriptions for nginx are available on:
-* http://nginx.com/products/
+Thanks for using ulyaoth-ironbee!
 
 Please find the official Ironbee documentation here:
 * https://www.ironbee.com/
@@ -192,44 +179,11 @@ For any additional help please visit my forum at:
 ----------------------------------------------------------------------
 BANNER
 
-    # Touch and set permissions on default log files on installation
-
-    if [ -d %{_localstatedir}/log/nginx ]; then
-        if [ ! -e %{_localstatedir}/log/nginx/access.log ]; then
-            touch %{_localstatedir}/log/nginx/access.log
-            %{__chmod} 640 %{_localstatedir}/log/nginx/access.log
-            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/access.log
-        fi
-
-        if [ ! -e %{_localstatedir}/log/nginx/error.log ]; then
-            touch %{_localstatedir}/log/nginx/error.log
-            %{__chmod} 640 %{_localstatedir}/log/nginx/error.log
-            %{__chown} nginx:%{nginx_loggroup} %{_localstatedir}/log/nginx/error.log
-        fi
-    fi
-fi
-
 %preun
-if [ $1 -eq 0 ]; then
-%if %use_systemd
-    /usr/bin/systemctl --no-reload disable nginx.service >/dev/null 2>&1 ||:
-    /usr/bin/systemctl stop nginx.service >/dev/null 2>&1 ||:
-%else
-    /sbin/service nginx stop > /dev/null 2>&1
-    /sbin/chkconfig --del nginx
-%endif
-fi
 
 %postun
-%if %use_systemd
-/usr/bin/systemctl daemon-reload >/dev/null 2>&1 ||:
-%endif
-if [ $1 -ge 1 ]; then
-    /sbin/service nginx status  >/dev/null 2>&1 || exit 0
-    /sbin/service nginx upgrade >/dev/null 2>&1 || echo \
-        "Binary upgrade failed, please check nginx's error.log"
-fi
+
 
 %changelog
-* Mon Aug 14 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12.2-1
+* Tue Sep 22 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12.2-1
 - Initial release of Ironbee 0.12.2.
