@@ -72,6 +72,7 @@ Not stripped version of nginx built with the debugging log support and compiled 
 
 %build
 
+./autogen.sh
 ./configure \
   --prefix=/usr \
   --exec-prefix=%{_exec_prefix} \
