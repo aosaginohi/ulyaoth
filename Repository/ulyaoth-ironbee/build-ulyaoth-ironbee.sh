@@ -42,4 +42,4 @@ cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/
 rm -rf /home/ulyaoth/rpmbuild/
 rm -rf /etc/nginx
-rm -rf /root/build-ulyaoth-nginx-ironbee.sh
+rm -rf /root/build-ulyaoth-ironbee.sh

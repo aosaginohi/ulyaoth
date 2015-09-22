@@ -137,13 +137,6 @@ mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/run/ironbee
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/nginx
 %config(noreplace) %{_sysconfdir}/sysconfig/nginx
-%if %{use_systemd}
-%{_unitdir}/nginx.service
-%dir %{_libexecdir}/initscripts/legacy-actions/nginx
-%{_libexecdir}/initscripts/legacy-actions/nginx/*
-%else
-%{_initrddir}/nginx
-%endif
 
 %dir %{_datadir}/nginx
 %dir %{_datadir}/nginx/html
