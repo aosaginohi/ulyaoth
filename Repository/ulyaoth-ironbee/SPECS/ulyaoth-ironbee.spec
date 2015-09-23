@@ -118,15 +118,11 @@ mkdir -p $RPM_BUILD_ROOT/etc/tmpfiles.d
 %files
 %defattr(-,root,root)
 
-%dir %{_includedir}/*
+
 %{_includedir}/*
-%dir %{_bindir}/*
 %{_bindir}/*
-%dir %{_libexecdir}/*
 %{_libexecdir}/*
-%dir %{_sysconfdir}/*
 %{_sysconfdir}/*
-%dir %{_libdir}/*
 %{_libdir}/*
 /etc/tmpfiles.d/ironbee.conf
 
