@@ -104,7 +104,7 @@ make %{?_smp_mflags}
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
-%makeinstall DESTDIR=$RPM_BUILD_ROOT install
+%make_install
 
 mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/run/ironbee
 mkdir -p $RPM_BUILD_ROOT/etc/tmpfiles.d
