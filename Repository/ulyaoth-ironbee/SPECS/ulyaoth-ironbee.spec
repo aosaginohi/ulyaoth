@@ -118,38 +118,10 @@ mkdir -p $RPM_BUILD_ROOT/etc/tmpfiles.d
 %files
 %defattr(-,root,root)
 
-%{_sbindir}/nginx
 
-%dir %{_sysconfdir}/nginx
-%dir %{_sysconfdir}/nginx/conf.d
-%dir %{_sysconfdir}/nginx/sites-available
-%dir %{_sysconfdir}/nginx/sites-enabled
-%dir %{_sysconfdir}/nginx/modules
-%{_sysconfdir}/nginx/modules/*
+%dir %{_includedir}/ironbee
+%{_includedir}/ironbee/*
 
-%config(noreplace) %{_sysconfdir}/nginx/nginx.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
-%config(noreplace) %{_sysconfdir}/nginx/mime.types
-%config(noreplace) %{_sysconfdir}/nginx/fastcgi_params
-%config(noreplace) %{_sysconfdir}/nginx/scgi_params
-%config(noreplace) %{_sysconfdir}/nginx/uwsgi_params
-%config(noreplace) %{_sysconfdir}/nginx/koi-utf
-%config(noreplace) %{_sysconfdir}/nginx/koi-win
-%config(noreplace) %{_sysconfdir}/nginx/win-utf
-
-%config(noreplace) %{_sysconfdir}/logrotate.d/nginx
-%config(noreplace) %{_sysconfdir}/sysconfig/nginx
-
-%dir %{_datadir}/nginx
-%dir %{_datadir}/nginx/html
-%{_datadir}/nginx/html/*
-
-%attr(0755,root,root) %dir %{_localstatedir}/cache/nginx
-%attr(0755,root,root) %dir %{_localstatedir}/log/nginx
-
-%files debug
-%attr(0755,root,root) %{_sbindir}/nginx.debug
 
 %pre
 # Add the "ironbee" user
