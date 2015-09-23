@@ -62,6 +62,7 @@ License: 2-clause BSD-like license
 
 Requires: openssl
 Requires: geoip
+Requires: ulyaoth-ironbee
 
 BuildRoot: %{_tmppath}/nginx-%{nginx_version}-%{release}-root
 BuildRequires: zlib-devel
@@ -78,6 +79,8 @@ BuildRequires: uuid-devel
 BuildRequires: libpcap-devel
 BuildRequires: libnet-devel
 BuildRequires: ruby
+BuildRequires: ulyaoth-ironbee
+
 
 Provides: webserver
 Provides: nginx
@@ -135,10 +138,10 @@ patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
+        --with-http_spdy_module \
         --with-debug \
-	    --with-cc-opt="-I/etc/nginx/modules/ironbee/include" \
-	    --with-ld-opt="-L/etc/nginx/modules/ironbee/libs -lhtp -libutil -lironbee" \
-        --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
+	    --with-ld-opt="-L%{_libdir} -lhtp -libutil -lironbee" \
+        --with-cc-opt="%{optflags} $(pcre-config --cflags) -I%{_includedir}/ironbee" \
         $*
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/nginx-%{nginx_version}/objs/nginx \
@@ -179,9 +182,8 @@ patch -p0 < /etc/nginx/modules/ironbee/servers/nginx/nginx.patch
         --with-file-aio \
         --with-ipv6 \
         --with-http_spdy_module \
-		--with-cc-opt="-I/etc/nginx/modules/ironbee/include" \
-	    --with-ld-opt="-L/etc/nginx/modules/ironbee/libs -lhtp -libutil -lironbee" \
-        --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
+	    --with-ld-opt="-L%{_libdir} -lhtp -libutil -lironbee" \
+        --with-cc-opt="%{optflags} $(pcre-config --cflags) -I%{_includedir}/ironbee" \
         $*
 make %{?_smp_mflags}
 
