@@ -45,16 +45,7 @@ yum-builddep -y /home/ulyaoth/rpmbuild/SPECS/ulyaoth-nginx-ironbee.spec
 fi
 
 su ulyaoth -c "spectool ulyaoth-nginx-ironbee.spec -g -R"
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-ironbee.spec"
-su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILD/*"
-su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/BUILDROOT/*"
-su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/RPMS/*"
-su ulyaoth -c "rm -rf /home/ulyaoth/rpmbuild/SOURCES/ironbee.tar.gz"
-cd /etc/nginx/modules/
-su ulyaoth -c "tar cvf ironbee.tar.gz ironbee"
-su ulyaoth -c "mv ironbee.tar.gz /home/ulyaoth/rpmbuild/SOURCES/"
-cd /home/ulyaoth/rpmbuild/SPECS/
-su ulyaoth -c "rpmbuild -bb ulyaoth-nginx-ironbee.spec"
+su ulyaoth -c "NGINXIB_CONFIG_FILE=/etc/nginx/modules/ironbee/servers/nginx/config.nginx && rpmbuild -bb ulyaoth-nginx-ironbee.spec"
 cp /home/ulyaoth/rpmbuild/RPMS/x86_64/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i686/* /root/
 cp /home/ulyaoth/rpmbuild/RPMS/i386/* /root/

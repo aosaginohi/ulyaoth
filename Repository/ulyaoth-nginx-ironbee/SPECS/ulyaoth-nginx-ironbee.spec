@@ -370,10 +370,5 @@ if [ $1 -ge 1 ]; then
 fi
 
 %changelog
-* Sun Aug 13 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12.2-1
-- Updating to Ironbee 0.12.2.
-
-* Wed Jul 8 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.co.kr> 0.12.1-1
-- Initial release for Nginx compiled with Ironbee.
-- Using Ironbee 0.12.1 official tar.gz file.
-- Using Nginx 1.8.0 official released tar.gz file.
+* Wed Sep 23 2015 Sjir Bagmeijer <sbagmeijer@ulyaoth.net> 0.12.2-1
+- Initial release for Nginx compiled with Ironbee 0.12.2.
