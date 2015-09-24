@@ -118,7 +118,10 @@ mkdir -p $RPM_BUILD_ROOT/etc/tmpfiles.d
 %files
 %defattr(-,root,root)
 
-
+%attr(0755,%{ironbee_user}, %{ironbee_group}) %dir %{_sysconfdir}/ironbee
+%attr(0644,%{ironbee_user}, %{ironbee_group}) %{_sysconfdir}/ironbee/ironbee.conf.example
+%config(noreplace) %attr(0644,%{ironbee_user}, %{ironbee_group}) %{_sysconfdir}/ironbee/ironbee.conf
+%attr(0755, %{ironbee_user}, %{ironbee_group}) %dir %{_localstatedir}/run/ironbee
 %{_includedir}/*
 %{_bindir}/*
 %{_libexecdir}/*
