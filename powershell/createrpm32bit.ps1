@@ -16,7 +16,7 @@ $MachineArray = @{ '339944a0-e7ec-4c02-828f-b221c2b2518e' = '192.168.1.118'; '82
 <# Set the correct build variable based on package input #>
 if ($PackageArray -contains $package)
 {
-  $build = "wget https://raw.githubusercontent.com/sbagmeijer/ulyaoth/master/Repository/ulyaoth-rpm-build.sh ; chmod +x ulyaoth-rpm-build.sh ; ./ulyaoth-rpm-build.sh -b $package -u $repouser -r $repo -p $port"
+  $build = "wget https://raw.githubusercontent.com/ulyaoth/repository/master/ulyaoth-rpm-build.sh ; chmod +x ulyaoth-rpm-build.sh ; ./ulyaoth-rpm-build.sh -b $package -u $repouser -r $repo -p $port"
 }
 Else
 {
