@@ -74,7 +74,7 @@ If ($package -Match "ulyaoth-hhvm")
 }
 
 <# Start the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildmachine32
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildmachine32 --type headless
 "Starting the virtual machine"
   
 <# Sleep for 30 seconds so machine can boot #>
