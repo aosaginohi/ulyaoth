@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo yum update -y
 echo 'amazon' | sudo tee --append /etc/ulyaoth > /dev/null
 sudo useradd -G wheel ulyaoth
