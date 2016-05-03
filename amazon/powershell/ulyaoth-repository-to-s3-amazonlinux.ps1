@@ -1,5 +1,4 @@
-
-#AMAZONLINUX:
+#Amazon Linux:
 #Delete the old repodata folder.
 Remove-Item S:\amazonlinux\latest\x86_64\debug\repodata -recurse
 Remove-Item S:\amazonlinux\latest\x86_64\os\repodata -recurse
