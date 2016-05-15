@@ -1,6 +1,0 @@
-Invoke-Expression "C:\ulyaoth\amazon\powershell\ulyaoth-repository-to-s3-amazonlinux.ps1"
-Invoke-Expression "C:\ulyaoth\amazon\powershell\ulyaoth-repository-to-s3-oraclelinux.ps1"
-Invoke-Expression "C:\ulyaoth\amazon\powershell\ulyaoth-repository-to-s3-scientificlinux.ps1"
-Invoke-Expression "C:\ulyaoth\amazon\powershell\ulyaoth-repository-to-s3-redhat.ps1"
-Invoke-Expression "C:\ulyaoth\amazon\powershell\ulyaoth-repository-to-s3-centos.ps1"
-Invoke-Expression "C:\ulyaoth\amazon\powershell\ulyaoth-repository-to-s3-fedora.ps1"
