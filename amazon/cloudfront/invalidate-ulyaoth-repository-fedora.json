@@ -1,0 +1,18 @@
+{
+  "Paths": {
+    "Quantity": 10,
+    "Items": [
+		"/fedora/19/x86_64/os/repodata/*",
+		"/fedora/19/i386/os/repodata/*",
+		"/fedora/20/x86_64/os/repodata/*",
+		"/fedora/20/i386/os/repodata/*",
+		"/fedora/21/x86_64/os/repodata/*",
+		"/fedora/21/i386/os/repodata/*",
+		"/fedora/22/x86_64/os/repodata/*",
+		"/fedora/22/i386/os/repodata/*",
+		"/fedora/23/x86_64/os/repodata/*",
+		"/fedora/23/i386/os/repodata/*"
+	]
+  },
+  "CallerReference": "invalidate-ulyaoth-repository-fedora"
+}
