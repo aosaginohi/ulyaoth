@@ -1,0 +1,21 @@
+{
+  "Paths": {
+    "Quantity": 13,
+    "Items": [
+		"/amazonlinux/latest/x86_64/os/repodata/*",
+		"/centos/6/x86_64/os/repodata/*",
+		"/centos/6/i386/os/repodata/*",
+		"/centos/7/x86_64/os/repodata/*",
+		"/scientificlinux/6/x86_64/os/repodata/*",
+		"/scientificlinux/6/i386/os/repodata/*",
+		"/scientificlinux/7/x86_64/os/repodata/*",
+		"/redhat/6Server/x86_64/os/repodata/*",
+		"/redhat/6Server/i386/os/repodata/*",
+		"/redhat/7Server/x86_64/os/repodata/*",
+		"/oraclelinux/6Server/x86_64/os/repodata/*",
+		"/oraclelinux/6Server/i386/os/repodata/*",
+		"/oraclelinux/7Server/x86_64/os/repodata/*"
+			]
+  },
+  "CallerReference": "invalidate-ulyaoth-repository-el"
+}
