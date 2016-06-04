@@ -12,6 +12,7 @@ param (
 <# Set all required variables. #>
 $PackageArray = @( "ulyaoth-hhvm3.13", "ulyaoth-hhvm3.12", "ulyaoth-hhvm3.11", "ulyaoth-hhvm3.9", "ulyaoth-hhvm3.6" )
 $MachineArray = @{ 'ced4ecfc-6d6d-4d68-9881-96a0b0753411' = '192.168.1.120'; 'a705a5d7-9d97-454b-b683-c478afc9f67c' = '192.168.1.106'; '4fd05e17-169c-4835-8716-088142f2c3b8' = '192.168.1.104'; '111bc301-86f8-4fb7-bf49-3d143fb69ba7' = '192.168.1.102'; 'cc41ec2f-7aae-47d9-a910-70b02b71d535' = '192.168.1.100'; '952260f7-c1c8-4424-ab91-bbce560f401b' = '192.168.1.116'; '9be402dd-887c-45a3-bcd1-f23b601d7df0' = '192.168.1.110'; '29859737-1b3f-47cd-af6a-b4c854b0f998' = '192.168.1.113'; '73dfb8bf-2b07-4b2e-8c8a-17d7c6668668' = '192.168.1.119' }
+$machinename = Get-Random
 
 <# Set the correct build variable based on package input #>
 if ($PackageArray -contains $package)
@@ -63,7 +64,7 @@ else
 ForEach ($buildbox in $MachineArray.GetEnumerator()) 
 {
 <# Create the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonevm $buildbox.Name --name buildmachine64 --mode all --options keepallmacs --register
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" clonevm $buildbox.Name --name buildhhvm-$machinename --mode all --options keepallmacs --register
 "Creating the virtual machine"
 
 <# Modify the virtual machine #>
