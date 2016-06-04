@@ -67,7 +67,7 @@ ForEach ($buildbox in $MachineArray.GetEnumerator())
 "Creating the virtual machine"
 
 <# Modify the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm buildmachine64 --vram 8192 --cpus 4
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm buildmachine64 --vram 64 --cpus 4 --memory 8192
 "We are building $package so increasing Memory to 8GB and cpus to 4."
 
 <# Start the virtual machine #>
