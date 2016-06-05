@@ -68,11 +68,11 @@ ForEach ($buildbox in $MachineArray.GetEnumerator())
 "Creating the virtual machine"
 
 <# Modify the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm buildmachine64 --vram 64 --cpus 4 --memory 8192
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm buildhhvm-$machinename --vram 64 --cpus 4 --memory 8192
 "We are building $package so increasing Memory to 8GB and cpus to 4."
 
 <# Start the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildmachine64 --type headless
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm buildhhvm-$machinename --type headless
 "Starting the virtual machine"
   
 <# Sleep for 60 seconds so machine can boot #>
@@ -84,7 +84,7 @@ Start-Sleep -Seconds 60
 echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $password "$build"
 
 <# Poweroff the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm buildmachine64 poweroff
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm buildhhvm-$machinename poweroff
 "Stopping the virtual machine"
 
 <# Sleep for 10 seconds so machine can power off #>
@@ -92,7 +92,7 @@ echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $passwo
 Start-Sleep -Seconds 10
 
 <# Delete the virtual machine #>
-& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete buildmachine64
+& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete buildhhvm-$machinename
 "Deleting the virtual machine"
 
 <# Sleep for 10 seconds before looping again #>
