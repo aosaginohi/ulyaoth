@@ -87,9 +87,9 @@ echo y | c:\ulyaoth\createrpm\plink.exe -ssh -l root $buildbox.Value -pw $passwo
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm buildhhvm-$machinename poweroff
 "Stopping the virtual machine"
 
-<# Sleep for 10 seconds so machine can power off #>
-"Sleeping 10 seconds while waiting for the Virtual Machine to power off."
-Start-Sleep -Seconds 10
+<# Sleep for 15 seconds so machine can power off #>
+"Sleeping 15 seconds while waiting for the Virtual Machine to power off."
+Start-Sleep -Seconds 15
 
 <# Delete the virtual machine #>
 & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" unregistervm --delete buildhhvm-$machinename
